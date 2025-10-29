@@ -20,6 +20,9 @@ export default function Header() {
             <Link href="/" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 transition-colors">
               Home
             </Link>
+            <Link href="/articles" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 transition-colors">
+              Articles
+            </Link>
             <Link href="/markets" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 transition-colors">
               Markets
             </Link>
@@ -61,6 +64,9 @@ export default function Header() {
           <div className="md:hidden mt-4 pb-4 space-y-4">
             <Link href="/" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600">
               Home
+            </Link>
+            <Link href="/articles" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600">
+              Articles
             </Link>
             <Link href="/markets" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600">
               Markets

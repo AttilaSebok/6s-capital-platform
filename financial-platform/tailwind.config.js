@@ -19,7 +19,13 @@ module.exports = {
         success: '#10b981',
         danger: '#ef4444',
       },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'Inter', 'sans-serif'],
+        serif: ['var(--font-crimson)', 'Crimson Pro', 'Georgia', 'serif'],
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }

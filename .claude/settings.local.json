@@ -26,7 +26,9 @@
       "Bash(npm start)",
       "Bash(curl:*)",
       "Bash(xargs:*)",
-      "Bash(awk:*)"
+      "Bash(awk:*)",
+      "SlashCommand(/ux-designer)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []

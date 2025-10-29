@@ -142,14 +142,14 @@ export default function ArticleLayout({
 
       {/* Main Content Area */}
       <div className="container mx-auto px-4 py-12">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12">
+        <div className={`max-w-7xl mx-auto ${headings.length > 0 ? 'grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12' : 'flex justify-center'}`}>
           {/* Table of Contents - Desktop Sidebar */}
           {headings.length > 0 && (
             <TableOfContents headings={headings} />
           )}
 
           {/* Article Content */}
-          <div className="min-w-0">
+          <div className="min-w-0 w-full">
             <article
               className="prose prose-lg max-w-none
                 prose-headings:scroll-mt-24

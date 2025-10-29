@@ -26,21 +26,18 @@ export default function Header() {
             <Link href="/screener" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 transition-colors">
               Screener
             </Link>
-            <Link href="/analysis" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 transition-colors">
-              Analysis
+            <Link href="/about" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 transition-colors">
+              About
             </Link>
-            <Link href="/blog" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 transition-colors">
-              Blog
-            </Link>
-            <Link href="/tools" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 transition-colors">
-              Tools
+            <Link href="/contact" className="text-gray-700 dark:text-gray-300 hover:text-primary-600 transition-colors">
+              Contact
             </Link>
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button - Newsletter */}
           <div className="hidden md:block">
-            <Link href="/premium" className="btn-primary text-sm">
-              Get Premium
+            <Link href="/#newsletter" className="btn-primary text-sm">
+              Newsletter
             </Link>
           </div>
 
@@ -71,17 +68,14 @@ export default function Header() {
             <Link href="/screener" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600">
               Screener
             </Link>
-            <Link href="/analysis" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600">
-              Analysis
+            <Link href="/about" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600">
+              About
             </Link>
-            <Link href="/blog" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600">
-              Blog
+            <Link href="/contact" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600">
+              Contact
             </Link>
-            <Link href="/tools" className="block text-gray-700 dark:text-gray-300 hover:text-primary-600">
-              Tools
-            </Link>
-            <Link href="/premium" className="block btn-primary text-center text-sm">
-              Get Premium
+            <Link href="/#newsletter" className="block btn-primary text-center text-sm">
+              Newsletter
             </Link>
           </div>
         )}

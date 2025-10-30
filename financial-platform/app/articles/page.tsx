@@ -74,7 +74,7 @@ export default function ArticlesPage() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#FDFCFC' }}>
       {/* Hero Section */}
-      <div className="bg-gradient-to-b from-white via-white" style={{ backgroundImage: 'linear-gradient(to bottom, #FFFFFF, #FDFCFC)', borderBottom: '1px solid #E7E5E4' }}>
+      <div style={{ backgroundColor: '#FFFFFF', borderBottom: '1px solid #E7E5E4' }}>
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto text-center">
             <h1
@@ -96,7 +96,7 @@ export default function ArticlesPage() {
           <div className="flex flex-wrap gap-3 justify-center">
             <button
               className="px-5 py-2.5 rounded-full font-semibold text-sm shadow-sm hover:shadow-md transition-all text-white"
-              style={{ background: 'linear-gradient(to right, #B8941F, #D4AF37)' }}
+              style={{ backgroundColor: '#B8941F' }}
             >
               All Articles
             </button>
@@ -169,7 +169,7 @@ export default function ArticlesPage() {
               >
                 Featured Articles
               </h2>
-              <div className="h-px flex-1 ml-8" style={{ background: 'linear-gradient(to right, #D6D3D1, transparent)' }}></div>
+              <div className="h-px flex-1 ml-8" style={{ backgroundColor: '#E7E5E4' }}></div>
             </div>
 
             {/* Hero Article - Large Featured Card */}
@@ -185,22 +185,27 @@ export default function ArticlesPage() {
                   onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#E7E5E4' }}
                 >
                   <div className="grid md:grid-cols-2">
-                    {/* Image Placeholder */}
+                    {/* Typography-First Visual */}
                     <div
-                      className="h-64 md:h-auto flex items-center justify-center relative overflow-hidden"
-                      style={{ background: 'linear-gradient(to bottom right, #5D4037, #6D4C41, #4A5D23)' }}
+                      className="h-64 md:h-auto flex flex-col items-center justify-center relative overflow-hidden p-8"
+                      style={{ backgroundColor: '#F9F5E8' }}
                     >
-                      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-20"></div>
-                      <div className="relative text-white text-center p-8">
-                        <div
-                          className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center backdrop-blur-sm"
-                          style={{ backgroundColor: 'rgba(212, 175, 55, 0.2)' }}
-                        >
-                          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                          </svg>
-                        </div>
-                        <p className="text-sm font-semibold uppercase tracking-wider">Featured Article</p>
+                      {/* Subtle grid pattern background */}
+                      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzkyNzMyRCIgc3Ryb2tlLXdpZHRoPSIwLjUiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-50"></div>
+
+                      {/* Large icon */}
+                      <div className="relative mb-6">
+                        <svg className="w-20 h-20" style={{ color: '#B8941F' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                      </div>
+
+                      {/* Featured badge */}
+                      <div
+                        className="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider"
+                        style={{ backgroundColor: '#EFEBE9', color: '#6B5416' }}
+                      >
+                        Featured Article
                       </div>
                     </div>
 
@@ -276,17 +281,18 @@ export default function ArticlesPage() {
                       onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#B8941F' }}
                       onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#E7E5E4' }}
                     >
-                      {/* Image Placeholder */}
+                      {/* Typography-First Visual */}
                       <div
-                        className="h-48 flex items-center justify-center relative overflow-hidden"
-                        style={{ background: 'linear-gradient(to bottom right, #5F762C, #8D6E63, #92732D)' }}
+                        className="h-48 flex flex-col items-center justify-center relative overflow-hidden"
+                        style={{ backgroundColor: '#EFEBE9' }}
                       >
-                        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-20"></div>
-                        <div className="relative text-white text-center">
-                          <svg className="w-12 h-12 mx-auto opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                          </svg>
-                        </div>
+                        {/* Subtle dots pattern */}
+                        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiM4RDZFNjMiIG9wYWNpdHk9IjAuMSIvPjwvc3ZnPg==')] opacity-40"></div>
+
+                        {/* Icon */}
+                        <svg className="w-16 h-16 relative" style={{ color: '#6D4C41' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
                       </div>
 
                       <div className="p-6">
@@ -341,7 +347,7 @@ export default function ArticlesPage() {
               >
                 All Articles
               </h2>
-              <div className="h-px flex-1 ml-8" style={{ background: 'linear-gradient(to right, #D6D3D1, transparent)' }}></div>
+              <div className="h-px flex-1 ml-8" style={{ backgroundColor: '#E7E5E4' }}></div>
             </div>
 
             <div className="space-y-4">
@@ -414,16 +420,16 @@ export default function ArticlesPage() {
         {/* Newsletter CTA */}
         <div className="max-w-6xl mx-auto">
           <div
-            className="rounded-2xl shadow-xl p-8 md:p-12 text-white overflow-hidden relative"
-            style={{ background: 'linear-gradient(to right, #4E342E, #4A5D23)' }}
+            className="rounded-2xl shadow-xl p-8 md:p-12 overflow-hidden relative"
+            style={{ backgroundColor: '#4E342E' }}
           >
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-10"></div>
 
-            <div className="relative text-center">
+            <div className="relative text-center text-white">
               <div
-                className="inline-block p-3 rounded-full mb-6 backdrop-blur-sm"
-                style={{ backgroundColor: 'rgba(212, 175, 55, 0.15)' }}
+                className="inline-block p-3 rounded-full mb-6"
+                style={{ backgroundColor: '#6B5416' }}
               >
                 <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -449,7 +455,7 @@ export default function ArticlesPage() {
                 />
                 <button
                   className="px-8 py-3 rounded-lg font-semibold transition-all whitespace-nowrap shadow-lg hover:shadow-xl"
-                  style={{ background: 'linear-gradient(to right, #B8941F, #D4AF37)', color: 'white' }}
+                  style={{ backgroundColor: '#B8941F', color: 'white' }}
                 >
                   Subscribe
                 </button>

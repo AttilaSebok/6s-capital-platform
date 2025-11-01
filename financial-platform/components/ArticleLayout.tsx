@@ -73,53 +73,54 @@ export default function ArticleLayout({
       {/* Back to Top Button */}
       <BackToTopButton />
 
-      {/* Breadcrumb */}
-      <div className="container mx-auto px-4 py-6">
-        <nav className="flex items-center space-x-2 text-sm text-stone-600" aria-label="Breadcrumb">
-          <Link href="/" className="hover:text-indigo-600 transition-colors">
-            Home
-          </Link>
-          <span>/</span>
-          <Link href="/articles" className="hover:text-indigo-600 transition-colors">
-            Articles
-          </Link>
-          <span>/</span>
-          <span className="text-stone-900 line-clamp-1">{title}</span>
-        </nav>
+      {/* Breadcrumb - Dark Sharp */}
+      <div className="bg-slate-900 border-b border-stone-400">
+        <div className="container mx-auto px-4 py-4">
+          <nav className="flex items-center space-x-2 text-sm text-stone-300" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-bronze-600 transition-colors">
+              Home
+            </Link>
+            <span>/</span>
+            <Link href="/articles" className="hover:text-bronze-600 transition-colors">
+              Articles
+            </Link>
+            <span>/</span>
+            <span className="text-white line-clamp-1">{title}</span>
+          </nav>
+        </div>
       </div>
 
-      {/* Article Header */}
-      <header className="bg-gradient-to-b from-white to-stone-50 border-b border-stone-200">
+      {/* Article Header - Sharp & Wise Dark Gradient */}
+      <header className="bg-gradient-to-br from-slate-900 to-stone-900 border-b-2 border-bronze-600">
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-4xl mx-auto">
-            {/* Category Badge */}
+            {/* Category Badge - Sharp Olive */}
             <div className="mb-6">
-              <span className="inline-block bg-indigo-100 text-indigo-700 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+              <span className="inline-block bg-olive-100 text-olive-800 px-3 py-1.5 rounded-none border border-olive-300 text-xs font-bold uppercase tracking-wider">
                 {category}
               </span>
             </div>
 
-            {/* Title */}
+            {/* Title - White on Dark */}
             <h1
               id="article-title"
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 mb-6 leading-tight tracking-tight"
-              style={{ fontFamily: "'Crimson Pro', Georgia, serif" }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight font-crimson"
             >
               {title}
             </h1>
 
             {/* Subtitle/Description */}
-            <p className="text-xl md:text-2xl text-stone-600 mb-8 leading-relaxed font-light">
+            <p className="text-xl md:text-2xl text-stone-300 mb-8 leading-relaxed font-light">
               {description}
             </p>
 
             {/* Meta Info */}
-            <div className="flex flex-wrap items-center gap-4 text-sm text-stone-600 pb-8 border-b border-stone-200">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-stone-300 pb-8 border-b-2 border-bronze-600">
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                <div className="w-10 h-10 bg-bronze-600 border-2 border-bronze-700 rounded-none flex items-center justify-center text-white font-bold text-sm">
                   6S
                 </div>
-                <span className="font-medium">{author}</span>
+                <span className="font-medium text-white">{author}</span>
               </div>
 
               <div className="flex items-center gap-1.5">
@@ -148,32 +149,32 @@ export default function ArticleLayout({
             <TableOfContents headings={headings} />
           )}
 
-          {/* Article Content */}
+          {/* Article Content - Sharp & Wise Typography */}
           <div className="min-w-0 w-full">
             <article
               className="prose prose-lg max-w-none
                 prose-headings:scroll-mt-24
                 prose-headings:font-bold
-                prose-h2:text-3xl prose-h2:md:text-4xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-stone-200
-                prose-h2:text-stone-900
-                prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-stone-800
+                prose-h2:text-3xl prose-h2:md:text-4xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b-2 prose-h2:border-bronze-600
+                prose-h2:text-deep-brown prose-h2:font-crimson
+                prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:text-rich-brown prose-h3:font-crimson
                 prose-p:text-stone-700 prose-p:leading-[1.8] prose-p:mb-6 prose-p:text-lg
                 prose-p:first-of-type:text-xl prose-p:first-of-type:leading-[1.7] prose-p:first-of-type:text-stone-800
-                prose-a:text-indigo-600 prose-a:no-underline prose-a:font-medium hover:prose-a:underline prose-a:underline-offset-2
-                prose-strong:text-stone-900 prose-strong:font-semibold
+                prose-a:text-bronze-600 prose-a:no-underline prose-a:font-medium hover:prose-a:underline prose-a:underline-offset-2
+                prose-strong:text-deep-brown prose-strong:font-semibold
                 prose-ul:my-6 prose-ul:space-y-3
                 prose-ol:my-6 prose-ol:space-y-3
                 prose-li:text-stone-700 prose-li:leading-relaxed
-                prose-blockquote:border-l-4 prose-blockquote:border-indigo-500 prose-blockquote:pl-6 prose-blockquote:my-8
+                prose-blockquote:border-l-4 prose-blockquote:border-bronze-600 prose-blockquote:pl-6 prose-blockquote:my-8
                 prose-blockquote:italic prose-blockquote:text-xl prose-blockquote:text-stone-800 prose-blockquote:leading-relaxed
-                prose-code:bg-stone-100 prose-code:text-indigo-700 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono
+                prose-code:bg-stone-200 prose-code:text-bronze-700 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-none prose-code:text-sm prose-code:font-mono
                 prose-code:before:content-none prose-code:after:content-none
-                prose-pre:bg-stone-900 prose-pre:text-stone-100 prose-pre:rounded-lg prose-pre:shadow-lg
-                prose-img:rounded-lg prose-img:shadow-xl
-                prose-hr:border-stone-300 prose-hr:my-12
-                prose-table:border prose-table:border-stone-300
-                prose-thead:bg-stone-100
-                prose-th:border prose-th:border-stone-300 prose-th:p-3
+                prose-pre:bg-slate-900 prose-pre:text-stone-100 prose-pre:rounded-none prose-pre:shadow-xl prose-pre:border-2 prose-pre:border-stone-400
+                prose-img:rounded-none prose-img:shadow-xl prose-img:border-2 prose-img:border-stone-300
+                prose-hr:border-stone-400 prose-hr:my-12 prose-hr:border-t-2
+                prose-table:border-2 prose-table:border-stone-300 prose-table:rounded-none
+                prose-thead:bg-stone-200
+                prose-th:border prose-th:border-stone-300 prose-th:p-3 prose-th:font-bold prose-th:text-deep-brown
                 prose-td:border prose-td:border-stone-300 prose-td:p-3
               "
               style={{
@@ -186,15 +187,15 @@ export default function ArticleLayout({
 
             {/* Tags */}
             {tags.length > 0 && (
-              <div className="mt-12 pt-8 border-t border-stone-200" style={{ maxWidth: '720px' }}>
-                <h3 className="text-lg font-semibold text-stone-900 mb-4">
+              <div className="mt-12 pt-8 border-t-2 border-stone-300" style={{ maxWidth: '720px' }}>
+                <h3 className="text-lg font-semibold text-deep-brown mb-4 font-crimson">
                   Related Topics
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {tags.map((tag) => (
                     <span
                       key={tag}
-                      className="bg-stone-200 text-stone-700 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-stone-300 transition-colors cursor-pointer"
+                      className="bg-stone-200 text-stone-800 px-3 py-1.5 rounded-none border border-stone-300 text-sm font-medium hover:bg-olive-100 hover:border-olive-300 hover:text-olive-800 transition-colors cursor-pointer"
                     >
                       #{tag}
                     </span>
@@ -203,20 +204,20 @@ export default function ArticleLayout({
               </div>
             )}
 
-            {/* Newsletter CTA */}
-            <div className="mt-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl shadow-xl p-8 text-white" style={{ maxWidth: '720px' }}>
+            {/* Newsletter CTA - Sharp & Wise */}
+            <div className="mt-12 bg-gradient-to-br from-deep-brown to-rich-brown rounded-none border-2 border-deep-brown shadow-xl p-8 text-white" style={{ maxWidth: '720px' }}>
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="text-center md:text-left">
-                  <h3 className="text-2xl md:text-3xl font-bold mb-2">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-2 font-crimson">
                     Want More Investing Insights?
                   </h3>
-                  <p className="text-indigo-100 text-lg">
+                  <p className="text-stone-300 text-lg">
                     Get our best articles, market analysis, and tips delivered weekly.
                   </p>
                 </div>
                 <a
                   href="/#newsletter"
-                  className="bg-white text-indigo-600 px-8 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition-all hover:shadow-lg whitespace-nowrap"
+                  className="bg-bronze-600 border-2 border-bronze-700 text-white px-8 py-3 rounded-none font-semibold hover:bg-bronze-700 transition-all hover:shadow-lg whitespace-nowrap"
                 >
                   Subscribe Now
                 </a>
@@ -227,7 +228,7 @@ export default function ArticleLayout({
             <div className="mt-8 text-center" style={{ maxWidth: '720px' }}>
               <Link
                 href="/articles"
-                className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-700 font-medium hover:gap-3 transition-all"
+                className="inline-flex items-center gap-2 text-bronze-600 hover:text-bronze-700 font-medium hover:gap-3 transition-all"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />

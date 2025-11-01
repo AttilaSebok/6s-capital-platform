@@ -7,32 +7,36 @@ interface KeyTakeawayProps {
 
 const variantStyles = {
   info: {
-    background: 'bg-gradient-to-br from-blue-50 to-indigo-50',
-    border: 'border-l-4 border-indigo-500',
+    background: 'bg-olive-100',
+    border: 'border-l-4 border-bronze-600',
     icon: '💡',
     title: 'KEY TAKEAWAY',
-    titleColor: 'text-indigo-900',
+    titleColor: 'text-bronze-700',
+    textColor: 'text-deep-brown',
   },
   success: {
-    background: 'bg-gradient-to-br from-emerald-50 to-green-50',
-    border: 'border-l-4 border-emerald-500',
+    background: 'bg-olive-100',
+    border: 'border-l-4 border-olive-700',
     icon: '✅',
     title: 'SUCCESS TIP',
-    titleColor: 'text-emerald-900',
+    titleColor: 'text-olive-800',
+    textColor: 'text-deep-brown',
   },
   warning: {
-    background: 'bg-gradient-to-br from-amber-50 to-yellow-50',
-    border: 'border-l-4 border-amber-500',
+    background: 'bg-stone-200',
+    border: 'border-l-4 border-dark-gold',
     icon: '⚠️',
     title: 'IMPORTANT',
-    titleColor: 'text-amber-900',
+    titleColor: 'text-dark-gold',
+    textColor: 'text-deep-brown',
   },
   alert: {
-    background: 'bg-gradient-to-br from-rose-50 to-red-50',
-    border: 'border-l-4 border-rose-500',
+    background: 'bg-stone-200',
+    border: 'border-l-4 border-stone-400',
     icon: '🚨',
     title: 'CRITICAL',
-    titleColor: 'text-rose-900',
+    titleColor: 'text-stone-700',
+    textColor: 'text-deep-brown',
   },
 }
 
@@ -40,7 +44,7 @@ export default function KeyTakeaway({ children, variant = 'info' }: KeyTakeawayP
   const styles = variantStyles[variant]
 
   return (
-    <div className={`${styles.background} ${styles.border} rounded-lg p-6 my-8 shadow-sm`}>
+    <div className={`${styles.background} ${styles.border} rounded-none border-2 border-stone-300 p-6 my-8 shadow-md`}>
       <div className="flex items-center gap-2 mb-3">
         <span className="text-xl" role="img" aria-label={styles.title}>
           {styles.icon}
@@ -49,7 +53,7 @@ export default function KeyTakeaway({ children, variant = 'info' }: KeyTakeawayP
           {styles.title}
         </span>
       </div>
-      <div className="text-gray-800 text-base leading-relaxed">
+      <div className={`${styles.textColor} text-base leading-relaxed`}>
         {children}
       </div>
     </div>

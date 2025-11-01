@@ -28,8 +28,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${crimsonPro.variable} ${inter.className}`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${crimsonPro.variable} ${inter.className}`} suppressHydrationWarning>
         <GoogleAnalytics />
         <Header />
         <main className="min-h-screen">

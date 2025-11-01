@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useState, useMemo } from 'react'
 
 interface Article {
   slug: string
@@ -201,314 +202,199 @@ const articles: Article[] = [
 ]
 
 export default function ArticlesPage() {
-  const featuredArticles = articles.filter((a) => a.featured)
-  const otherArticles = articles.filter((a) => !a.featured)
-  const heroArticle = featuredArticles[0]
-  const secondaryFeatured = featuredArticles.slice(1)
+  const [activeCategory, setActiveCategory] = useState('All')
+  const [visibleCount, setVisibleCount] = useState(6)
 
-  // Group articles by category
-  const articlesByCategory: { [key: string]: Article[] } = {}
-  articles.forEach((article) => {
-    if (!articlesByCategory[article.category]) {
-      articlesByCategory[article.category] = []
+  // Get unique categories from articles
+  const categories = useMemo(() => {
+    const uniqueCategories = Array.from(new Set(articles.map(a => a.category))).sort()
+    return ['All', ...uniqueCategories]
+  }, [])
+
+  // Filter articles based on active category
+  const filteredArticles = useMemo(() => {
+    if (activeCategory === 'All') {
+      return articles
     }
-    articlesByCategory[article.category].push(article)
-  })
+    return articles.filter(a => a.category === activeCategory)
+  }, [activeCategory])
 
-  const categories = Object.keys(articlesByCategory).sort()
+  // Reset visible count when category changes
+  const handleCategoryChange = (cat: string) => {
+    setActiveCategory(cat)
+    setVisibleCount(6)
+  }
+
+  // Articles to display (limited by visibleCount)
+  const displayedArticles = filteredArticles.slice(0, visibleCount)
+  const hasMore = visibleCount < filteredArticles.length
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#FDFCFC' }}>
-      {/* Hero Section */}
-      <div style={{ backgroundColor: '#FFFFFF', borderBottom: '1px solid #E7E5E4' }}>
-        <div className="container mx-auto px-4 py-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1
-              className="text-5xl md:text-6xl font-bold mb-6 tracking-tight"
-              style={{ fontFamily: "'Crimson Pro', Georgia, serif", color: '#3E2723' }}
-            >
+    <div className="min-h-screen bg-stone-50">
+      {/* Hero Section - Dark Gradient */}
+      <div className="bg-gradient-to-br from-slate-900 to-stone-900 border-b-2 border-bronze-600">
+        <div className="container mx-auto px-4 py-12">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-3 tracking-tight font-crimson">
               Investment Insights
             </h1>
-            <p className="text-xl leading-relaxed font-light" style={{ color: '#57534E' }}>
-              Expert guides, market analysis, and educational content to help you become a better investor
+            <p className="text-lg text-stone-300 font-light">
+              Expert analysis for informed investors
             </p>
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-12">
-        {/* Categories Filter */}
-        <div className="max-w-6xl mx-auto mb-12">
-          <div className="flex flex-wrap gap-3 justify-center">
-            <button
-              className="px-5 py-2.5 rounded-full font-semibold text-sm shadow-sm hover:shadow-md transition-all text-white"
-              style={{ backgroundColor: '#B8941F' }}
-            >
-              All Articles
-            </button>
-            <button
-              className="bg-white px-5 py-2.5 rounded-full font-medium text-sm border transition-all"
-              style={{ color: '#4E342E', borderColor: '#D6D3D1' }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#B8941F'
-                e.currentTarget.style.backgroundColor = '#F9F5E8'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = '#D6D3D1'
-                e.currentTarget.style.backgroundColor = 'white'
-              }}
-            >
-              Beginner Guides
-            </button>
-            <button
-              className="bg-white px-5 py-2.5 rounded-full font-medium text-sm border transition-all"
-              style={{ color: '#4E342E', borderColor: '#D6D3D1' }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#B8941F'
-                e.currentTarget.style.backgroundColor = '#F9F5E8'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = '#D6D3D1'
-                e.currentTarget.style.backgroundColor = 'white'
-              }}
-            >
-              Investment Strategies
-            </button>
-            <button
-              className="bg-white px-5 py-2.5 rounded-full font-medium text-sm border transition-all"
-              style={{ color: '#4E342E', borderColor: '#D6D3D1' }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#B8941F'
-                e.currentTarget.style.backgroundColor = '#F9F5E8'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = '#D6D3D1'
-                e.currentTarget.style.backgroundColor = 'white'
-              }}
-            >
-              Stock Analysis
-            </button>
-            <button
-              className="bg-white px-5 py-2.5 rounded-full font-medium text-sm border transition-all"
-              style={{ color: '#4E342E', borderColor: '#D6D3D1' }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#B8941F'
-                e.currentTarget.style.backgroundColor = '#F9F5E8'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = '#D6D3D1'
-                e.currentTarget.style.backgroundColor = 'white'
-              }}
-            >
-              Technical Analysis
-            </button>
+      {/* Category Filter - Sticky Navigation */}
+      <div className="bg-slate-900 border-b border-stone-400 sticky top-0 z-10">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex flex-wrap gap-2 justify-center max-w-5xl mx-auto">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => handleCategoryChange(cat)}
+                aria-pressed={activeCategory === cat}
+                aria-label={`Filter by ${cat}`}
+                className={`
+                  px-4 py-2 text-sm font-semibold rounded-none
+                  border-2 transition-all duration-200
+                  focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 focus:ring-offset-slate-900
+                  ${activeCategory === cat
+                    ? 'bg-bronze-600 text-white border-bronze-700 shadow-md'
+                    : 'bg-white text-stone-900 border-stone-300 hover:bg-stone-50 hover:border-bronze-600'
+                  }
+                `}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
         </div>
+      </div>
 
-        {/* Featured Articles Section */}
-        {featuredArticles.length > 0 && (
-          <div className="max-w-6xl mx-auto mb-16">
-            <div className="flex items-center justify-between mb-8">
-              <h2
-                className="text-3xl md:text-4xl font-bold"
-                style={{ fontFamily: "'Crimson Pro', Georgia, serif", color: '#3E2723' }}
-              >
-                Featured Articles
-              </h2>
-              <div className="h-px flex-1 ml-8" style={{ backgroundColor: '#E7E5E4' }}></div>
-            </div>
+      {/* Articles Grid - 2 Column, Compact Cards */}
+      <div className="container mx-auto px-4 py-12">
+        <div className="max-w-6xl mx-auto">
+          {/* Article Count */}
+          <div className="mb-6">
+            <p className="text-sm font-medium text-stone-700">
+              {filteredArticles.length} {filteredArticles.length === 1 ? 'article' : 'articles'}
+              {activeCategory !== 'All' && <span className="text-stone-500"> in {activeCategory}</span>}
+            </p>
+          </div>
 
-            {/* Hero Article - Text Only */}
-            {heroArticle && (
+          {/* Articles Grid */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {displayedArticles.map((article) => (
               <Link
-                href={`/articles/${heroArticle.slug}`}
-                className="group block mb-6"
+                key={article.slug}
+                href={`/articles/${article.slug}`}
+                className="group block h-full"
               >
-                <article
-                  className="bg-white rounded-lg p-8 border-l-4 transition-all duration-200"
-                  style={{ borderColor: '#B8941F' }}
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <span
-                      className="text-xs font-bold uppercase tracking-wider"
-                      style={{ color: '#B8941F' }}
-                    >
-                      Featured
-                    </span>
-                    <span className="text-xs" style={{ color: '#D6D3D1' }}>•</span>
-                    <span
-                      className="text-xs font-medium uppercase"
-                      style={{ color: '#4A5D23' }}
-                    >
-                      {heroArticle.category}
-                    </span>
-                  </div>
+                <article className="
+                  bg-white rounded-none border-2 border-stone-300
+                  p-5 h-full flex flex-col
+                  transition-all duration-200
+                  hover:border-bronze-600 hover:shadow-xl
+                  focus-within:ring-2 focus-within:ring-bronze-600
+                ">
+                  {/* Category Badge - Sharp */}
+                  <span className="
+                    inline-block px-3 py-1 mb-3 self-start
+                    text-xs font-bold uppercase tracking-wider
+                    bg-olive-100 text-olive-800
+                    border border-olive-300
+                  ">
+                    {article.category}
+                  </span>
 
-                  <h3
-                    className="text-3xl md:text-4xl font-bold mb-4 leading-tight group-hover:underline"
-                    style={{ fontFamily: "'Crimson Pro', Georgia, serif", color: '#3E2723' }}
-                  >
-                    {heroArticle.title}
-                  </h3>
+                  {/* Title - Bold Crimson */}
+                  <h2 className="
+                    text-2xl font-bold mb-3 leading-tight
+                    text-deep-brown font-crimson
+                    group-hover:text-bronze-600 transition-colors
+                  ">
+                    {article.title}
+                  </h2>
 
-                  <p className="text-lg leading-relaxed mb-6" style={{ color: '#57534E' }}>
-                    {heroArticle.description}
+                  {/* Description - 2 lines max */}
+                  <p className="
+                    text-sm text-stone-700 mb-4 flex-grow
+                    line-clamp-2
+                  ">
+                    {article.description}
                   </p>
 
-                  <div className="flex items-center justify-between pt-4 border-t" style={{ borderColor: '#E7E5E4' }}>
-                    <div className="flex items-center gap-4 text-sm" style={{ color: '#A8A29E' }}>
-                      <span>{heroArticle.publishDate}</span>
-                      <span>•</span>
-                      <span>{heroArticle.readTime}</span>
+                  {/* Meta Footer - Compact */}
+                  <div className="
+                    flex items-center justify-between
+                    pt-3 border-t border-stone-300
+                    text-xs text-stone-700
+                  ">
+                    <div className="flex items-center gap-2">
+                      <time dateTime={article.publishDate}>{article.publishDate}</time>
+                      <span aria-hidden="true">•</span>
+                      <span>{article.readTime}</span>
                     </div>
-                    <span className="text-sm font-semibold" style={{ color: '#6D4C41' }}>
-                      Read Article →
+                    <span className="
+                      text-bronze-700 font-semibold
+                      group-hover:translate-x-1 transition-transform inline-block
+                    " aria-hidden="true">
+                      Read →
                     </span>
                   </div>
                 </article>
               </Link>
-            )}
-
-            {/* Secondary Featured Articles - Text Only Grid */}
-            {secondaryFeatured.length > 0 && (
-              <div className="grid md:grid-cols-2 gap-4">
-                {secondaryFeatured.map((article) => (
-                  <Link
-                    key={article.slug}
-                    href={`/articles/${article.slug}`}
-                    className="group block"
-                  >
-                    <article
-                      className="bg-white rounded-lg p-6 border-l-2 transition-all duration-200 h-full"
-                      style={{ borderColor: '#E7E5E4' }}
-                      onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#B8941F' }}
-                      onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#E7E5E4' }}
-                    >
-                      <div className="flex items-center gap-2 mb-2">
-                        <span
-                          className="text-xs font-medium uppercase"
-                          style={{ color: '#4A5D23' }}
-                        >
-                          {article.category}
-                        </span>
-                        <span className="text-xs" style={{ color: '#D6D3D1' }}>•</span>
-                        <span className="text-xs" style={{ color: '#A8A29E' }}>
-                          {article.readTime}
-                        </span>
-                      </div>
-
-                      <h3
-                        className="text-xl font-bold mb-2 leading-tight group-hover:underline"
-                        style={{ fontFamily: "'Crimson Pro', Georgia, serif", color: '#3E2723' }}
-                      >
-                        {article.title}
-                      </h3>
-
-                      <p className="text-sm leading-relaxed mb-3 line-clamp-2" style={{ color: '#57534E' }}>
-                        {article.description}
-                      </p>
-
-                      <div className="flex items-center justify-between text-xs pt-3 border-t" style={{ borderColor: '#E7E5E4' }}>
-                        <span style={{ color: '#A8A29E' }}>{article.publishDate}</span>
-                        <span className="font-semibold" style={{ color: '#6D4C41' }}>
-                          Read →
-                        </span>
-                      </div>
-                    </article>
-                  </Link>
-                ))}
-              </div>
-            )}
+            ))}
           </div>
-        )}
 
-        {/* Articles by Category */}
-        {categories.map((category) => (
-          <div key={category} className="max-w-6xl mx-auto mb-16">
-            <div className="flex items-center justify-between mb-6">
-              <h2
-                className="text-2xl md:text-3xl font-bold"
-                style={{ fontFamily: "'Crimson Pro', Georgia, serif", color: '#3E2723' }}
+          {/* Load More Button */}
+          {hasMore && (
+            <div className="mt-12 text-center">
+              <button
+                onClick={() => setVisibleCount(prev => prev + 6)}
+                className="px-8 py-3 bg-bronze-600 border-2 border-bronze-700 text-white font-semibold rounded-none shadow-md hover:bg-bronze-700 hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2"
               >
-                {category}
-              </h2>
-              <div className="h-px flex-1 ml-8" style={{ backgroundColor: '#E7E5E4' }}></div>
+                Load More Articles
+                <span className="ml-2 text-sm opacity-80">({filteredArticles.length - visibleCount} remaining)</span>
+              </button>
             </div>
+          )}
 
-            <div className="space-y-3">
-              {articlesByCategory[category].map((article) => (
-                <Link
-                  key={article.slug}
-                  href={`/articles/${article.slug}`}
-                  className="group block"
-                >
-                  <article
-                    className="bg-white rounded-lg p-6 border-l-2 transition-all duration-200"
-                    style={{ borderColor: '#E7E5E4' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#B8941F' }}
-                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#E7E5E4' }}
-                  >
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="text-xs" style={{ color: '#A8A29E' }}>
-                            {article.readTime}
-                          </span>
-                          <span className="text-xs" style={{ color: '#D6D3D1' }}>•</span>
-                          <span className="text-xs" style={{ color: '#A8A29E' }}>{article.publishDate}</span>
-                        </div>
-
-                        <h3
-                          className="text-xl md:text-2xl font-bold mb-2 leading-tight group-hover:underline"
-                          style={{ fontFamily: "'Crimson Pro', Georgia, serif", color: '#3E2723' }}
-                        >
-                          {article.title}
-                        </h3>
-
-                        <p className="text-sm md:text-base leading-relaxed" style={{ color: '#57534E' }}>
-                          {article.description}
-                        </p>
-                      </div>
-
-                      <div className="md:ml-6 flex items-center md:justify-end">
-                        <span className="text-sm font-semibold" style={{ color: '#6D4C41' }}>
-                          Read →
-                        </span>
-                      </div>
-                    </div>
-                  </article>
-                </Link>
-              ))}
+          {/* No Results Message */}
+          {filteredArticles.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-lg text-stone-700 mb-2">No articles found in this category.</p>
+              <button
+                onClick={() => handleCategoryChange('All')}
+                className="text-bronze-600 font-semibold hover:text-bronze-700 underline"
+              >
+                View all articles
+              </button>
             </div>
-          </div>
-        ))}
+          )}
+        </div>
 
         {/* Newsletter CTA */}
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto mt-16">
           <div
-            className="rounded-2xl shadow-xl p-8 md:p-12 overflow-hidden relative"
-            style={{ backgroundColor: '#4E342E' }}
+            className="rounded-none border-2 border-deep-brown shadow-xl p-8 md:p-12 bg-gradient-to-br from-deep-brown to-rich-brown"
           >
-            {/* Background Pattern */}
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-10"></div>
-
-            <div className="relative text-center text-white">
+            <div className="text-center text-white">
               <div
-                className="inline-block p-3 rounded-full mb-6"
-                style={{ backgroundColor: '#6B5416' }}
+                className="inline-flex items-center justify-center w-16 h-16 rounded-none mb-6 bg-bronze-600 border-2 border-bronze-700"
               >
-                <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
 
-              <h3
-                className="text-3xl md:text-4xl font-bold mb-4"
-                style={{ fontFamily: "'Crimson Pro', Georgia, serif" }}
+              <h2
+                className="text-3xl md:text-4xl font-bold mb-4 font-crimson"
               >
                 Never Miss an Article
-              </h3>
-              <p className="text-xl mb-8 max-w-2xl mx-auto leading-relaxed" style={{ color: '#F9F5E8' }}>
+              </h2>
+              <p className="text-lg mb-8 max-w-2xl mx-auto leading-relaxed text-stone-300">
                 Get our latest articles, market insights, and investing tips delivered to your inbox every week
               </p>
 
@@ -516,18 +402,17 @@ export default function ArticlesPage() {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-6 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2"
-                  style={{ color: '#3E2723', backgroundColor: 'white', borderColor: '#E7E5E4' }}
+                  aria-label="Email address"
+                  className="flex-1 px-6 py-3 rounded-none border-2 border-stone-300 focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:border-bronze-600 text-deep-brown"
                 />
                 <button
-                  className="px-8 py-3 rounded-lg font-semibold transition-all whitespace-nowrap shadow-lg hover:shadow-xl"
-                  style={{ backgroundColor: '#B8941F', color: 'white' }}
+                  className="px-8 py-3 rounded-none font-semibold transition-all whitespace-nowrap shadow-lg hover:shadow-xl bg-bronze-600 border-2 border-bronze-700 text-white hover:bg-bronze-700 focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 focus:ring-offset-deep-brown"
                 >
                   Subscribe
                 </button>
               </div>
 
-              <p className="text-sm mt-4" style={{ color: '#F9F5E8', opacity: 0.8 }}>
+              <p className="text-sm mt-4 text-stone-300">
                 Join 1,000+ investors. Unsubscribe anytime.
               </p>
             </div>

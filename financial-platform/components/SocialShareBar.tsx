@@ -41,11 +41,11 @@ export default function SocialShareBar({ title, description }: SocialShareBarPro
   return (
     <div className="hidden xl:block fixed left-8 top-1/2 -translate-y-1/2 z-30">
       <div className="flex flex-col gap-3">
-        {/* Copy Link */}
+        {/* Copy Link - Sharp & Wise */}
         <div className="relative">
           <button
             onClick={copyToClipboard}
-            className="group w-12 h-12 bg-white border border-gray-300 rounded-full flex items-center justify-center transition-all duration-200 hover:bg-indigo-600 hover:border-indigo-600 hover:text-white hover:scale-110 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="group w-12 h-12 bg-stone-700 bg-opacity-40 border-2 border-stone-400 border-opacity-40 rounded-none flex items-center justify-center transition-all duration-200 hover:bg-bronze-600 hover:bg-opacity-100 hover:border-bronze-700 hover:text-white shadow-md hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 text-white"
             aria-label="Copy link to clipboard"
           >
             {copied ? (
@@ -59,27 +59,27 @@ export default function SocialShareBar({ title, description }: SocialShareBarPro
             )}
           </button>
           {copied && (
-            <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap animate-fade-in">
+            <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 bg-deep-brown text-white text-xs px-3 py-1.5 rounded-none border border-bronze-600 whitespace-nowrap animate-fade-in shadow-lg">
               Copied!
             </div>
           )}
         </div>
 
-        {/* Twitter */}
+        {/* X (Twitter) - Sharp & Wise */}
         <button
           onClick={shareOnTwitter}
-          className="group w-12 h-12 bg-white border border-gray-300 rounded-full flex items-center justify-center transition-all duration-200 hover:bg-indigo-600 hover:border-indigo-600 hover:text-white hover:scale-110 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-          aria-label="Share on Twitter"
+          className="group w-12 h-12 bg-stone-700 bg-opacity-40 border-2 border-stone-400 border-opacity-40 rounded-none flex items-center justify-center transition-all duration-200 hover:bg-bronze-600 hover:bg-opacity-100 hover:border-bronze-700 hover:text-white shadow-md hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 text-white"
+          aria-label="Share on X"
         >
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
           </svg>
         </button>
 
-        {/* LinkedIn */}
+        {/* LinkedIn - Sharp & Wise */}
         <button
           onClick={shareOnLinkedIn}
-          className="group w-12 h-12 bg-white border border-gray-300 rounded-full flex items-center justify-center transition-all duration-200 hover:bg-indigo-600 hover:border-indigo-600 hover:text-white hover:scale-110 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          className="group w-12 h-12 bg-stone-700 bg-opacity-40 border-2 border-stone-400 border-opacity-40 rounded-none flex items-center justify-center transition-all duration-200 hover:bg-bronze-600 hover:bg-opacity-100 hover:border-bronze-700 hover:text-white shadow-md hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 text-white"
           aria-label="Share on LinkedIn"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -87,10 +87,10 @@ export default function SocialShareBar({ title, description }: SocialShareBarPro
           </svg>
         </button>
 
-        {/* Email */}
+        {/* Email - Sharp & Wise */}
         <button
           onClick={shareViaEmail}
-          className="group w-12 h-12 bg-white border border-gray-300 rounded-full flex items-center justify-center transition-all duration-200 hover:bg-indigo-600 hover:border-indigo-600 hover:text-white hover:scale-110 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          className="group w-12 h-12 bg-stone-700 bg-opacity-40 border-2 border-stone-400 border-opacity-40 rounded-none flex items-center justify-center transition-all duration-200 hover:bg-bronze-600 hover:bg-opacity-100 hover:border-bronze-700 hover:text-white shadow-md hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 text-white"
           aria-label="Share via email"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

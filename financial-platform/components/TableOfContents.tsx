@@ -99,10 +99,10 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
 
   return (
     <>
-      {/* Mobile TOC Trigger Button */}
+      {/* Mobile TOC Trigger Button - Sharp & Wise */}
       <button
         onClick={() => setIsOpen(true)}
-        className="md:hidden fixed bottom-20 right-4 z-40 w-14 h-14 bg-indigo-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-indigo-700 transition-all"
+        className="md:hidden fixed bottom-20 right-4 z-40 w-14 h-14 bg-bronze-600 border-2 border-bronze-700 text-white rounded-none shadow-lg flex items-center justify-center hover:bg-bronze-700 transition-all"
         aria-label="Open table of contents"
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -117,11 +117,11 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
             className="absolute inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900">Table of Contents</h3>
+            <div className="sticky top-0 bg-white border-b-2 border-stone-300 px-6 py-4 flex items-center justify-between">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-deep-brown">Table of Contents</h3>
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-gray-400 hover:text-gray-600"
+                className="text-stone-400 hover:text-stone-700"
                 aria-label="Close table of contents"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -135,12 +135,12 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
                   key={heading.id}
                   onClick={() => scrollToHeading(heading.id)}
                   className={`
-                    block w-full text-left py-2 px-3 rounded-lg transition-all text-sm
+                    block w-full text-left py-2 px-3 rounded-none transition-all text-sm
                     ${heading.level === 3 ? 'ml-4' : ''}
                     ${
                       activeId === heading.id
-                        ? 'bg-indigo-100 text-indigo-900 font-semibold border-l-3 border-indigo-600'
-                        : 'text-gray-600 hover:bg-indigo-50 hover:text-indigo-700'
+                        ? 'bg-olive-100 text-olive-800 font-semibold border-l-4 border-bronze-600'
+                        : 'text-stone-700 hover:bg-stone-100 hover:text-bronze-700'
                     }
                   `}
                 >
@@ -152,10 +152,10 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
         </div>
       )}
 
-      {/* Desktop TOC Sidebar */}
+      {/* Desktop TOC Sidebar - Sharp & Wise */}
       <aside className="hidden md:block sticky top-32 h-fit">
-        <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-          <h3 className="text-sm font-bold uppercase tracking-wider text-gray-900 mb-4 pb-3 border-b border-gray-200">
+        <div className="bg-white border-2 border-stone-300 rounded-none p-6 shadow-md">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-deep-brown mb-4 pb-3 border-b-2 border-stone-300">
             Table of Contents
           </h3>
 
@@ -165,12 +165,12 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
                 key={heading.id}
                 onClick={() => scrollToHeading(heading.id)}
                 className={`
-                  block w-full text-left py-2 px-3 rounded-lg transition-all text-sm leading-snug
+                  block w-full text-left py-2 px-3 rounded-none transition-all text-sm leading-snug
                   ${heading.level === 3 ? 'ml-4 text-xs' : ''}
                   ${
                     activeId === heading.id
-                      ? 'bg-indigo-100 text-indigo-900 font-semibold border-l-3 border-indigo-600 pl-2'
-                      : 'text-gray-600 hover:bg-indigo-50 hover:text-indigo-700'
+                      ? 'bg-olive-100 text-olive-800 font-semibold border-l-4 border-bronze-600 pl-2'
+                      : 'text-stone-700 hover:bg-stone-100 hover:text-bronze-700'
                   }
                 `}
                 aria-current={activeId === heading.id ? 'true' : undefined}
@@ -180,20 +180,20 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
             ))}
           </nav>
 
-          {/* Reading Progress */}
-          <div className="mt-6 pt-4 border-t border-gray-200">
-            <div className="flex items-center justify-between text-sm text-gray-600 mb-2">
+          {/* Reading Progress - Sharp & Wise */}
+          <div className="mt-6 pt-4 border-t-2 border-stone-300">
+            <div className="flex items-center justify-between text-sm text-stone-700 mb-2">
               <span className="flex items-center gap-2">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 {readingTime > 0 ? `${readingTime} min left` : 'Complete!'}
               </span>
-              <span className="font-semibold text-indigo-600">{Math.round(progress)}%</span>
+              <span className="font-semibold text-bronze-700">{Math.round(progress)}%</span>
             </div>
-            <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+            <div className="h-2 bg-stone-200 rounded-none overflow-hidden border border-stone-300">
               <div
-                className="h-full bg-gradient-to-r from-indigo-500 via-indigo-600 to-purple-500 transition-all duration-300 ease-out"
+                className="h-full bg-gradient-to-r from-bronze-600 to-dark-gold transition-all duration-300 ease-out"
                 style={{ width: `${progress}%` }}
               />
             </div>

@@ -30,13 +30,14 @@ export default function BackToTopButton() {
       className={`
         fixed bottom-8 right-8 z-40
         w-14 h-14
-        bg-white border-2 border-indigo-600
-        rounded-full
+        bg-stone-700 bg-opacity-40 border-2 border-stone-400 border-opacity-40
+        rounded-none
         flex flex-col items-center justify-center
-        shadow-lg
+        shadow-md
         transition-all duration-300 ease-out
-        hover:bg-indigo-600 hover:text-white hover:-translate-y-1 hover:shadow-xl
-        focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2
+        hover:bg-bronze-600 hover:bg-opacity-100 hover:border-bronze-700 hover:text-white hover:shadow-xl
+        focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2
+        text-white
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}
       `}
       aria-label="Back to top"

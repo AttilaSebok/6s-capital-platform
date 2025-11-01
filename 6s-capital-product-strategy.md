@@ -64,27 +64,75 @@
 
 #### 1.1 Article Expansion (Target: 50 articles)
 
-**Must-Have Topics (Next 10 articles - #11-20):**
-1. How to Read Financial Statements (Income Statement, Balance Sheet, Cash Flow)
-2. ETFs vs Mutual Funds: Complete Comparison
-3. Retirement Account Guide (401k, IRA, Roth IRA)
-4. Stock Valuation Methods: DCF, Comparable Companies, Precedent Transactions
-5. Understanding Market Cycles and Economic Indicators
-6. Options Trading 101 for Beginners
-7. Real Estate vs Stocks: Which Investment is Better?
-8. Tax-Loss Harvesting: Save Thousands in Taxes
-9. How to Analyze Quarterly Earnings Reports
-10. International Investing: Emerging Markets Guide
+**Articles #1-10 (✅ COMPLETE):**
+1. How to Start Investing in Stocks: Complete 2025 Guide
+2. What is Value Investing? Warren Buffett's Strategy Explained
+3. 10 Best Dividend Stocks for Passive Income in 2025
+4. Technical Analysis 101: Reading Stock Charts for Beginners
+5. S&P 500 vs NASDAQ: Which Index is Better for You?
+6. Understanding P/E Ratio: Is a Stock Cheap or Expensive?
+7. 5 Investing Mistakes That Cost Beginners Thousands
+8. How to Build a Diversified Portfolio: Step-by-Step
+9. Dividend Yield vs Growth: Which Strategy is Better?
+10. What is Dollar-Cost Averaging? (With Real Examples)
 
-**Content Categories to Build:**
-- **Beginner Guides**: 15 articles (currently 3)
-- **Investment Strategies**: 10 articles (currently 3)
-- **Fundamental Analysis**: 8 articles (currently 1)
-- **Technical Analysis**: 7 articles (currently 1)
-- **Market Analysis**: 8 articles (currently 1)
-- **Stock Deep Dives**: 10 articles (currently 1)
-- **Portfolio Management**: 7 articles (currently 1)
-- **Tax & Retirement**: 5 articles (new category)
+**Articles #11-20 (✅ COMPLETE):**
+11. How to Read Financial Statements: Complete Beginner's Guide
+12. ETFs vs Mutual Funds: Complete Comparison Guide
+13. Retirement Accounts Guide: 401k, IRA, and Roth IRA Explained
+14. Stock Valuation Methods: DCF, Comps, and Precedents
+15. Understanding Market Cycles and Economic Indicators
+16. Options Trading 101: Calls, Puts, and Beginner Strategies
+17. Real Estate vs Stocks: Which Investment is Better?
+18. Tax-Loss Harvesting: Save Thousands in Taxes
+19. How to Analyze Quarterly Earnings Reports (10-Q Guide)
+20. International Investing: Emerging Markets Complete Guide
+
+**Articles #21-30 (PLANNED - Beginner Guides + Investment Strategies):**
+21. How to Open Your First Brokerage Account: Step-by-Step Guide
+22. What is Compound Interest? The 8th Wonder of the World Explained
+23. Asset Allocation 101: Stocks, Bonds, and Cash Explained
+24. How Much Money Do You Need to Start Investing?
+25. Index Funds Explained: The Simplest Path to Wealth
+26. Growth Investing vs Value Investing: Which Strategy Wins?
+27. Sector Rotation Strategy: How to Position for Market Cycles
+28. Buy and Hold Forever: The Warren Buffett Approach
+29. Momentum Investing: Riding the Winners Higher
+30. Income Investing Strategy: Building a Passive Income Portfolio
+
+**Articles #31-40 (PLANNED - Fundamental + Technical Analysis):**
+31. Quality Investing: Finding Companies with Competitive Moats
+32. How to Read a Balance Sheet Like a Professional Analyst
+33. Cash Flow Analysis: Why Cash is King in Investing
+34. Debt-to-Equity Ratio: Measuring Financial Leverage and Risk
+35. Return on Equity (ROE): The Ultimate Profitability Metric
+36. Free Cash Flow: The Most Important Metric You're Ignoring
+37. Moving Averages Explained: 50-Day vs 200-Day Strategies
+38. RSI Indicator: How to Spot Overbought and Oversold Stocks
+39. Support and Resistance Levels: The Foundation of Technical Analysis
+40. MACD Indicator: The Complete Beginner's Guide
+
+**Articles #41-50 (PLANNED - Portfolio + Market + Tax/Retirement):**
+41. The 60/40 Portfolio: Is It Still Relevant in 2025?
+42. How to Rebalance Your Portfolio: When and How Often
+43. Core-Satellite Portfolio Strategy: Best of Both Worlds
+44. International Diversification: How Much Foreign Exposure?
+45. Bull Markets vs Bear Markets: History, Duration, and What to Do
+46. Recession Indicators: 7 Warning Signs to Watch
+47. Fed Policy and Stock Markets: How Interest Rates Affect Your Portfolio
+48. HSA as Investment Account: The Triple Tax Advantage Explained
+49. Social Security Strategies: When to Claim for Maximum Benefits
+50. Mega Backdoor Roth: Advanced Retirement Contribution Strategy
+
+**Content Category Targets (50 articles):**
+- **Beginner Guides**: 15 articles (#1, #7, #10, #21-25) → 8/15 complete
+- **Investment Strategies**: 12 articles (#2, #9, #12, #16, #17, #26-31) → 6/12 complete
+- **Fundamental Analysis**: 9 articles (#6, #11, #14, #19, #32-36) → 4/9 complete
+- **Technical Analysis**: 5 articles (#4, #37-40) → 1/5 complete
+- **Portfolio Strategy**: 6 articles (#8, #20, #41-44) → 2/6 complete
+- **Market Analysis**: 5 articles (#5, #15, #45-47) → 2/5 complete
+- **Tax & Retirement**: 5 articles (#13, #18, #48-50) → 2/5 complete
+- **Stock Analysis**: 1 article (#3) → 1/1 complete
 
 #### 1.2 Interactive Content (Daily Visit Drivers)
 

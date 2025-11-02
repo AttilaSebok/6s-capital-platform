@@ -32,7 +32,9 @@
       "Bash(for file in how-to-read-financial-statements/page.tsx etfs-vs-mutual-funds/page.tsx retirement-accounts-guide/page.tsx stock-valuation-methods/page.tsx market-cycles-economic-indicators/page.tsx options-trading-101/page.tsx real-estate-vs-stocks/page.tsx tax-loss-harvesting/page.tsx how-to-analyze-earnings-reports/page.tsx emerging-markets-guide/page.tsx)",
       "Bash(do sed -i \"s|@/components/articles/ArticleLayout|@/components/ArticleLayout|g; s|@/components/articles/TableOfContents|@/components/TableOfContents|g; s|@/components/articles/KeyTakeaway|@/components/article/KeyTakeaway|g; s|@/components/articles/ExampleBox|@/components/article/ExampleBox|g; s|@/components/articles/Blockquote|@/components/article/Blockquote|g\" \"$file\")",
       "Bash(done)",
-      "Bash(python fix_articles.py:*)"
+      "Bash(python fix_articles.py:*)",
+      "Bash(npm run lint:*)",
+      "Bash(git pull:*)"
     ],
     "deny": [],
     "ask": []

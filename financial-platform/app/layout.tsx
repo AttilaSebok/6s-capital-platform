@@ -17,9 +17,9 @@ const crimsonPro = Crimson_Pro({
 })
 
 export const metadata: Metadata = {
-  title: '6S Capital - Advanced Investment Analysis & Market Insights',
-  description: 'Professional investment analysis, real-time market data, stock screening tools, and expert financial insights for advanced investors.',
-  keywords: 'investment analysis, stock market, trading, financial analysis, stock screener, market trends',
+  title: 'money365.market - Advanced Investment Analysis & Market Insights',
+  description: 'Professional investment analysis, real-time market data, stock screening tools, and expert financial insights for advanced investors. Daily market intelligence at money365.market',
+  keywords: 'investment analysis, stock market, trading, financial analysis, stock screener, market trends, money365, daily market insights',
 }
 
 export default function RootLayout({

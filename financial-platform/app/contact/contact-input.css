@@ -1,0 +1,40 @@
+/* Fix autofill background color for input fields - Sharp & Wise */
+
+/* Chrome, Safari, Edge autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #1c1917 inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  box-shadow: 0 0 0 1000px #1c1917 inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Firefox autofill styles */
+input:-moz-autofill,
+input:-moz-autofill-preview {
+  background-color: #1c1917 !important;
+  color: #ffffff !important;
+}
+
+/* General input fields - ensure they stay dark */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+textarea,
+select {
+  background-color: #1c1917 !important;
+  color: #ffffff !important;
+}
+
+/* Ensure dark background is maintained on all states */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  background-color: #1c1917 !important;
+  color: #ffffff !important;
+}

@@ -52,6 +52,9 @@ A professional financial website built with Next.js, featuring real-time market 
    # Or use Finnhub: https://finnhub.io/register
    FINNHUB_API_KEY=your_key_here
 
+   # Contact Form (Required) - Get API key from https://resend.com/api-keys
+   RESEND_API_KEY=re_your_api_key_here
+
    # Email service (optional, choose one)
    MAILCHIMP_API_KEY=your_key_here
    CONVERTKIT_API_KEY=your_key_here
@@ -127,6 +130,46 @@ const response = await fetch(
 - **Free Tier**: 50,000 core messages/month
 - **Sign up**: https://iexcloud.io/
 - **Documentation**: https://iexcloud.io/docs/
+
+### Contact Form Setup (Resend)
+
+The contact form uses **Resend** for sending emails. It automatically:
+- Sends a notification email to `office@money365.market` with the form submission
+- Sends an auto-reply to the user confirming their message was received
+
+**Setup Steps**:
+
+1. **Sign up for Resend** (Free tier: 3,000 emails/month):
+   - Visit https://resend.com
+   - Create an account and verify your email
+
+2. **Add and verify your domain**:
+   - Go to Settings → Domains
+   - Add `money365.market` domain
+   - Follow DNS verification steps (add TXT and CNAME records)
+   - Wait for verification (can take a few minutes)
+
+3. **Create API Key**:
+   - Go to API Keys section
+   - Click "Create API Key"
+   - Name it (e.g., "Production Contact Form")
+   - Copy the key (starts with `re_`)
+
+4. **Add to `.env.local`**:
+   ```env
+   RESEND_API_KEY=re_your_actual_api_key_here
+   ```
+
+5. **Test the form**:
+   - Go to http://localhost:3000/contact
+   - Fill out and submit the form
+   - Check that you receive both emails
+
+**Email Templates**:
+- Notification email (to office@money365.market): Styled with Sharp & Wise design, includes all form data
+- Auto-reply email (to user): Professional confirmation with bronze branding, response time info
+
+**API Endpoint**: `/api/contact` (POST)
 
 ### Email Newsletter Integration
 

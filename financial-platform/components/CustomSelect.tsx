@@ -106,7 +106,7 @@ export default function CustomSelect({
 
       {/* Dropdown menu */}
       {isOpen && (
-        <div className="absolute z-50 w-full mt-1 bg-stone-900 border-2 border-bronze-600 rounded-none shadow-2xl max-h-60 overflow-auto">
+        <div className="absolute z-50 w-full mt-1 bg-stone-900 border-2 border-bronze-600 rounded-none shadow-2xl max-h-48 overflow-y-auto">
           <ul role="listbox" className="py-1">
             {options.map((option) => (
               <li

@@ -26,8 +26,6 @@ export default function ContactPage() {
         body: JSON.stringify(formData),
       })
 
-      const data = await response.json()
-
       if (response.ok) {
         setStatus('success')
         setFormData({ name: '', email: '', subject: '', message: '' })
@@ -70,9 +68,9 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 lg:gap-8 md:items-start">
           {/* Contact Form - Sharp & Wise */}
-          <div className="bg-stone-700 bg-opacity-50 border-l-4 border-bronze-600 rounded-none p-5 lg:p-6 shadow-xl">
+          <div className="bg-stone-700 bg-opacity-50 border-l-4 border-bronze-600 rounded-none p-5 lg:p-6 shadow-xl h-full">
             <h2 className="font-crimson text-xl md:text-2xl font-bold text-white mb-5 pb-2 border-b-2 border-bronze-600">
               Send a Message
             </h2>
@@ -189,9 +187,9 @@ export default function ContactPage() {
           </div>
 
           {/* Contact Information - Sharp & Wise */}
-          <div className="space-y-5 lg:space-y-6">
+          <div className="flex flex-col gap-5 lg:gap-6 h-full">
             {/* Direct Contact */}
-            <div className="bg-stone-700 bg-opacity-50 border-l-4 border-bronze-600 rounded-none p-5 lg:p-6 shadow-xl">
+            <div className="bg-stone-700 bg-opacity-50 border-l-4 border-bronze-600 rounded-none p-5 lg:p-6 shadow-xl flex-1">
               <h2 className="font-crimson text-xl md:text-2xl font-bold text-white mb-5 pb-2 border-b-2 border-bronze-600">
                 Direct Contact
               </h2>

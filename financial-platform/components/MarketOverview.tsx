@@ -18,7 +18,7 @@ export default function MarketOverview() {
       showChart: true,
       locale: 'en',
       width: '100%',
-      height: '400',
+      height: '500',
       largeChartUrl: '',
       isTransparent: false,
       showSymbolLogo: true,
@@ -93,7 +93,7 @@ export default function MarketOverview() {
   }, [])
 
   return (
-    <div className="tradingview-widget-container" ref={container}>
+    <div className="tradingview-widget-container w-full min-h-[500px]" ref={container}>
       <div className="tradingview-widget-container__widget"></div>
     </div>
   )

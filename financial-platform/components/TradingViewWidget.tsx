@@ -46,7 +46,7 @@ export default function TradingViewWidget({
   }, [symbol, interval, theme])
 
   return (
-    <div className="tradingview-widget-container" ref={container} style={{ height: '500px', width: '100%' }}>
+    <div className="tradingview-widget-container w-full h-[400px] md:h-[450px]" ref={container}>
       <div className="tradingview-widget-container__widget"></div>
     </div>
   )

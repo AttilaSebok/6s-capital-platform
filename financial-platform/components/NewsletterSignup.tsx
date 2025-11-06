@@ -27,8 +27,10 @@ export default function NewsletterSignup() {
 
   return (
     <div className="max-w-2xl mx-auto text-center">
-      <h2 className="text-3xl font-bold mb-4">Stay Ahead of the Market</h2>
-      <p className="text-xl mb-8 text-gray-200">
+      <h2 className="font-crimson text-3xl md:text-4xl font-bold text-white mb-4">
+        Stay Ahead of the Market
+      </h2>
+      <p className="text-lg md:text-xl text-stone-300 mb-8 leading-relaxed">
         Get our daily market analysis, trading insights, and exclusive investment opportunities delivered to your inbox.
       </p>
 
@@ -39,13 +41,13 @@ export default function NewsletterSignup() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Enter your email"
           required
-          className="flex-1 px-6 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+          className="flex-1 px-6 py-3 rounded-none border-2 border-stone-600 text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:border-bronze-600 transition-all duration-200"
           disabled={status === 'loading'}
         />
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="bg-soft-orange border-2 border-soft-orange-dark text-deep-brown hover:bg-soft-orange-dark hover:text-white font-bold py-3 px-8 rounded-none uppercase tracking-wide transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-bronze-600 border-2 border-bronze-700 text-deep-brown hover:bg-bronze-700 hover:text-white font-bold py-3 px-8 rounded-none uppercase tracking-wide shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
         </button>
@@ -58,7 +60,7 @@ export default function NewsletterSignup() {
         <p className="mt-4 text-red-300 font-semibold">{message}</p>
       )}
 
-      <p className="text-sm text-gray-300 mt-4">
+      <p className="text-xs md:text-sm text-stone-400 mt-6 uppercase tracking-wider">
         Join 10,000+ investors. Unsubscribe anytime. No spam, ever.
       </p>
     </div>

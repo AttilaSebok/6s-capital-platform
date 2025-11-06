@@ -35,19 +35,23 @@ export default function FeaturedArticles() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {articles.map((article) => (
-        <Link key={article.id} href={`/blog/${article.slug}`} className="card hover:shadow-xl transition-shadow">
-          <div className="mb-3">
-            <span className="text-xs font-semibold text-primary-600 bg-primary-100 dark:bg-primary-900 px-3 py-1 rounded-full">
+        <Link
+          key={article.id}
+          href={`/blog/${article.slug}`}
+          className="bg-stone-700 bg-opacity-50 border-l-4 border-bronze-600 rounded-none p-6 shadow-xl hover:shadow-2xl transition-all duration-200 hover:scale-105 group"
+        >
+          <div className="mb-4">
+            <span className="inline-block bg-olive-800 bg-opacity-40 border-2 border-bronze-600 text-bronze-600 px-3 py-1 rounded-none text-xs font-bold uppercase tracking-wider">
               {article.category}
             </span>
           </div>
-          <h3 className="text-xl font-bold mb-3 hover:text-primary-600 transition-colors">
+          <h3 className="font-crimson text-xl md:text-2xl font-bold text-white mb-3 pb-2 border-b-2 border-bronze-600 group-hover:text-bronze-600 transition-colors">
             {article.title}
           </h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-4">
+          <p className="text-stone-300 text-sm md:text-base leading-relaxed mb-4">
             {article.excerpt}
           </p>
-          <div className="flex items-center text-sm text-gray-500 dark:text-gray-500">
+          <div className="flex items-center text-xs text-stone-400 uppercase tracking-wider">
             <span>{article.date}</span>
             <span className="mx-2">•</span>
             <span>{article.readTime}</span>

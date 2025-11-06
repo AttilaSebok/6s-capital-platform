@@ -4,14 +4,14 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-gradient-to-br from-slate-900 to-stone-900 border-t-2 border-bronze-600">
+    <footer className="bg-dark-header border-t-2 border-soft-orange">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 py-12 lg:py-16">
         {/* Top Section - Logo & Description */}
         <div className="mb-10">
-          <h3 className="font-crimson text-3xl md:text-4xl font-bold text-bronze-600 mb-4 tracking-tight">
+          <h3 className="font-crimson text-3xl md:text-4xl font-bold text-soft-orange mb-4 tracking-tight">
             money365.market
           </h3>
-          <p className="text-stone-300 text-sm md:text-base leading-relaxed border-l-4 border-bronze-600 pl-4 max-w-2xl">
+          <p className="text-white text-sm md:text-base leading-relaxed border-l-4 border-soft-orange pl-4 max-w-2xl">
             Professional investment analysis and market insights for advanced investors.
             Daily intelligence for informed decision-making.
           </p>
@@ -21,43 +21,43 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-10">
           {/* Quick Links Column */}
           <div>
-            <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4 pb-2 border-b-2 border-bronze-600">
+            <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4 pb-2 border-b-2 border-soft-orange">
               Quick Links
             </h4>
             <nav className="flex flex-wrap gap-x-6 gap-y-2 mt-4">
               <Link
                 href="/"
-                className="text-stone-300 hover:text-bronze-600 transition-colors duration-200 text-sm flex items-center group"
+                className="text-gray-300 hover:text-soft-orange transition-colors duration-200 text-sm flex items-center group"
               >
-                <span className="w-1 h-1 bg-stone-700 group-hover:bg-bronze-600 rounded-none mr-2 transition-colors duration-200"></span>
+                <span className="w-1 h-1 bg-gray-600 group-hover:bg-soft-orange rounded-none mr-2 transition-colors duration-200"></span>
                 Home
               </Link>
               <Link
                 href="/articles"
-                className="text-stone-300 hover:text-bronze-600 transition-colors duration-200 text-sm flex items-center group"
+                className="text-gray-300 hover:text-soft-orange transition-colors duration-200 text-sm flex items-center group"
               >
-                <span className="w-1 h-1 bg-stone-700 group-hover:bg-bronze-600 rounded-none mr-2 transition-colors duration-200"></span>
+                <span className="w-1 h-1 bg-gray-600 group-hover:bg-soft-orange rounded-none mr-2 transition-colors duration-200"></span>
                 Articles
               </Link>
               <Link
                 href="/markets"
-                className="text-stone-300 hover:text-bronze-600 transition-colors duration-200 text-sm flex items-center group"
+                className="text-gray-300 hover:text-soft-orange transition-colors duration-200 text-sm flex items-center group"
               >
-                <span className="w-1 h-1 bg-stone-700 group-hover:bg-bronze-600 rounded-none mr-2 transition-colors duration-200"></span>
+                <span className="w-1 h-1 bg-gray-600 group-hover:bg-soft-orange rounded-none mr-2 transition-colors duration-200"></span>
                 Markets
               </Link>
               <Link
                 href="/screener"
-                className="text-stone-300 hover:text-bronze-600 transition-colors duration-200 text-sm flex items-center group"
+                className="text-gray-300 hover:text-soft-orange transition-colors duration-200 text-sm flex items-center group"
               >
-                <span className="w-1 h-1 bg-stone-700 group-hover:bg-bronze-600 rounded-none mr-2 transition-colors duration-200"></span>
+                <span className="w-1 h-1 bg-gray-600 group-hover:bg-soft-orange rounded-none mr-2 transition-colors duration-200"></span>
                 Stock Screener
               </Link>
               <Link
                 href="/#newsletter"
-                className="text-stone-300 hover:text-bronze-600 transition-colors duration-200 text-sm flex items-center group"
+                className="text-gray-300 hover:text-soft-orange transition-colors duration-200 text-sm flex items-center group"
               >
-                <span className="w-1 h-1 bg-stone-700 group-hover:bg-bronze-600 rounded-none mr-2 transition-colors duration-200"></span>
+                <span className="w-1 h-1 bg-gray-600 group-hover:bg-soft-orange rounded-none mr-2 transition-colors duration-200"></span>
                 Newsletter
               </Link>
             </nav>
@@ -65,36 +65,36 @@ export default function Footer() {
 
           {/* Company Column */}
           <div>
-            <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4 pb-2 border-b-2 border-bronze-600">
+            <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4 pb-2 border-b-2 border-soft-orange">
               Company
             </h4>
             <nav className="flex flex-wrap gap-x-6 gap-y-2 mt-4">
               <Link
                 href="/about"
-                className="text-stone-300 hover:text-bronze-600 transition-colors duration-200 text-sm flex items-center group"
+                className="text-gray-300 hover:text-soft-orange transition-colors duration-200 text-sm flex items-center group"
               >
-                <span className="w-1 h-1 bg-stone-700 group-hover:bg-bronze-600 rounded-none mr-2 transition-colors duration-200"></span>
+                <span className="w-1 h-1 bg-gray-600 group-hover:bg-soft-orange rounded-none mr-2 transition-colors duration-200"></span>
                 About Us
               </Link>
               <Link
                 href="/contact"
-                className="text-stone-300 hover:text-bronze-600 transition-colors duration-200 text-sm flex items-center group"
+                className="text-gray-300 hover:text-soft-orange transition-colors duration-200 text-sm flex items-center group"
               >
-                <span className="w-1 h-1 bg-stone-700 group-hover:bg-bronze-600 rounded-none mr-2 transition-colors duration-200"></span>
+                <span className="w-1 h-1 bg-gray-600 group-hover:bg-soft-orange rounded-none mr-2 transition-colors duration-200"></span>
                 Contact
               </Link>
               <Link
                 href="/disclaimer"
-                className="text-stone-300 hover:text-bronze-600 transition-colors duration-200 text-sm flex items-center group"
+                className="text-gray-300 hover:text-soft-orange transition-colors duration-200 text-sm flex items-center group"
               >
-                <span className="w-1 h-1 bg-stone-700 group-hover:bg-bronze-600 rounded-none mr-2 transition-colors duration-200"></span>
+                <span className="w-1 h-1 bg-gray-600 group-hover:bg-soft-orange rounded-none mr-2 transition-colors duration-200"></span>
                 Disclaimer
               </Link>
               <Link
                 href="/privacy"
-                className="text-stone-300 hover:text-bronze-600 transition-colors duration-200 text-sm flex items-center group"
+                className="text-gray-300 hover:text-soft-orange transition-colors duration-200 text-sm flex items-center group"
               >
-                <span className="w-1 h-1 bg-stone-700 group-hover:bg-bronze-600 rounded-none mr-2 transition-colors duration-200"></span>
+                <span className="w-1 h-1 bg-gray-600 group-hover:bg-soft-orange rounded-none mr-2 transition-colors duration-200"></span>
                 Privacy Policy
               </Link>
             </nav>
@@ -102,13 +102,13 @@ export default function Footer() {
 
           {/* Connect Column */}
           <div>
-            <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4 pb-2 border-b-2 border-bronze-600">
+            <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4 pb-2 border-b-2 border-soft-orange">
               Connect
             </h4>
             <nav className="flex flex-wrap gap-x-6 gap-y-3 mt-4">
               <a
                 href="https://x.com/money365market"
-                className="text-stone-300 hover:text-bronze-600 transition-all duration-200 text-sm flex items-center group"
+                className="text-gray-300 hover:text-soft-orange transition-all duration-200 text-sm flex items-center group"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on X (Twitter)"
@@ -120,7 +120,7 @@ export default function Footer() {
               </a>
               <a
                 href="https://linkedin.com/company/money365market"
-                className="text-stone-300 hover:text-bronze-600 transition-all duration-200 text-sm flex items-center group"
+                className="text-gray-300 hover:text-soft-orange transition-all duration-200 text-sm flex items-center group"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on LinkedIn"
@@ -132,7 +132,7 @@ export default function Footer() {
               </a>
               <a
                 href="https://github.com/money365market"
-                className="text-stone-300 hover:text-bronze-600 transition-all duration-200 text-sm flex items-center group"
+                className="text-gray-300 hover:text-soft-orange transition-all duration-200 text-sm flex items-center group"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on GitHub"
@@ -147,11 +147,11 @@ export default function Footer() {
         </div>
 
         {/* Disclaimer & Copyright - Sharp & Wise */}
-        <div className="border-t-2 border-stone-700 pt-8">
+        <div className="border-t-2 border-gray-700 pt-8">
           {/* Disclaimer Box */}
-          <div className="bg-stone-800 bg-opacity-40 border-l-4 border-bronze-600 rounded-none p-6 mb-6">
-            <p className="text-stone-300 text-xs leading-relaxed">
-              <span className="text-bronze-600 font-bold uppercase tracking-wider">Disclaimer:</span>{' '}
+          <div className="bg-gray-800 bg-opacity-40 border-l-4 border-soft-orange rounded-none p-6 mb-6">
+            <p className="text-white text-xs leading-relaxed">
+              <span className="text-soft-orange font-bold uppercase tracking-wider">Disclaimer:</span>{' '}
               The information provided on this website is for educational and informational purposes only.
               It should not be considered as financial advice. Always conduct your own research and consult
               with a licensed financial advisor before making any investment decisions. Past performance
@@ -160,15 +160,15 @@ export default function Footer() {
           </div>
 
           {/* Copyright */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-400">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
             <p className="flex items-center gap-2">
-              <span className="inline-block w-1.5 h-1.5 bg-bronze-600 rounded-none"></span>
-              &copy; {currentYear} <span className="font-crimson font-bold text-bronze-600">money365.market</span>
+              <span className="inline-block w-1.5 h-1.5 bg-soft-orange rounded-none"></span>
+              &copy; {currentYear} <span className="font-crimson font-bold text-soft-orange">money365.market</span>
               <span className="hidden md:inline">All rights reserved.</span>
             </p>
             <p className="flex items-center gap-2">
-              <span className="text-stone-500">Built with precision for investors</span>
-              <span className="inline-block w-1.5 h-1.5 bg-bronze-600 rounded-none"></span>
+              <span className="text-gray-500">Built with precision for investors</span>
+              <span className="inline-block w-1.5 h-1.5 bg-soft-orange rounded-none"></span>
             </p>
           </div>
         </div>

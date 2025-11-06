@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import ArticleLayout from '@/components/ArticleLayout'
 
 export const metadata: Metadata = {
-  title: 'S&P 500 vs NASDAQ: Which Index is Better for You? | 6s Capital',
+  title: 'S&P 500 vs NASDAQ: Which Index is Better for You? | money365.market',
   description: 'A comprehensive comparison of the two most popular stock market indexes and which one fits your investment goals. Performance analysis, differences, and investment strategies.',
   keywords: 'S&P 500, NASDAQ, index funds, SPY, QQQ, stock market index, index investing, ETF comparison',
 }

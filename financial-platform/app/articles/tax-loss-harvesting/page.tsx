@@ -4,7 +4,7 @@ import ExampleBox from '@/components/article/ExampleBox'
 import Blockquote from '@/components/article/Blockquote'
 
 export const metadata = {
-  title: 'Tax-Loss Harvesting: Save Thousands in Taxes | 6S Capital',
+  title: 'Tax-Loss Harvesting: Save Thousands in Taxes | money365.market',
   description: 'Complete guide to tax-loss harvesting. Learn how to offset gains, deduct $3,000 annually, avoid wash-sale rule, and automate the process to save thousands.',
   keywords: 'tax-loss harvesting, wash sale rule, capital gains tax, tax deduction, investment taxes, tax strategy',
 }
@@ -14,7 +14,7 @@ export default function TaxLossHarvestingArticle() {
   return (
     <ArticleLayout
       title="Tax-Loss Harvesting: Save Thousands in Taxes"
-      author="6S Capital Research Team"
+      author="money365.market Research Team"
       publishDate="January 2025"
       readTime="11 min"
       category="Tax & Retirement"

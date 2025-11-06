@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import ArticleLayout from '@/components/ArticleLayout'
 
 export const metadata: Metadata = {
-  title: '10 Best Dividend Stocks for Passive Income in 2025 | 6s Capital',
+  title: '10 Best Dividend Stocks for Passive Income in 2025 | money365.market',
   description: 'Discover reliable dividend stocks that can generate consistent passive income while preserving and growing your capital. Complete analysis and selection criteria.',
   keywords: 'dividend stocks, passive income, dividend investing, dividend aristocrats, income stocks, best dividends 2025',
 }

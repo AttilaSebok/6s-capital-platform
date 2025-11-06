@@ -34,7 +34,16 @@
       "Bash(done)",
       "Bash(python fix_articles.py:*)",
       "Bash(npm run lint:*)",
-      "Bash(git pull:*)"
+      "Bash(git pull:*)",
+      "Bash(timeout 5 echo:*)",
+      "Bash(timeout 10 echo:*)",
+      "Bash(nslookup:*)",
+      "Bash(ipconfig /flushdns:*)",
+      "Bash(find:*)",
+      "Bash(for file in etfs-vs-mutual-funds/page.tsx retirement-accounts-guide/page.tsx tax-loss-harvesting/page.tsx)",
+      "Bash(do echo \"=== $file ===\")",
+      "Bash(head:*)",
+      "Bash(git log:*)"
     ],
     "deny": [],
     "ask": []

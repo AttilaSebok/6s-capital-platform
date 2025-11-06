@@ -37,13 +37,13 @@ export default function Header() {
   const isActive = (path: string) => pathname === path
 
   return (
-    <header className="bg-gradient-to-br from-slate-900 to-stone-900 border-b-2 border-bronze-600 sticky top-0 z-50 shadow-lg">
+    <header className="bg-dark-header border-b-2 border-soft-orange sticky top-0 z-50 shadow-lg">
       <nav className="container mx-auto px-4 md:px-6 lg:px-8 py-5">
         <div className="flex justify-between items-center">
           {/* Logo - money365.market */}
           <Link
             href="/"
-            className="font-crimson text-xl md:text-2xl lg:text-3xl font-bold text-bronze-600 tracking-tight hover:text-bronze-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-none"
+            className="font-crimson text-xl md:text-2xl lg:text-3xl font-bold text-soft-orange tracking-tight hover:text-soft-orange-light transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-soft-orange focus:ring-offset-2 focus:ring-offset-dark-header rounded-none"
             aria-label="money365.market - Home"
           >
             money365.market
@@ -60,11 +60,11 @@ export default function Header() {
                   text-xs lg:text-sm font-semibold uppercase tracking-wider
                   border-2 rounded-none
                   transition-all duration-200
-                  focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 focus:ring-offset-slate-900
+                  focus:outline-none
                   ${
                     isActive(item.href)
-                      ? 'bg-olive-800 text-white border-b-4 border-bronze-600 border-t-2 border-x-2 border-olive-800'
-                      : 'bg-stone-700 bg-opacity-40 border-stone-400 border-opacity-40 text-stone-300 hover:bg-bronze-600 hover:bg-opacity-100 hover:border-bronze-700 hover:text-white hover:shadow-md hover:-translate-y-0.5'
+                      ? 'bg-gray-700 bg-opacity-40 text-white border-soft-orange border-opacity-100'
+                      : 'bg-gray-700 bg-opacity-40 border-gray-600 border-opacity-40 text-white hover:border-soft-orange hover:border-opacity-100 hover:shadow-md hover:-translate-y-0.5'
                   }
                 `}
                 aria-current={isActive(item.href) ? 'page' : undefined}
@@ -78,7 +78,7 @@ export default function Header() {
           <div className="hidden md:block">
             <Link
               href="/#newsletter"
-              className="px-4 lg:px-6 py-2 lg:py-2.5 bg-bronze-600 border-2 border-bronze-700 text-white font-bold text-xs lg:text-sm uppercase tracking-wide rounded-none shadow-md transition-all duration-200 hover:bg-bronze-700 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 focus:ring-offset-slate-900 inline-block"
+              className="px-4 lg:px-6 py-2 lg:py-2.5 bg-soft-orange border-2 border-soft-orange-dark text-deep-brown font-bold text-xs lg:text-sm uppercase tracking-wide rounded-none shadow-md transition-all duration-200 hover:bg-soft-orange-dark hover:text-white hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-soft-orange focus:ring-offset-2 focus:ring-offset-dark-header inline-block"
               aria-label="Subscribe to newsletter"
             >
               Subscribe
@@ -87,7 +87,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden w-12 h-12 bg-stone-700 bg-opacity-40 border-2 border-stone-400 border-opacity-40 rounded-none text-white flex items-center justify-center transition-all duration-200 hover:bg-bronze-600 hover:bg-opacity-100 hover:border-bronze-700 focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 focus:ring-offset-slate-900"
+            className="md:hidden w-12 h-12 bg-gray-700 bg-opacity-40 border-2 border-gray-600 border-opacity-40 rounded-none text-white flex items-center justify-center transition-all duration-200 hover:bg-soft-orange hover:bg-opacity-100 hover:border-soft-orange-dark focus:outline-none focus:ring-2 focus:ring-soft-orange focus:ring-offset-2 focus:ring-offset-dark-header"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={mobileMenuOpen}
@@ -114,15 +114,15 @@ export default function Header() {
           />
 
           {/* Menu Panel */}
-          <div className="fixed inset-y-0 right-0 w-80 max-w-full bg-gradient-to-b from-deep-brown to-stone-900 border-l-2 border-bronze-600 shadow-2xl z-50 md:hidden overflow-y-auto">
+          <div className="fixed inset-y-0 right-0 w-80 max-w-full bg-dark-header border-l-2 border-soft-orange shadow-2xl z-50 md:hidden overflow-y-auto">
             {/* Menu Header */}
-            <div className="flex justify-between items-center px-6 py-5 border-b-2 border-bronze-600">
-              <span className="font-crimson text-xl font-bold text-bronze-600 tracking-tight">
+            <div className="flex justify-between items-center px-6 py-5 border-b-2 border-soft-orange">
+              <span className="font-crimson text-xl font-bold text-soft-orange tracking-tight">
                 money365.market
               </span>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-10 h-10 bg-stone-700 bg-opacity-40 border-2 border-stone-400 border-opacity-40 rounded-none text-white flex items-center justify-center transition-all duration-200 hover:bg-bronze-600 hover:bg-opacity-100 hover:border-bronze-700"
+                className="w-10 h-10 bg-gray-700 bg-opacity-40 border-2 border-gray-600 border-opacity-40 rounded-none text-white flex items-center justify-center transition-all duration-200 hover:bg-soft-orange hover:bg-opacity-100 hover:border-soft-orange-dark"
                 aria-label="Close navigation menu"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -140,12 +140,12 @@ export default function Header() {
                   className={`
                     block w-full text-left px-8 py-4
                     text-base font-semibold uppercase tracking-wide
-                    border-b border-stone-700
+                    border-b border-gray-700
                     transition-all duration-200
                     ${
                       isActive(item.href)
-                        ? 'bg-olive-800 text-white border-l-4 border-bronze-600'
-                        : 'text-stone-300 hover:bg-bronze-600 hover:text-white hover:border-l-4 hover:border-bronze-700'
+                        ? 'bg-soft-orange text-white border-l-4 border-soft-orange-dark'
+                        : 'text-white hover:bg-soft-orange hover:text-white hover:border-l-4 hover:border-soft-orange-dark'
                     }
                   `}
                   aria-current={isActive(item.href) ? 'page' : undefined}
@@ -158,7 +158,7 @@ export default function Header() {
               <div className="px-8 pt-8">
                 <Link
                   href="/#newsletter"
-                  className="block w-full text-center px-6 py-3 bg-bronze-600 border-2 border-bronze-700 text-white font-bold text-sm uppercase tracking-wide rounded-none shadow-md transition-all duration-200 hover:bg-bronze-700 hover:shadow-xl"
+                  className="block w-full text-center px-6 py-3 bg-soft-orange border-2 border-soft-orange-dark text-deep-brown font-bold text-sm uppercase tracking-wide rounded-none shadow-md transition-all duration-200 hover:bg-soft-orange-dark hover:text-white hover:shadow-xl"
                   aria-label="Subscribe to newsletter"
                 >
                   Subscribe

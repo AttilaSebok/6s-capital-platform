@@ -4,7 +4,7 @@ import ExampleBox from '@/components/article/ExampleBox'
 import Blockquote from '@/components/article/Blockquote'
 
 export const metadata = {
-  title: 'How to Analyze Quarterly Earnings Reports (10-Q Guide) | 6S Capital',
+  title: 'How to Analyze Quarterly Earnings Reports (10-Q Guide) | money365.market',
   description: 'Learn to analyze earnings reports like a pro. Understand EPS, revenue growth, forward guidance, and earnings call red flags with real examples.',
   keywords: 'earnings report, 10-Q, EPS, revenue growth, forward guidance, earnings call, quarterly results',
 }
@@ -14,7 +14,7 @@ export default function HowToAnalyzeEarningsReportsArticle() {
   return (
     <ArticleLayout
       title="How to Analyze Quarterly Earnings Reports"
-      author="6S Capital Research Team"
+      author="money365.market Research Team"
       publishDate="January 2025"
       readTime="11 min"
       category="Fundamental Analysis"

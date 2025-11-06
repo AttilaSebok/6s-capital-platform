@@ -4,7 +4,7 @@ import ExampleBox from '@/components/article/ExampleBox'
 import Blockquote from '@/components/article/Blockquote'
 
 export const metadata = {
-  title: 'ETFs vs Mutual Funds: Complete Comparison Guide 2025 | 6S Capital',
+  title: 'ETFs vs Mutual Funds: Complete Comparison Guide 2025 | money365.market',
   description: 'Detailed comparison of ETFs and mutual funds. Learn differences in fees, tax efficiency, trading, and which is better for your investment strategy.',
   keywords: 'ETF vs mutual fund, index funds, investment funds, expense ratio, tax efficiency, passive investing',
 }
@@ -14,7 +14,7 @@ export default function ETFsVsMutualFundsArticle() {
   return (
     <ArticleLayout
       title="ETFs vs Mutual Funds: Complete Comparison Guide"
-      author="6S Capital Research Team"
+      author="money365.market Research Team"
       publishDate="January 2025"
       readTime="10 min"
       category="Investment Strategies"

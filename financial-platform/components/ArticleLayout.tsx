@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { ReactNode, useEffect, useState } from 'react'
 import TableOfContents from './TableOfContents'
-import ReadingProgressBar from './ReadingProgressBar'
 import BackToTopButton from './BackToTopButton'
 import SocialShareBar from './SocialShareBar'
 
@@ -28,7 +27,7 @@ export default function ArticleLayout({
   children,
   title,
   description,
-  author = '6s Capital Team',
+  author = 'Money365.Market Team',
   publishDate,
   readTime = '10 min read',
   category = 'Investing',
@@ -64,9 +63,6 @@ export default function ArticleLayout({
 
   return (
     <div className="min-h-screen bg-stone-50">
-      {/* Reading Progress Bar */}
-      <ReadingProgressBar />
-
       {/* Social Share Bar (Desktop only) */}
       <SocialShareBar title={title} description={description} />
 
@@ -117,8 +113,11 @@ export default function ArticleLayout({
             {/* Meta Info */}
             <div className="flex flex-wrap items-center gap-4 text-sm text-stone-300 pb-8 border-b-2 border-bronze-600">
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 bg-bronze-600 border-2 border-bronze-700 rounded-none flex items-center justify-center text-white font-bold text-sm">
-                  6S
+                <div className="w-10 h-10 bg-soft-orange border-2 border-soft-orange-dark rounded-none flex items-center justify-center">
+                  <svg className="w-6 h-6 text-slate-900" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18.5c-3.86-.96-7-5.15-7-9.5V8.47l7-3.89 7 3.89V11c0 4.35-3.14 8.54-7 9.5z"/>
+                    <path d="M9.5 11L8 12.5l3 3 5-5L14.5 9l-3.5 3.5z"/>
+                  </svg>
                 </div>
                 <span className="font-medium text-white">{author}</span>
               </div>

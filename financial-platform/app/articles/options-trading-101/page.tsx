@@ -4,7 +4,7 @@ import ExampleBox from '@/components/article/ExampleBox'
 import Blockquote from '@/components/article/Blockquote'
 
 export const metadata = {
-  title: 'Options Trading 101 for Beginners: Calls, Puts & Strategies | 6S Capital',
+  title: 'Options Trading 101 for Beginners: Calls, Puts & Strategies | money365.market',
   description: 'Learn options trading basics: calls vs puts, strike price, expiration, covered calls, cash-secured puts. Beginner-friendly guide with real examples and risk warnings.',
   keywords: 'options trading, call options, put options, covered calls, cash-secured puts, options basics, strike price, premium',
 }
@@ -14,7 +14,7 @@ export default function OptionsTrading101Article() {
   return (
     <ArticleLayout
       title="Options Trading 101 for Beginners"
-      author="6S Capital Research Team"
+      author="money365.market Research Team"
       publishDate="January 2025"
       readTime="14 min"
       category="Investment Strategies"

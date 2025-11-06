@@ -11,7 +11,7 @@ export default function DiversifiedPortfolioArticle() {
       category="Portfolio Strategy"
       readTime="12 min read"
       publishDate="January 17, 2025"
-      author="6s Capital Research Team"
+      author="money365.market Research Team"
     >
       <p>
         "Don't put all your eggs in one basket" is investing's oldest advice. But how many baskets do you need? Which ones? And how many eggs in each?

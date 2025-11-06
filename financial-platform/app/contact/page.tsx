@@ -163,7 +163,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full px-6 py-3 bg-bronze-600 border-2 border-bronze-700 text-white font-bold text-sm uppercase tracking-wide rounded-none shadow-md transition-all duration-200 hover:bg-bronze-700 hover:shadow-xl hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 focus:ring-offset-slate-800 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="w-full px-6 py-3 bg-bronze-600 border-2 border-bronze-700 text-deep-brown font-bold text-sm uppercase tracking-wide rounded-none shadow-md transition-all duration-200 hover:bg-bronze-700 hover:text-white hover:shadow-xl hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 focus:ring-offset-slate-800 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 {status === 'loading' ? (
                   <span className="flex items-center justify-center gap-2">

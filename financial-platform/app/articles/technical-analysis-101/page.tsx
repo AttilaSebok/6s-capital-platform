@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import ArticleLayout from '@/components/ArticleLayout'
 
 export const metadata: Metadata = {
-  title: 'Technical Analysis 101: Reading Stock Charts for Beginners | 6s Capital',
+  title: 'Technical Analysis 101: Reading Stock Charts for Beginners | money365.market',
   description: 'Master the basics of technical analysis, chart patterns, and indicators to time your trades more effectively. A comprehensive beginner\'s guide.',
   keywords: 'technical analysis, stock charts, chart patterns, trading indicators, support resistance, moving averages',
 }

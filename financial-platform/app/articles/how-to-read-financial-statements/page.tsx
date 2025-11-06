@@ -4,7 +4,7 @@ import ExampleBox from '@/components/article/ExampleBox'
 import Blockquote from '@/components/article/Blockquote'
 
 export const metadata = {
-  title: 'How to Read Financial Statements: Complete Beginner\'s Guide | 6S Capital',
+  title: 'How to Read Financial Statements: Complete Beginner\'s Guide | money365.market',
   description: 'Learn to read income statements, balance sheets, and cash flow statements. Master financial analysis with real examples and step-by-step guidance.',
   keywords: 'financial statements, income statement, balance sheet, cash flow statement, financial analysis, accounting basics',
 }
@@ -14,7 +14,7 @@ export default function HowToReadFinancialStatementsArticle() {
   return (
     <ArticleLayout
       title="How to Read Financial Statements: Complete Beginner's Guide"
-      author="6S Capital Research Team"
+      author="money365.market Research Team"
       publishDate="January 2025"
       readTime="12 min"
       category="Fundamental Analysis"

@@ -4,7 +4,7 @@ import ExampleBox from '@/components/article/ExampleBox'
 import Blockquote from '@/components/article/Blockquote'
 
 export const metadata = {
-  title: 'Retirement Accounts Guide: 401k, IRA, Roth IRA Explained | 6S Capital',
+  title: 'Retirement Accounts Guide: 401k, IRA, Roth IRA Explained | money365.market',
   description: 'Complete guide to retirement accounts. Learn the differences between 401k, Traditional IRA, and Roth IRA, contribution limits, tax benefits, and optimal strategies.',
   keywords: '401k, IRA, Roth IRA, retirement planning, tax-advantaged accounts, contribution limits, employer match',
 }
@@ -14,7 +14,7 @@ export default function RetirementAccountsGuideArticle() {
   return (
     <ArticleLayout
       title="Retirement Accounts Guide: 401k, IRA, Roth IRA Explained"
-      author="6S Capital Research Team"
+      author="money365.market Research Team"
       publishDate="January 2025"
       readTime="14 min"
       category="Tax & Retirement"

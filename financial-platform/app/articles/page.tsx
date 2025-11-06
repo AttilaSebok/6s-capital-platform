@@ -312,7 +312,6 @@ export default function ArticlesPage() {
                   <h2 className="
                     text-2xl font-bold mb-3 leading-tight
                     text-deep-brown font-crimson
-                    group-hover:text-bronze-600 transition-colors
                   ">
                     {article.title}
                   </h2>
@@ -353,10 +352,10 @@ export default function ArticlesPage() {
             <div className="mt-12 text-center">
               <button
                 onClick={() => setVisibleCount(prev => prev + 6)}
-                className="px-8 py-3 bg-bronze-600 border-2 border-bronze-700 text-white font-semibold rounded-none shadow-md hover:bg-bronze-700 hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2"
+                className="px-8 py-3 bg-bronze-600 border-2 border-bronze-700 text-deep-brown font-bold uppercase tracking-wide rounded-none shadow-md hover:bg-bronze-700 hover:text-white hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2"
               >
                 Load More Articles
-                <span className="ml-2 text-sm opacity-80">({filteredArticles.length - visibleCount} remaining)</span>
+                <span className="ml-2 text-sm font-normal normal-case opacity-80">({filteredArticles.length - visibleCount} remaining)</span>
               </button>
             </div>
           )}
@@ -375,46 +374,48 @@ export default function ArticlesPage() {
           )}
         </div>
 
-        {/* Newsletter CTA */}
-        <div className="max-w-6xl mx-auto mt-16">
-          <div
-            className="rounded-none border-2 border-deep-brown shadow-xl p-8 md:p-12 bg-gradient-to-br from-deep-brown to-rich-brown"
-          >
-            <div className="text-center text-white">
-              <div
-                className="inline-flex items-center justify-center w-16 h-16 rounded-none mb-6 bg-bronze-600 border-2 border-bronze-700"
-              >
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
+        {/* Newsletter CTA - Modern Compact Design */}
+        <div className="max-w-4xl mx-auto mt-16">
+          <div className="bg-white border-2 border-soft-orange rounded-none shadow-xl p-6 md:p-8">
+            <div className="flex flex-col md:flex-row items-center gap-6">
+              {/* Icon */}
+              <div className="flex-shrink-0">
+                <div className="w-16 h-16 bg-soft-orange rounded-none flex items-center justify-center">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
               </div>
 
-              <h2
-                className="text-3xl md:text-4xl font-bold mb-4 font-crimson"
-              >
-                Never Miss an Article
-              </h2>
-              <p className="text-lg mb-8 max-w-2xl mx-auto leading-relaxed text-stone-300">
-                Get our latest articles, market insights, and investing tips delivered to your inbox every week
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  aria-label="Email address"
-                  className="flex-1 px-6 py-3 rounded-none border-2 border-stone-300 focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:border-bronze-600 text-deep-brown"
-                />
-                <button
-                  className="px-8 py-3 rounded-none font-semibold transition-all whitespace-nowrap shadow-lg hover:shadow-xl bg-bronze-600 border-2 border-bronze-700 text-white hover:bg-bronze-700 focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 focus:ring-offset-deep-brown"
-                >
-                  Subscribe
-                </button>
+              {/* Content */}
+              <div className="flex-1 text-center md:text-left">
+                <h2 className="text-2xl md:text-3xl font-bold mb-2 font-crimson text-deep-brown">
+                  Never Miss an Article
+                </h2>
+                <p className="text-sm md:text-base text-stone-600">
+                  Get weekly market insights and investing tips in your inbox
+                </p>
               </div>
 
-              <p className="text-sm mt-4 text-stone-300">
-                Join 1,000+ investors. Unsubscribe anytime.
-              </p>
+              {/* Form */}
+              <div className="flex-shrink-0 w-full md:w-auto">
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    aria-label="Email address"
+                    className="flex-1 sm:w-64 px-4 py-2.5 border-2 border-stone-300 rounded-none focus:outline-none focus:ring-2 focus:ring-soft-orange focus:border-soft-orange text-deep-brown text-sm"
+                  />
+                  <button
+                    className="px-6 py-2.5 bg-soft-orange border-2 border-soft-orange-dark text-deep-brown font-bold text-sm uppercase tracking-wide rounded-none hover:bg-soft-orange-dark hover:text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-soft-orange whitespace-nowrap"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+                <p className="text-xs mt-2 text-stone-500 text-center sm:text-left">
+                  Join 1,000+ investors • Unsubscribe anytime
+                </p>
+              </div>
             </div>
           </div>
         </div>

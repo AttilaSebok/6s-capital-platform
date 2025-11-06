@@ -11,7 +11,7 @@ export default function DollarCostAveragingArticle() {
       category="Beginner Guides"
       readTime="9 min read"
       publishDate="January 19, 2025"
-      author="6s Capital Research Team"
+      author="money365.market Research Team"
     >
       <p>
         You have $12,000 to invest. Should you invest it all today, or spread it out over 12 months at $1,000 per month?

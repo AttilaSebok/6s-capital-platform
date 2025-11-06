@@ -4,7 +4,7 @@ import ExampleBox from '@/components/article/ExampleBox'
 import Blockquote from '@/components/article/Blockquote'
 
 export const metadata = {
-  title: 'Stock Valuation Methods: DCF, Comps, Precedent Transactions | 6S Capital',
+  title: 'Stock Valuation Methods: DCF, Comps, Precedent Transactions | money365.market',
   description: 'Learn the three main stock valuation methods used by Wall Street: Discounted Cash Flow (DCF), comparable companies analysis, and precedent transactions with step-by-step examples.',
   keywords: 'stock valuation, DCF model, discounted cash flow, comparable companies, comps analysis, precedent transactions, intrinsic value',
 }
@@ -14,7 +14,7 @@ export default function StockValuationMethodsArticle() {
   return (
     <ArticleLayout
       title="Stock Valuation Methods: DCF, Comps, Precedent Transactions"
-      author="6S Capital Research Team"
+      author="money365.market Research Team"
       publishDate="January 2025"
       readTime="15 min"
       category="Fundamental Analysis"

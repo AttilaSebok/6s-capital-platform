@@ -11,7 +11,7 @@ export default function DividendVsGrowthArticle() {
       category="Investment Strategies"
       readTime="10 min read"
       publishDate="January 18, 2025"
-      author="6s Capital Research Team"
+      author="money365.market Research Team"
     >
       <p>
         Should you invest for dividends or growth? This question divides investors into two camps, each convinced their approach is superior.

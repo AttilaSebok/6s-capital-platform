@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import ArticleLayout from '@/components/ArticleLayout'
 
 export const metadata: Metadata = {
-  title: 'What is Value Investing? Warren Buffett\'s Strategy Explained | 6s Capital',
+  title: 'What is Value Investing? Warren Buffett\'s Strategy Explained | money365.market',
   description: 'Learn the principles of value investing and how legends like Warren Buffett and Benjamin Graham built fortunes with this timeless strategy.',
   keywords: 'value investing, warren buffett, benjamin graham, intrinsic value, margin of safety, fundamental analysis',
 }

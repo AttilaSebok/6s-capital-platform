@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import ArticleLayout from '@/components/ArticleLayout'
 
 export const metadata: Metadata = {
-  title: 'How to Start Investing in Stocks: Complete 2025 Guide | 6s Capital',
+  title: 'How to Start Investing in Stocks: Complete 2025 Guide | money365.market',
   description: 'Everything you need to know to start your investing journey, from opening your first brokerage account to making your first investment. A comprehensive beginner\'s guide.',
   keywords: 'how to start investing, beginner investing, first stock purchase, brokerage account, investment guide',
 }

@@ -11,7 +11,7 @@ export default function UnderstandingPERatioArticle() {
       category="Fundamental Analysis"
       readTime="8 min read"
       publishDate="January 15, 2025"
-      author="6s Capital Research Team"
+      author="money365.market Research Team"
     >
       <p>
         When you're looking at a stock and trying to decide if it's worth buying, one of the first questions you should ask is: "Am I paying a fair price?" The Price-to-Earnings (P/E) ratio is one of the most widely used metrics to answer this question.

@@ -4,7 +4,7 @@ import ExampleBox from '@/components/article/ExampleBox'
 import Blockquote from '@/components/article/Blockquote'
 
 export const metadata = {
-  title: 'Real Estate vs Stocks: Which Investment is Better? | 6S Capital',
+  title: 'Real Estate vs Stocks: Which Investment is Better? | money365.market',
   description: 'Comprehensive comparison of real estate vs stocks: historical returns, liquidity, leverage, taxes, time commitment, REITs. Data-driven analysis for informed decisions.',
   keywords: 'real estate vs stocks, real estate investing, stock market returns, REITs, leverage, investment comparison, diversification',
 }
@@ -14,7 +14,7 @@ export default function RealEstateVsStocksArticle() {
   return (
     <ArticleLayout
       title="Real Estate vs Stocks: Which Investment is Better?"
-      author="6S Capital Research Team"
+      author="money365.market Research Team"
       publishDate="January 2025"
       readTime="13 min"
       category="Investment Strategies"

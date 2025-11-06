@@ -4,7 +4,7 @@ import ExampleBox from '@/components/article/ExampleBox'
 import Blockquote from '@/components/article/Blockquote'
 
 export const metadata = {
-  title: 'Market Cycles & Economic Indicators: Complete Guide | 6S Capital',
+  title: 'Market Cycles & Economic Indicators: Complete Guide | money365.market',
   description: 'Master market cycles and economic indicators. Learn the 4 stages of market cycles, leading vs lagging indicators, and how to position your portfolio in each phase.',
   keywords: 'market cycles, economic indicators, GDP, unemployment, inflation, yield curve, VIX, business cycle, recession indicators',
 }
@@ -14,7 +14,7 @@ export default function MarketCyclesEconomicIndicatorsArticle() {
   return (
     <ArticleLayout
       title="Understanding Market Cycles and Economic Indicators"
-      author="6S Capital Research Team"
+      author="money365.market Research Team"
       publishDate="January 2025"
       readTime="13 min"
       category="Market Analysis"

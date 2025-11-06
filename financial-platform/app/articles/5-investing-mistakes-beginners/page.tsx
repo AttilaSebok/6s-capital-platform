@@ -11,7 +11,7 @@ export default function InvestingMistakesArticle() {
       category="Beginner Guides"
       readTime="10 min read"
       publishDate="January 16, 2025"
-      author="6s Capital Research Team"
+      author="money365.market Research Team"
     >
       <p>
         If you're new to investing, you're going to make mistakes. That's inevitable. But some mistakes are more expensive than others.

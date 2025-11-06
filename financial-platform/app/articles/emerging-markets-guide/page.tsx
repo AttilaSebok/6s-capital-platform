@@ -4,7 +4,7 @@ import ExampleBox from '@/components/article/ExampleBox'
 import Blockquote from '@/components/article/Blockquote'
 
 export const metadata = {
-  title: 'International Investing: Emerging Markets Complete Guide | 6S Capital',
+  title: 'International Investing: Emerging Markets Complete Guide | money365.market',
   description: 'Learn about emerging market investing. Understand opportunities, risks, top countries, and best ETFs (VWO, IEMG) for portfolio diversification.',
   keywords: 'emerging markets, international investing, VWO, IEMG, developing countries, global diversification, China India Brazil',
 }
@@ -14,7 +14,7 @@ export default function EmergingMarketsGuideArticle() {
   return (
     <ArticleLayout
       title="International Investing: Emerging Markets Complete Guide"
-      author="6S Capital Research Team"
+      author="money365.market Research Team"
       publishDate="January 2025"
       readTime="10 min"
       category="Portfolio Strategy"

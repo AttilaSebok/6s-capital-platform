@@ -93,7 +93,7 @@ export default function MarketOverview() {
   }, [])
 
   return (
-    <div className="tradingview-widget-container w-full min-h-[500px]" ref={container}>
+    <div className="tradingview-widget-container w-full min-h-[500px] overflow-hidden" ref={container}>
       <div className="tradingview-widget-container__widget"></div>
     </div>
   )

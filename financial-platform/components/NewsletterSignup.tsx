@@ -26,43 +26,64 @@ export default function NewsletterSignup() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto text-center">
-      <h2 className="font-crimson text-3xl md:text-4xl font-bold text-white mb-4">
-        Stay Ahead of the Market
-      </h2>
-      <p className="text-lg md:text-xl text-stone-300 mb-8 leading-relaxed">
-        Get our daily market analysis, trading insights, and exclusive investment opportunities delivered to your inbox.
-      </p>
+    <div className="max-w-4xl mx-auto">
+      <div className="bg-white border-2 border-soft-orange rounded-none shadow-xl p-6 md:p-8">
+        <div className="flex flex-col md:flex-row items-center gap-6">
+          {/* Icon */}
+          <div className="flex-shrink-0">
+            <div className="w-16 h-16 bg-soft-orange rounded-none flex items-center justify-center">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+          </div>
 
-      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
-          required
-          className="flex-1 px-6 py-3 rounded-none border-2 border-stone-600 text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:border-bronze-600 transition-all duration-200"
-          disabled={status === 'loading'}
-        />
-        <button
-          type="submit"
-          disabled={status === 'loading'}
-          className="bg-bronze-600 border-2 border-bronze-700 text-deep-brown hover:bg-bronze-700 hover:text-white font-bold py-3 px-8 rounded-none uppercase tracking-wide shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-          {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
-        </button>
-      </form>
+          {/* Content */}
+          <div className="flex-1 text-center md:text-left">
+            <h2 className="text-2xl md:text-3xl font-bold mb-2 font-crimson text-deep-brown">
+              Never Miss an Article
+            </h2>
+            <p className="text-sm md:text-base text-stone-600">
+              Get weekly market insights and investing tips in your inbox
+            </p>
+          </div>
 
-      {status === 'success' && (
-        <p className="mt-4 text-green-300 font-semibold">{message}</p>
-      )}
-      {status === 'error' && (
-        <p className="mt-4 text-red-300 font-semibold">{message}</p>
-      )}
+          {/* Form */}
+          <div className="flex-shrink-0 w-full md:w-auto">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                required
+                aria-label="Email address"
+                className="flex-1 sm:w-64 px-4 py-2.5 border-2 border-stone-300 rounded-none focus:outline-none focus:ring-2 focus:ring-soft-orange focus:border-soft-orange text-deep-brown text-sm"
+                disabled={status === 'loading'}
+              />
+              <button
+                type="submit"
+                disabled={status === 'loading'}
+                className="px-6 py-2.5 bg-soft-orange border-2 border-soft-orange-dark text-deep-brown font-bold text-sm uppercase tracking-wide rounded-none hover:bg-soft-orange-dark hover:text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-soft-orange whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
+              </button>
+            </form>
 
-      <p className="text-xs md:text-sm text-stone-400 mt-6 uppercase tracking-wider">
-        Join 10,000+ investors. Unsubscribe anytime. No spam, ever.
-      </p>
+            {status === 'success' && (
+              <p className="text-xs mt-2 text-green-600 text-center sm:text-left font-semibold">{message}</p>
+            )}
+            {status === 'error' && (
+              <p className="text-xs mt-2 text-red-600 text-center sm:text-left font-semibold">{message}</p>
+            )}
+            {status === 'idle' && (
+              <p className="text-xs mt-2 text-stone-500 text-center sm:text-left">
+                Join 1,000+ investors • Unsubscribe anytime
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

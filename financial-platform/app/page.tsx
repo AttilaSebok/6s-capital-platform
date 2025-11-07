@@ -213,8 +213,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Newsletter Signup - Sharp & Wise */}
-      <section id="newsletter" className="py-16 lg:py-20 bg-gradient-to-br from-deep-brown to-rich-brown border-t-2 border-b-2 border-bronze-600">
+      {/* Newsletter Signup - Modern Light */}
+      <section id="newsletter" className="py-16 lg:py-20 bg-stone-50">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <NewsletterSignup />
         </div>

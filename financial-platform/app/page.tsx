@@ -100,13 +100,17 @@ export default function Home() {
               <h3 className="font-crimson text-xl md:text-2xl font-bold text-bronze-600 mb-4 pb-2 border-b-2 border-bronze-600">
                 S&P 500
               </h3>
-              <TradingViewWidget symbol="SPX" />
+              <div className="w-full overflow-hidden">
+                <TradingViewWidget symbol="SPX" />
+              </div>
             </div>
             <div className="bg-stone-700 bg-opacity-50 border-l-4 border-bronze-600 rounded-none p-6 shadow-xl">
               <h3 className="font-crimson text-xl md:text-2xl font-bold text-bronze-600 mb-4 pb-2 border-b-2 border-bronze-600">
                 NASDAQ
               </h3>
-              <TradingViewWidget symbol="NASDAQ:IXIC" />
+              <div className="w-full overflow-hidden">
+                <TradingViewWidget symbol="NASDAQ:IXIC" />
+              </div>
             </div>
           </div>
         </div>

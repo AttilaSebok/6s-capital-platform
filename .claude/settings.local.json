@@ -49,7 +49,9 @@
       "Bash(README.md)",
       "Bash(python fix_toc.py:*)",
       "Bash(python fix_keytakeaway.py:*)",
-      "Bash(python remove_manual_toc.py:*)"
+      "Bash(python remove_manual_toc.py:*)",
+      "Bash(if exist .nextdev rmdir /s /q .nextdev)",
+      "Bash(powershell \"if (Test-Path ''.next\\dev'') { Remove-Item -Recurse -Force ''.next\\dev'' }\")"
     ],
     "deny": [],
     "ask": []

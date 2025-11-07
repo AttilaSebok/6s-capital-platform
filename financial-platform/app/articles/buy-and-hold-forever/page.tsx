@@ -2,7 +2,6 @@ import ArticleLayout from '@/components/ArticleLayout'
 import KeyTakeaway from '@/components/article/KeyTakeaway'
 import ExampleBox from '@/components/article/ExampleBox'
 import Blockquote from '@/components/article/Blockquote'
-import TableOfContents from '@/components/TableOfContents'
 
 export const metadata = {
   title: 'Buy and Hold Forever: The Warren Buffett Approach to Investing | money365.market',
@@ -28,23 +27,7 @@ export default function BuyAndHoldForeverArticle() {
       category="Investment Strategies"
       description="Warren Buffett's investment philosophy can be summed up in one powerful sentence: 'Our favorite holding period is forever.' This comprehensive guide explains the buy-and-hold-forever strategy, how to identify businesses worth holding permanently, and why this approach has created more wealth than any other investing method."
     >
-      <TableOfContents
-        headings={[
-          { id: 'introduction', text: 'The Power of Forever', level: 2 },
-          { id: 'buffett-philosophy', text: 'Buffett\'s Investment Philosophy', level: 2 },
-          { id: 'forever-companies', text: 'What Makes a "Forever" Company?', level: 2 },
-          { id: 'moats', text: 'Economic Moats Explained', level: 2 },
-          { id: 'management-quality', text: 'Management That Compounds Value', level: 2 },
-          { id: 'valuation-matters', text: 'Price You Pay Still Matters', level: 2 },
-          { id: 'when-to-sell', text: 'When to Break the "Forever" Rule', level: 2 },
-          { id: 'real-examples', text: 'Buffett\'s Forever Holdings', level: 2 },
-          { id: 'implementation', text: 'Implementing Buy-and-Hold in Your Portfolio', level: 2 },
-          { id: 'behavioral-challenges', text: 'The Hardest Part: Doing Nothing', level: 2 },
-          { id: 'conclusion', text: 'Building Generational Wealth', level: 2 },
-        ]}
-      />
-
-      <section id="introduction">
+            <section id="introduction">
         <h2>The Power of Forever</h2>
         <p>
           In 1988, Warren Buffett's Berkshire Hathaway bought $1 billion worth of Coca-Cola stock at an average

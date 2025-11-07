@@ -2,7 +2,6 @@ import ArticleLayout from '@/components/ArticleLayout'
 import KeyTakeaway from '@/components/article/KeyTakeaway'
 import ExampleBox from '@/components/article/ExampleBox'
 import Blockquote from '@/components/article/Blockquote'
-import TableOfContents from '@/components/TableOfContents'
 
 export const metadata = {
   title: 'Momentum Investing: Riding the Winners Higher (2025 Strategy Guide) | money365.market',
@@ -28,23 +27,7 @@ export default function MomentumInvestingArticle() {
       category="Investment Strategies"
       description="'The trend is your friend'—momentum investing capitalizes on one of the most persistent anomalies in finance: stocks that have performed well recently tend to continue outperforming in the near term. This comprehensive guide explains how to identify momentum stocks, when to buy, when to sell, and how to manage the unique risks of this aggressive strategy."
     >
-      <TableOfContents
-        headings={[
-          { id: 'introduction', text: 'The Momentum Anomaly', level: 2 },
-          { id: 'what-is-momentum', text: 'What is Momentum Investing?', level: 2 },
-          { id: 'why-it-works', text: 'Why Momentum Works (Behavioral Finance)', level: 2 },
-          { id: 'types-of-momentum', text: 'Types of Momentum Strategies', level: 2 },
-          { id: 'identifying-momentum', text: 'How to Identify Momentum Stocks', level: 2 },
-          { id: 'entry-rules', text: 'Entry Rules and Timing', level: 2 },
-          { id: 'exit-rules', text: 'Exit Rules and Risk Management', level: 2 },
-          { id: 'historical-performance', text: 'Historical Performance and Backtests', level: 2 },
-          { id: 'risks', text: 'Risks and Drawdowns', level: 2 },
-          { id: 'implementation', text: 'Practical Implementation Guide', level: 2 },
-          { id: 'conclusion', text: 'Is Momentum Right for You?', level: 2 },
-        ]}
-      />
-
-      <section id="introduction">
+            <section id="introduction">
         <h2>The Momentum Anomaly</h2>
         <p>
           In 2023, NVIDIA stock entered the year at $140. By December, it had rocketed to $495—a 250% gain in 12

@@ -2,7 +2,6 @@ import ArticleLayout from '@/components/ArticleLayout'
 import KeyTakeaway from '@/components/article/KeyTakeaway'
 import ExampleBox from '@/components/article/ExampleBox'
 import Blockquote from '@/components/article/Blockquote'
-import TableOfContents from '@/components/TableOfContents'
 
 export const metadata = {
   title: 'Growth Investing vs Value Investing: Which Strategy Wins? (2025 Analysis) | money365.market',
@@ -28,21 +27,6 @@ export default function GrowthVsValueInvestingArticle() {
       category="Investment Strategies"
       description="One of the most fundamental debates in investing: Should you buy fast-growing companies or undervalued bargains? This comprehensive guide compares growth and value investing strategies, examining historical performance, risk profiles, and how to choose the right approach for your portfolio."
     >
-      <TableOfContents
-        headings={[
-          { id: 'introduction', text: 'The Great Investing Debate', level: 2 },
-          { id: 'what-is-value-investing', text: 'What is Value Investing?', level: 2 },
-          { id: 'what-is-growth-investing', text: 'What is Growth Investing?', level: 2 },
-          { id: 'key-differences', text: 'Key Differences Explained', level: 2 },
-          { id: 'historical-performance', text: 'Historical Performance Analysis', level: 2 },
-          { id: 'risk-profiles', text: 'Risk and Volatility Comparison', level: 2 },
-          { id: 'when-each-outperforms', text: 'When Each Strategy Wins', level: 2 },
-          { id: 'garp-strategy', text: 'GARP: The Middle Ground', level: 2 },
-          { id: 'which-is-right', text: 'Which Strategy is Right for You?', level: 2 },
-          { id: 'conclusion', text: 'Final Verdict', level: 2 },
-        ]}
-      />
-
       <section id="introduction">
         <h2>The Great Investing Debate</h2>
         <p>

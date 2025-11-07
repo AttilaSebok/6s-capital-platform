@@ -2,7 +2,6 @@ import ArticleLayout from '@/components/ArticleLayout'
 import KeyTakeaway from '@/components/article/KeyTakeaway'
 import ExampleBox from '@/components/article/ExampleBox'
 import Blockquote from '@/components/article/Blockquote'
-import TableOfContents from '@/components/TableOfContents'
 
 export const metadata = {
   title: 'Sector Rotation Strategy: How to Position for Market Cycles (2025 Guide) | money365.market',
@@ -28,22 +27,7 @@ export default function SectorRotationStrategyArticle() {
       category="Investment Strategies"
       description="Not all sectors perform equally at all times. Sector rotation is the strategy of shifting investments into sectors that historically outperform during specific phases of the economic cycle. This guide explains how to identify where we are in the cycle and which sectors to favor at each stage."
     >
-      <TableOfContents
-        headings={[
-          { id: 'introduction', text: 'Why Sector Rotation Matters', level: 2 },
-          { id: 'economic-cycle', text: 'The 4 Phases of Economic Cycles', level: 2 },
-          { id: 'sectors-explained', text: '11 Market Sectors Explained', level: 2 },
-          { id: 'rotation-strategy', text: 'The Sector Rotation Playbook', level: 2 },
-          { id: 'identifying-cycle', text: 'How to Identify Current Cycle Phase', level: 2 },
-          { id: 'implementation', text: 'Implementation: ETFs vs Individual Stocks', level: 2 },
-          { id: 'historical-performance', text: 'Historical Performance Data', level: 2 },
-          { id: 'risks-limitations', text: 'Risks and Limitations', level: 2 },
-          { id: 'practical-approach', text: 'Practical Approach for Investors', level: 2 },
-          { id: 'conclusion', text: 'Putting It All Together', level: 2 },
-        ]}
-      />
-
-      <section id="introduction">
+            <section id="introduction">
         <h2>Why Sector Rotation Matters</h2>
         <p>
           Imagine investing $100,000 in the S&P 500 in 2000. By 2020, you'd have about $320,000—respectable returns.

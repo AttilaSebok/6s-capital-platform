@@ -48,7 +48,8 @@
       "Bash(if exist .next rmdir /s /q .next)",
       "Bash(README.md)",
       "Bash(python fix_toc.py:*)",
-      "Bash(python fix_keytakeaway.py:*)"
+      "Bash(python fix_keytakeaway.py:*)",
+      "Bash(python remove_manual_toc.py:*)"
     ],
     "deny": [],
     "ask": []

@@ -2,7 +2,6 @@ import ArticleLayout from '@/components/ArticleLayout'
 import KeyTakeaway from '@/components/article/KeyTakeaway'
 import ExampleBox from '@/components/article/ExampleBox'
 import Blockquote from '@/components/article/Blockquote'
-import TableOfContents from '@/components/TableOfContents'
 
 export const metadata = {
   title: 'Income Investing Strategy: Building a Passive Income Portfolio (2025) | money365.market',
@@ -28,25 +27,7 @@ export default function IncomeInvestingStrategyArticle() {
       category="Investment Strategies"
       description="While growth investors chase capital appreciation, income investors focus on generating reliable cash flow from their portfolios—dividends, interest, and distributions that provide passive income without selling assets. This comprehensive guide explains how to build an income portfolio that pays you quarterly, monthly, or even weekly, whether you're planning for retirement or seeking financial independence."
     >
-      <TableOfContents
-        headings={[
-          { id: 'introduction', text: 'The Power of Passive Income', level: 2 },
-          { id: 'what-is-income-investing', text: 'What is Income Investing?', level: 2 },
-          { id: 'income-asset-classes', text: 'The 5 Income Asset Classes', level: 2 },
-          { id: 'dividend-stocks', text: 'Dividend Stocks: The Foundation', level: 2 },
-          { id: 'reits', text: 'REITs: Monthly Income Machines', level: 2 },
-          { id: 'bonds', text: 'Bonds: Stability and Predictability', level: 2 },
-          { id: 'mlps-bdc', text: 'MLPs and BDCs: High-Yield Alternatives', level: 2 },
-          { id: 'portfolio-construction', text: 'Building Your Income Portfolio', level: 2 },
-          { id: 'yield-optimization', text: 'Optimizing Yield vs Risk', level: 2 },
-          { id: 'tax-efficiency', text: 'Tax-Efficient Income Strategies', level: 2 },
-          { id: 'risks', text: 'Risks and Red Flags', level: 2 },
-          { id: 'sample-portfolios', text: 'Sample Income Portfolios by Goal', level: 2 },
-          { id: 'conclusion', text: 'Living Off Your Portfolio', level: 2 },
-        ]}
-      />
-
-      <section id="introduction">
+            <section id="introduction">
         <h2>The Power of Passive Income</h2>
         <p>
           Imagine waking up to $500 deposited in your account—not from your employer, but from dividends paid by

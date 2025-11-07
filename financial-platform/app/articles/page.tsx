@@ -1,11 +1,11 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { getAllArticles, getCategories, type Article } from '@/lib/articles'
 
-export default function ArticlesPage() {
+function ArticlesContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const categoryParam = searchParams.get('category') || 'All'
@@ -239,5 +239,20 @@ export default function ArticlesPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function ArticlesPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-stone-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-bronze-600"></div>
+          <p className="mt-4 text-stone-600">Loading articles...</p>
+        </div>
+      </div>
+    }>
+      <ArticlesContent />
+    </Suspense>
   )
 }

@@ -31,13 +31,13 @@ export default function BuyAndHoldForeverArticle() {
       <TableOfContents
         headings={[
           { id: 'introduction', text: 'The Power of Forever', level: 2 },
-          { id: 'buffett-philosophy', label: 'Buffett\'s Investment Philosophy' },
+          { id: 'buffett-philosophy', text: 'Buffett\'s Investment Philosophy', level: 2 },
           { id: 'forever-companies', text: 'What Makes a "Forever" Company?', level: 2 },
           { id: 'moats', text: 'Economic Moats Explained', level: 2 },
           { id: 'management-quality', text: 'Management That Compounds Value', level: 2 },
           { id: 'valuation-matters', text: 'Price You Pay Still Matters', level: 2 },
           { id: 'when-to-sell', text: 'When to Break the "Forever" Rule', level: 2 },
-          { id: 'real-examples', label: 'Buffett\'s Forever Holdings' },
+          { id: 'real-examples', text: 'Buffett\'s Forever Holdings', level: 2 },
           { id: 'implementation', text: 'Implementing Buy-and-Hold in Your Portfolio', level: 2 },
           { id: 'behavioral-challenges', text: 'The Hardest Part: Doing Nothing', level: 2 },
           { id: 'conclusion', text: 'Building Generational Wealth', level: 2 },

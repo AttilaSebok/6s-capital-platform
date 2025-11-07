@@ -66,16 +66,15 @@ export default function IncomeInvestingStrategyArticle() {
         </p>
       </section>
 
-      <KeyTakeaway
-        title="Key Takeaway: Cash Flow Over Capital Gains"
-        headings={[
-          'Income investing prioritizes regular cash payments (dividends, interest) over price appreciation',
-          'Target portfolio yield: 3-6% (conservative to aggressive) depending on risk tolerance',
-          'Dividend aristocrats (25+ years of raises) provide reliability + growth',
-          'Diversify across asset classes: Stocks, REITs, bonds, preferred shares',
-          'Reinvest income early (accumulation phase), live off income later (distribution phase)',
-        ]}
-      />
+      <KeyTakeaway>
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Income investing prioritizes regular cash payments (dividends, interest) over price appreciation</li>
+          <li>Target portfolio yield: 3-6% (conservative to aggressive) depending on risk tolerance</li>
+          <li>Dividend aristocrats (25+ years of raises) provide reliability + growth</li>
+          <li>Diversify across asset classes: Stocks, REITs, bonds, preferred shares</li>
+          <li>Reinvest income early (accumulation phase), live off income later (distribution phase)</li>
+        </ul>
+      </KeyTakeaway>
 
       <section id="what-is-income-investing">
         <h2>What is Income Investing?</h2>

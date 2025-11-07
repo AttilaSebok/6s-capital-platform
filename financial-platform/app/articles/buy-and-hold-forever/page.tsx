@@ -64,16 +64,16 @@ export default function BuyAndHoldForeverArticle() {
         </p>
       </section>
 
-      <KeyTakeaway
-        title="Key Takeaway: Time in the Market Beats Timing the Market"
-        headings={[
-          'Buffett\'s best returns came from holdings he\'s owned 20-50+ years',
-          'Forever companies have durable competitive advantages (moats) that protect profits',
-          'The biggest gains come from dividends compounding over decades',
-          'Selling winners to "lock in gains" means missing the majority of compounding',
-          'Only sell if fundamentals break, not because the stock price fluctuates',
-        ]}
-      />
+      <KeyTakeaway>
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Buffett\</li>
+          <li>s owned 20-50+ years</li>
+          <li>Forever companies have durable competitive advantages (moats) that protect profits</li>
+          <li>The biggest gains come from dividends compounding over decades</li>
+          <li>Selling winners to "lock in gains" means missing the majority of compounding</li>
+          <li>Only sell if fundamentals break, not because the stock price fluctuates</li>
+        </ul>
+      </KeyTakeaway>
 
       <section id="buffett-philosophy">
         <h2>Buffett's Investment Philosophy</h2>

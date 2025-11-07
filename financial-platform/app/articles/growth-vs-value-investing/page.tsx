@@ -62,16 +62,15 @@ export default function GrowthVsValueInvestingArticle() {
         </p>
       </section>
 
-      <KeyTakeaway
-        title="Key Takeaway: No Universal Winner"
-        headings={[
-          'Value investing outperformed historically (1927-2020), but growth dominated 2010-2020',
-          'Growth stocks excel in low-rate environments; value shines when rates rise',
-          'Value typically offers lower volatility; growth offers higher potential returns',
-          'Most successful investors blend both strategies (GARP approach)',
-          'Your time horizon, risk tolerance, and market conditions should guide your choice',
-        ]}
-      />
+      <KeyTakeaway>
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Value investing outperformed historically (1927-2020), but growth dominated 2010-2020</li>
+          <li>Growth stocks excel in low-rate environments; value shines when rates rise</li>
+          <li>Value typically offers lower volatility; growth offers higher potential returns</li>
+          <li>Most successful investors blend both strategies (GARP approach)</li>
+          <li>Your time horizon, risk tolerance, and market conditions should guide your choice</li>
+        </ul>
+      </KeyTakeaway>
 
       <section id="what-is-value-investing">
         <h2>What is Value Investing?</h2>

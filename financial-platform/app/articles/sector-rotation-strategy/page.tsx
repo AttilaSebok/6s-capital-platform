@@ -62,16 +62,15 @@ export default function SectorRotationStrategyArticle() {
         </p>
       </section>
 
-      <KeyTakeaway
-        title="Key Takeaway: Sector Performance is Cyclical"
-        headings={[
-          'Economic cycles have 4 phases: Early, Mid, Late, Recession—each favors different sectors',
-          'Cyclical sectors (tech, consumer discretionary) outperform during expansions',
-          'Defensive sectors (utilities, healthcare) outperform during contractions',
-          'Leading indicators help identify cycle transitions 3-6 months in advance',
-          'Sector rotation can add 2-4% annual alpha over buy-and-hold strategies',
-        ]}
-      />
+      <KeyTakeaway>
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Economic cycles have 4 phases: Early, Mid, Late, Recession—each favors different sectors</li>
+          <li>Cyclical sectors (tech, consumer discretionary) outperform during expansions</li>
+          <li>Defensive sectors (utilities, healthcare) outperform during contractions</li>
+          <li>Leading indicators help identify cycle transitions 3-6 months in advance</li>
+          <li>Sector rotation can add 2-4% annual alpha over buy-and-hold strategies</li>
+        </ul>
+      </KeyTakeaway>
 
       <section id="economic-cycle">
         <h2>The 4 Phases of Economic Cycles</h2>

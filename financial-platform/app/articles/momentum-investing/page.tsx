@@ -63,16 +63,15 @@ export default function MomentumInvestingArticle() {
         </p>
       </section>
 
-      <KeyTakeaway
-        title="Key Takeaway: Winners Keep Winning (Until They Don't)"
-        headings={[
-          'Momentum stocks outperform by 8-12% annually vs the market (academic research)',
-          'The strategy works because human psychology creates persistent trends',
-          'Typical holding period: 3-12 months (not buy-and-hold)',
-          'Requires strict sell discipline—momentum reverses violently when it breaks',
-          'Best combined with value (buy momentum stocks that aren\'t extremely expensive)',
-        ]}
-      />
+      <KeyTakeaway>
+        <ul className="space-y-2 list-disc list-inside">
+          <li>Momentum stocks outperform by 8-12% annually vs the market (academic research)</li>
+          <li>The strategy works because human psychology creates persistent trends</li>
+          <li>Typical holding period: 3-12 months (not buy-and-hold)</li>
+          <li>Requires strict sell discipline—momentum reverses violently when it breaks</li>
+          <li>Best combined with value (buy momentum stocks that aren\</li>
+        </ul>
+      </KeyTakeaway>
 
       <section id="what-is-momentum">
         <h2>What is Momentum Investing?</h2>

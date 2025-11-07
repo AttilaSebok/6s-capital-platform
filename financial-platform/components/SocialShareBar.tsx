@@ -39,7 +39,7 @@ export default function SocialShareBar({ title, description }: SocialShareBarPro
   }
 
   return (
-    <div className="hidden xl:block fixed left-8 top-1/2 -translate-y-1/2 z-30">
+    <div className="hidden xl:block fixed left-8 top-[40%] z-30">
       <div className="flex flex-col gap-3">
         {/* Copy Link - Sharp & Wise */}
         <div className="relative">

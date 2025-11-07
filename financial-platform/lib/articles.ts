@@ -248,6 +248,57 @@ export const articles: Article[] = [
     tags: ['index-funds', 'voo', 'vti', 'sp500', 'passive-investing'],
     featured: true,
   },
+
+  // New Articles (Articles #26-30) - Investment Strategies - November 2025
+  {
+    slug: 'growth-vs-value-investing',
+    title: 'Growth Investing vs Value Investing: Which Strategy Wins?',
+    description: 'Complete comparison of growth vs value investing strategies. Learn the differences, historical returns, risk profiles, and which approach fits your investment goals best.',
+    category: 'Investment Strategies',
+    readTime: '12 min read',
+    publishDate: 'November 7, 2025',
+    tags: ['growth-investing', 'value-investing', 'investment-strategy', 'garp'],
+    featured: true,
+  },
+  {
+    slug: 'sector-rotation-strategy',
+    title: 'Sector Rotation Strategy: How to Position for Market Cycles',
+    description: 'Master sector rotation investing: Learn how to identify economic cycles and rotate into sectors that outperform at each stage. Includes actionable indicators and ETF recommendations.',
+    category: 'Investment Strategies',
+    readTime: '14 min read',
+    publishDate: 'November 7, 2025',
+    tags: ['sector-rotation', 'economic-cycles', 'sector-investing', 'etf-rotation'],
+    featured: true,
+  },
+  {
+    slug: 'buy-and-hold-forever',
+    title: 'Buy and Hold Forever: The Warren Buffett Approach',
+    description: 'Learn Warren Buffett\'s buy and hold forever strategy: how to identify wonderful businesses, when to hold through volatility, and why patience compounds wealth over decades.',
+    category: 'Investment Strategies',
+    readTime: '15 min read',
+    publishDate: 'November 7, 2025',
+    tags: ['buy-and-hold', 'warren-buffett', 'long-term-investing', 'compounding'],
+    featured: true,
+  },
+  {
+    slug: 'momentum-investing',
+    title: 'Momentum Investing: Riding the Winners Higher',
+    description: 'Learn momentum investing strategy: how to identify trending stocks, ride winners higher, and manage risk. Includes entry/exit rules, backtested performance, and practical implementation.',
+    category: 'Investment Strategies',
+    readTime: '13 min read',
+    publishDate: 'November 7, 2025',
+    tags: ['momentum', 'trend-following', 'relative-strength', 'trading-strategy'],
+  },
+  {
+    slug: 'income-investing-strategy',
+    title: 'Income Investing Strategy: Building a Passive Income Portfolio',
+    description: 'Master income investing: Learn how to build a dividend portfolio that generates reliable passive income. Includes dividend aristocrats, REITs, bonds, and yield optimization strategies.',
+    category: 'Investment Strategies',
+    readTime: '14 min read',
+    publishDate: 'November 7, 2025',
+    tags: ['income-investing', 'dividend-investing', 'passive-income', 'reits'],
+    featured: true,
+  },
 ]
 
 // Helper functions

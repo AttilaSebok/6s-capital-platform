@@ -68,7 +68,7 @@ export const articles: Article[] = [
     description: 'Learn how to use the Price-to-Earnings ratio to evaluate stocks and avoid overpaying for investments.',
     category: 'Fundamental Analysis',
     readTime: '8 min read',
-    publishDate: 'January 15, 2025',
+    publishDate: 'October 30, 2025',
     tags: ['pe-ratio', 'valuation', 'fundamentals', 'stock-analysis'],
   },
   {
@@ -77,7 +77,7 @@ export const articles: Article[] = [
     description: 'Learn the most common investing mistakes new investors make and how to avoid them before they damage your portfolio.',
     category: 'Beginner Guides',
     readTime: '10 min read',
-    publishDate: 'January 16, 2025',
+    publishDate: 'October 30, 2025',
     tags: ['mistakes', 'beginner', 'lessons', 'portfolio-management'],
   },
   {
@@ -86,7 +86,7 @@ export const articles: Article[] = [
     description: 'Learn how to construct a properly diversified investment portfolio that balances risk and reward for long-term wealth building.',
     category: 'Portfolio Strategy',
     readTime: '12 min read',
-    publishDate: 'January 17, 2025',
+    publishDate: 'October 30, 2025',
     tags: ['diversification', 'portfolio', 'asset-allocation', 'risk-management'],
   },
   {
@@ -95,7 +95,7 @@ export const articles: Article[] = [
     description: 'Compare dividend income investing vs. growth investing strategies to find which approach fits your financial goals and timeline.',
     category: 'Investment Strategies',
     readTime: '10 min read',
-    publishDate: 'January 18, 2025',
+    publishDate: 'October 30, 2025',
     tags: ['dividends', 'growth-stocks', 'strategy', 'income-investing'],
   },
   {
@@ -104,7 +104,7 @@ export const articles: Article[] = [
     description: 'Learn how dollar-cost averaging removes emotion from investing and why consistent investing beats trying to time the market.',
     category: 'Beginner Guides',
     readTime: '9 min read',
-    publishDate: 'January 19, 2025',
+    publishDate: 'October 30, 2025',
     tags: ['dca', 'dollar-cost-averaging', 'investing-strategy', 'market-timing'],
   },
   {
@@ -113,7 +113,7 @@ export const articles: Article[] = [
     description: 'Learn to read income statements, balance sheets, and cash flow statements. Master financial analysis with real examples and step-by-step guidance.',
     category: 'Fundamental Analysis',
     readTime: '12 min read',
-    publishDate: 'January 20, 2025',
+    publishDate: 'October 31, 2025',
     tags: ['financial-statements', 'income-statement', 'balance-sheet', 'cash-flow'],
   },
   {
@@ -122,7 +122,7 @@ export const articles: Article[] = [
     description: 'Detailed comparison of ETFs and mutual funds. Learn differences in fees, tax efficiency, trading, and which is better for your investment strategy.',
     category: 'Investment Strategies',
     readTime: '10 min read',
-    publishDate: 'January 21, 2025',
+    publishDate: 'October 31, 2025',
     tags: ['etf', 'mutual-funds', 'expense-ratio', 'tax-efficiency'],
   },
   {
@@ -131,7 +131,7 @@ export const articles: Article[] = [
     description: 'Complete guide to retirement accounts. Learn the differences between 401k, Traditional IRA, and Roth IRA, plus contribution limits and tax strategies.',
     category: 'Tax & Retirement',
     readTime: '11 min read',
-    publishDate: 'January 22, 2025',
+    publishDate: 'October 31, 2025',
     tags: ['401k', 'ira', 'roth-ira', 'retirement', 'tax-strategy'],
   },
   {
@@ -140,7 +140,7 @@ export const articles: Article[] = [
     description: 'Learn professional stock valuation techniques including discounted cash flow (DCF), comparable companies, and precedent transactions with real examples.',
     category: 'Fundamental Analysis',
     readTime: '13 min read',
-    publishDate: 'January 23, 2025',
+    publishDate: 'November 1, 2025',
     tags: ['valuation', 'dcf', 'comps', 'fundamental-analysis'],
   },
   {
@@ -149,7 +149,7 @@ export const articles: Article[] = [
     description: 'Master the four stages of market cycles and key economic indicators like GDP, unemployment, yield curve, and VIX to position your portfolio strategically.',
     category: 'Market Analysis',
     readTime: '11 min read',
-    publishDate: 'January 24, 2025',
+    publishDate: 'November 2, 2025',
     tags: ['market-cycles', 'economic-indicators', 'gdp', 'yield-curve', 'vix'],
   },
   {
@@ -158,7 +158,7 @@ export const articles: Article[] = [
     description: 'Learn options trading basics including calls vs puts, covered calls, cash-secured puts, and essential risk management strategies for beginners.',
     category: 'Investment Strategies',
     readTime: '12 min read',
-    publishDate: 'January 25, 2025',
+    publishDate: 'November 3, 2025',
     tags: ['options', 'calls', 'puts', 'covered-calls', 'trading'],
   },
   {
@@ -167,7 +167,7 @@ export const articles: Article[] = [
     description: 'Compare real estate and stock investments across returns, liquidity, leverage, taxes, and time commitment. Includes REITs as a hybrid option.',
     category: 'Investment Strategies',
     readTime: '10 min read',
-    publishDate: 'January 26, 2025',
+    publishDate: 'November 4, 2025',
     tags: ['real-estate', 'stocks', 'reits', 'investment-comparison'],
   },
   {
@@ -176,7 +176,7 @@ export const articles: Article[] = [
     description: 'Learn how tax-loss harvesting works, avoid wash-sale violations, and use this strategy to offset capital gains and reduce your tax bill.',
     category: 'Tax & Retirement',
     readTime: '9 min read',
-    publishDate: 'January 27, 2025',
+    publishDate: 'November 5, 2025',
     tags: ['tax-loss-harvesting', 'taxes', 'capital-gains', 'wash-sale'],
   },
   {
@@ -185,7 +185,7 @@ export const articles: Article[] = [
     description: 'Learn to analyze earnings reports like a pro. Understand EPS, revenue growth, forward guidance, and earnings call red flags with real examples.',
     category: 'Fundamental Analysis',
     readTime: '11 min read',
-    publishDate: 'January 28, 2025',
+    publishDate: 'November 5, 2025',
     tags: ['earnings-report', '10-q', 'eps', 'forward-guidance'],
   },
   {
@@ -194,7 +194,7 @@ export const articles: Article[] = [
     description: 'Learn about emerging market investing. Understand opportunities, risks, top countries, and best ETFs (VWO, IEMG) for portfolio diversification.',
     category: 'Portfolio Strategy',
     readTime: '10 min read',
-    publishDate: 'January 29, 2025',
+    publishDate: 'November 6, 2025',
     tags: ['emerging-markets', 'international', 'vwo', 'iemg', 'diversification'],
   },
 

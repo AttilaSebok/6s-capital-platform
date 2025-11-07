@@ -43,7 +43,12 @@
       "Bash(for file in etfs-vs-mutual-funds/page.tsx retirement-accounts-guide/page.tsx tax-loss-harvesting/page.tsx)",
       "Bash(do echo \"=== $file ===\")",
       "Bash(head:*)",
-      "Bash(git log:*)"
+      "Bash(git log:*)",
+      "Bash(timeout 3 echo:*)",
+      "Bash(if exist .next rmdir /s /q .next)",
+      "Bash(README.md)",
+      "Bash(python fix_toc.py:*)",
+      "Bash(python fix_keytakeaway.py:*)"
     ],
     "deny": [],
     "ask": []

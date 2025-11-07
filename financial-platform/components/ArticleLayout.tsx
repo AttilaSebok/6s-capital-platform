@@ -90,11 +90,14 @@ export default function ArticleLayout({
       <header className="bg-gradient-to-br from-slate-900 to-stone-900 border-b-2 border-bronze-600">
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-4xl mx-auto">
-            {/* Category Badge - Sharp Olive */}
+            {/* Category Badge - Sharp Olive (Clickable) */}
             <div className="mb-6">
-              <span className="inline-block bg-olive-100 text-olive-800 px-3 py-1.5 rounded-none border border-olive-300 text-xs font-bold uppercase tracking-wider">
+              <Link
+                href={`/articles?category=${encodeURIComponent(category)}`}
+                className="inline-block bg-olive-100 text-olive-800 px-3 py-1.5 rounded-none border border-olive-300 text-xs font-bold uppercase tracking-wider hover:bg-olive-200 hover:border-olive-400 transition-colors cursor-pointer"
+              >
                 {category}
-              </span>
+              </Link>
             </div>
 
             {/* Title - White on Dark */}

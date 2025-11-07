@@ -1,16 +1,27 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
+import { useSearchParams, useRouter } from 'next/navigation'
 import { getAllArticles, getCategories, type Article } from '@/lib/articles'
 
 export default function ArticlesPage() {
-  const [activeCategory, setActiveCategory] = useState('All')
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const categoryParam = searchParams.get('category') || 'All'
+
+  const [activeCategory, setActiveCategory] = useState(categoryParam)
   const [visibleCount, setVisibleCount] = useState(6)
 
   // Get articles and categories from central registry
   const articles = getAllArticles()
   const categories = getCategories()
+
+  // Sync activeCategory with URL parameter
+  useEffect(() => {
+    setActiveCategory(categoryParam)
+    setVisibleCount(6)
+  }, [categoryParam])
 
   // Filter articles based on active category
   const filteredArticles = useMemo(() => {
@@ -24,6 +35,12 @@ export default function ArticlesPage() {
   const handleCategoryChange = (cat: string) => {
     setActiveCategory(cat)
     setVisibleCount(6)
+    // Update URL
+    if (cat === 'All') {
+      router.push('/articles')
+    } else {
+      router.push(`/articles?category=${encodeURIComponent(cat)}`)
+    }
   }
 
   // Articles to display (limited by visibleCount)

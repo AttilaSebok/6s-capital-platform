@@ -15,7 +15,6 @@ export default function TradingViewWidget({
 }: TradingViewWidgetProps) {
   const container = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
-  const [scriptLoaded, setScriptLoaded] = useState(false)
 
   // Lazy loading with Intersection Observer
   useEffect(() => {
@@ -41,51 +40,23 @@ export default function TradingViewWidget({
     return () => observer.disconnect()
   }, [])
 
-  // Load TradingView script only once globally
+  // Initialize widget when visible
   useEffect(() => {
-    if (typeof window === 'undefined') return
-
-    // Check if script is already loaded
-    if (window.TradingView) {
-      setScriptLoaded(true)
-      return
-    }
-
-    // Check if script is already being loaded
-    const existingScript = document.querySelector(
-      'script[src*="tradingview.com/external-embedding"]'
-    )
-
-    if (existingScript) {
-      existingScript.addEventListener('load', () => setScriptLoaded(true))
-      return
-    }
-
-    // Load script only once
-    const script = document.createElement('script')
-    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js'
-    script.type = 'text/javascript'
-    script.async = true
-    script.onload = () => setScriptLoaded(true)
-    document.head.appendChild(script)
-  }, [])
-
-  // Initialize widget only when visible and script loaded
-  useEffect(() => {
-    if (!container.current || !isVisible || !scriptLoaded) return
-
-    const widgetContainer = container.current.querySelector('.tradingview-widget-container__widget')
-    if (!widgetContainer) return
+    if (!container.current || !isVisible) return
 
     // Clear previous content
-    widgetContainer.innerHTML = ''
+    container.current.innerHTML = ''
 
+    // Create widget container
+    const widgetDiv = document.createElement('div')
+    widgetDiv.className = 'tradingview-widget-container__widget'
+
+    // Create script element
     const script = document.createElement('script')
     script.type = 'text/javascript'
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js'
     script.async = true
-
-    // Create config object
-    const config = {
+    script.innerHTML = JSON.stringify({
       autosize: true,
       symbol: symbol,
       interval: interval,
@@ -97,19 +68,13 @@ export default function TradingViewWidget({
       allow_symbol_change: true,
       calendar: false,
       support_host: 'https://www.tradingview.com',
-    }
+    })
 
-    // Add config as text content
-    script.text = JSON.stringify(config)
+    // Append elements
+    container.current.appendChild(widgetDiv)
+    container.current.appendChild(script)
 
-    widgetContainer.appendChild(script)
-
-    return () => {
-      if (widgetContainer) {
-        widgetContainer.innerHTML = ''
-      }
-    }
-  }, [symbol, interval, theme, isVisible, scriptLoaded])
+  }, [symbol, interval, theme, isVisible])
 
   return (
     <div
@@ -122,8 +87,6 @@ export default function TradingViewWidget({
           <div className="text-stone-400 text-sm">Loading chart...</div>
         </div>
       )}
-
-      <div className="tradingview-widget-container__widget h-full"></div>
     </div>
   )
 }

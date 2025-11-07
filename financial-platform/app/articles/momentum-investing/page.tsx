@@ -29,18 +29,18 @@ export default function MomentumInvestingArticle() {
       description="'The trend is your friend'—momentum investing capitalizes on one of the most persistent anomalies in finance: stocks that have performed well recently tend to continue outperforming in the near term. This comprehensive guide explains how to identify momentum stocks, when to buy, when to sell, and how to manage the unique risks of this aggressive strategy."
     >
       <TableOfContents
-        items={[
-          { id: 'introduction', label: 'The Momentum Anomaly' },
-          { id: 'what-is-momentum', label: 'What is Momentum Investing?' },
-          { id: 'why-it-works', label: 'Why Momentum Works (Behavioral Finance)' },
-          { id: 'types-of-momentum', label: 'Types of Momentum Strategies' },
-          { id: 'identifying-momentum', label: 'How to Identify Momentum Stocks' },
-          { id: 'entry-rules', label: 'Entry Rules and Timing' },
-          { id: 'exit-rules', label: 'Exit Rules and Risk Management' },
-          { id: 'historical-performance', label: 'Historical Performance and Backtests' },
-          { id: 'risks', label: 'Risks and Drawdowns' },
-          { id: 'implementation', label: 'Practical Implementation Guide' },
-          { id: 'conclusion', label: 'Is Momentum Right for You?' },
+        headings={[
+          { id: 'introduction', text: 'The Momentum Anomaly', level: 2 },
+          { id: 'what-is-momentum', text: 'What is Momentum Investing?', level: 2 },
+          { id: 'why-it-works', text: 'Why Momentum Works (Behavioral Finance)', level: 2 },
+          { id: 'types-of-momentum', text: 'Types of Momentum Strategies', level: 2 },
+          { id: 'identifying-momentum', text: 'How to Identify Momentum Stocks', level: 2 },
+          { id: 'entry-rules', text: 'Entry Rules and Timing', level: 2 },
+          { id: 'exit-rules', text: 'Exit Rules and Risk Management', level: 2 },
+          { id: 'historical-performance', text: 'Historical Performance and Backtests', level: 2 },
+          { id: 'risks', text: 'Risks and Drawdowns', level: 2 },
+          { id: 'implementation', text: 'Practical Implementation Guide', level: 2 },
+          { id: 'conclusion', text: 'Is Momentum Right for You?', level: 2 },
         ]}
       />
 
@@ -65,7 +65,7 @@ export default function MomentumInvestingArticle() {
 
       <KeyTakeaway
         title="Key Takeaway: Winners Keep Winning (Until They Don't)"
-        items={[
+        headings={[
           'Momentum stocks outperform by 8-12% annually vs the market (academic research)',
           'The strategy works because human psychology creates persistent trends',
           'Typical holding period: 3-12 months (not buy-and-hold)',

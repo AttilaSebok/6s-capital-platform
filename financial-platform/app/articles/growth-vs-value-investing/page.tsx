@@ -29,17 +29,17 @@ export default function GrowthVsValueInvestingArticle() {
       description="One of the most fundamental debates in investing: Should you buy fast-growing companies or undervalued bargains? This comprehensive guide compares growth and value investing strategies, examining historical performance, risk profiles, and how to choose the right approach for your portfolio."
     >
       <TableOfContents
-        items={[
-          { id: 'introduction', label: 'The Great Investing Debate' },
-          { id: 'what-is-value-investing', label: 'What is Value Investing?' },
-          { id: 'what-is-growth-investing', label: 'What is Growth Investing?' },
-          { id: 'key-differences', label: 'Key Differences Explained' },
-          { id: 'historical-performance', label: 'Historical Performance Analysis' },
-          { id: 'risk-profiles', label: 'Risk and Volatility Comparison' },
-          { id: 'when-each-outperforms', label: 'When Each Strategy Wins' },
-          { id: 'garp-strategy', label: 'GARP: The Middle Ground' },
-          { id: 'which-is-right', label: 'Which Strategy is Right for You?' },
-          { id: 'conclusion', label: 'Final Verdict' },
+        headings={[
+          { id: 'introduction', text: 'The Great Investing Debate', level: 2 },
+          { id: 'what-is-value-investing', text: 'What is Value Investing?', level: 2 },
+          { id: 'what-is-growth-investing', text: 'What is Growth Investing?', level: 2 },
+          { id: 'key-differences', text: 'Key Differences Explained', level: 2 },
+          { id: 'historical-performance', text: 'Historical Performance Analysis', level: 2 },
+          { id: 'risk-profiles', text: 'Risk and Volatility Comparison', level: 2 },
+          { id: 'when-each-outperforms', text: 'When Each Strategy Wins', level: 2 },
+          { id: 'garp-strategy', text: 'GARP: The Middle Ground', level: 2 },
+          { id: 'which-is-right', text: 'Which Strategy is Right for You?', level: 2 },
+          { id: 'conclusion', text: 'Final Verdict', level: 2 },
         ]}
       />
 
@@ -64,7 +64,7 @@ export default function GrowthVsValueInvestingArticle() {
 
       <KeyTakeaway
         title="Key Takeaway: No Universal Winner"
-        items={[
+        headings={[
           'Value investing outperformed historically (1927-2020), but growth dominated 2010-2020',
           'Growth stocks excel in low-rate environments; value shines when rates rise',
           'Value typically offers lower volatility; growth offers higher potential returns',

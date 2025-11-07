@@ -29,17 +29,17 @@ export default function SectorRotationStrategyArticle() {
       description="Not all sectors perform equally at all times. Sector rotation is the strategy of shifting investments into sectors that historically outperform during specific phases of the economic cycle. This guide explains how to identify where we are in the cycle and which sectors to favor at each stage."
     >
       <TableOfContents
-        items={[
-          { id: 'introduction', label: 'Why Sector Rotation Matters' },
-          { id: 'economic-cycle', label: 'The 4 Phases of Economic Cycles' },
-          { id: 'sectors-explained', label: '11 Market Sectors Explained' },
-          { id: 'rotation-strategy', label: 'The Sector Rotation Playbook' },
-          { id: 'identifying-cycle', label: 'How to Identify Current Cycle Phase' },
-          { id: 'implementation', label: 'Implementation: ETFs vs Individual Stocks' },
-          { id: 'historical-performance', label: 'Historical Performance Data' },
-          { id: 'risks-limitations', label: 'Risks and Limitations' },
-          { id: 'practical-approach', label: 'Practical Approach for Investors' },
-          { id: 'conclusion', label: 'Putting It All Together' },
+        headings={[
+          { id: 'introduction', text: 'Why Sector Rotation Matters', level: 2 },
+          { id: 'economic-cycle', text: 'The 4 Phases of Economic Cycles', level: 2 },
+          { id: 'sectors-explained', text: '11 Market Sectors Explained', level: 2 },
+          { id: 'rotation-strategy', text: 'The Sector Rotation Playbook', level: 2 },
+          { id: 'identifying-cycle', text: 'How to Identify Current Cycle Phase', level: 2 },
+          { id: 'implementation', text: 'Implementation: ETFs vs Individual Stocks', level: 2 },
+          { id: 'historical-performance', text: 'Historical Performance Data', level: 2 },
+          { id: 'risks-limitations', text: 'Risks and Limitations', level: 2 },
+          { id: 'practical-approach', text: 'Practical Approach for Investors', level: 2 },
+          { id: 'conclusion', text: 'Putting It All Together', level: 2 },
         ]}
       />
 
@@ -64,7 +64,7 @@ export default function SectorRotationStrategyArticle() {
 
       <KeyTakeaway
         title="Key Takeaway: Sector Performance is Cyclical"
-        items={[
+        headings={[
           'Economic cycles have 4 phases: Early, Mid, Late, Recession—each favors different sectors',
           'Cyclical sectors (tech, consumer discretionary) outperform during expansions',
           'Defensive sectors (utilities, healthcare) outperform during contractions',

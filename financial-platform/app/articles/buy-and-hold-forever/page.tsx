@@ -29,18 +29,18 @@ export default function BuyAndHoldForeverArticle() {
       description="Warren Buffett's investment philosophy can be summed up in one powerful sentence: 'Our favorite holding period is forever.' This comprehensive guide explains the buy-and-hold-forever strategy, how to identify businesses worth holding permanently, and why this approach has created more wealth than any other investing method."
     >
       <TableOfContents
-        items={[
-          { id: 'introduction', label: 'The Power of Forever' },
+        headings={[
+          { id: 'introduction', text: 'The Power of Forever', level: 2 },
           { id: 'buffett-philosophy', label: 'Buffett\'s Investment Philosophy' },
-          { id: 'forever-companies', label: 'What Makes a "Forever" Company?' },
-          { id: 'moats', label: 'Economic Moats Explained' },
-          { id: 'management-quality', label: 'Management That Compounds Value' },
-          { id: 'valuation-matters', label: 'Price You Pay Still Matters' },
-          { id: 'when-to-sell', label: 'When to Break the "Forever" Rule' },
+          { id: 'forever-companies', text: 'What Makes a "Forever" Company?', level: 2 },
+          { id: 'moats', text: 'Economic Moats Explained', level: 2 },
+          { id: 'management-quality', text: 'Management That Compounds Value', level: 2 },
+          { id: 'valuation-matters', text: 'Price You Pay Still Matters', level: 2 },
+          { id: 'when-to-sell', text: 'When to Break the "Forever" Rule', level: 2 },
           { id: 'real-examples', label: 'Buffett\'s Forever Holdings' },
-          { id: 'implementation', label: 'Implementing Buy-and-Hold in Your Portfolio' },
-          { id: 'behavioral-challenges', label: 'The Hardest Part: Doing Nothing' },
-          { id: 'conclusion', label: 'Building Generational Wealth' },
+          { id: 'implementation', text: 'Implementing Buy-and-Hold in Your Portfolio', level: 2 },
+          { id: 'behavioral-challenges', text: 'The Hardest Part: Doing Nothing', level: 2 },
+          { id: 'conclusion', text: 'Building Generational Wealth', level: 2 },
         ]}
       />
 
@@ -66,7 +66,7 @@ export default function BuyAndHoldForeverArticle() {
 
       <KeyTakeaway
         title="Key Takeaway: Time in the Market Beats Timing the Market"
-        items={[
+        headings={[
           'Buffett\'s best returns came from holdings he\'s owned 20-50+ years',
           'Forever companies have durable competitive advantages (moats) that protect profits',
           'The biggest gains come from dividends compounding over decades',

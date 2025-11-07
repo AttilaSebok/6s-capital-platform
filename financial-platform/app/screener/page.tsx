@@ -216,13 +216,15 @@ export default function Screener() {
           </div>
 
           {/* Premium Upsell */}
-          <div className="mt-12 bg-gradient-to-r from-blue-600 to-blue-800 border-2 border-blue-700 rounded-none shadow-xl p-8 text-white">
+          <div className="mt-12 bg-gradient-to-br from-slate-900 to-stone-900 border-2 border-stone-700 rounded-none shadow-xl p-8 md:p-12">
             <div className="text-center">
-              <h3 className="font-crimson text-3xl font-bold mb-4">Unlock Advanced Screening</h3>
-              <p className="text-lg mb-6 text-blue-100">
+              <h3 className="font-crimson text-3xl md:text-4xl font-bold mb-4 text-white">
+                Unlock Advanced Screening
+              </h3>
+              <p className="text-lg md:text-xl mb-8 text-stone-300 max-w-2xl mx-auto">
                 Get access to 50+ screening criteria, real-time data, custom alerts, and more with Premium.
               </p>
-              <button className="px-8 py-3 bg-white border-2 border-white text-blue-700 font-bold uppercase tracking-wide rounded-none hover:bg-blue-50 transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-700">
+              <button className="px-8 py-3 bg-soft-orange border-2 border-soft-orange-dark text-deep-brown font-bold text-sm uppercase tracking-wide rounded-none hover:bg-soft-orange-dark hover:text-white transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-soft-orange focus:ring-offset-2 focus:ring-offset-slate-900">
                 Upgrade to Premium
               </button>
             </div>

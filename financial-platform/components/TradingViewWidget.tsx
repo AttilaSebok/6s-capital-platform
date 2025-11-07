@@ -83,7 +83,9 @@ export default function TradingViewWidget({
     const script = document.createElement('script')
     script.type = 'text/javascript'
     script.async = true
-    script.innerHTML = JSON.stringify({
+
+    // Create config object
+    const config = {
       autosize: true,
       symbol: symbol,
       interval: interval,
@@ -95,7 +97,10 @@ export default function TradingViewWidget({
       allow_symbol_change: true,
       calendar: false,
       support_host: 'https://www.tradingview.com',
-    })
+    }
+
+    // Add config as text content
+    script.text = JSON.stringify(config)
 
     widgetContainer.appendChild(script)
 

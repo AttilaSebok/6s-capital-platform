@@ -3,8 +3,10 @@ import TradingViewWidget from '@/components/TradingViewWidget'
 import MarketOverview from '@/components/MarketOverview'
 import NewsletterSignup from '@/components/NewsletterSignup'
 import FeaturedArticles from '@/components/FeaturedArticles'
+import { getAllArticles } from '@/lib/articles'
 
 export default function Home() {
+  const totalArticles = getAllArticles().length
   return (
     <div className="bg-stone-50">
       {/* Hero Section - Sharp & Wise */}
@@ -57,7 +59,7 @@ export default function Home() {
                 <div className="text-xs lg:text-sm text-stone-400 uppercase tracking-wider">Investors</div>
               </div>
               <div>
-                <div className="font-crimson text-3xl lg:text-4xl font-bold text-bronze-600 mb-1">100+</div>
+                <div className="font-crimson text-3xl lg:text-4xl font-bold text-bronze-600 mb-1">{totalArticles}</div>
                 <div className="text-xs lg:text-sm text-stone-400 uppercase tracking-wider">Articles</div>
               </div>
               <div>

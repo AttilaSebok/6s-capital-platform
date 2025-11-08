@@ -4,6 +4,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import { generateOrganizationSchema } from '@/lib/metadata'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -20,6 +21,48 @@ export const metadata: Metadata = {
   title: 'money365.market - Advanced Investment Analysis & Market Insights',
   description: 'Professional investment analysis, real-time market data, stock screening tools, and expert financial insights for advanced investors. Daily market intelligence at money365.market',
   keywords: 'investment analysis, stock market, trading, financial analysis, stock screener, market trends, money365, daily market insights',
+  metadataBase: new URL('https://money365.market'),
+
+  // Open Graph
+  openGraph: {
+    title: '6s Capital - Advanced Investment Analysis & Market Insights',
+    description: 'Professional investment analysis, real-time market data, stock screening tools, and expert financial insights for advanced investors.',
+    url: 'https://money365.market',
+    siteName: '6s Capital',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: '6s Capital - Investment Analysis Platform',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+
+  // Twitter Card
+  twitter: {
+    card: 'summary_large_image',
+    title: '6s Capital - Advanced Investment Analysis',
+    description: 'Professional investment analysis, real-time market data, and expert financial insights.',
+    images: ['/og-image.jpg'],
+    creator: '@6sCapital',
+    site: '@6sCapital',
+  },
+
+  // Robots
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 export default function RootLayout({
@@ -27,8 +70,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const organizationSchema = generateOrganizationSchema()
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Organization Schema.org markup */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+      </head>
       <body className={`${inter.variable} ${crimsonPro.variable} ${inter.className}`} suppressHydrationWarning>
         <GoogleAnalytics />
         <Header />

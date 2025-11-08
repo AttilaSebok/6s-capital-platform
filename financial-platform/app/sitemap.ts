@@ -1,21 +1,8 @@
 import { MetadataRoute } from 'next'
-
-// All article slugs - update this when adding new articles
-const articleSlugs = [
-  'how-to-start-investing-in-stocks',
-  'what-is-value-investing',
-  'best-dividend-stocks-2025',
-  'technical-analysis-101',
-  'sp500-vs-nasdaq',
-  'understanding-pe-ratio',
-  '5-investing-mistakes-beginners',
-  'how-to-build-diversified-portfolio',
-  'dividend-yield-vs-growth-stocks',
-  'what-is-dollar-cost-averaging',
-]
+import { getAllArticles } from '@/lib/articles'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://6s-capital-platform.vercel.app'
+  const baseUrl = 'https://money365.market'
 
   // Static pages
   const staticPages = [
@@ -63,12 +50,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // Article pages
-  const articlePages = articleSlugs.map((slug) => ({
-    url: `${baseUrl}/articles/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
+  // Dynamic article pages from registry
+  const articles = getAllArticles()
+  const articlePages = articles.map((article) => ({
+    url: `${baseUrl}/articles/${article.slug}`,
+    lastModified: new Date(article.publishDate),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
   }))
 
   return [...staticPages, ...articlePages]

@@ -2,24 +2,58 @@ import ArticleLayout from '@/components/ArticleLayout'
 import KeyTakeaway from '@/components/article/KeyTakeaway'
 import ExampleBox from '@/components/article/ExampleBox'
 import Blockquote from '@/components/article/Blockquote'
+import { generateArticleMetadata, generateArticleSchema, generateBreadcrumbSchema } from '@/lib/metadata'
 
-export const metadata = {
-  title: 'What is Compound Interest? The 8th Wonder of the World Explained | money365.market',
-  description: 'Discover how compound interest turns small investments into massive wealth. Real examples, calculators, and strategies to harness the power of compounding.',
-  keywords: 'compound interest, compounding returns, wealth building, investing basics, time value of money, exponential growth',
-}
+export const metadata = generateArticleMetadata({
+  title: 'What is Compound Interest? The 8th Wonder of the World Explained',
+  description: 'Discover how compound interest turns small investments into massive wealth. Real examples, calculators, and strategies to harness the power of compounding for long-term wealth building.',
+  slug: 'what-is-compound-interest',
+  category: 'Beginner Guides',
+  publishDate: '2025-01-01T00:00:00.000Z',
+  readTime: '9 min',
+  keywords: ['compound interest', 'compounding returns', 'wealth building', 'investing basics', 'time value of money', 'exponential growth', 'investment returns'],
+})
 
 export default function WhatIsCompoundInterestArticle() {
+  const articleSchema = generateArticleSchema({
+    title: 'What is Compound Interest? The 8th Wonder of the World Explained',
+    description: 'Discover how compound interest turns small investments into massive wealth. Real examples, calculators, and strategies to harness the power of compounding for long-term wealth building.',
+    slug: 'what-is-compound-interest',
+    publishDate: '2025-01-01T00:00:00.000Z',
+    category: 'Beginner Guides',
+  })
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: '/' },
+    { name: 'Articles', url: '/articles' },
+    { name: 'What is Compound Interest?', url: '/articles/what-is-compound-interest' },
+  ])
 
   return (
-    <ArticleLayout
-      title="What is Compound Interest? The 8th Wonder of the World Explained"
-      author="money365.market Research Team"
-      publishDate="November 2025"
-      readTime="9 min"
-      category="Beginner Guides"
-      description="Discover how compound interest turns small investments into massive wealth. Real examples, calculators, and strategies to harness the power of compounding."
-    >
+    <>
+      {/* Article Schema.org markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(articleSchema),
+        }}
+      />
+      {/* Breadcrumb Schema.org markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+
+      <ArticleLayout
+        title="What is Compound Interest? The 8th Wonder of the World Explained"
+        author="money365.market Research Team"
+        publishDate="November 2025"
+        readTime="9 min"
+        category="Beginner Guides"
+        description="Discover how compound interest turns small investments into massive wealth. Real examples, calculators, and strategies to harness the power of compounding."
+      >
 
       <section id="introduction">
         <p className="text-xl text-stone-700 leading-relaxed mb-8">
@@ -559,5 +593,6 @@ export default function WhatIsCompoundInterestArticle() {
         </KeyTakeaway>
       </section>
     </ArticleLayout>
+    </>
   )
 }

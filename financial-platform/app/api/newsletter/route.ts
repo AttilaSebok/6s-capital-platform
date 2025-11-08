@@ -66,7 +66,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: 'Welcome aboard! Confirm your email to start receiving insights.',
+      message: 'Welcome aboard! Please check your email to confirm your subscription.',
       subscriber: {
         email: mailerliteData.data.email,
         id: mailerliteData.data.id,

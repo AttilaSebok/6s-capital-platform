@@ -299,6 +299,58 @@ export const articles: Article[] = [
     tags: ['income-investing', 'dividend-investing', 'passive-income', 'reits'],
     featured: true,
   },
+
+  // New Articles (Articles #31-35) - Fundamental Analysis - November 2025
+  {
+    slug: 'quality-investing-competitive-moats',
+    title: 'Quality Investing: Finding Companies with Competitive Moats',
+    description: 'Learn how to identify companies with durable competitive advantages (moats) that can sustain high returns on capital for decades.',
+    category: 'Fundamental Analysis',
+    readTime: '14 min read',
+    publishDate: 'November 8, 2025',
+    tags: ['competitive-moat', 'quality-investing', 'warren-buffett', 'durable-competitive-advantage'],
+    featured: true,
+  },
+  {
+    slug: 'how-to-read-balance-sheet',
+    title: 'How to Read a Balance Sheet Like a Professional Analyst',
+    description: 'Master balance sheet analysis to evaluate company financial health. Learn assets, liabilities, equity, and key ratios with real examples.',
+    category: 'Fundamental Analysis',
+    readTime: '16 min read',
+    publishDate: 'November 8, 2025',
+    tags: ['balance-sheet', 'financial-statement-analysis', 'assets-liabilities-equity', 'fundamental-analysis'],
+    featured: true,
+  },
+  {
+    slug: 'cash-flow-analysis-guide',
+    title: 'Cash Flow Analysis: Why Cash is King in Investing',
+    description: 'Learn why cash flow matters more than profit. Master operating cash flow, free cash flow, and the cash flow statement to identify quality investments.',
+    category: 'Fundamental Analysis',
+    readTime: '14 min read',
+    publishDate: 'November 8, 2025',
+    tags: ['cash-flow-analysis', 'operating-cash-flow', 'free-cash-flow', 'fcf-investing'],
+    featured: true,
+  },
+  {
+    slug: 'debt-to-equity-ratio-guide',
+    title: 'Debt-to-Equity Ratio: Measuring Financial Leverage and Risk',
+    description: 'Learn how to use the debt-to-equity ratio to assess company financial health, compare leverage across industries, and identify investment risks.',
+    category: 'Fundamental Analysis',
+    readTime: '12 min read',
+    publishDate: 'November 8, 2025',
+    tags: ['debt-to-equity-ratio', 'financial-leverage', 'debt-analysis', 'capital-structure'],
+    featured: true,
+  },
+  {
+    slug: 'return-on-equity-roe-guide',
+    title: 'Return on Equity (ROE): Measuring Management Effectiveness',
+    description: 'Learn how to use Return on Equity (ROE) to evaluate management performance, profitability, and company quality. Includes DuPont Analysis and real-world examples.',
+    category: 'Fundamental Analysis',
+    readTime: '15 min read',
+    publishDate: 'November 8, 2025',
+    tags: ['return-on-equity', 'roe', 'dupont-analysis', 'profitability-ratio'],
+    featured: true,
+  },
 ]
 
 // Helper functions

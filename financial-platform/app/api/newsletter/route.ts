@@ -37,7 +37,7 @@ export async function POST(request: Request) {
             name: name || '',
           },
           groups: [process.env.MAILERLITE_GROUP_ID],
-          status: 'active', // or 'unconfirmed' for double opt-in
+          status: 'unconfirmed', // Double opt-in for professional audience
         }),
       }
     )

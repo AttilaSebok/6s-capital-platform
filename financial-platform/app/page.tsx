@@ -225,45 +225,6 @@ export default function Home() {
           <NewsletterSignup />
         </div>
       </section>
-
-      {/* CTA Section for Brokers (Affiliate) - Sharp & Wise */}
-      <section className="py-16 lg:py-20 bg-stone-50">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-stone-700 bg-opacity-50 border-l-4 border-bronze-600 rounded-none p-8 lg:p-12 shadow-xl text-center">
-              <h2 className="font-crimson text-3xl md:text-4xl font-bold text-white mb-4">
-                Ready to Start Investing?
-              </h2>
-              <p className="text-lg md:text-xl text-stone-300 mb-8 leading-relaxed">
-                Open an account with our recommended brokers and get started today.
-              </p>
-              <div className="flex gap-4 justify-center flex-wrap mb-6">
-                <a
-                  href="#"
-                  className="px-6 lg:px-8 py-3 lg:py-4 bg-bronze-600 border-2 border-bronze-700 text-deep-brown font-bold text-sm lg:text-base uppercase tracking-wide rounded-none shadow-xl transition-all duration-200 hover:bg-bronze-700 hover:text-white hover:shadow-2xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 focus:ring-offset-stone-700"
-                  rel="nofollow sponsored"
-                >
-                  Interactive Brokers - $0 Commissions
-                </a>
-                <a
-                  href="#"
-                  className="px-6 lg:px-8 py-3 lg:py-4 bg-transparent border-2 border-bronze-600 text-bronze-600 font-bold text-sm lg:text-base uppercase tracking-wide rounded-none shadow-xl transition-all duration-200 hover:bg-bronze-600 hover:text-deep-brown hover:shadow-2xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 focus:ring-offset-stone-700"
-                  rel="nofollow sponsored"
-                >
-                  Compare Brokers
-                </a>
-              </div>
-              <div className="bg-olive-800 bg-opacity-40 border-l-4 border-bronze-600 rounded-none px-6 py-4 inline-block">
-                <p className="text-xs text-stone-300 flex items-center gap-2">
-                  <span className="inline-block w-1.5 h-1.5 bg-bronze-600 rounded-none"></span>
-                  We may receive compensation if you open an account through our links.
-                  <span className="inline-block w-1.5 h-1.5 bg-bronze-600 rounded-none"></span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   )
 }

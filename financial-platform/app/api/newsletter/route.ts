@@ -12,39 +12,43 @@ export async function POST(request: Request) {
       )
     }
 
-    // Check if ConvertKit credentials are configured
-    if (!process.env.CONVERTKIT_API_SECRET || !process.env.CONVERTKIT_FORM_ID) {
-      console.error('ConvertKit credentials not configured')
+    // Check if MailerLite credentials are configured
+    if (!process.env.MAILERLITE_API_KEY || !process.env.MAILERLITE_GROUP_ID) {
+      console.error('MailerLite credentials not configured')
       return NextResponse.json(
         { error: 'Newsletter service not configured' },
         { status: 500 }
       )
     }
 
-    // Subscribe to ConvertKit
-    const convertkitResponse = await fetch(
-      `https://api.convertkit.com/v3/forms/${process.env.CONVERTKIT_FORM_ID}/subscribe`,
+    // Subscribe to MailerLite
+    const mailerliteResponse = await fetch(
+      'https://connect.mailerlite.com/api/subscribers',
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.MAILERLITE_API_KEY}`,
+          'Accept': 'application/json',
         },
         body: JSON.stringify({
-          api_secret: process.env.CONVERTKIT_API_SECRET,
           email: email,
-          first_name: name || '',
-          tags: ['money365.market'], // Optional: tag for segmentation
+          fields: {
+            name: name || '',
+          },
+          groups: [process.env.MAILERLITE_GROUP_ID],
+          status: 'active', // or 'unconfirmed' for double opt-in
         }),
       }
     )
 
-    const convertkitData = await convertkitResponse.json()
+    const mailerliteData = await mailerliteResponse.json()
 
-    if (!convertkitResponse.ok) {
-      console.error('ConvertKit API error:', convertkitData)
+    if (!mailerliteResponse.ok) {
+      console.error('MailerLite API error:', mailerliteData)
 
       // Check for specific error messages
-      if (convertkitData.message && convertkitData.message.includes('already subscribed')) {
+      if (mailerliteData.message && mailerliteData.message.includes('already exists')) {
         return NextResponse.json(
           { error: 'This email is already subscribed to our newsletter' },
           { status: 409 }
@@ -62,10 +66,10 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: 'Successfully subscribed! Check your email for confirmation.',
+      message: 'Welcome aboard! Confirm your email to start receiving insights.',
       subscriber: {
-        email: convertkitData.subscription.subscriber.email,
-        id: convertkitData.subscription.subscriber.id,
+        email: mailerliteData.data.email,
+        id: mailerliteData.data.id,
       },
     })
   } catch (error) {
@@ -80,23 +84,34 @@ export async function POST(request: Request) {
 /*
  * Email Service Integration Guide:
  *
+ * MailerLite (CURRENT - Free up to 1,000 subscribers):
+ *    - Sign up: https://www.mailerlite.com/
+ *    - Get API key: Settings → Integrations → MailerLite API → Generate new token
+ *    - Create group: Subscribers → Groups → Create new group
+ *    - Get Group ID from the URL or API
+ *    - Add to .env.local:
+ *      MAILERLITE_API_KEY=your_api_key
+ *      MAILERLITE_GROUP_ID=your_group_id
+ *
+ * Features:
+ *    - 1,000 subscribers FREE forever
+ *    - 12,000 emails/month FREE
+ *    - Drag & drop editor
+ *    - Landing pages
+ *    - Automation
+ *    - No credit card required
+ *
+ * Other alternatives:
+ *
  * 1. Mailchimp (Free up to 500 subscribers):
  *    - npm install @mailchimp/mailchimp_marketing
- *    - Get API key: https://mailchimp.com/help/about-api-keys/
- *    - Add to .env.local:
- *      MAILCHIMP_API_KEY=your_key
- *      MAILCHIMP_SERVER_PREFIX=us1 (or your server)
- *      MAILCHIMP_LIST_ID=your_list_id
+ *    - More limited free tier
  *
- * 2. ConvertKit (Free up to 1,000 subscribers):
- *    - Get API key: https://app.convertkit.com/account/edit
- *    - Add to .env.local:
- *      CONVERTKIT_API_KEY=your_key
- *      CONVERTKIT_FORM_ID=your_form_id
+ * 2. Brevo/Sendinblue (Free 300 emails/day):
+ *    - Good alternative
+ *    - Unlimited contacts
  *
  * 3. SendGrid (Free 100 emails/day):
  *    - npm install @sendgrid/mail
- *    - Get API key: https://app.sendgrid.com/settings/api_keys
- *    - Add to .env.local:
- *      SENDGRID_API_KEY=your_key
+ *    - More for transactional emails
  */

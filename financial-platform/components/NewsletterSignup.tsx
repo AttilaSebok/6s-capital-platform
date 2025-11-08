@@ -41,7 +41,7 @@ export default function NewsletterSignup() {
       trackNewsletterSignup('homepage')
 
       setStatus('success')
-      setMessage(data.message || 'Successfully subscribed! Check your email for confirmation.')
+      setMessage(data.message || 'Welcome aboard! Confirm your email to start receiving insights.')
       setEmail('')
     } catch (error) {
       setStatus('error')

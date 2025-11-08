@@ -15,7 +15,7 @@ export default function ReturnOnEquityROEGuideArticle() {
       title="Return on Equity (ROE): Measuring Management Effectiveness"
       description="Learn how to use Return on Equity (ROE) to evaluate management performance, profitability, and company quality. Includes DuPont Analysis and real-world examples."
       category="Fundamental Analysis"
-      publishDate="2025-01-08"
+      publishDate="2025-11-08"
       readTime="15 min read"
       author="6s Capital Team"
     >

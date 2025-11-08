@@ -15,7 +15,7 @@ export default function QualityInvestingCompetitiveMoatsArticle() {
       title="Quality Investing: Finding Companies with Competitive Moats"
       description="Learn how to identify companies with durable competitive advantages (moats) that can sustain high returns on capital for decades."
       category="Fundamental Analysis"
-      publishDate="2025-01-08"
+      publishDate="2025-11-08"
       readTime="14 min read"
       author="6s Capital Team"
     >

@@ -15,7 +15,7 @@ export default function HowToReadBalanceSheetArticle() {
       title="How to Read a Balance Sheet Like a Professional Analyst"
       description="Master balance sheet analysis to evaluate company financial health. Learn assets, liabilities, equity, and key ratios with real examples."
       category="Fundamental Analysis"
-      publishDate="2025-01-08"
+      publishDate="2025-11-08"
       readTime="16 min read"
       author="6s Capital Team"
     >

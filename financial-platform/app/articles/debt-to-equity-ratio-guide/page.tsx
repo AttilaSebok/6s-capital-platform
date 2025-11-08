@@ -13,8 +13,9 @@ export default function DebtToEquityRatioGuideArticle() {
   return (
     <ArticleLayout
       title="Debt-to-Equity Ratio: Measuring Financial Leverage and Risk"
+      description="Learn how to use the debt-to-equity ratio to assess company financial health, compare leverage across industries, and identify investment risks."
       category="Fundamental Analysis"
-      date="2025-01-08"
+      publishDate="2025-01-08"
       readTime="12 min read"
       author="6s Capital Team"
     >

@@ -13,8 +13,9 @@ export default function CashFlowAnalysisGuideArticle() {
   return (
     <ArticleLayout
       title="Cash Flow Analysis: Why Cash is King in Investing"
+      description="Learn why cash flow matters more than profit. Master operating cash flow, free cash flow, and the cash flow statement to identify quality investments."
       category="Fundamental Analysis"
-      date="2025-01-08"
+      publishDate="2025-01-08"
       readTime="14 min read"
       author="6s Capital Team"
     >

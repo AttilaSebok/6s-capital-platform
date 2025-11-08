@@ -25,16 +25,16 @@ export const metadata: Metadata = {
 
   // Open Graph
   openGraph: {
-    title: '6s Capital - Advanced Investment Analysis & Market Insights',
+    title: 'money365.market - Advanced Investment Analysis & Market Insights',
     description: 'Professional investment analysis, real-time market data, stock screening tools, and expert financial insights for advanced investors.',
     url: 'https://money365.market',
-    siteName: '6s Capital',
+    siteName: 'money365.market',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: '6s Capital - Investment Analysis Platform',
+        alt: 'money365.market - Investment Analysis Platform',
       },
     ],
     locale: 'en_US',
@@ -44,11 +44,11 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: 'summary_large_image',
-    title: '6s Capital - Advanced Investment Analysis',
+    title: 'money365.market - Advanced Investment Analysis',
     description: 'Professional investment analysis, real-time market data, and expert financial insights.',
     images: ['/og-image.jpg'],
-    creator: '@6sCapital',
-    site: '@6sCapital',
+    creator: '@money365market',
+    site: '@money365market',
   },
 
   // Robots

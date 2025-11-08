@@ -14,9 +14,9 @@ interface PageMetadata {
 }
 
 const SITE_URL = 'https://money365.market'
-const SITE_NAME = '6s Capital'
-const DEFAULT_IMAGE = '/og-image.jpg' // We'll need to create this
-const TWITTER_HANDLE = '@6sCapital' // Update with actual handle
+const SITE_NAME = 'money365.market'
+const DEFAULT_IMAGE = '/og-image.jpg'
+const TWITTER_HANDLE = '@money365market'
 
 export function generateSEOMetadata({
   title,
@@ -26,11 +26,11 @@ export function generateSEOMetadata({
   type = 'website',
   publishedTime,
   modifiedTime,
-  author = '6s Capital Team',
+  author = 'money365.market Research Team',
   category,
   keywords = [],
 }: PageMetadata): Metadata {
-  const fullTitle = title.includes('6s Capital') ? title : `${title} | ${SITE_NAME}`
+  const fullTitle = title.includes('money365.market') ? title : `${title} | ${SITE_NAME}`
   const url = `${SITE_URL}${path}`
   const imageUrl = image.startsWith('http') ? image : `${SITE_URL}${image}`
 
@@ -148,8 +148,8 @@ export function generateOrganizationSchema() {
     logo: `${SITE_URL}/logo.png`,
     description: 'Professional investment analysis platform providing real-time market data, stock screening tools, and expert financial insights.',
     sameAs: [
-      'https://twitter.com/6sCapital',
-      'https://linkedin.com/company/6s-capital',
+      'https://twitter.com/money365market',
+      'https://linkedin.com/company/money365market',
     ],
     contactPoint: {
       '@type': 'ContactPoint',
@@ -165,7 +165,7 @@ export function generateArticleSchema({
   slug,
   publishDate,
   modifiedDate,
-  author = '6s Capital Team',
+  author = 'money365.market Research Team',
   category,
   image = DEFAULT_IMAGE,
 }: {

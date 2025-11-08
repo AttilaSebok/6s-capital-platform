@@ -1,4 +1,4 @@
-# robots.txt for money365.market (6s Capital)
+# robots.txt for money365.market
 
 # Allow all crawlers
 User-agent: *

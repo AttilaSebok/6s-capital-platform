@@ -18,7 +18,7 @@ export const event = (action: string, params?: Record<string, any>) => {
   }
 }
 
-// Custom events for 6s Capital
+// Custom events for money365.market
 export const trackNewsletterSignup = (location: string) => {
   event('newsletter_signup', {
     event_category: 'engagement',

@@ -2,8 +2,9 @@ import { NextResponse } from 'next/server'
 
 export async function POST(request: Request) {
   try {
-    const { email } = await request.json()
+    const { email, name } = await request.json()
 
+    // Validate email
     if (!email || !email.includes('@')) {
       return NextResponse.json(
         { error: 'Invalid email address' },
@@ -11,67 +12,66 @@ export async function POST(request: Request) {
       )
     }
 
-    // TODO: Integrate with your email service provider
+    // Check if ConvertKit credentials are configured
+    if (!process.env.CONVERTKIT_API_SECRET || !process.env.CONVERTKIT_FORM_ID) {
+      console.error('ConvertKit credentials not configured')
+      return NextResponse.json(
+        { error: 'Newsletter service not configured' },
+        { status: 500 }
+      )
+    }
 
-    /*
-     * Option 1: Mailchimp
-     *
-     * const mailchimp = require('@mailchimp/mailchimp_marketing')
-     * mailchimp.setConfig({
-     *   apiKey: process.env.MAILCHIMP_API_KEY,
-     *   server: process.env.MAILCHIMP_SERVER_PREFIX,
-     * })
-     *
-     * const response = await mailchimp.lists.addListMember(
-     *   process.env.MAILCHIMP_LIST_ID,
-     *   {
-     *     email_address: email,
-     *     status: 'subscribed',
-     *   }
-     * )
-     */
+    // Subscribe to ConvertKit
+    const convertkitResponse = await fetch(
+      `https://api.convertkit.com/v3/forms/${process.env.CONVERTKIT_FORM_ID}/subscribe`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          api_secret: process.env.CONVERTKIT_API_SECRET,
+          email: email,
+          first_name: name || '',
+          tags: ['money365.market'], // Optional: tag for segmentation
+        }),
+      }
+    )
 
-    /*
-     * Option 2: ConvertKit
-     *
-     * const response = await fetch(
-     *   `https://api.convertkit.com/v3/forms/${process.env.CONVERTKIT_FORM_ID}/subscribe`,
-     *   {
-     *     method: 'POST',
-     *     headers: { 'Content-Type': 'application/json' },
-     *     body: JSON.stringify({
-     *       api_key: process.env.CONVERTKIT_API_KEY,
-     *       email: email,
-     *     }),
-     *   }
-     * )
-     */
+    const convertkitData = await convertkitResponse.json()
 
-    /*
-     * Option 3: SendGrid (for custom emails)
-     *
-     * const sgMail = require('@sendgrid/mail')
-     * sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-     *
-     * await sgMail.send({
-     *   to: email,
-     *   from: 'newsletter@money365.market',
-     *   subject: 'Welcome to money365.market Newsletter',
-     *   html: '<p>Thank you for subscribing!</p>',
-     * })
-     */
+    if (!convertkitResponse.ok) {
+      console.error('ConvertKit API error:', convertkitData)
 
-    // For now, just log it (in production, save to database or email service)
+      // Check for specific error messages
+      if (convertkitData.message && convertkitData.message.includes('already subscribed')) {
+        return NextResponse.json(
+          { error: 'This email is already subscribed to our newsletter' },
+          { status: 409 }
+        )
+      }
+
+      return NextResponse.json(
+        { error: 'Failed to subscribe to newsletter' },
+        { status: 500 }
+      )
+    }
+
+    // Log successful subscription
     console.log(`New subscriber: ${email}`)
 
     return NextResponse.json({
       success: true,
-      message: 'Successfully subscribed!',
+      message: 'Successfully subscribed! Check your email for confirmation.',
+      subscriber: {
+        email: convertkitData.subscription.subscriber.email,
+        id: convertkitData.subscription.subscriber.id,
+      },
     })
   } catch (error) {
     console.error('Newsletter subscription error:', error)
     return NextResponse.json(
-      { error: 'Failed to subscribe' },
+      { error: 'An unexpected error occurred. Please try again.' },
       { status: 500 }
     )
   }

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { trackNewsletterSignup } from '@/lib/analytics'
 
 export default function NewsletterSignup() {
   const [email, setEmail] = useState('')
@@ -10,18 +11,41 @@ export default function NewsletterSignup() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('loading')
+    setMessage('')
 
     try {
-      // TODO: Integrate with your email service (Mailchimp, SendGrid, ConvertKit, etc.)
-      // For now, we'll simulate an API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          name: '', // Optional: add name field if needed
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        // Handle specific error cases
+        if (response.status === 409) {
+          setStatus('error')
+          setMessage('This email is already subscribed to our newsletter.')
+          return
+        }
+        throw new Error(data.error || 'Failed to subscribe')
+      }
+
+      // Track successful signup with GA4
+      trackNewsletterSignup('homepage')
 
       setStatus('success')
-      setMessage('Thank you! Check your email to confirm your subscription.')
+      setMessage(data.message || 'Successfully subscribed! Check your email for confirmation.')
       setEmail('')
     } catch (error) {
       setStatus('error')
-      setMessage('Something went wrong. Please try again.')
+      setMessage(error instanceof Error ? error.message : 'Something went wrong. Please try again.')
     }
   }
 

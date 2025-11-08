@@ -385,3 +385,14 @@ export function getCategories(): string[] {
   const uniqueCategories = Array.from(new Set(articles.map(a => a.category))).sort()
   return ['All', ...uniqueCategories]
 }
+
+export function getLatestArticle(): Article {
+  return articles[articles.length - 1]
+}
+
+export function isNewArticle(publishDate: string): boolean {
+  const articleDate = new Date(publishDate)
+  const now = new Date()
+  const daysDiff = Math.floor((now.getTime() - articleDate.getTime()) / (1000 * 60 * 60 * 24))
+  return daysDiff <= 7
+}

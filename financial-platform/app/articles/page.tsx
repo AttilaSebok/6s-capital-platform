@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useState, useMemo, useEffect, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
-import { getAllArticles, getCategories, type Article } from '@/lib/articles'
+import { getAllArticles, getCategories, isNewArticle, type Article } from '@/lib/articles'
 
 function ArticlesContent() {
   const searchParams = useSearchParams()
@@ -116,15 +116,28 @@ function ArticlesContent() {
                   hover:border-bronze-600 hover:shadow-xl
                   focus-within:ring-2 focus-within:ring-bronze-600
                 ">
-                  {/* Category Badge - Sharp */}
-                  <span className="
-                    inline-block px-3 py-1 mb-3 self-start
-                    text-xs font-bold uppercase tracking-wider
-                    bg-olive-100 text-olive-800
-                    border border-olive-300
-                  ">
-                    {article.category}
-                  </span>
+                  {/* Category Badge and NEW Badge - Sharp */}
+                  <div className="flex items-center gap-2 mb-3 flex-wrap">
+                    <span className="
+                      inline-block px-3 py-1
+                      text-xs font-bold uppercase tracking-wider
+                      bg-olive-100 text-olive-800
+                      border border-olive-300
+                    ">
+                      {article.category}
+                    </span>
+                    {isNewArticle(article.publishDate) && (
+                      <span className="
+                        inline-flex items-center px-2 py-1
+                        text-xs font-bold uppercase tracking-wider
+                        bg-soft-orange text-deep-brown
+                        border-2 border-soft-orange-dark
+                        animate-pulse
+                      ">
+                        NEW
+                      </span>
+                    )}
+                  </div>
 
                   {/* Title - Bold Crimson */}
                   <h2 className="

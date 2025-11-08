@@ -3,10 +3,11 @@ import TradingViewWidget from '@/components/TradingViewWidget'
 import MarketOverview from '@/components/MarketOverview'
 import NewsletterSignup from '@/components/NewsletterSignup'
 import FeaturedArticles from '@/components/FeaturedArticles'
-import { getAllArticles } from '@/lib/articles'
+import { getAllArticles, getLatestArticle } from '@/lib/articles'
 
 export default function Home() {
   const totalArticles = getAllArticles().length
+  const latestArticle = getLatestArticle()
   return (
     <div className="bg-stone-50">
       {/* Hero Section - Sharp & Wise */}
@@ -67,6 +68,34 @@ export default function Home() {
                 <div className="text-xs lg:text-sm text-stone-400 uppercase tracking-wider">Market Data</div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Article Banner */}
+      <section className="bg-soft-orange border-b-2 border-soft-orange-dark py-4">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-4 max-w-5xl mx-auto">
+            <div className="flex items-center gap-3">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                <span className="inline-block px-3 py-1 bg-gradient-to-br from-slate-900 to-stone-900 text-soft-orange text-xs font-bold uppercase tracking-wider border-2 border-stone-700">Latest Article:</span>
+                <Link
+                  href={`/articles/${latestArticle.slug}`}
+                  className="text-sm md:text-base font-bold text-slate-900 transition-colors duration-200 line-clamp-1"
+                >
+                  {latestArticle.title}
+                </Link>
+              </div>
+            </div>
+            <Link
+              href={`/articles/${latestArticle.slug}`}
+              className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-br from-slate-900 to-stone-900 border-2 border-stone-700 text-soft-orange font-bold text-xs uppercase tracking-wide hover:bg-stone-800 hover:text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-stone-700 whitespace-nowrap"
+            >
+              Read Now
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>

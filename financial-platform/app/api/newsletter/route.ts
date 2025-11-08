@@ -55,8 +55,8 @@ export async function POST(request: Request) {
      *
      * await sgMail.send({
      *   to: email,
-     *   from: 'newsletter@6scapital.com',
-     *   subject: 'Welcome to 6S Capital Newsletter',
+     *   from: 'newsletter@money365.market',
+     *   subject: 'Welcome to money365.market Newsletter',
      *   html: '<p>Thank you for subscribing!</p>',
      * })
      */

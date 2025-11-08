@@ -154,7 +154,7 @@ export function generateOrganizationSchema() {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Service',
-      email: 'contact@money365.market',
+      email: 'office@money365.market',
     },
   }
 }

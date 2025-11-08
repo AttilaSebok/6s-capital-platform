@@ -55,7 +55,7 @@ export default function Home() {
                 <div className="text-xs lg:text-sm text-stone-400 uppercase tracking-wider">Days Analysis</div>
               </div>
               <div>
-                <div className="font-crimson text-3xl lg:text-4xl font-bold text-bronze-600 mb-1">50K+</div>
+                <div className="font-crimson text-3xl lg:text-4xl font-bold text-bronze-600 mb-1">1000+</div>
                 <div className="text-xs lg:text-sm text-stone-400 uppercase tracking-wider">Investors</div>
               </div>
               <div>

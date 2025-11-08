@@ -351,6 +351,16 @@ export const articles: Article[] = [
     tags: ['return-on-equity', 'roe', 'dupont-analysis', 'profitability-ratio'],
     featured: true,
   },
+  {
+    slug: 'free-cash-flow-guide',
+    title: 'Free Cash Flow: The Most Important Metric You\'re Ignoring',
+    description: 'Learn why Free Cash Flow is Warren Buffett\'s favorite metric and how to use FCF to identify high-quality businesses with pricing power and competitive moats.',
+    category: 'Fundamental Analysis',
+    readTime: '16 min read',
+    publishDate: 'November 8, 2025',
+    tags: ['free-cash-flow', 'fcf', 'cash-flow-investing', 'warren-buffett', 'owner-earnings'],
+    featured: true,
+  },
 ]
 
 // Helper functions

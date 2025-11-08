@@ -457,7 +457,7 @@ export default function CashFlowAnalysisGuideArticle() {
         As Warren Buffett said: <em>"In business, I look for economic castles protected by unbreachable moats"</em>—and those castles are built on cash flow, not accounting profits.
       </p>
 
-      <KeyTakeaway title="Action Steps">
+      <KeyTakeaway>
         <ol className="list-decimal pl-6 space-y-2">
           <li>Pull the cash flow statements for 3 companies you own or want to buy</li>
           <li>Calculate their Free Cash Flow (OCF - CapEx) for the last 5 years</li>

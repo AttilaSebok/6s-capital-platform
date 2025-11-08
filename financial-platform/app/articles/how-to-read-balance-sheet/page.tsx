@@ -561,7 +561,7 @@ export default function HowToReadBalanceSheetArticle() {
         Remember: The balance sheet works best when analyzed alongside the income statement and cash flow statement. Together, these three statements give you a complete picture of a company's financial health.
       </p>
 
-      <KeyTakeaway title="Action Steps">
+      <KeyTakeaway>
         <ol className="list-decimal pl-6 space-y-2">
           <li>Pick 3 companies you own (or want to buy) and pull their latest 10-K reports</li>
           <li>Calculate their current ratio, quick ratio, and debt-to-equity ratio</li>

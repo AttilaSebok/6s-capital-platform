@@ -361,7 +361,7 @@ export default function QualityInvestingCompetitiveMoatsArticle() {
         The key is patience: moats take years to build and years to erode. If you identify a strong moat early and buy at a reasonable price, time becomes your greatest ally.
       </p>
 
-      <KeyTakeaway title="Action Steps">
+      <KeyTakeaway>
         <ol className="list-decimal pl-6 space-y-2">
           <li>Review your current portfolio: Do your stocks have identifiable moats?</li>
           <li>Screen for quality: Find 10 companies with ROE &gt; 15% sustained for 10+ years</li>

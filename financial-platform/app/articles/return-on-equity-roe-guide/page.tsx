@@ -19,7 +19,7 @@ export default function ReturnOnEquityROEGuideArticle() {
       readTime="15 min read"
       author="6s Capital Team"
     >
-      <KeyTakeaway title="What You'll Learn">
+      <KeyTakeaway>
         <ul className="list-disc pl-6 space-y-2">
           <li>Understanding what Return on Equity (ROE) measures and why it matters</li>
           <li>How to calculate ROE from financial statements</li>

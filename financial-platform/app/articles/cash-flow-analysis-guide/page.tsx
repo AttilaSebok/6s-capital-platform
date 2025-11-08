@@ -19,7 +19,7 @@ export default function CashFlowAnalysisGuideArticle() {
       readTime="14 min read"
       author="6s Capital Team"
     >
-      <KeyTakeaway title="What You'll Learn">
+      <KeyTakeaway>
         <ul className="list-disc pl-6 space-y-2">
           <li>Why cash flow is more important than accounting profit for investors</li>
           <li>The three sections of the cash flow statement: Operating, Investing, Financing</li>

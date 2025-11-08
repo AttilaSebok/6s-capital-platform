@@ -19,7 +19,7 @@ export default function QualityInvestingCompetitiveMoatsArticle() {
       readTime="14 min read"
       author="6s Capital Team"
     >
-      <KeyTakeaway title="What You'll Learn">
+      <KeyTakeaway>
         <ul className="list-disc pl-6 space-y-2">
           <li>Understanding economic moats and why they matter for long-term investing</li>
           <li>The 5 types of competitive moats: brand, network effects, cost advantages, switching costs, and intangible assets</li>

@@ -19,7 +19,7 @@ export default function HowToReadBalanceSheetArticle() {
       readTime="16 min read"
       author="6s Capital Team"
     >
-      <KeyTakeaway title="What You'll Learn">
+      <KeyTakeaway>
         <ul className="list-disc pl-6 space-y-2">
           <li>The balance sheet equation: Assets = Liabilities + Shareholders' Equity</li>
           <li>How to analyze current assets, non-current assets, and intangible assets</li>

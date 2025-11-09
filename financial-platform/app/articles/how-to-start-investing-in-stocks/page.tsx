@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import ArticleLayout from '@/components/ArticleLayout'
 
 export const metadata: Metadata = {
@@ -34,7 +35,7 @@ export default function Article() {
       <h3>The Power of Compound Interest</h3>
 
       <p>
-        Albert Einstein allegedly called compound interest "the eighth wonder of the world." Here's why: when you invest, you earn returns not just on your initial investment, but on your accumulated returns as well.
+        Albert Einstein allegedly called compound interest "the eighth wonder of the world." Here's why: when you invest, you earn returns not just on your initial investment, but on your accumulated returns as well. (Learn more about <Link href="/articles/what-is-compound-interest" className="text-soft-orange hover:underline">how compound interest works</Link>)
       </p>
 
       <p>
@@ -105,7 +106,7 @@ export default function Article() {
       <h2>Step 3: Choose the Right Brokerage Account</h2>
 
       <p>
-        A brokerage account is where you'll buy and sell stocks. Think of it like a bank account, but for investments.
+        A brokerage account is where you'll buy and sell stocks. Think of it like a bank account, but for investments. (See our <Link href="/articles/how-to-open-brokerage-account" className="text-soft-orange hover:underline">step-by-step guide to opening a brokerage account</Link>)
       </p>
 
       <h3>Types of Brokerage Accounts</h3>
@@ -159,7 +160,7 @@ export default function Article() {
       <h2>Step 4: Decide How Much to Invest</h2>
 
       <p>
-        There's no magic number—it depends on your income, expenses, and goals. However, here are some guidelines:
+        There's no magic number—it depends on your income, expenses, and goals. However, here are some guidelines: (Read our detailed guide: <Link href="/articles/how-much-money-to-start-investing" className="text-soft-orange hover:underline">How Much Money Do You Need to Start Investing?</Link>)
       </p>
 
       <h3>The 50/30/20 Rule</h3>
@@ -199,6 +200,10 @@ export default function Article() {
         <li><strong>Simplicity</strong>: No need to research individual companies</li>
       </ul>
 
+      <p>
+        Want to learn more? Read our complete guide: <Link href="/articles/index-funds-explained" className="text-soft-orange hover:underline">Index Funds Explained: The Simplest Path to Wealth</Link>
+      </p>
+
       <h3>Recommended Index Funds for Beginners</h3>
 
       <p><strong>Total U.S. Stock Market Index</strong></p>
@@ -235,7 +240,7 @@ export default function Article() {
       </ul>
 
       <p>
-        Adjust the percentages based on your age and risk tolerance. Younger investors might do 90% stocks / 10% bonds, while those closer to retirement might prefer 60% stocks / 40% bonds.
+        Adjust the percentages based on your age and risk tolerance. Younger investors might do 90% stocks / 10% bonds, while those closer to retirement might prefer 60% stocks / 40% bonds. (Learn more in our guide: <Link href="/articles/asset-allocation-101" className="text-soft-orange hover:underline">Asset Allocation 101</Link>)
       </p>
 
       <h2>Step 6: Make Your First Investment</h2>
@@ -286,6 +291,10 @@ export default function Article() {
           <strong>Paying high fees</strong>: Every 1% in fees can cost hundreds of thousands over a lifetime
         </li>
       </ul>
+
+      <p>
+        Learn from others' experiences: <Link href="/articles/5-investing-mistakes-beginners" className="text-soft-orange hover:underline">5 Investing Mistakes That Cost Beginners Thousands</Link>
+      </p>
 
       <h3>Set It and (Mostly) Forget It</h3>
 
@@ -339,6 +348,51 @@ export default function Article() {
       <p>
         Welcome to your investment journey. Your future self will thank you.
       </p>
+
+      <hr />
+
+      <div className="bg-stone-50 border-l-4 border-soft-orange p-6 my-8">
+        <h3 className="text-xl font-bold mb-4 text-gray-900">Continue Your Learning Journey</h3>
+        <p className="text-gray-700 mb-4">Ready to dive deeper? These articles will help you build on what you've learned:</p>
+        <ul className="space-y-3">
+          <li>
+            <Link href="/articles/how-much-money-to-start-investing" className="text-soft-orange hover:underline font-semibold">
+              How Much Money Do You Need to Start Investing?
+            </Link>
+            <span className="text-gray-600"> - Discover you can start with as little as $1</span>
+          </li>
+          <li>
+            <Link href="/articles/how-to-open-brokerage-account" className="text-soft-orange hover:underline font-semibold">
+              How to Open Your First Brokerage Account
+            </Link>
+            <span className="text-gray-600"> - Step-by-step walkthrough with screenshots</span>
+          </li>
+          <li>
+            <Link href="/articles/index-funds-explained" className="text-soft-orange hover:underline font-semibold">
+              Index Funds Explained: The Simplest Path to Wealth
+            </Link>
+            <span className="text-gray-600"> - Why Warren Buffett recommends index funds</span>
+          </li>
+          <li>
+            <Link href="/articles/asset-allocation-101" className="text-soft-orange hover:underline font-semibold">
+              Asset Allocation 101
+            </Link>
+            <span className="text-gray-600"> - How to balance stocks, bonds, and cash</span>
+          </li>
+          <li>
+            <Link href="/articles/5-investing-mistakes-beginners" className="text-soft-orange hover:underline font-semibold">
+              5 Investing Mistakes That Cost Beginners Thousands
+            </Link>
+            <span className="text-gray-600"> - Learn from others' costly errors</span>
+          </li>
+          <li>
+            <Link href="/articles/what-is-compound-interest" className="text-soft-orange hover:underline font-semibold">
+              What Is Compound Interest?
+            </Link>
+            <span className="text-gray-600"> - The math behind wealth building</span>
+          </li>
+        </ul>
+      </div>
 
       <hr />
 

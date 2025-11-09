@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import ArticleLayout from '@/components/ArticleLayout'
 import KeyTakeaway from '@/components/article/KeyTakeaway'
 import ExampleBox from '@/components/article/ExampleBox'
@@ -511,7 +512,7 @@ export default function HowMuchMoneyToStartInvestingArticle() {
             </label>
             <label className="flex items-start">
               <input type="checkbox" className="mt-1 mr-3" />
-              <span><strong>Day 2:</strong> If debt-free with emergency fund, open brokerage account (Fidelity recommended)</span>
+              <span><strong>Day 2:</strong> If debt-free with emergency fund, <Link href="/articles/how-to-open-brokerage-account" className="text-soft-orange hover:underline">open brokerage account</Link> (Fidelity recommended)</span>
             </label>
             <label className="flex items-start">
               <input type="checkbox" className="mt-1 mr-3" />
@@ -529,9 +530,54 @@ export default function HowMuchMoneyToStartInvestingArticle() {
         </div>
 
         <KeyTakeaway>
-          <strong>Next steps:</strong> Learn what to buy with <em>"Index Funds Explained: The Simplest Path to Wealth"</em> or understand proper allocation with <em>"Asset Allocation 101"</em>. The sooner you start, the wealthier you'll become.
+          <strong>Next steps:</strong> Learn what to buy with <Link href="/articles/index-funds-explained" className="text-soft-orange hover:underline">"Index Funds Explained: The Simplest Path to Wealth"</Link> or understand proper allocation with <Link href="/articles/asset-allocation-101" className="text-soft-orange hover:underline">"Asset Allocation 101"</Link>. The sooner you start, the wealthier you'll become.
         </KeyTakeaway>
       </section>
+
+      <hr className="my-8" />
+
+      <div className="bg-stone-50 border-l-4 border-soft-orange p-6 my-8">
+        <h3 className="text-xl font-bold mb-4 text-gray-900">Continue Your Learning Journey</h3>
+        <p className="text-gray-700 mb-4">Now that you know how much to invest, take the next steps:</p>
+        <ul className="space-y-3">
+          <li>
+            <Link href="/articles/how-to-open-brokerage-account" className="text-soft-orange hover:underline font-semibold">
+              How to Open Your First Brokerage Account
+            </Link>
+            <span className="text-gray-600"> - Ready to start? Here's your step-by-step guide</span>
+          </li>
+          <li>
+            <Link href="/articles/index-funds-explained" className="text-soft-orange hover:underline font-semibold">
+              Index Funds Explained: The Simplest Path to Wealth
+            </Link>
+            <span className="text-gray-600"> - Learn what to buy with your first $100</span>
+          </li>
+          <li>
+            <Link href="/articles/how-to-start-investing-in-stocks" className="text-soft-orange hover:underline font-semibold">
+              How to Start Investing in Stocks: Complete Guide
+            </Link>
+            <span className="text-gray-600"> - The complete beginner's roadmap</span>
+          </li>
+          <li>
+            <Link href="/articles/asset-allocation-101" className="text-soft-orange hover:underline font-semibold">
+              Asset Allocation 101
+            </Link>
+            <span className="text-gray-600"> - How to split your money between stocks and bonds</span>
+          </li>
+          <li>
+            <Link href="/articles/what-is-compound-interest" className="text-soft-orange hover:underline font-semibold">
+              What Is Compound Interest?
+            </Link>
+            <span className="text-gray-600"> - Understand why small amounts grow so large</span>
+          </li>
+          <li>
+            <Link href="/articles/5-investing-mistakes-beginners" className="text-soft-orange hover:underline font-semibold">
+              5 Investing Mistakes That Cost Beginners Thousands
+            </Link>
+            <span className="text-gray-600"> - Avoid these common pitfalls</span>
+          </li>
+        </ul>
+      </div>
     </ArticleLayout>
   )
 }

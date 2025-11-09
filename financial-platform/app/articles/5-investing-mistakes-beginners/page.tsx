@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import ArticleLayout from '@/components/ArticleLayout'
 import KeyTakeaway from '@/components/article/KeyTakeaway'
 import ExampleBox from '@/components/article/ExampleBox'
@@ -405,6 +406,45 @@ export default function InvestingMistakesArticle() {
       <p>
         Patience, discipline, and avoiding these mistakes will make you wealthy. Guaranteed.
       </p>
+
+      <hr className="my-8" />
+
+      <div className="bg-stone-50 border-l-4 border-soft-orange p-6 my-8">
+        <h3 className="text-xl font-bold mb-4 text-gray-900">Continue Your Learning Journey</h3>
+        <p className="text-gray-700 mb-4">Now that you know what NOT to do, learn what TO do:</p>
+        <ul className="space-y-3">
+          <li>
+            <Link href="/articles/how-to-start-investing-in-stocks" className="text-soft-orange hover:underline font-semibold">
+              How to Start Investing in Stocks: Complete Guide
+            </Link>
+            <span className="text-gray-600"> - The right way to begin your investing journey</span>
+          </li>
+          <li>
+            <Link href="/articles/index-funds-explained" className="text-soft-orange hover:underline font-semibold">
+              Index Funds Explained: The Simplest Path to Wealth
+            </Link>
+            <span className="text-gray-600"> - The smart alternative to stock picking</span>
+          </li>
+          <li>
+            <Link href="/articles/asset-allocation-101" className="text-soft-orange hover:underline font-semibold">
+              Asset Allocation 101
+            </Link>
+            <span className="text-gray-600"> - Build a balanced, diversified portfolio</span>
+          </li>
+          <li>
+            <Link href="/articles/how-to-open-brokerage-account" className="text-soft-orange hover:underline font-semibold">
+              How to Open Your First Brokerage Account
+            </Link>
+            <span className="text-gray-600"> - Get started in 30 minutes</span>
+          </li>
+          <li>
+            <Link href="/articles/how-much-money-to-start-investing" className="text-soft-orange hover:underline font-semibold">
+              How Much Money Do You Need to Start Investing?
+            </Link>
+            <span className="text-gray-600"> - Start with fractional shares for just $1</span>
+          </li>
+        </ul>
+      </div>
     </ArticleLayout>
   )
 }

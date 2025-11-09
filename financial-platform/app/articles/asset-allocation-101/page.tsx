@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import ArticleLayout from '@/components/ArticleLayout'
 import KeyTakeaway from '@/components/article/KeyTakeaway'
 import ExampleBox from '@/components/article/ExampleBox'
@@ -619,9 +620,48 @@ export default function AssetAllocation101Article() {
         </p>
 
         <KeyTakeaway>
-          <strong>Next steps:</strong> Learn how to implement your allocation with low-cost index funds in our guide <em>"Index Funds Explained: The Simplest Path to Wealth"</em>. Or understand when to rebalance with <em>"How to Rebalance Your Portfolio: When and How Often"</em>.
+          <strong>Next steps:</strong> Learn how to implement your allocation with low-cost index funds in our guide <Link href="/articles/index-funds-explained" className="text-soft-orange hover:underline">"Index Funds Explained: The Simplest Path to Wealth"</Link>.
         </KeyTakeaway>
       </section>
+
+      <hr className="my-8" />
+
+      <div className="bg-stone-50 border-l-4 border-soft-orange p-6 my-8">
+        <h3 className="text-xl font-bold mb-4 text-gray-900">Continue Your Learning Journey</h3>
+        <p className="text-gray-700 mb-4">Now that you understand asset allocation, here's what to read next:</p>
+        <ul className="space-y-3">
+          <li>
+            <Link href="/articles/index-funds-explained" className="text-soft-orange hover:underline font-semibold">
+              Index Funds Explained: The Simplest Path to Wealth
+            </Link>
+            <span className="text-gray-600"> - Implement your allocation with low-cost funds</span>
+          </li>
+          <li>
+            <Link href="/articles/how-to-start-investing-in-stocks" className="text-soft-orange hover:underline font-semibold">
+              How to Start Investing in Stocks: Complete Guide
+            </Link>
+            <span className="text-gray-600"> - The full beginner roadmap</span>
+          </li>
+          <li>
+            <Link href="/articles/how-to-open-brokerage-account" className="text-soft-orange hover:underline font-semibold">
+              How to Open Your First Brokerage Account
+            </Link>
+            <span className="text-gray-600"> - Get started in 30 minutes</span>
+          </li>
+          <li>
+            <Link href="/articles/how-much-money-to-start-investing" className="text-soft-orange hover:underline font-semibold">
+              How Much Money Do You Need to Start Investing?
+            </Link>
+            <span className="text-gray-600"> - Start with fractional shares for just $1</span>
+          </li>
+          <li>
+            <Link href="/articles/5-investing-mistakes-beginners" className="text-soft-orange hover:underline font-semibold">
+              5 Investing Mistakes That Cost Beginners Thousands
+            </Link>
+            <span className="text-gray-600"> - Avoid these common pitfalls</span>
+          </li>
+        </ul>
+      </div>
     </ArticleLayout>
   )
 }

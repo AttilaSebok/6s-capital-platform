@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import ArticleLayout from '@/components/ArticleLayout'
 import KeyTakeaway from '@/components/article/KeyTakeaway'
 import ExampleBox from '@/components/article/ExampleBox'
@@ -649,9 +650,48 @@ export default function IndexFundsExplainedArticle() {
         </ExampleBox>
 
         <KeyTakeaway>
-          <strong>Next steps:</strong> Understand how to allocate your portfolio with <em>"Asset Allocation 101"</em>, or learn when to rebalance with <em>"How to Rebalance Your Portfolio"</em>. But first—open that account and buy your first index fund this week.
+          <strong>Next steps:</strong> Understand how to allocate your portfolio with <Link href="/articles/asset-allocation-101" className="text-soft-orange hover:underline">"Asset Allocation 101"</Link>. But first—<Link href="/articles/how-to-open-brokerage-account" className="text-soft-orange hover:underline">open that account</Link> and buy your first index fund this week.
         </KeyTakeaway>
       </section>
+
+      <hr className="my-8" />
+
+      <div className="bg-stone-50 border-l-4 border-soft-orange p-6 my-8">
+        <h3 className="text-xl font-bold mb-4 text-gray-900">Continue Your Learning Journey</h3>
+        <p className="text-gray-700 mb-4">Ready to build your index fund portfolio? Read these next:</p>
+        <ul className="space-y-3">
+          <li>
+            <Link href="/articles/how-to-open-brokerage-account" className="text-soft-orange hover:underline font-semibold">
+              How to Open Your First Brokerage Account
+            </Link>
+            <span className="text-gray-600"> - Get started in 30 minutes</span>
+          </li>
+          <li>
+            <Link href="/articles/asset-allocation-101" className="text-soft-orange hover:underline font-semibold">
+              Asset Allocation 101
+            </Link>
+            <span className="text-gray-600"> - How to split between stocks and bonds</span>
+          </li>
+          <li>
+            <Link href="/articles/how-much-money-to-start-investing" className="text-soft-orange hover:underline font-semibold">
+              How Much Money Do You Need to Start Investing?
+            </Link>
+            <span className="text-gray-600"> - Start with fractional shares for just $1</span>
+          </li>
+          <li>
+            <Link href="/articles/how-to-start-investing-in-stocks" className="text-soft-orange hover:underline font-semibold">
+              How to Start Investing in Stocks: Complete Guide
+            </Link>
+            <span className="text-gray-600"> - The full beginner roadmap</span>
+          </li>
+          <li>
+            <Link href="/articles/5-investing-mistakes-beginners" className="text-soft-orange hover:underline font-semibold">
+              5 Investing Mistakes That Cost Beginners Thousands
+            </Link>
+            <span className="text-gray-600"> - Avoid these common pitfalls</span>
+          </li>
+        </ul>
+      </div>
     </ArticleLayout>
   )
 }

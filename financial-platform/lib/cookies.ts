@@ -201,26 +201,26 @@ export function getCookieCategories() {
   return [
     {
       id: 'necessary' as const,
-      name: 'Szükséges sütik',
-      description: 'Ezek a sütik elengedhetetlenek az oldal működéséhez. Nem kapcsolhatók ki.',
+      name: 'Necessary Cookies',
+      description: 'These cookies are essential for the website to function. They cannot be disabled.',
       required: true,
     },
     {
       id: 'analytics' as const,
-      name: 'Analitikai sütik',
-      description: 'Ezek a sütik segítenek megérteni, hogyan használják a látogatók az oldalt, így javíthatjuk a felhasználói élményt.',
+      name: 'Analytics Cookies',
+      description: 'These cookies help us understand how visitors use the site, allowing us to improve the user experience.',
       required: false,
     },
     {
       id: 'preferences' as const,
-      name: 'Preferencia sütik',
-      description: 'Ezek a sütik lehetővé teszik az oldal számára, hogy megjegyezze a választásait (pl. nyelv, régió).',
+      name: 'Preference Cookies',
+      description: 'These cookies allow the website to remember your choices (e.g., language, region).',
       required: false,
     },
     {
       id: 'marketing' as const,
-      name: 'Marketing sütik',
-      description: 'Ezek a sütik a hirdetések megjelenítéséhez és teljesítményének méréséhez használatosak.',
+      name: 'Marketing Cookies',
+      description: 'These cookies are used to display advertisements and measure their performance.',
       required: false,
     },
   ]

@@ -102,7 +102,7 @@ export default function Footer() {
                 className="text-gray-300 hover:text-soft-orange transition-colors duration-200 text-sm flex items-center group"
               >
                 <span className="w-1 h-1 bg-gray-600 group-hover:bg-soft-orange rounded-none mr-2 transition-colors duration-200"></span>
-                Süti beállítások
+                Cookie Settings
               </Link>
             </nav>
           </div>

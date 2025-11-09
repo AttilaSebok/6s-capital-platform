@@ -61,13 +61,13 @@ export default function CookieBanner() {
           <div className="flex items-center space-x-3">
             <Cookie className="w-6 h-6 text-white" />
             <h2 className="text-xl font-bold text-white">
-              Süti beállítások
+              Cookie Settings
             </h2>
           </div>
           <button
             onClick={() => setIsVisible(false)}
             className="text-white/80 hover:text-white transition-colors"
-            aria-label="Bezárás"
+            aria-label="Close"
           >
             <X className="w-5 h-5" />
           </button>
@@ -79,18 +79,18 @@ export default function CookieBanner() {
             // Simple view
             <div className="space-y-4">
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                Weboldalunk sütiket használ a legjobb felhasználói élmény biztosítása érdekében.
-                A sütik segítenek az oldal működésében, a tartalom személyre szabásában és a látogatások elemzésében.
+                We use cookies to ensure the best user experience on our website.
+                Cookies help with site functionality, content personalization, and visitor analytics.
               </p>
 
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                A &quot;Mind elfogadom&quot; gombra kattintva hozzájárul minden süti használatához.
-                Részletes beállításokért kattintson a &quot;Beállítások&quot; gombra.{' '}
+                By clicking &quot;Accept All&quot; you consent to all cookies.
+                For detailed settings, click the &quot;Settings&quot; button.{' '}
                 <Link
                   href="/privacy"
                   className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 underline"
                 >
-                  Adatvédelmi irányelvek
+                  Privacy Policy
                 </Link>
               </p>
 
@@ -100,20 +100,20 @@ export default function CookieBanner() {
                   onClick={handleAcceptAll}
                   className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
                 >
-                  Mind elfogadom
+                  Accept All
                 </button>
                 <button
                   onClick={handleAcceptNecessary}
                   className="flex-1 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
                 >
-                  Csak a szükségesek
+                  Necessary Only
                 </button>
                 <button
                   onClick={() => setShowSettings(true)}
                   className="flex-1 border-2 border-gray-300 dark:border-gray-600 hover:border-blue-600 dark:hover:border-blue-500 text-gray-900 dark:text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2"
                 >
                   <Settings className="w-4 h-4" />
-                  <span>Beállítások</span>
+                  <span>Settings</span>
                 </button>
               </div>
             </div>
@@ -122,7 +122,7 @@ export default function CookieBanner() {
             <div className="space-y-6">
               <div>
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
-                  Testre szabhatja a süti preferenciáit az alábbi kategóriák szerint:
+                  Customize your cookie preferences by category:
                 </p>
               </div>
 
@@ -145,7 +145,7 @@ export default function CookieBanner() {
                       <div className="ml-4">
                         {category.required ? (
                           <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                            Mindig aktív
+                            Always Active
                           </span>
                         ) : (
                           <label className="relative inline-flex items-center cursor-pointer">
@@ -170,18 +170,18 @@ export default function CookieBanner() {
                   onClick={handleSavePreferences}
                   className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
                 >
-                  Beállítások mentése
+                  Save Settings
                 </button>
                 <button
                   onClick={() => setShowSettings(false)}
                   className="flex-1 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
                 >
-                  Vissza
+                  Back
                 </button>
               </div>
 
               <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
-                Bármikor módosíthatja beállításait az oldal alján található &quot;Süti beállítások&quot; linken keresztül.
+                You can change your settings anytime via the &quot;Cookie Settings&quot; link at the bottom of the page.
               </p>
             </div>
           )}

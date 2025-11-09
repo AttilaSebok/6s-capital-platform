@@ -93,18 +93,18 @@ export default function CookieSettingsPage() {
             <Cookie className="w-10 h-10 text-white" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Süti beállítások
+            Cookie Settings
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Testre szabhatja a süti preferenciáit az alábbi beállításokban.
-            Bármikor visszavonhatja vagy módosíthatja hozzájárulását.
+            Customize your cookie preferences with the settings below.
+            You can revoke or modify your consent at any time.
           </p>
         </div>
 
         {/* Status Message */}
         {saved && (
           <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg text-green-800 dark:text-green-200 text-center">
-            Beállítások sikeresen mentve!
+            Settings saved successfully!
           </div>
         )}
 
@@ -113,17 +113,17 @@ export default function CookieSettingsPage() {
           <div className="flex items-center space-x-3 mb-4">
             <Shield className="w-6 h-6 text-blue-600" />
             <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-              Jelenlegi státusz
+              Current Status
             </h2>
           </div>
           <p className="text-gray-600 dark:text-gray-300">
             {hasExistingConsent ? (
               <>
-                Ön már megadta süti hozzájárulását. Az alábbi beállításokban módosíthatja preferenciáit.
+                You have already given cookie consent. You can modify your preferences in the settings below.
               </>
             ) : (
               <>
-                Még nem adott süti hozzájárulást. Állítsa be preferenciáit az alábbi kategóriák szerint.
+                You have not yet given cookie consent. Set your preferences by category below.
               </>
             )}
           </p>
@@ -156,41 +156,41 @@ export default function CookieSettingsPage() {
                     <div className="bg-gray-50 dark:bg-gray-900/50 rounded-lg p-4 text-sm">
                       {category.id === 'necessary' && (
                         <div className="space-y-2">
-                          <p className="font-semibold text-gray-700 dark:text-gray-200">Példák:</p>
+                          <p className="font-semibold text-gray-700 dark:text-gray-200">Examples:</p>
                           <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1">
-                            <li>Munkamenet azonosítók</li>
-                            <li>Biztonsági sütik</li>
-                            <li>Nyelvválasztás</li>
+                            <li>Session identifiers</li>
+                            <li>Security cookies</li>
+                            <li>Language selection</li>
                           </ul>
                         </div>
                       )}
                       {category.id === 'analytics' && (
                         <div className="space-y-2">
-                          <p className="font-semibold text-gray-700 dark:text-gray-200">Példák:</p>
+                          <p className="font-semibold text-gray-700 dark:text-gray-200">Examples:</p>
                           <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1">
                             <li>Google Analytics (_ga, _gid)</li>
-                            <li>Látogatói statisztikák</li>
-                            <li>Oldal teljesítmény mérése</li>
+                            <li>Visitor statistics</li>
+                            <li>Page performance measurement</li>
                           </ul>
                         </div>
                       )}
                       {category.id === 'preferences' && (
                         <div className="space-y-2">
-                          <p className="font-semibold text-gray-700 dark:text-gray-200">Példák:</p>
+                          <p className="font-semibold text-gray-700 dark:text-gray-200">Examples:</p>
                           <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1">
-                            <li>Felhasználói beállítások</li>
-                            <li>Téma választás (világos/sötét mód)</li>
-                            <li>Elrendezési preferenciák</li>
+                            <li>User settings</li>
+                            <li>Theme selection (light/dark mode)</li>
+                            <li>Layout preferences</li>
                           </ul>
                         </div>
                       )}
                       {category.id === 'marketing' && (
                         <div className="space-y-2">
-                          <p className="font-semibold text-gray-700 dark:text-gray-200">Példák:</p>
+                          <p className="font-semibold text-gray-700 dark:text-gray-200">Examples:</p>
                           <ul className="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1">
-                            <li>Hirdetési célzás</li>
+                            <li>Ad targeting</li>
                             <li>Remarketing</li>
-                            <li>Közösségi média integráció</li>
+                            <li>Social media integration</li>
                           </ul>
                         </div>
                       )}
@@ -200,7 +200,7 @@ export default function CookieSettingsPage() {
                   <div className="ml-6">
                     {category.required ? (
                       <span className="inline-flex items-center px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg">
-                        Mindig aktív
+                        Always Active
                       </span>
                     ) : (
                       <label className="relative inline-flex items-center cursor-pointer">
@@ -228,25 +228,25 @@ export default function CookieSettingsPage() {
               className="flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
             >
               <Save className="w-5 h-5" />
-              <span>Mentés</span>
+              <span>Save</span>
             </button>
             <button
               onClick={handleAcceptAll}
               className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
             >
-              Mind elfogadom
+              Accept All
             </button>
             <button
               onClick={handleRejectAll}
               className="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
             >
-              Csak szükségesek
+              Necessary Only
             </button>
             <button
               onClick={handleRevokeConsent}
               className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
             >
-              Visszavonás
+              Revoke
             </button>
           </div>
         </div>
@@ -254,22 +254,22 @@ export default function CookieSettingsPage() {
         {/* Additional Information */}
         <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
           <h3 className="text-lg font-bold text-blue-900 dark:text-blue-100 mb-3">
-            További információk
+            Additional Information
           </h3>
           <div className="text-blue-800 dark:text-blue-200 space-y-2 text-sm">
             <p>
-              Süti hozzájárulása 1 évig érvényes. Ezt követően újra meg kell adnia preferenciáit.
+              Your cookie consent is valid for 1 year. After that, you will need to provide your preferences again.
             </p>
             <p>
-              Bármikor visszavonhatja vagy módosíthatja hozzájárulását ezen az oldalon.
+              You can revoke or modify your consent at any time on this page.
             </p>
             <p>
-              További információkért olvassa el{' '}
+              For more information, please read our{' '}
               <Link
                 href="/privacy"
                 className="font-semibold underline hover:text-blue-600 dark:hover:text-blue-300"
               >
-                Adatvédelmi irányelveinket
+                Privacy Policy
               </Link>
               .
             </p>
@@ -282,7 +282,7 @@ export default function CookieSettingsPage() {
             href="/"
             className="inline-flex items-center text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-semibold"
           >
-            ← Vissza a főoldalra
+            ← Back to Home
           </Link>
         </div>
       </div>

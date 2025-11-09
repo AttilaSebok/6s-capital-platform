@@ -361,6 +361,48 @@ export const articles: Article[] = [
     tags: ['free-cash-flow', 'fcf', 'cash-flow-investing', 'warren-buffett', 'owner-earnings'],
     featured: true,
   },
+
+  // New Articles (Articles #37-40) - Technical Analysis - November 2025
+  {
+    slug: 'moving-averages-guide',
+    title: 'Moving Averages Explained: 50-Day vs 200-Day Strategies',
+    description: 'Master moving averages: SMA vs EMA, golden cross, death cross, and proven trading strategies. Learn how to use 20, 50, and 200-day MAs for better entries and exits.',
+    category: 'Technical Analysis',
+    readTime: '15 min read',
+    publishDate: 'November 9, 2025',
+    tags: ['moving-averages', 'sma', 'ema', 'golden-cross', 'death-cross', 'technical-analysis'],
+    featured: true,
+  },
+  {
+    slug: 'rsi-indicator-guide',
+    title: 'RSI Indicator: How to Spot Overbought and Oversold Stocks',
+    description: 'Master the Relative Strength Index (RSI): learn how to identify overbought/oversold conditions, spot divergences, and use RSI for better trade timing.',
+    category: 'Technical Analysis',
+    readTime: '13 min read',
+    publishDate: 'November 9, 2025',
+    tags: ['rsi-indicator', 'relative-strength-index', 'overbought-oversold', 'rsi-divergence', 'technical-analysis'],
+    featured: true,
+  },
+  {
+    slug: 'support-resistance-levels',
+    title: 'Support and Resistance Levels: The Foundation of Technical Analysis',
+    description: 'Master support and resistance: learn how to identify key levels, trade breakouts and bounces, and use horizontal levels, trendlines, and moving averages for better entries.',
+    category: 'Technical Analysis',
+    readTime: '14 min read',
+    publishDate: 'November 9, 2025',
+    tags: ['support-and-resistance', 'technical-analysis', 'breakout-trading', 'trendlines', 'supply-demand'],
+    featured: true,
+  },
+  {
+    slug: 'macd-indicator-guide',
+    title: 'MACD Indicator: The Complete Beginner\'s Guide',
+    description: 'Master the MACD indicator: learn how to read MACD crossovers, histogram divergences, and use MACD for trend-following and momentum trading strategies.',
+    category: 'Technical Analysis',
+    readTime: '13 min read',
+    publishDate: 'November 9, 2025',
+    tags: ['macd-indicator', 'macd-crossover', 'macd-divergence', 'histogram', 'technical-analysis', 'momentum-trading'],
+    featured: true,
+  },
 ]
 
 // Helper functions

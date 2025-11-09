@@ -1,9 +1,11 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { trackNewsletterSignup } from '@/lib/analytics'
 
 export default function NewsletterSignup() {
+  const router = useRouter()
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
@@ -41,8 +43,13 @@ export default function NewsletterSignup() {
       trackNewsletterSignup('homepage')
 
       setStatus('success')
-      setMessage(data.message || 'Welcome aboard! Confirm your email to start receiving insights.')
+      setMessage(data.message || 'Welcome aboard! Redirecting to your free resource...')
       setEmail('')
+
+      // Redirect to lead magnet page after 2 seconds
+      setTimeout(() => {
+        router.push('/resources/stock-analysis-checklist')
+      }, 2000)
     } catch (error) {
       setStatus('error')
       setMessage(error instanceof Error ? error.message : 'Something went wrong. Please try again.')
@@ -65,10 +72,10 @@ export default function NewsletterSignup() {
           {/* Content */}
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-2xl md:text-3xl font-bold mb-2 font-crimson text-deep-brown">
-              Never Miss an Article
+              Get Your Free Stock Analysis Checklist
             </h2>
             <p className="text-sm md:text-base text-stone-600">
-              Get weekly market insights and investing tips in your inbox
+              Subscribe and get instant access to our professional 20-point framework + weekly market insights
             </p>
           </div>
 

@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
-import { ReactNode } from 'react'
+import { ReactNode, useState } from 'react'
+import { trackNewsletterSignup } from '@/lib/analytics'
 
 interface ResourceLayoutProps {
   title: string
@@ -16,6 +19,49 @@ export default function ResourceLayout({
   downloadTitle = "Download Your Free Resource",
   downloadDescription = "Get instant access to this professional-grade tool"
 }: ResourceLayoutProps) {
+  const [email, setEmail] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [message, setMessage] = useState('')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus('loading')
+    setMessage('')
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          name: '',
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        if (response.status === 409) {
+          setStatus('error')
+          setMessage('This email is already subscribed to our newsletter.')
+          return
+        }
+        throw new Error(data.error || 'Failed to subscribe')
+      }
+
+      // Track successful signup
+      trackNewsletterSignup('resource_page')
+
+      setStatus('success')
+      setMessage(data.message || 'Check your email to confirm your subscription and get your free checklist!')
+      setEmail('')
+    } catch (error) {
+      setStatus('error')
+      setMessage(error instanceof Error ? error.message : 'Something went wrong. Please try again.')
+    }
+  }
   return (
     <div className="min-h-screen bg-stone-50">
       {/* Hero Section */}
@@ -56,22 +102,43 @@ export default function ResourceLayout({
               </p>
 
               {/* Email Form */}
-              <div className="max-w-md mx-auto">
+              <form onSubmit={handleSubmit} className="max-w-md mx-auto">
                 <div className="flex flex-col sm:flex-row gap-3">
                   <input
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email"
+                    required
                     aria-label="Email address"
-                    className="flex-1 px-4 py-3 border-2 border-deep-brown rounded-none focus:outline-none focus:ring-2 focus:ring-deep-brown text-deep-brown"
+                    disabled={status === 'loading'}
+                    className="flex-1 px-4 py-3 border-2 border-deep-brown rounded-none focus:outline-none focus:ring-2 focus:ring-deep-brown text-deep-brown disabled:opacity-50"
                   />
-                  <button className="px-6 py-3 bg-deep-brown border-2 border-stone-900 text-white font-bold uppercase tracking-wide rounded-none hover:bg-stone-900 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-deep-brown whitespace-nowrap">
-                    Get Free Access
+                  <button
+                    type="submit"
+                    disabled={status === 'loading'}
+                    className="px-6 py-3 bg-deep-brown border-2 border-stone-900 text-white font-bold uppercase tracking-wide rounded-none hover:bg-stone-900 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-deep-brown whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {status === 'loading' ? 'Subscribing...' : 'Get Free Access'}
                   </button>
                 </div>
-                <p className="text-xs mt-3 text-stone-700">
-                  No spam. Unsubscribe anytime. Your email is safe with us.
-                </p>
-              </div>
+
+                {status === 'success' && (
+                  <p className="text-sm mt-3 text-green-700 font-semibold text-center">
+                    {message}
+                  </p>
+                )}
+                {status === 'error' && (
+                  <p className="text-sm mt-3 text-red-700 font-semibold text-center">
+                    {message}
+                  </p>
+                )}
+                {status === 'idle' && (
+                  <p className="text-xs mt-3 text-stone-700 text-center">
+                    No spam. Unsubscribe anytime. Your email is safe with us.
+                  </p>
+                )}
+              </form>
             </div>
           </div>
 

@@ -143,10 +143,10 @@ export default function CookieBanner() {
                   <p className="text-white text-sm leading-tight">
                     We use cookies to enhance your experience.{' '}
                     <Link
-                      href="/privacy"
+                      href="/cookie-policy"
                       className="text-soft-orange hover:text-orange-400 underline"
                     >
-                      Privacy Policy
+                      Cookie Policy
                     </Link>
                   </p>
                 </div>
@@ -183,7 +183,7 @@ export default function CookieBanner() {
                 <p className="text-white text-xs leading-tight flex-1">
                   We use cookies to enhance your experience.{' '}
                   <Link
-                    href="/privacy"
+                    href="/cookie-policy"
                     className="text-soft-orange hover:text-orange-400 underline"
                   >
                     Learn more

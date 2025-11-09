@@ -98,11 +98,11 @@ export default function Footer() {
                 Privacy Policy
               </Link>
               <Link
-                href="/cookie-settings"
+                href="/cookie-policy"
                 className="text-gray-300 hover:text-soft-orange transition-colors duration-200 text-sm flex items-center group"
               >
                 <span className="w-1 h-1 bg-gray-600 group-hover:bg-soft-orange rounded-none mr-2 transition-colors duration-200"></span>
-                Cookie Settings
+                Cookie Policy
               </Link>
             </nav>
           </div>

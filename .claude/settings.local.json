@@ -68,7 +68,9 @@
       "Bash(if not exist \"C:\\ClaudeCode\\Filesystem\\privacy-policy.md\" echo.)",
       "Bash(\"C:\\ClaudeCode\\Filesystem\\privacy-policy.md\")",
       "Bash(if exist \"D:\\___________________________________Cursor\\6s Capital\\ALPHA_VANTAGE_API_KEY=your_api_key_here\" dir \"D:\\___________________________________Cursor\\6s Capital\\ALPHA_VANTAGE_API_KEY=your_api_key_here\")",
-      "Bash(timeout 15 echo:*)"
+      "Bash(timeout 15 echo:*)",
+      "Bash(claude mcp add:*)",
+      "Bash(claude mcp list:*)"
     ],
     "deny": [],
     "ask": []

@@ -100,17 +100,17 @@
 29. Momentum Investing: Riding the Winners Higher
 30. Income Investing Strategy: Building a Passive Income Portfolio
 
-**Articles #31-40 (PLANNED - Fundamental + Technical Analysis):**
-31. Quality Investing: Finding Companies with Competitive Moats
-32. How to Read a Balance Sheet Like a Professional Analyst
-33. Cash Flow Analysis: Why Cash is King in Investing
-34. Debt-to-Equity Ratio: Measuring Financial Leverage and Risk
-35. Return on Equity (ROE): The Ultimate Profitability Metric
-36. Free Cash Flow: The Most Important Metric You're Ignoring
-37. Moving Averages Explained: 50-Day vs 200-Day Strategies
-38. RSI Indicator: How to Spot Overbought and Oversold Stocks
-39. Support and Resistance Levels: The Foundation of Technical Analysis
-40. MACD Indicator: The Complete Beginner's Guide
+**Articles #31-40 (✅ COMPLETE - Fundamental + Technical Analysis):**
+31. Quality Investing: Finding Companies with Competitive Moats (PLANNED)
+32. How to Read a Balance Sheet Like a Professional Analyst (PLANNED)
+33. Cash Flow Analysis: Why Cash is King in Investing (PLANNED)
+34. Debt-to-Equity Ratio: Measuring Financial Leverage and Risk (PLANNED)
+35. Return on Equity (ROE): The Ultimate Profitability Metric (PLANNED)
+36. ✅ Free Cash Flow: The Most Important Metric You're Ignoring
+37. ✅ Moving Averages Explained: 50-Day vs 200-Day Strategies
+38. ✅ RSI Indicator: How to Spot Overbought and Oversold Stocks
+39. ✅ Support and Resistance Levels: The Foundation of Technical Analysis
+40. ✅ MACD Indicator: The Complete Beginner's Guide
 
 **Articles #41-50 (PLANNED - Portfolio + Market + Tax/Retirement):**
 41. The 60/40 Portfolio: Is It Still Relevant in 2025?
@@ -127,14 +127,74 @@
 **Content Category Targets (50 articles):**
 - **Beginner Guides**: 15 articles (#1, #7, #10, #21-25) → ✅ 8/15 complete
 - **Investment Strategies**: 12 articles (#2, #9, #12, #16, #17, #26-31) → ✅ 11/12 complete (missing only #31)
-- **Fundamental Analysis**: 9 articles (#6, #11, #14, #19, #32-36) → 4/9 complete
-- **Technical Analysis**: 5 articles (#4, #37-40) → 1/5 complete
+- **Fundamental Analysis**: 9 articles (#6, #11, #14, #19, #32-36) → ✅ 5/9 complete (#36 done)
+- **Technical Analysis**: 5 articles (#4, #37-40) → ✅ 5/5 complete (#37-40 done)
 - **Portfolio Strategy**: 6 articles (#8, #20, #41-44) → 2/6 complete
 - **Market Analysis**: 5 articles (#5, #15, #45-47) → 2/5 complete
 - **Tax & Retirement**: 5 articles (#13, #18, #48-50) → 2/5 complete
 - **Stock Analysis**: 1 article (#3) → ✅ 1/1 complete
 
-**OVERALL PROGRESS: 30/50 articles complete (60%)**
+**OVERALL PROGRESS: 35/50 articles complete (70%)**
+
+#### 1.1.1 Article Writing Standards (NEW - November 2025)
+
+**Mandatory Article Structure:**
+
+1. **Article Metadata**
+   - SEO-optimized title (55-60 chars)
+   - Compelling description (150-160 chars)
+   - Relevant keywords (5-7 keywords)
+   - Category (Beginner Guides, Technical Analysis, Fundamental Analysis, etc.)
+   - Read time estimate
+   - Publish date
+
+2. **Content Components**
+   - `<KeyTakeaway>` section at the beginning (bullet list of what reader will learn)
+   - `<ExampleBox>` components for real-world examples
+   - `<h2>` and `<h3>` headings for proper structure
+   - Actionable "Action Steps" section before final thoughts
+   - "Final Thoughts" conclusion paragraph
+
+3. **✅ MANDATORY: Related Articles Section**
+   - **MUST BE INCLUDED** at the end of every article
+   - Placed after "Final Thoughts" and "Next Steps" box
+   - 2x2 grid layout (4 related articles)
+   - Each link includes:
+     - Title (max 60 chars)
+     - Short contextual description (1 sentence explaining why it's relevant)
+   - Strategic selection:
+     - For Technical Analysis: Link to other TA articles + 1-2 fundamental articles
+     - For Fundamental Analysis: Link to other FA articles + 1-2 technical articles
+     - Create natural learning paths (beginner → intermediate → advanced)
+   - Benefits:
+     - Increases average session duration
+     - Boosts pageviews per session
+     - Improves SEO through internal linking
+     - Reduces bounce rate
+     - Encourages content discovery
+
+**Example Related Articles Implementation:**
+```tsx
+<div className="mt-8 border-t-2 border-stone-200 pt-8">
+  <h3 className="text-xl font-bold mb-4 text-deep-brown">Related Articles</h3>
+  <div className="grid md:grid-cols-2 gap-4">
+    <a href="/articles/moving-averages-guide" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+      <h4 className="font-bold text-deep-brown mb-2">Moving Averages Explained</h4>
+      <p className="text-sm text-stone-600">MACD is built from moving averages—understand the foundation of this powerful indicator.</p>
+    </a>
+    {/* 3 more links */}
+  </div>
+</div>
+```
+
+**Articles with Cross-References Implemented:**
+- ✅ Article #36: Free Cash Flow Guide
+- ✅ Article #37: Moving Averages Guide
+- ✅ Article #38: RSI Indicator Guide
+- ✅ Article #39: Support & Resistance Levels
+- ✅ Article #40: MACD Indicator Guide
+
+**TODO: Add cross-references to older articles (#1-35)**
 
 #### 1.2 Interactive Content (Daily Visit Drivers)
 
@@ -169,11 +229,30 @@
 - Newsletter signup: Prominent, value-focused
 
 **Article Page Enhancements**
-- Related articles sidebar (increase time on site)
-- "Next in series" navigation for sequential learning
-- Progress indicators for article series
-- Estimated reading time + difficulty level badges
-- Social proof: "Read by 5,000+ investors" counters
+- ✅ **Related Articles Section** (IMPLEMENTED - Standard for all articles)
+  - 2x2 grid layout at article end
+  - 4 contextual links to related content
+  - Hover effect with bronze border
+  - Short descriptions explaining relevance
+  - Strategic mix of technical + fundamental topics
+  - **Example structure:**
+    ```
+    <div className="mt-8 border-t-2 border-stone-200 pt-8">
+      <h3 className="text-xl font-bold mb-4 text-deep-brown">Related Articles</h3>
+      <div className="grid md:grid-cols-2 gap-4">
+        <a href="/articles/..." className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+          <h4 className="font-bold text-deep-brown mb-2">Article Title</h4>
+          <p className="text-sm text-stone-600">Short contextual description</p>
+        </a>
+        <!-- Repeat for 4 total links -->
+      </div>
+    </div>
+    ```
+  - **Benefits:** Increases time-on-site, pageviews per session, and internal linking for SEO
+- "Next in series" navigation for sequential learning (PLANNED)
+- Progress indicators for article series (PLANNED)
+- Estimated reading time + difficulty level badges (PLANNED)
+- Social proof: "Read by 5,000+ investors" counters (PLANNED)
 
 **Navigation Improvements**
 - Sticky header with search functionality

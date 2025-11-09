@@ -4,6 +4,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import CookieBanner from '@/components/CookieBanner'
 import { generateOrganizationSchema } from '@/lib/metadata'
 
 const inter = Inter({
@@ -85,6 +86,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${crimsonPro.variable} ${inter.className}`} suppressHydrationWarning>
         <GoogleAnalytics />
+        <CookieBanner />
         <Header />
         <main className="min-h-screen">
           {children}

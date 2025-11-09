@@ -21,7 +21,8 @@ export async function POST(request: Request) {
       )
     }
 
-    // Subscribe to MailerLite
+    // Subscribe to MailerLite with 'active' status to bypass double opt-in
+    // We'll handle confirmation email separately via Resend
     const mailerliteResponse = await fetch(
       'https://connect.mailerlite.com/api/subscribers',
       {
@@ -37,7 +38,8 @@ export async function POST(request: Request) {
             name: name || '',
           },
           groups: [process.env.MAILERLITE_GROUP_ID],
-          status: 'unconfirmed', // Double opt-in for professional audience
+          status: 'active', // Skip MailerLite's double opt-in, handle via Resend
+          resubscribe: false, // Don't resubscribe if already exists
         }),
       }
     )
@@ -49,16 +51,92 @@ export async function POST(request: Request) {
 
       // Check for specific error messages
       if (mailerliteData.message && mailerliteData.message.includes('already exists')) {
+        // If already exists, still send welcome email
+        console.log(`Existing subscriber: ${email}`)
+      } else {
         return NextResponse.json(
-          { error: 'This email is already subscribed to our newsletter' },
-          { status: 409 }
+          { error: 'Failed to subscribe to newsletter' },
+          { status: 500 }
         )
       }
+    }
 
-      return NextResponse.json(
-        { error: 'Failed to subscribe to newsletter' },
-        { status: 500 }
-      )
+    // Send confirmation/welcome email via Resend
+    try {
+      const confirmationUrl = `https://money365.market/resources/stock-analysis-checklist`
+
+      const emailResponse = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+        },
+        body: JSON.stringify({
+          from: 'money365.market <office@money365.market>',
+          to: email,
+          subject: '✓ Welcome to money365.market - Your Stock Analysis Checklist',
+          html: `
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <style>
+                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+                .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+                .header { background: linear-gradient(135deg, #1e293b 0%, #44403c 100%); color: white; padding: 30px; text-align: center; }
+                .content { background: #f5f5f4; padding: 30px; }
+                .button { display: inline-block; background: #92400e; color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; margin: 20px 0; }
+                .footer { text-align: center; padding: 20px; color: #666; font-size: 12px; }
+              </style>
+            </head>
+            <body>
+              <div class="container">
+                <div class="header">
+                  <h1>✓ Subscription Confirmed!</h1>
+                </div>
+                <div class="content">
+                  <h2>Welcome aboard! 🚀</h2>
+                  <p>Thank you for subscribing to the money365.market newsletter!</p>
+
+                  <p><strong>Here's what you'll get:</strong></p>
+                  <ul>
+                    <li>📊 Weekly market insights and analysis</li>
+                    <li>🎯 Professional investment strategies</li>
+                    <li>📈 Technical analysis tips</li>
+                    <li>💰 Financial education resources</li>
+                  </ul>
+
+                  <p><strong>Your FREE Stock Analysis Checklist is ready!</strong></p>
+                  <p>Click the button below to download your comprehensive 20-point framework:</p>
+
+                  <center>
+                    <a href="${confirmationUrl}" class="button">
+                      Download Free Checklist →
+                    </a>
+                  </center>
+
+                  <p>This professional checklist will help you analyze any stock in 30 minutes or less, just like institutional investors do.</p>
+
+                  <p>Best regards,<br><strong>The money365.market Team</strong></p>
+                </div>
+                <div class="footer">
+                  <p>You're receiving this because you subscribed at money365.market</p>
+                  <p>© 2025 money365.market. All rights reserved.</p>
+                </div>
+              </div>
+            </body>
+            </html>
+          `,
+        }),
+      })
+
+      if (!emailResponse.ok) {
+        console.error('Resend email failed:', await emailResponse.text())
+      } else {
+        console.log(`Welcome email sent to: ${email}`)
+      }
+    } catch (emailError) {
+      console.error('Error sending welcome email:', emailError)
+      // Don't fail the subscription if email fails
     }
 
     // Log successful subscription
@@ -66,10 +144,10 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: 'Welcome aboard! Please check your email to confirm your subscription.',
+      message: 'Welcome aboard! Check your email for your free Stock Analysis Checklist.',
       subscriber: {
-        email: mailerliteData.data.email,
-        id: mailerliteData.data.id,
+        email: mailerliteData.data?.email || email,
+        id: mailerliteData.data?.id || 'existing',
       },
     })
   } catch (error) {

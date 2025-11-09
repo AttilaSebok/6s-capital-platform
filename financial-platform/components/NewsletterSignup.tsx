@@ -43,13 +43,11 @@ export default function NewsletterSignup() {
       trackNewsletterSignup('homepage')
 
       setStatus('success')
-      setMessage(data.message || 'Welcome aboard! Redirecting to your free resource...')
+      setMessage(data.message || 'Check your email to confirm your subscription and get your free checklist!')
       setEmail('')
 
-      // Redirect to lead magnet page after 2 seconds
-      setTimeout(() => {
-        router.push('/resources/stock-analysis-checklist')
-      }, 2000)
+      // DO NOT redirect - user needs to confirm email first (double opt-in)
+      // MailerLite will redirect to /resources/stock-analysis-checklist after confirmation
     } catch (error) {
       setStatus('error')
       setMessage(error instanceof Error ? error.message : 'Something went wrong. Please try again.')

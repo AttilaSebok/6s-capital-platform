@@ -2,551 +2,299 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Disclaimer & Legal | money365.market',
-  description: 'Important legal disclaimers, affiliate disclosure, and terms of use for money365.market professional investment platform.',
+  title: 'Disclaimer for Money365.Market | money365.market',
+  description: 'Important legal disclaimers, investment risk disclosure, and terms of use for money365.market. Not financial advice.',
+  keywords: 'disclaimer, legal, investment disclaimer, risk disclosure, not financial advice',
 }
 
 export default function DisclaimerPage() {
   return (
-    <div className="bg-stone-50">
-      {/* Hero Section - Sharp & Wise */}
-      <section className="bg-gradient-to-br from-slate-900 to-stone-900 border-b-2 border-bronze-600 text-white py-16 lg:py-24">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="font-crimson text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-              Disclaimer & Legal
-            </h1>
-            <p className="text-xl md:text-2xl text-stone-300 leading-relaxed max-w-3xl mx-auto mb-4">
-              Important information about using money365.market
-            </p>
-            <p className="text-sm text-stone-400">
-              Last Updated: November 2025
-            </p>
-          </div>
+    <div className="min-h-screen bg-dark-bg py-12 px-4">
+      <div className="max-w-4xl mx-auto bg-dark-header rounded-lg shadow-2xl border border-gray-800">
+        {/* Header */}
+        <div className="border-b border-gray-700 p-6">
+          <h1 className="text-3xl font-bold text-white font-crimson mb-2">
+            Disclaimer for Money365.Market
+          </h1>
+          <p className="text-gray-400 text-sm">Last Updated: November 9, 2025</p>
         </div>
-      </section>
 
-      {/* Main Content */}
-      <section className="py-16 lg:py-20 bg-stone-50">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto space-y-8">
+        {/* Content */}
+        <div className="p-6 space-y-8 text-gray-300">
 
-            {/* Investment Disclaimer */}
-            <div className="bg-white border-2 border-soft-orange rounded-none shadow-xl p-8 lg:p-10">
-              <div className="flex items-start mb-6">
-                <div className="flex-shrink-0 w-14 h-14 bg-red-600 border-2 border-red-700 rounded-none flex items-center justify-center mr-4">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                  </svg>
-                </div>
-                <div>
-                  <h2 className="font-crimson text-2xl md:text-3xl font-bold text-deep-brown mb-2">
-                    Investment & Financial Advice Disclaimer
-                  </h2>
-                  <p className="text-red-600 font-bold text-sm uppercase tracking-wider">
-                    NOT FINANCIAL ADVICE
-                  </p>
-                </div>
-              </div>
+          {/* Important Notice */}
+          <section className="bg-red-900/20 border-2 border-red-500/50 rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-white mb-4 font-crimson">Important Notice</h2>
+            <p className="mb-3 font-semibold text-yellow-400">
+              PLEASE READ THIS DISCLAIMER CAREFULLY BEFORE USING MONEY365.MARKET
+            </p>
+            <p className="text-gray-300">
+              This Disclaimer applies to the website money365.market and all content, information, tools, products, and services provided by Money365.Market ("we", "us", "our", or "the Website"). By accessing or using our Website, you acknowledge that you have read, understood, and agree to be bound by this Disclaimer.
+            </p>
+          </section>
 
-              <div className="space-y-4 text-stone-700">
-                <p className="text-lg leading-relaxed">
-                  The information provided on <span className="font-semibold text-bronze-600">money365.market</span> is for <strong>educational and informational purposes only</strong>.
-                  Nothing on this website should be construed as financial, investment, tax, or legal advice.
-                </p>
+          {/* 1. General Disclaimer */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 font-crimson">1. General Disclaimer</h2>
 
-                <p className="leading-relaxed">
-                  We are <strong>not licensed financial advisors, brokers, or investment professionals</strong>. All content,
-                  including articles, analysis, opinions, and recommendations, represents our personal views and research,
-                  which may be incomplete or incorrect.
-                </p>
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">1.1 No Financial Advice</h3>
+            <p className="mb-3 font-semibold text-red-400">
+              THE CONTENT ON MONEY365.MARKET IS FOR INFORMATIONAL AND EDUCATIONAL PURPOSES ONLY. IT DOES NOT CONSTITUTE FINANCIAL, INVESTMENT, LEGAL, TAX, OR PROFESSIONAL ADVICE.
+            </p>
+            <p className="mb-3">
+              We are not registered investment advisors, financial planners, brokers, or securities dealers. Nothing on this Website should be interpreted as:
+            </p>
+            <ul className="list-disc ml-6 space-y-1 mb-4">
+              <li>A recommendation to buy, sell, or hold any security or investment</li>
+              <li>Personalized investment advice tailored to your specific situation</li>
+              <li>A solicitation or offer to buy or sell securities</li>
+              <li>Professional financial planning or wealth management services</li>
+              <li>Tax, legal, or accounting advice</li>
+            </ul>
 
-                <h3 className="font-crimson text-xl font-bold text-deep-brown mt-8 mb-4 pb-2 border-b-2 border-bronze-600">
-                  Your Responsibility
-                </h3>
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">1.2 Not a Fiduciary</h3>
+            <p className="mb-4">
+              We do not act as a fiduciary or advisor to you or any other user. We do not have a professional or advisory relationship with you, and no such relationship is created by your use of our Website or Services.
+            </p>
 
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Do Your Own Research (DYOR)</strong>: Never make investment decisions based solely on information found on this site.
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Consult Professionals</strong>: Always seek advice from qualified financial advisors who understand your personal situation.
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Understand Risks</strong>: All investments carry risk, including the potential loss of your entire investment.
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Past Performance</strong>: Historical returns do not guarantee future results.
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Personal Circumstances</strong>: What works for one investor may not be suitable for you.
-                    </div>
-                  </li>
-                </ul>
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">1.3 Educational Content Only</h3>
+            <p>
+              All articles, guides, tutorials, analysis, and commentary on Money365.Market are provided for educational purposes to help you become a more informed investor. They are not tailored to your specific circumstances, risk tolerance, investment objectives, or financial situation.
+            </p>
+          </section>
 
-                <div className="bg-red-50 border-l-4 border-red-600 rounded-none p-6 mt-6">
-                  <p className="font-semibold text-red-800 leading-relaxed">
-                    ⚠️ <span className="uppercase tracking-wider">Important:</span> You are solely responsible for your investment decisions and their outcomes.
-                    money365.market accepts no liability for any losses or damages resulting from the use of information on this website.
-                  </p>
-                </div>
-              </div>
+          {/* 2. Investment Risk Disclosure */}
+          <section className="bg-yellow-900/20 border-l-4 border-yellow-500 p-6">
+            <h2 className="text-2xl font-bold text-white mb-4 font-crimson">2. Investment Risk Disclosure</h2>
+
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">2.1 Risk of Loss</h3>
+            <p className="mb-3 font-semibold text-red-400">
+              ALL INVESTMENTS INVOLVE RISK, INCLUDING THE POSSIBLE LOSS OF PRINCIPAL.
+            </p>
+            <p className="mb-3">
+              Investing in stocks, bonds, mutual funds, ETFs, options, futures, cryptocurrencies, and other financial instruments carries significant risk. You may lose some or all of your invested capital.
+            </p>
+            <p className="mb-2 font-semibold">Key Investment Risks Include:</p>
+            <ul className="list-disc ml-6 space-y-1 mb-4">
+              <li><strong>Market Risk</strong>: Securities prices fluctuate based on market conditions</li>
+              <li><strong>Volatility Risk</strong>: Investment values can change rapidly and unpredictably</li>
+              <li><strong>Liquidity Risk</strong>: You may not be able to sell investments quickly at fair prices</li>
+              <li><strong>Credit Risk</strong>: Issuers may default on their obligations</li>
+              <li><strong>Interest Rate Risk</strong>: Bond values decline when interest rates rise</li>
+              <li><strong>Currency Risk</strong>: Exchange rate fluctuations can affect international investments</li>
+              <li><strong>Inflation Risk</strong>: Rising prices can erode investment returns</li>
+              <li><strong>Regulatory Risk</strong>: Changes in laws or regulations can affect investments</li>
+              <li><strong>Company-Specific Risk</strong>: Individual companies may underperform or fail</li>
+              <li><strong>Cryptocurrency Risk</strong>: Highly volatile, unregulated, and speculative assets</li>
+            </ul>
+
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">2.2 Past Performance</h3>
+            <p className="mb-3 font-semibold text-red-400">
+              PAST PERFORMANCE IS NOT INDICATIVE OF FUTURE RESULTS.
+            </p>
+            <p className="mb-4">
+              Historical returns, back-tested results, and simulated performance do not guarantee future performance. Investment returns and principal values will fluctuate, and investments may be worth more or less than their original cost when sold.
+            </p>
+
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">2.3 No Guaranteed Returns</h3>
+            <p className="mb-2">We make no representations, warranties, or guarantees regarding:</p>
+            <ul className="list-disc ml-6 space-y-1 mb-4">
+              <li>Investment performance or returns</li>
+              <li>The success of any investment strategy</li>
+              <li>The achievement of financial goals</li>
+              <li>The accuracy of forecasts or predictions</li>
+              <li>The preservation of capital</li>
+            </ul>
+
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">2.4 Suitability</h3>
+            <p className="mb-2">Before making any investment decision, you should:</p>
+            <ul className="list-disc ml-6 space-y-1">
+              <li>Assess your own financial situation, risk tolerance, and investment objectives</li>
+              <li>Conduct thorough independent research and due diligence</li>
+              <li>Consult with qualified financial, tax, and legal professionals</li>
+              <li>Understand the specific risks associated with each investment</li>
+              <li>Only invest money you can afford to lose</li>
+            </ul>
+          </section>
+
+          {/* 3. Accuracy of Information */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 font-crimson">3. Accuracy of Information</h2>
+
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">3.1 No Guarantee of Accuracy</h3>
+            <p className="mb-2">While we strive to provide accurate, current, and reliable information, we make no representations or warranties about:</p>
+            <ul className="list-disc ml-6 space-y-1 mb-4">
+              <li>The accuracy, completeness, or timeliness of any content</li>
+              <li>The reliability of data from third-party sources</li>
+              <li>The absence of errors, omissions, or inaccuracies</li>
+              <li>The currentness of financial data or market information</li>
+            </ul>
+
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">3.2 Third-Party Data</h3>
+            <p className="mb-2">We obtain financial data, stock quotes, and market information from third-party sources including:</p>
+            <ul className="list-disc ml-6 space-y-1 mb-3">
+              <li>Alpha Vantage</li>
+              <li>Yahoo Finance</li>
+              <li>CoinGecko</li>
+              <li>Other financial data providers</li>
+            </ul>
+            <p className="mb-2 font-semibold">We are not responsible for:</p>
+            <ul className="list-disc ml-6 space-y-1">
+              <li>Errors or inaccuracies in third-party data</li>
+              <li>Delays in data delivery</li>
+              <li>Interruptions in data feeds</li>
+              <li>Actions you take based on third-party data</li>
+            </ul>
+          </section>
+
+          {/* 5. Affiliate and Advertising Disclaimer */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 font-crimson">5. Affiliate and Advertising Disclaimer</h2>
+
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">5.1 Affiliate Relationships</h3>
+            <p className="mb-2">Money365.Market participates in affiliate marketing programs and may earn commissions when you:</p>
+            <ul className="list-disc ml-6 space-y-1 mb-3">
+              <li>Click on affiliate links</li>
+              <li>Purchase products or services through our referral links</li>
+              <li>Sign up for brokerage accounts or financial services through our links</li>
+            </ul>
+
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">5.2 Editorial Independence</h3>
+            <p className="mb-3">
+              Despite our affiliate relationships, we maintain editorial independence. Our content, reviews, and recommendations are based on objective analysis and research. However, we acknowledge that affiliate relationships may create potential conflicts of interest.
+            </p>
+
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">5.3 Your Due Diligence</h3>
+            <p className="mb-2">Before clicking affiliate links or making purchases:</p>
+            <ul className="list-disc ml-6 space-y-1">
+              <li>Conduct your own research on products and services</li>
+              <li>Read terms and conditions carefully</li>
+              <li>Compare multiple options and providers</li>
+              <li>Understand all fees, costs, and risks</li>
+              <li>Verify that products meet your specific needs</li>
+            </ul>
+          </section>
+
+          {/* 11. Limitation of Liability */}
+          <section className="bg-red-900/20 border-2 border-red-500/50 rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-white mb-4 font-crimson">11. Limitation of Liability</h2>
+
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">11.1 No Liability for Losses</h3>
+            <p className="mb-4 font-semibold text-red-400">
+              TO THE MAXIMUM EXTENT PERMITTED BY LAW, MONEY365.MARKET SHALL NOT BE LIABLE FOR ANY INVESTMENT LOSSES, FINANCIAL DAMAGES, OR OTHER HARM ARISING FROM YOUR USE OF OUR WEBSITE OR RELIANCE ON OUR CONTENT.
+            </p>
+
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">11.2 Use at Your Own Risk</h3>
+            <p className="mb-2">You acknowledge and agree that:</p>
+            <ul className="list-disc ml-6 space-y-1 mb-4">
+              <li>You use our Website at your own risk</li>
+              <li>All investment decisions are your sole responsibility</li>
+              <li>We are not liable for any financial losses you incur</li>
+              <li>We are not liable for errors, omissions, or inaccuracies in content</li>
+            </ul>
+
+            <p className="text-sm">
+              For complete limitation of liability terms, please refer to our{' '}
+              <Link href="/terms" className="text-soft-orange hover:underline">Terms of Service</Link>.
+            </p>
+          </section>
+
+          {/* 13. Regulatory Disclaimer */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 font-crimson">13. Regulatory Disclaimer</h2>
+
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">13.1 Not a Registered Investment Advisor</h3>
+            <p className="mb-2">Money365.Market is <strong>not registered</strong> as:</p>
+            <ul className="list-disc ml-6 space-y-1 mb-4">
+              <li>An investment advisor with the SEC or any state securities regulator</li>
+              <li>A broker-dealer</li>
+              <li>A securities dealer</li>
+              <li>A financial planner</li>
+              <li>An insurance agent</li>
+            </ul>
+
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">13.2 Not FINRA/SEC Regulated</h3>
+            <p className="mb-2">We are not subject to regulation by:</p>
+            <ul className="list-disc ml-6 space-y-1">
+              <li>The Securities and Exchange Commission (SEC)</li>
+              <li>Financial Industry Regulatory Authority (FINRA)</li>
+              <li>Any state securities regulator</li>
+              <li>Any other financial regulatory body</li>
+            </ul>
+          </section>
+
+          {/* 17. Professional Consultation */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 font-crimson">17. Professional Consultation</h2>
+
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">17.1 Seek Professional Advice</h3>
+            <p className="mb-2">Before making any investment decision, you should consult with qualified professionals, including:</p>
+            <ul className="list-disc ml-6 space-y-1 mb-4">
+              <li><strong>Financial Advisors</strong>: For personalized investment advice and planning</li>
+              <li><strong>Tax Advisors</strong>: For tax implications and strategies</li>
+              <li><strong>Legal Advisors</strong>: For legal considerations and estate planning</li>
+              <li><strong>Accountants</strong>: For financial planning and record-keeping</li>
+            </ul>
+
+            <h3 className="text-xl font-semibold text-soft-orange mb-3">17.2 Credentials Matter</h3>
+            <p className="mb-2">When selecting professionals, verify their:</p>
+            <ul className="list-disc ml-6 space-y-1">
+              <li>Credentials and licenses</li>
+              <li>Regulatory status and compliance history</li>
+              <li>Fiduciary status (do they act in your best interest?)</li>
+              <li>Fee structure and potential conflicts of interest</li>
+              <li>Professional experience and expertise</li>
+            </ul>
+          </section>
+
+          {/* Contact Information */}
+          <section>
+            <h2 className="text-2xl font-bold text-white mb-4 font-crimson">18. Contact Information</h2>
+            <p className="mb-3">If you have questions about this Disclaimer, please contact us:</p>
+            <div className="bg-stone-800 p-4 rounded-lg">
+              <p className="font-semibold">Money365.Market</p>
+              <p>Email: <a href="mailto:office@money365.market" className="text-soft-orange hover:underline">office@money365.market</a></p>
+              <p>Website: <Link href="/contact" className="text-soft-orange hover:underline">https://money365.market/contact</Link></p>
             </div>
+          </section>
 
-            {/* Affiliate Disclosure */}
-            <div className="bg-white border-2 border-soft-orange rounded-none shadow-xl p-8 lg:p-10">
-              <div className="flex items-start mb-6">
-                <div className="flex-shrink-0 w-14 h-14 bg-soft-orange border-2 border-soft-orange-dark rounded-none flex items-center justify-center mr-4">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h2 className="font-crimson text-2xl md:text-3xl font-bold text-deep-brown mb-2">
-                    Affiliate Disclosure
-                  </h2>
-                  <p className="text-bronze-600 font-bold text-sm uppercase tracking-wider">
-                    TRANSPARENCY IN PARTNERSHIPS
-                  </p>
-                </div>
-              </div>
+          {/* Acknowledgment */}
+          <section className="bg-yellow-900/20 border-l-4 border-yellow-500 p-6">
+            <h2 className="text-2xl font-bold text-white mb-4 font-crimson">20. Acknowledgment and Acceptance</h2>
+            <p className="mb-3 font-semibold">BY USING MONEY365.MARKET, YOU ACKNOWLEDGE THAT:</p>
+            <ol className="list-decimal ml-6 space-y-2">
+              <li>You have read and understood this Disclaimer in its entirety</li>
+              <li>You understand that we do not provide financial advice</li>
+              <li>You understand the risks of investing</li>
+              <li>You will conduct your own research and due diligence</li>
+              <li>You will consult with qualified professionals before making investment decisions</li>
+              <li>You take full responsibility for your investment decisions and outcomes</li>
+              <li>You will not hold Money365.Market liable for any investment losses</li>
+              <li>You agree to indemnify us against any claims arising from your use of our Website</li>
+            </ol>
+          </section>
 
-              <div className="space-y-4 text-stone-700">
-                <p className="text-lg leading-relaxed">
-                  money365.market participates in affiliate marketing programs. This means we may receive a commission
-                  when you sign up for services or make purchases through links on our website.
-                </p>
+          {/* Final Warning */}
+          <section className="bg-red-900/30 border-2 border-red-500 rounded-lg p-6 text-center">
+            <p className="font-bold text-red-400 text-lg mb-3">
+              INVESTMENT IN SECURITIES INVOLVES RISK OF LOSS. PAST PERFORMANCE IS NOT INDICATIVE OF FUTURE RESULTS. YOU MAY LOSE SOME OR ALL OF YOUR INVESTED CAPITAL.
+            </p>
+            <p className="text-gray-300 text-sm">
+              THIS DISCLAIMER SHOULD BE READ IN CONJUNCTION WITH OUR{' '}
+              <Link href="/terms" className="text-soft-orange hover:underline">TERMS OF SERVICE</Link>
+              {' '}AND{' '}
+              <Link href="/privacy" className="text-soft-orange hover:underline">PRIVACY POLICY</Link>.
+            </p>
+          </section>
 
-                <h3 className="font-crimson text-xl font-bold text-deep-brown mt-8 mb-4 pb-2 border-b-2 border-bronze-600">
-                  How Affiliate Relationships Work
-                </h3>
-
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">No Extra Cost to You</strong>: Affiliate commissions do not increase the price you pay.
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Editorial Independence</strong>: We only recommend products and services we genuinely believe provide value.
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Honest Reviews</strong>: Our opinions remain objective, regardless of affiliate relationships.
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Clear Labeling</strong>: Affiliate links are clearly marked when present in content.
-                    </div>
-                  </li>
-                </ul>
-
-                <h3 className="font-crimson text-xl font-bold text-deep-brown mt-8 mb-4 pb-2 border-b-2 border-bronze-600">
-                  Current Affiliate Partners
-                </h3>
-
-                <p className="leading-relaxed">
-                  We may have affiliate relationships with:
-                </p>
-
-                <ul className="space-y-2 ml-6">
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Online brokers (Interactive Brokers, eToro, Trading212, etc.)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Financial data providers</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Investment tools and platforms</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Educational resources and courses</span>
-                  </li>
-                </ul>
-
-                <div className="bg-orange-50 border-l-4 border-bronze-600 rounded-none p-6 mt-6">
-                  <p className="font-semibold text-bronze-700 leading-relaxed">
-                    💡 <span className="uppercase tracking-wider">Our Commitment:</span> We prioritize your best interests over affiliate commissions.
-                    If a product or service doesn't meet our quality standards, we won't recommend it—regardless of commission potential.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* No Guarantees */}
-            <div className="bg-white border-2 border-stone-300 rounded-none shadow-xl p-8 lg:p-10">
-              <h2 className="font-crimson text-2xl md:text-3xl font-bold text-deep-brown mb-6 pb-3 border-b-4 border-bronze-600 inline-block">
-                No Guarantees or Warranties
-              </h2>
-
-              <div className="space-y-4 text-stone-700">
-                <p className="text-lg leading-relaxed">
-                  money365.market makes no representations or warranties about the accuracy, completeness, or reliability
-                  of information provided on this website.
-                </p>
-
-                <ul className="space-y-3 mt-6">
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Information Currency</strong>: Market data and information may be outdated or inaccurate.
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Technical Issues</strong>: We do not guarantee uninterrupted or error-free access to our website.
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Third-Party Content</strong>: We are not responsible for content or accuracy of external links.
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Results Disclaimer</strong>: We make no guarantees about investment outcomes or profits.
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Risk Warning */}
-            <div className="bg-white border-2 border-red-600 rounded-none shadow-xl p-8 lg:p-10">
-              <h2 className="font-crimson text-2xl md:text-3xl font-bold text-deep-brown mb-6 pb-3 border-b-4 border-red-600 inline-block">
-                Investment Risk Warning
-              </h2>
-
-              <div className="space-y-4 text-stone-700">
-                <div className="bg-red-50 border-l-4 border-red-600 rounded-none p-6 mb-6">
-                  <p className="font-bold text-red-800 mb-3 text-lg">
-                    ⚠️ INVESTING INVOLVES SUBSTANTIAL RISK
-                  </p>
-                  <p className="text-red-700 leading-relaxed">
-                    You can lose some or all of your invested capital. Only invest money you can afford to lose.
-                  </p>
-                </div>
-
-                <h3 className="font-crimson text-xl font-bold text-deep-brown mt-8 mb-4 pb-2 border-b-2 border-bronze-600">
-                  Common Investment Risks
-                </h3>
-
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Market Risk</strong>: Stock prices can decline due to market conditions
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Volatility Risk</strong>: Prices can fluctuate significantly in short periods
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Liquidity Risk</strong>: You may not be able to sell investments when desired
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Company-Specific Risk</strong>: Individual companies can fail or underperform
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Currency Risk</strong>: Exchange rate fluctuations can affect international investments
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Leverage Risk</strong>: Borrowed money amplifies both gains and losses
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Privacy & Data */}
-            <div className="bg-white border-2 border-stone-300 rounded-none shadow-xl p-8 lg:p-10">
-              <h2 className="font-crimson text-2xl md:text-3xl font-bold text-deep-brown mb-6 pb-3 border-b-4 border-bronze-600 inline-block">
-                Privacy & Data Protection
-              </h2>
-
-              <div className="space-y-4 text-stone-700">
-                <p className="text-lg leading-relaxed">
-                  We respect your privacy and are committed to protecting your personal data in accordance with
-                  applicable data protection laws, including GDPR (General Data Protection Regulation).
-                </p>
-
-                <h3 className="font-crimson text-xl font-bold text-deep-brown mt-8 mb-4 pb-2 border-b-2 border-bronze-600">
-                  Information We Collect
-                </h3>
-
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Contact Information</strong>: Name, email address (when you subscribe or contact us)
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Usage Data</strong>: Pages visited, time spent, browser information (via analytics)
-                    </div>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-3 text-xl">•</span>
-                    <div>
-                      <strong className="text-deep-brown">Cookies</strong>: We use cookies to improve user experience and analyze traffic
-                    </div>
-                  </li>
-                </ul>
-
-                <h3 className="font-crimson text-xl font-bold text-deep-brown mt-8 mb-4 pb-2 border-b-2 border-bronze-600">
-                  How We Use Your Data
-                </h3>
-
-                <ul className="space-y-2 ml-6">
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>To send newsletters and updates (with your consent)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>To improve website functionality and content</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>To respond to your inquiries</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>To comply with legal obligations</span>
-                  </li>
-                </ul>
-
-                <h3 className="font-crimson text-xl font-bold text-deep-brown mt-8 mb-4 pb-2 border-b-2 border-bronze-600">
-                  Your Rights
-                </h3>
-
-                <ul className="space-y-2 ml-6">
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Right to access your personal data</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Right to correct inaccurate data</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Right to delete your data (right to be forgotten)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Right to unsubscribe from communications at any time</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Right to withdraw consent</span>
-                  </li>
-                </ul>
-
-                <p className="mt-6 leading-relaxed">
-                  For privacy concerns, contact us at:{' '}
-                  <a href="mailto:office@money365.market" className="text-bronze-600 hover:text-bronze-700 font-semibold hover:underline">
-                    office@money365.market
-                  </a>
-                </p>
-              </div>
-            </div>
-
-            {/* Intellectual Property */}
-            <div className="bg-white border-2 border-stone-300 rounded-none shadow-xl p-8 lg:p-10">
-              <h2 className="font-crimson text-2xl md:text-3xl font-bold text-deep-brown mb-6 pb-3 border-b-4 border-bronze-600 inline-block">
-                Intellectual Property & Copyright
-              </h2>
-
-              <div className="space-y-4 text-stone-700">
-                <p className="text-lg leading-relaxed">
-                  All content on money365.market, including text, graphics, logos, and images, is the property of
-                  money365.market or its content suppliers and is protected by copyright laws.
-                </p>
-
-                <h3 className="font-crimson text-xl font-bold text-deep-brown mt-8 mb-4 pb-2 border-b-2 border-bronze-600">
-                  Permitted Use
-                </h3>
-
-                <ul className="space-y-2 ml-6">
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>You may view and print pages for personal, non-commercial use</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>You may share links to our content on social media</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Brief excerpts may be quoted with proper attribution</span>
-                  </li>
-                </ul>
-
-                <h3 className="font-crimson text-xl font-bold text-deep-brown mt-8 mb-4 pb-2 border-b-2 border-bronze-600">
-                  Prohibited Use
-                </h3>
-
-                <ul className="space-y-2 ml-6">
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Reproducing, distributing, or republishing content without permission</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Using content for commercial purposes without a license</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Modifying or removing copyright notices</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Scraping or automated data collection</span>
-                  </li>
-                </ul>
-
-                <p className="mt-6 leading-relaxed">
-                  For licensing inquiries, contact:{' '}
-                  <a href="mailto:office@money365.market" className="text-bronze-600 hover:text-bronze-700 font-semibold hover:underline">
-                    office@money365.market
-                  </a>
-                </p>
-              </div>
-            </div>
-
-            {/* Limitation of Liability */}
-            <div className="bg-white border-2 border-stone-300 rounded-none shadow-xl p-8 lg:p-10">
-              <h2 className="font-crimson text-2xl md:text-3xl font-bold text-deep-brown mb-6 pb-3 border-b-4 border-bronze-600 inline-block">
-                Limitation of Liability
-              </h2>
-
-              <div className="space-y-4 text-stone-700">
-                <p className="text-lg leading-relaxed">
-                  To the fullest extent permitted by law, money365.market and its owners, employees, and affiliates
-                  shall not be liable for any direct, indirect, incidental, consequential, or punitive damages
-                  arising from:
-                </p>
-
-                <ul className="space-y-2 ml-6">
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Your use of this website</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Errors, omissions, or inaccuracies in content</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Investment decisions made based on information provided</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Technical issues, downtime, or data loss</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Third-party websites or services we link to</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-bronze-600 mr-2">→</span>
-                    <span>Unauthorized access to your data</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Changes to Disclaimer */}
-            <div className="bg-white border-2 border-stone-300 rounded-none shadow-xl p-8 lg:p-10">
-              <h2 className="font-crimson text-2xl md:text-3xl font-bold text-deep-brown mb-6 pb-3 border-b-4 border-bronze-600 inline-block">
-                Changes to This Disclaimer
-              </h2>
-
-              <div className="space-y-4 text-stone-700">
-                <p className="text-lg leading-relaxed">
-                  We reserve the right to update this disclaimer at any time. Changes will be posted on this page
-                  with an updated "Last Updated" date.
-                </p>
-
-                <p className="leading-relaxed">
-                  Your continued use of money365.market after changes are posted constitutes your acceptance of the updated terms.
-                </p>
-              </div>
-            </div>
-
-            {/* Contact for Legal */}
-            <div className="bg-gradient-to-br from-deep-brown to-rich-brown border-2 border-bronze-600 rounded-none shadow-xl p-8 lg:p-10">
-              <h2 className="font-crimson text-2xl md:text-3xl font-bold text-white mb-4">
-                Questions About This Disclaimer?
-              </h2>
-              <p className="text-stone-300 text-lg leading-relaxed mb-6">
-                If you have any questions or concerns about our disclaimer, terms of use, or privacy practices,
-                please don't hesitate to contact us.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  href="/contact"
-                  className="px-8 py-3 bg-bronze-600 border-2 border-bronze-700 text-deep-brown font-bold text-sm uppercase tracking-wide rounded-none shadow-xl hover:bg-bronze-700 hover:text-white transition-all duration-200 text-center"
-                >
-                  Contact Us
-                </Link>
-                <a
-                  href="mailto:office@money365.market"
-                  className="px-8 py-3 bg-transparent border-2 border-bronze-600 text-bronze-600 font-bold text-sm uppercase tracking-wide rounded-none shadow-xl hover:bg-bronze-600 hover:text-deep-brown transition-all duration-200 text-center"
-                >
-                  Email Us
-                </a>
-              </div>
-            </div>
-
+          {/* Version Info */}
+          <div className="text-center text-sm text-gray-500 pt-6 border-t border-gray-700">
+            <p>Last Reviewed: November 9, 2025</p>
+            <p>Version: 1.0</p>
           </div>
+
         </div>
-      </section>
+      </div>
     </div>
   )
 }

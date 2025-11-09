@@ -66,6 +66,30 @@ export default function ThankYouPage() {
               </li>
             </ol>
           </div>
+
+          {/* Free Checklist CTA */}
+          <div className="mt-6 rounded-lg border-2 border-orange-200 bg-gradient-to-br from-orange-50 to-white p-6 shadow-sm">
+            <div className="mb-4 text-center">
+              <div className="mb-3 inline-flex rounded-lg bg-orange-100 p-3">
+                <Target className="h-8 w-8 text-orange-600" />
+              </div>
+              <h3 className="mb-2 text-xl font-bold text-stone-900">
+                Get Your FREE Stock Analysis Checklist
+              </h3>
+              <p className="mb-4 text-sm text-stone-600">
+                Professional 20-point framework to analyze any stock in 30 minutes or less
+              </p>
+            </div>
+            <div className="text-center">
+              <Link
+                href="/resources/stock-analysis-checklist"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-orange-600 px-8 py-3 text-base font-semibold text-white shadow-md transition-all hover:bg-orange-700 hover:shadow-lg"
+              >
+                Access Free Checklist Now
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* What You'll Get Section */}

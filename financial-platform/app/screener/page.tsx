@@ -5,9 +5,11 @@ import { useState, useEffect } from 'react'
 interface StockData {
   symbol: string
   name: string
+  sector: string
   price: number
   change: number
   changePercent: string | number
+  volume: string | number
   marketCap: string | number
   peRatio: string | number
   dividendYield: string | number
@@ -27,13 +29,13 @@ export default function Screener() {
 
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null)
 
-  // Fetch stock data on component mount and every 2 minutes
+  // Fetch stock data on component mount and every hour
   useEffect(() => {
     fetchStockData() // Initial load
 
     const interval = setInterval(() => {
-      fetchStockData() // Auto-refresh every 2 minutes
-    }, 120000)
+      fetchStockData() // Auto-refresh every hour (aligns with API strategy)
+    }, 3600000) // 1 hour = 3600000ms
 
     return () => clearInterval(interval)
   }, [])

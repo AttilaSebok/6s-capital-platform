@@ -7,15 +7,28 @@ export async function GET(
   const { symbol } = await params
 
   try {
-    // Option 1: Alpha Vantage API (Uncomment and add API key)
-    /*
+    // Alpha Vantage API
     const apiKey = process.env.ALPHA_VANTAGE_API_KEY
+
+    if (!apiKey) {
+      // Return sample data if API key is not configured
+      return NextResponse.json({
+        symbol: symbol.toUpperCase(),
+        price: 150.25 + Math.random() * 50,
+        change: (Math.random() - 0.5) * 10,
+        changePercent: (Math.random() - 0.5) * 5,
+        volume: Math.floor(Math.random() * 10000000),
+        lastUpdated: new Date().toISOString(),
+        note: 'This is sample data. Add ALPHA_VANTAGE_API_KEY to .env.local for live data.',
+      })
+    }
+
     const response = await fetch(
       `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`
     )
     const data = await response.json()
 
-    if (data['Global Quote']) {
+    if (data['Global Quote'] && Object.keys(data['Global Quote']).length > 0) {
       const quote = data['Global Quote']
       return NextResponse.json({
         symbol: quote['01. symbol'],
@@ -26,10 +39,8 @@ export async function GET(
         lastUpdated: quote['07. latest trading day'],
       })
     }
-    */
 
-    // Option 2: Yahoo Finance (using yfinance through a proxy or server-side Python)
-    // For now, return sample data
+    // Fallback to sample data if API returns no data
     return NextResponse.json({
       symbol: symbol.toUpperCase(),
       price: 150.25 + Math.random() * 50,
@@ -37,7 +48,7 @@ export async function GET(
       changePercent: (Math.random() - 0.5) * 5,
       volume: Math.floor(Math.random() * 10000000),
       lastUpdated: new Date().toISOString(),
-      note: 'This is sample data. Connect to a real API for live data.',
+      note: 'API returned no data. Showing sample data.',
     })
   } catch (error) {
     return NextResponse.json(

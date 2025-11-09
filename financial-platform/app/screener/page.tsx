@@ -1,46 +1,75 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface StockData {
   symbol: string
   name: string
   price: number
   change: number
-  changePercent: number
-  marketCap: number
-  peRatio: number
-  dividendYield: number
+  changePercent: string | number
+  marketCap: string | number
+  peRatio: string | number
+  dividendYield: string | number
 }
 
-// Sample data - in production, this would come from your API
-const sampleStocks: StockData[] = [
-  { symbol: 'AAPL', name: 'Apple Inc.', price: 185.50, change: 2.30, changePercent: 1.25, marketCap: 2850000000000, peRatio: 29.5, dividendYield: 0.52 },
-  { symbol: 'MSFT', name: 'Microsoft Corporation', price: 375.20, change: -1.50, changePercent: -0.40, marketCap: 2780000000000, peRatio: 35.2, dividendYield: 0.78 },
-  { symbol: 'GOOGL', name: 'Alphabet Inc.', price: 140.30, change: 3.20, changePercent: 2.33, marketCap: 1750000000000, peRatio: 25.8, dividendYield: 0.00 },
-  { symbol: 'AMZN', name: 'Amazon.com Inc.', price: 152.80, change: 1.80, changePercent: 1.19, marketCap: 1580000000000, peRatio: 78.5, dividendYield: 0.00 },
-  { symbol: 'NVDA', name: 'NVIDIA Corporation', price: 495.60, change: 8.50, changePercent: 1.74, marketCap: 1220000000000, peRatio: 68.2, dividendYield: 0.04 },
-  { symbol: 'TSLA', name: 'Tesla, Inc.', price: 245.70, change: -3.20, changePercent: -1.29, marketCap: 780000000000, peRatio: 65.3, dividendYield: 0.00 },
-  { symbol: 'META', name: 'Meta Platforms Inc.', price: 385.40, change: 5.60, changePercent: 1.47, marketCap: 980000000000, peRatio: 28.9, dividendYield: 0.45 },
-  { symbol: 'JPM', name: 'JPMorgan Chase & Co.', price: 158.90, change: 0.80, changePercent: 0.51, marketCap: 452000000000, peRatio: 11.2, dividendYield: 2.45 },
-]
-
 export default function Screener() {
+  const [allStocks, setAllStocks] = useState<StockData[]>([])
+  const [filteredStocks, setFilteredStocks] = useState<StockData[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [apiNote, setApiNote] = useState('')
+
   const [filters, setFilters] = useState({
     minMarketCap: '',
     maxPE: '',
     minDividendYield: '',
   })
 
-  const [filteredStocks, setFilteredStocks] = useState(sampleStocks)
+  const [lastUpdate, setLastUpdate] = useState<Date | null>(null)
 
-  const formatMarketCap = (value: number) => {
-    if (value >= 1000000000000) {
-      return `$${(value / 1000000000000).toFixed(2)}T`
-    } else if (value >= 1000000000) {
-      return `$${(value / 1000000000).toFixed(2)}B`
+  // Fetch stock data on component mount and every 2 minutes
+  useEffect(() => {
+    fetchStockData() // Initial load
+
+    const interval = setInterval(() => {
+      fetchStockData() // Auto-refresh every 2 minutes
+    }, 120000)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  const fetchStockData = async () => {
+    setIsLoading(true)
+    try {
+      const response = await fetch('/api/screener', {
+        cache: 'no-store'
+      })
+      const data = await response.json()
+
+      if (data.stocks) {
+        setAllStocks(data.stocks)
+        setFilteredStocks(data.stocks)
+        setApiNote(data.note || '')
+        setLastUpdate(new Date())
+      }
+    } catch (error) {
+      console.error('Error fetching stock data:', error)
+      setApiNote('Error fetching data. Please try again.')
+    } finally {
+      setIsLoading(false)
     }
-    return `$${(value / 1000000).toFixed(2)}M`
+  }
+
+  const formatMarketCap = (value: string | number) => {
+    const numValue = typeof value === 'string' ? parseFloat(value) : value
+    if (isNaN(numValue)) return 'N/A'
+
+    if (numValue >= 1000000000000) {
+      return `$${(numValue / 1000000000000).toFixed(2)}T`
+    } else if (numValue >= 1000000000) {
+      return `$${(numValue / 1000000000).toFixed(2)}B`
+    }
+    return `$${(numValue / 1000000).toFixed(2)}M`
   }
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,19 +78,28 @@ export default function Screener() {
   }
 
   const applyFilters = () => {
-    let filtered = sampleStocks
+    let filtered = allStocks
 
     if (filters.minMarketCap) {
       const minCap = parseFloat(filters.minMarketCap) * 1000000000
-      filtered = filtered.filter(stock => stock.marketCap >= minCap)
+      filtered = filtered.filter(stock => {
+        const marketCap = typeof stock.marketCap === 'string' ? parseFloat(stock.marketCap) : stock.marketCap
+        return !isNaN(marketCap) && marketCap >= minCap
+      })
     }
 
     if (filters.maxPE) {
-      filtered = filtered.filter(stock => stock.peRatio <= parseFloat(filters.maxPE))
+      filtered = filtered.filter(stock => {
+        const peRatio = typeof stock.peRatio === 'string' ? parseFloat(stock.peRatio) : stock.peRatio
+        return !isNaN(peRatio) && peRatio <= parseFloat(filters.maxPE)
+      })
     }
 
     if (filters.minDividendYield) {
-      filtered = filtered.filter(stock => stock.dividendYield >= parseFloat(filters.minDividendYield))
+      filtered = filtered.filter(stock => {
+        const dividendYield = typeof stock.dividendYield === 'string' ? parseFloat(stock.dividendYield) : stock.dividendYield
+        return !isNaN(dividendYield) && dividendYield >= parseFloat(filters.minDividendYield)
+      })
     }
 
     setFilteredStocks(filtered)
@@ -73,7 +111,7 @@ export default function Screener() {
       maxPE: '',
       minDividendYield: '',
     })
-    setFilteredStocks(sampleStocks)
+    setFilteredStocks(allStocks)
   }
 
   return (
@@ -82,12 +120,22 @@ export default function Screener() {
       <div className="bg-gradient-to-br from-slate-900 to-stone-900 border-b-2 border-bronze-600">
         <div className="container mx-auto px-4 py-12">
           <div className="max-w-5xl mx-auto">
-            <h1 className="font-crimson text-4xl md:text-5xl font-bold text-white mb-3 tracking-tight">
-              Stock Screener
-            </h1>
-            <p className="text-lg text-stone-300 font-light">
-              Filter and discover stocks that match your investment criteria
-            </p>
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
+              <div>
+                <h1 className="font-crimson text-4xl md:text-5xl font-bold text-white mb-3 tracking-tight">
+                  Stock Screener
+                </h1>
+                <p className="text-lg text-stone-300 font-light">
+                  Filter and discover stocks that match your investment criteria
+                </p>
+              </div>
+              {lastUpdate && (
+                <div className="text-sm text-stone-400">
+                  <span className="text-green-400">● </span>
+                  Last updated: {lastUpdate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -144,18 +192,27 @@ export default function Screener() {
               </div>
             </div>
 
-            <div className="mt-6 flex gap-4">
+            <div className="mt-6 flex flex-wrap gap-4">
               <button
                 onClick={applyFilters}
-                className="px-6 py-2.5 bg-bronze-600 border-2 border-bronze-700 text-deep-brown font-bold text-sm uppercase tracking-wide rounded-none hover:bg-bronze-700 hover:text-white transition-all duration-200 shadow-md hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-bronze-600"
+                disabled={isLoading}
+                className="px-6 py-2.5 bg-bronze-600 border-2 border-bronze-700 text-deep-brown font-bold text-sm uppercase tracking-wide rounded-none hover:bg-bronze-700 hover:text-white transition-all duration-200 shadow-md hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-bronze-600 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Apply Filters
               </button>
               <button
                 onClick={resetFilters}
-                className="px-6 py-2.5 bg-transparent border-2 border-stone-500 text-stone-300 font-bold text-sm uppercase tracking-wide rounded-none hover:bg-stone-700 hover:border-stone-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-stone-500"
+                disabled={isLoading}
+                className="px-6 py-2.5 bg-transparent border-2 border-stone-500 text-stone-300 font-bold text-sm uppercase tracking-wide rounded-none hover:bg-stone-700 hover:border-stone-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-stone-500 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Reset
+              </button>
+              <button
+                onClick={fetchStockData}
+                disabled={isLoading}
+                className="px-6 py-2.5 bg-soft-orange border-2 border-soft-orange text-deep-brown font-bold text-sm uppercase tracking-wide rounded-none hover:bg-soft-orange/90 transition-all duration-200 shadow-md hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-soft-orange disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isLoading ? 'Loading...' : 'Refresh Data'}
               </button>
             </div>
           </div>
@@ -166,53 +223,68 @@ export default function Screener() {
               <h2 className="font-crimson text-2xl font-bold text-white">
                 Results ({filteredStocks.length} stocks)
               </h2>
-              <div className="text-xs text-stone-400 bg-stone-700 px-4 py-2 rounded-none border border-stone-600">
-                <strong>Note:</strong> This is sample data. Connect to a real API for live data.
-              </div>
+              {apiNote && (
+                <div className="text-xs text-stone-400 bg-stone-700 px-4 py-2 rounded-none border border-stone-600">
+                  <strong>Note:</strong> {apiNote}
+                </div>
+              )}
             </div>
 
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-stone-700">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-xs font-bold text-stone-300 uppercase tracking-wider border-b border-stone-600">Symbol</th>
-                    <th className="px-6 py-4 text-left text-xs font-bold text-stone-300 uppercase tracking-wider border-b border-stone-600">Name</th>
-                    <th className="px-6 py-4 text-right text-xs font-bold text-stone-300 uppercase tracking-wider border-b border-stone-600">Price</th>
-                    <th className="px-6 py-4 text-right text-xs font-bold text-stone-300 uppercase tracking-wider border-b border-stone-600">Change</th>
-                    <th className="px-6 py-4 text-right text-xs font-bold text-stone-300 uppercase tracking-wider border-b border-stone-600">Market Cap</th>
-                    <th className="px-6 py-4 text-right text-xs font-bold text-stone-300 uppercase tracking-wider border-b border-stone-600">P/E Ratio</th>
-                    <th className="px-6 py-4 text-right text-xs font-bold text-stone-300 uppercase tracking-wider border-b border-stone-600">Div Yield</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-stone-700">
-                  {filteredStocks.map((stock) => (
-                    <tr key={stock.symbol} className="hover:bg-slate-700 transition-colors">
-                      <td className="px-6 py-4 whitespace-nowrap font-bold text-bronze-600">
-                        {stock.symbol}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-stone-200">{stock.name}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right font-semibold text-white">
-                        ${stock.price.toFixed(2)}
-                      </td>
-                      <td className={`px-6 py-4 whitespace-nowrap text-right font-semibold ${
-                        stock.change >= 0 ? 'text-green-400' : 'text-red-400'
-                      }`}>
-                        {stock.change >= 0 ? '+' : ''}{stock.change.toFixed(2)} ({stock.changePercent >= 0 ? '+' : ''}{stock.changePercent.toFixed(2)}%)
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-stone-300">
-                        {formatMarketCap(stock.marketCap)}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-stone-300">
-                        {stock.peRatio.toFixed(2)}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-right text-stone-300">
-                        {stock.dividendYield.toFixed(2)}%
-                      </td>
+            {isLoading ? (
+              <div className="p-12 text-center">
+                <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-bronze-600"></div>
+                <p className="mt-4 text-stone-300">Loading stock data...</p>
+              </div>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-stone-700">
+                    <tr>
+                      <th className="px-6 py-4 text-left text-xs font-bold text-stone-300 uppercase tracking-wider border-b border-stone-600">Symbol</th>
+                      <th className="px-6 py-4 text-left text-xs font-bold text-stone-300 uppercase tracking-wider border-b border-stone-600">Name</th>
+                      <th className="px-6 py-4 text-right text-xs font-bold text-stone-300 uppercase tracking-wider border-b border-stone-600">Price</th>
+                      <th className="px-6 py-4 text-right text-xs font-bold text-stone-300 uppercase tracking-wider border-b border-stone-600">Change</th>
+                      <th className="px-6 py-4 text-right text-xs font-bold text-stone-300 uppercase tracking-wider border-b border-stone-600">Market Cap</th>
+                      <th className="px-6 py-4 text-right text-xs font-bold text-stone-300 uppercase tracking-wider border-b border-stone-600">P/E Ratio</th>
+                      <th className="px-6 py-4 text-right text-xs font-bold text-stone-300 uppercase tracking-wider border-b border-stone-600">Div Yield</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody className="divide-y divide-stone-700">
+                    {filteredStocks.map((stock) => {
+                      const changePercent = typeof stock.changePercent === 'string' ? parseFloat(stock.changePercent) : stock.changePercent
+                      const peRatio = typeof stock.peRatio === 'string' ? stock.peRatio : stock.peRatio.toFixed(2)
+                      const dividendYield = typeof stock.dividendYield === 'string' ? stock.dividendYield : stock.dividendYield.toFixed(2)
+
+                      return (
+                        <tr key={stock.symbol} className="hover:bg-slate-700 transition-colors">
+                          <td className="px-6 py-4 whitespace-nowrap font-bold text-bronze-600">
+                            {stock.symbol}
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-stone-200">{stock.name}</td>
+                          <td className="px-6 py-4 whitespace-nowrap text-right font-semibold text-white">
+                            ${stock.price.toFixed(2)}
+                          </td>
+                          <td className={`px-6 py-4 whitespace-nowrap text-right font-semibold ${
+                            stock.change >= 0 ? 'text-green-400' : 'text-red-400'
+                          }`}>
+                            {stock.change >= 0 ? '+' : ''}{stock.change.toFixed(2)} ({changePercent >= 0 ? '+' : ''}{changePercent.toFixed(2)}%)
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-right text-stone-300">
+                            {formatMarketCap(stock.marketCap)}
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-right text-stone-300">
+                            {peRatio}
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-right text-stone-300">
+                            {dividendYield}%
+                          </td>
+                        </tr>
+                      )
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            )}
           </div>
 
           {/* Premium Upsell */}

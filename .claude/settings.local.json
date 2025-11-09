@@ -58,7 +58,17 @@
       "Bash(python fix_special_chars.py:*)",
       "Bash(git checkout:*)",
       "Bash(if exist .githubworkflows dir .githubworkflows)",
-      "Bash(CNAME)"
+      "Bash(CNAME)",
+      "Bash(npx vercel --prod)",
+      "Bash(npx vercel --prod --yes)",
+      "Bash(timeout 60 echo:*)",
+      "Bash(findstr:*)",
+      "Bash(nul)",
+      "Bash(powershell \"Remove-Item -Recurse -Force ''d:\\___________________________________Cursor\\6s Capital\\financial-platform\\app\\cookie-settings''\")",
+      "Bash(if not exist \"C:\\ClaudeCode\\Filesystem\\privacy-policy.md\" echo.)",
+      "Bash(\"C:\\ClaudeCode\\Filesystem\\privacy-policy.md\")",
+      "Bash(if exist \"D:\\___________________________________Cursor\\6s Capital\\ALPHA_VANTAGE_API_KEY=your_api_key_here\" dir \"D:\\___________________________________Cursor\\6s Capital\\ALPHA_VANTAGE_API_KEY=your_api_key_here\")",
+      "Bash(timeout 15 echo:*)"
     ],
     "deny": [],
     "ask": []

@@ -47,104 +47,53 @@ export default function CookieBanner() {
   const categories = getCookieCategories()
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center p-4 sm:items-center pointer-events-none">
-      {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm pointer-events-auto"
-        onClick={() => !showSettings && setIsVisible(false)}
-      />
+    <>
+      {/* Backdrop for settings modal */}
+      {showSettings && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 pointer-events-auto"
+          onClick={() => setShowSettings(false)}
+        />
+      )}
 
-      {/* Banner */}
-      <div className="relative w-full max-w-4xl bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 overflow-hidden pointer-events-auto">
-        {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <Cookie className="w-6 h-6 text-white" />
-            <h2 className="text-xl font-bold text-white">
-              Cookie Settings
-            </h2>
-          </div>
-          <button
-            onClick={() => setIsVisible(false)}
-            className="text-white/80 hover:text-white transition-colors"
-            aria-label="Close"
-          >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-
-        {/* Content */}
-        <div className="p-6">
-          {!showSettings ? (
-            // Simple view
-            <div className="space-y-4">
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                We use cookies to ensure the best user experience on our website.
-                Cookies help with site functionality, content personalization, and visitor analytics.
-              </p>
-
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                By clicking &quot;Accept All&quot; you consent to all cookies.
-                For detailed settings, click the &quot;Settings&quot; button.{' '}
-                <Link
-                  href="/privacy"
-                  className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 underline"
-                >
-                  Privacy Policy
-                </Link>
-              </p>
-
-              {/* Action buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+      {/* Cookie Bar - Slim bottom bar */}
+      <div className={`fixed ${showSettings ? 'bottom-0' : 'bottom-0'} left-0 right-0 z-50 pointer-events-none transition-all duration-300`}>
+        {/* Settings Panel */}
+        {showSettings && (
+          <div className="pointer-events-auto bg-dark-header border-t-2 border-soft-orange shadow-2xl max-w-4xl mx-auto mb-2 rounded-lg overflow-hidden">
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center space-x-2">
+                  <Cookie className="w-5 h-5 text-soft-orange" />
+                  <h3 className="text-lg font-bold text-white">Cookie Preferences</h3>
+                </div>
                 <button
-                  onClick={handleAcceptAll}
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                  onClick={() => setShowSettings(false)}
+                  className="text-gray-400 hover:text-soft-orange transition-colors"
+                  aria-label="Close"
                 >
-                  Accept All
-                </button>
-                <button
-                  onClick={handleAcceptNecessary}
-                  className="flex-1 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
-                >
-                  Necessary Only
-                </button>
-                <button
-                  onClick={() => setShowSettings(true)}
-                  className="flex-1 border-2 border-gray-300 dark:border-gray-600 hover:border-blue-600 dark:hover:border-blue-500 text-gray-900 dark:text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2"
-                >
-                  <Settings className="w-4 h-4" />
-                  <span>Settings</span>
+                  <X className="w-5 h-5" />
                 </button>
               </div>
-            </div>
-          ) : (
-            // Detailed settings view
-            <div className="space-y-6">
-              <div>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">
-                  Customize your cookie preferences by category:
-                </p>
-              </div>
 
-              {/* Cookie categories */}
-              <div className="space-y-4">
+              <div className="space-y-3 mb-4">
                 {categories.map((category) => (
                   <div
                     key={category.id}
-                    className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-gray-50 dark:bg-gray-800/50"
+                    className="bg-gray-800/50 border border-gray-700 rounded-lg p-4"
                   >
-                    <div className="flex items-start justify-between">
+                    <div className="flex items-center justify-between">
                       <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+                        <h4 className="font-semibold text-white mb-1">
                           {category.name}
-                        </h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                        </h4>
+                        <p className="text-sm text-gray-400">
                           {category.description}
                         </p>
                       </div>
                       <div className="ml-4">
                         {category.required ? (
-                          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                          <span className="text-xs font-medium text-gray-400 bg-gray-700 px-3 py-1 rounded">
                             Always Active
                           </span>
                         ) : (
@@ -155,7 +104,7 @@ export default function CookieBanner() {
                               onChange={() => handleTogglePreference(category.id as keyof typeof preferences)}
                               className="sr-only peer"
                             />
-                            <div className="w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-500 peer-checked:bg-blue-600"></div>
+                            <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-soft-orange rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-soft-orange"></div>
                           </label>
                         )}
                       </div>
@@ -164,29 +113,108 @@ export default function CookieBanner() {
                 ))}
               </div>
 
-              {/* Action buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <div className="flex gap-3">
                 <button
                   onClick={handleSavePreferences}
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                  className="flex-1 bg-soft-orange hover:bg-orange-500 text-white font-semibold py-2 px-4 rounded transition-colors duration-200"
                 >
                   Save Settings
                 </button>
                 <button
                   onClick={() => setShowSettings(false)}
-                  className="flex-1 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                  className="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded transition-colors duration-200"
                 >
                   Back
                 </button>
               </div>
-
-              <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
-                You can change your settings anytime via the &quot;Cookie Settings&quot; link at the bottom of the page.
-              </p>
             </div>
-          )}
+          </div>
+        )}
+
+        {/* Slim Bottom Bar */}
+        <div className="pointer-events-auto bg-dark-header border-t-2 border-soft-orange shadow-2xl">
+          <div className="container mx-auto px-4 py-3">
+            {/* Desktop Layout */}
+            <div className="hidden md:flex items-center justify-between gap-4">
+              {/* Left side - Message */}
+              <div className="flex items-center space-x-3 flex-1">
+                <Cookie className="w-5 h-5 text-soft-orange flex-shrink-0" />
+                <div className="flex-1">
+                  <p className="text-white text-sm leading-tight">
+                    We use cookies to enhance your experience.{' '}
+                    <Link
+                      href="/privacy"
+                      className="text-soft-orange hover:text-orange-400 underline"
+                    >
+                      Privacy Policy
+                    </Link>
+                  </p>
+                </div>
+              </div>
+
+              {/* Right side - Action buttons */}
+              <div className="flex items-center gap-2 flex-shrink-0">
+                <button
+                  onClick={() => setShowSettings(true)}
+                  className="text-gray-300 hover:text-soft-orange transition-colors text-sm font-medium px-3 py-1.5 rounded border border-gray-600 hover:border-soft-orange"
+                >
+                  <Settings className="w-4 h-4 inline mr-1" />
+                  Settings
+                </button>
+                <button
+                  onClick={handleAcceptNecessary}
+                  className="text-white hover:text-gray-300 transition-colors text-sm font-medium px-3 py-1.5 rounded border border-gray-600 hover:border-gray-500"
+                >
+                  Necessary Only
+                </button>
+                <button
+                  onClick={handleAcceptAll}
+                  className="bg-soft-orange hover:bg-orange-500 text-white font-semibold text-sm px-4 py-1.5 rounded transition-colors"
+                >
+                  Accept All
+                </button>
+              </div>
+            </div>
+
+            {/* Mobile Layout */}
+            <div className="md:hidden space-y-3">
+              <div className="flex items-center space-x-2">
+                <Cookie className="w-5 h-5 text-soft-orange flex-shrink-0" />
+                <p className="text-white text-xs leading-tight flex-1">
+                  We use cookies to enhance your experience.{' '}
+                  <Link
+                    href="/privacy"
+                    className="text-soft-orange hover:text-orange-400 underline"
+                  >
+                    Learn more
+                  </Link>
+                </p>
+              </div>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setShowSettings(true)}
+                  className="flex-1 text-gray-300 hover:text-soft-orange transition-colors text-xs font-medium px-2 py-1.5 rounded border border-gray-600 hover:border-soft-orange"
+                >
+                  <Settings className="w-3 h-3 inline mr-1" />
+                  Settings
+                </button>
+                <button
+                  onClick={handleAcceptNecessary}
+                  className="flex-1 text-white hover:text-gray-300 transition-colors text-xs font-medium px-2 py-1.5 rounded border border-gray-600 hover:border-gray-500"
+                >
+                  Necessary
+                </button>
+                <button
+                  onClick={handleAcceptAll}
+                  className="flex-1 bg-soft-orange hover:bg-orange-500 text-white font-semibold text-xs px-3 py-1.5 rounded transition-colors"
+                >
+                  Accept All
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

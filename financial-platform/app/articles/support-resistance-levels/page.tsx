@@ -13,7 +13,7 @@ export default function SupportResistanceLevelsArticle() {
   return (
     <ArticleLayout
       title="Support and Resistance Levels: The Foundation of Technical Analysis"
-      description="Learn how to identify and trade support and resistance levels—the most fundamental concept in technical analysis. Includes breakout strategies, bounce trades, and how to combine S/R with volume."
+      description="Learn how to identify and trade support and resistance levels&mdash;the most fundamental concept in technical analysis. Includes breakout strategies, bounce trades, and how to combine S/R with volume."
       category="Technical Analysis"
       publishDate="2025-11-09"
       readTime="14 min read"
@@ -77,7 +77,7 @@ export default function SupportResistanceLevelsArticle() {
           <li><strong>Bounce #3 (June):</strong> Falls to $99, bounces to $118 (+19%)</li>
         </ul>
         <p className="text-sm bg-green-50 border-l-4 border-green-600 p-3">
-          <strong>Interpretation:</strong> $100 is a strong support level. Buyers consistently step in near this price. If the stock approaches $100 again, it's likely a low-risk buying opportunity.
+          <strong>Interpretation:</strong> $100 is a strong support level. Buyers consistently step in near this price. If the stock approaches $100 again, it&apos;s likely a low-risk buying opportunity.
         </p>
       </ExampleBox>
 
@@ -112,15 +112,15 @@ export default function SupportResistanceLevelsArticle() {
           Tesla repeatedly failed to break above $200 in mid-2023:
         </p>
         <ul className="space-y-2 mb-3">
-          <li><strong>May 2023:</strong> Hit $207, rejected → fell to $180 (-13%)</li>
-          <li><strong>July 2023:</strong> Reached $201, rejected → pulled back to $185 (-8%)</li>
-          <li><strong>August 2023:</strong> Touched $205, rejected again → dropped to $195 (-4.9%)</li>
+          <li><strong>May 2023:</strong> Hit $207, rejected &rarr; fell to $180 (-13%)</li>
+          <li><strong>July 2023:</strong> Reached $201, rejected &rarr; pulled back to $185 (-8%)</li>
+          <li><strong>August 2023:</strong> Touched $205, rejected again &rarr; dropped to $195 (-4.9%)</li>
         </ul>
         <p className="text-sm bg-red-50 border-l-4 border-red-600 p-3 mb-3">
           <strong>What happened:</strong> $200 acted as strong resistance for months. Traders who shorted near $200 or sold into strength captured multiple profitable trades.
         </p>
         <p className="text-sm bg-green-50 border-l-4 border-green-600 p-3">
-          <strong>The breakout:</strong> In September 2023, Tesla finally broke above $200 on high volume → rallied to $265 (+32.5%). Once resistance broke, it became support.
+          <strong>The breakout:</strong> In September 2023, Tesla finally broke above $200 on high volume &rarr; rallied to $265 (+32.5%). Once resistance broke, it became support.
         </p>
       </ExampleBox>
 
@@ -156,8 +156,8 @@ export default function SupportResistanceLevelsArticle() {
       </p>
 
       <ul className="space-y-2 my-4">
-        <li><strong>In uptrends:</strong> Price repeatedly bounces off the 50-MA or 200-MA → use these as buy zones</li>
-        <li><strong>In downtrends:</strong> Price fails at the 50-MA or 200-MA → use these as sell/short zones</li>
+        <li><strong>In uptrends:</strong> Price repeatedly bounces off the 50-MA or 200-MA &rarr; use these as buy zones</li>
+        <li><strong>In downtrends:</strong> Price fails at the 50-MA or 200-MA &rarr; use these as sell/short zones</li>
         <li><strong>Breakout signal:</strong> When price breaks above/below a major MA, it signals a trend change</li>
       </ul>
 
@@ -211,7 +211,7 @@ export default function SupportResistanceLevelsArticle() {
           <li><strong>Outcome:</strong> Apple rallied from $152 to $185 over the next 3 months (+21.7%)</li>
         </ul>
         <p className="text-sm bg-green-50 border-l-4 border-green-600 p-3">
-          <strong>Risk/Reward:</strong> Risked $5 per share ($152 - $147), gained $33 per share → 6.6:1 reward-to-risk ratio.
+          <strong>Risk/Reward:</strong> Risked $5 per share ($152 - $147), gained $33 per share &rarr; 6.6:1 reward-to-risk ratio.
         </p>
       </ExampleBox>
 
@@ -282,19 +282,19 @@ export default function SupportResistanceLevelsArticle() {
         <h3 className="text-lg font-bold mb-3 text-red-900">5 Signs of a False Breakout:</h3>
         <ol className="list-decimal pl-6 space-y-3">
           <li>
-            <strong>Low Volume:</strong> Breakout occurs on below-average volume → not enough conviction
+            <strong>Low Volume:</strong> Breakout occurs on below-average volume &rarr; not enough conviction
           </li>
           <li>
-            <strong>Small Candle:</strong> Breakout candle is small (not decisive) → weak momentum
+            <strong>Small Candle:</strong> Breakout candle is small (not decisive) &rarr; weak momentum
           </li>
           <li>
-            <strong>Gap Up/Down:</strong> Price gaps through resistance but can't hold → often reverses
+            <strong>Gap Up/Down:</strong> Price gaps through resistance but can&apos;t hold &rarr; often reverses
           </li>
           <li>
-            <strong>Quick Reversal:</strong> Within 1-2 days, price is back inside the range → trap
+            <strong>Quick Reversal:</strong> Within 1-2 days, price is back inside the range &rarr; trap
           </li>
           <li>
-            <strong>No Follow-Through:</strong> After breakout, price doesn't make new highs → failed move
+            <strong>No Follow-Through:</strong> After breakout, price doesn&apos;t make new highs &rarr; failed move
           </li>
         </ol>
       </div>
@@ -304,9 +304,9 @@ export default function SupportResistanceLevelsArticle() {
           AMC had multiple false breakouts during the meme stock frenzy:
         </p>
         <ul className="space-y-2 mb-3">
-          <li><strong>June 2, 2021:</strong> AMC broke above $70 resistance → hit $72 intraday</li>
+          <li><strong>June 2, 2021:</strong> AMC broke above $70 resistance &rarr; hit $72 intraday</li>
           <li><strong>Volume:</strong> Lower than the previous 3 days (warning sign #1)</li>
-          <li><strong>Reversal:</strong> Closed at $62 the same day → back below resistance (warning sign #2)</li>
+          <li><strong>Reversal:</strong> Closed at $62 the same day &rarr; back below resistance (warning sign #2)</li>
           <li><strong>Outcome:</strong> AMC fell from $72 to $30 over the next month (-58%)</li>
         </ul>
         <p className="text-sm bg-red-50 border-l-4 border-red-600 p-3">
@@ -337,7 +337,7 @@ export default function SupportResistanceLevelsArticle() {
       </ul>
 
       <p className="text-stone-600 italic my-4">
-        <strong>Why zones work better than lines:</strong> Institutional orders are not placed at exact prices—they're spread across a range. Zones account for this.
+        <strong>Why zones work better than lines:</strong> Institutional orders are not placed at exact prices&mdash;they&apos;re spread across a range. Zones account for this.
       </p>
 
       <h2>Combining S/R with Volume for Confirmation</h2>
@@ -359,7 +359,7 @@ export default function SupportResistanceLevelsArticle() {
             <strong>Breakout:</strong> Volume should be <strong>at least 1.5-2x average</strong> to confirm (otherwise likely false breakout)
           </li>
           <li>
-            <strong>Low volume at S/R:</strong> Weak signal → wait for confirmation before entering
+            <strong>Low volume at S/R:</strong> Weak signal &rarr; wait for confirmation before entering
           </li>
         </ul>
       </div>
@@ -376,7 +376,7 @@ export default function SupportResistanceLevelsArticle() {
             </ul>
           </li>
           <li>
-            <strong>❌ Expecting perfect bounces:</strong> Price doesn't always bounce exactly at S/R—it can overshoot or undershoot.
+            <strong>❌ Expecting perfect bounces:</strong> Price doesn&apos;t always bounce exactly at S/R&mdash;it can overshoot or undershoot.
             <ul className="list-circle pl-6 mt-2">
               <li><strong>Solution:</strong> Use zones (ranges) instead of exact lines. Allow for $1-2 wiggle room.</li>
             </ul>
@@ -388,7 +388,7 @@ export default function SupportResistanceLevelsArticle() {
             </ul>
           </li>
           <li>
-            <strong>❌ Buying breakouts without confirmation:</strong> 50%+ of breakouts fail—don't chase.
+            <strong>❌ Buying breakouts without confirmation:</strong> 50%+ of breakouts fail&mdash;don&apos;t chase.
             <ul className="list-circle pl-6 mt-2">
               <li><strong>Solution:</strong> Wait for 1-3 days of confirmation (price holding above/below level + volume).</li>
             </ul>
@@ -406,7 +406,7 @@ export default function SupportResistanceLevelsArticle() {
 
       <KeyTakeaway>
         <ol className="list-decimal pl-6 space-y-2">
-          <li>Open TradingView and pull up a stock you're researching (zoom out to 6-12 months)</li>
+          <li>Open TradingView and pull up a stock you&apos;re researching (zoom out to 6-12 months)</li>
           <li>Identify 2-3 obvious support levels where price has bounced multiple times</li>
           <li>Identify 2-3 obvious resistance levels where price has been rejected</li>
           <li>Draw horizontal lines through these levels (use the drawing tools)</li>
@@ -420,7 +420,7 @@ export default function SupportResistanceLevelsArticle() {
       <h2>Final Thoughts</h2>
 
       <p>
-        Support and resistance are the <strong>foundation of all technical analysis</strong>. Every other indicator—moving averages, RSI, MACD—is ultimately trying to identify S/R levels in different ways.
+        Support and resistance are the <strong>foundation of all technical analysis</strong>. Every other indicator&mdash;moving averages, RSI, MACD&mdash;is ultimately trying to identify S/R levels in different ways.
       </p>
 
       <p>
@@ -432,7 +432,7 @@ export default function SupportResistanceLevelsArticle() {
       </p>
 
       <ul className="space-y-2 my-4">
-        <li><strong>Patience:</strong> Wait for price to reach your level (don't chase)</li>
+        <li><strong>Patience:</strong> Wait for price to reach your level (don&apos;t chase)</li>
         <li><strong>Confirmation:</strong> Use volume, candlestick patterns, and RSI to confirm bounces/breakouts</li>
         <li><strong>Discipline:</strong> Always use stop losses just beyond S/R levels</li>
       </ul>

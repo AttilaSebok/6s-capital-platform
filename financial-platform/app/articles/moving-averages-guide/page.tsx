@@ -21,7 +21,7 @@ export default function MovingAveragesGuideArticle() {
     >
       <KeyTakeaway>
         <ul className="list-disc pl-6 space-y-2">
-          <li>What moving averages are and why they're the most popular technical indicator</li>
+          <li>What moving averages are and why they&apos;re the most popular technical indicator</li>
           <li>The difference between Simple Moving Averages (SMA) and Exponential Moving Averages (EMA)</li>
           <li>How to use the 20-day, 50-day, and 200-day moving averages</li>
           <li>Golden Cross and Death Cross: the two most powerful MA signals</li>
@@ -128,7 +128,7 @@ export default function MovingAveragesGuideArticle() {
 
       <ul>
         <li><strong>Swing traders:</strong> Use for 2-4 week trades</li>
-        <li><strong>Trend confirmation:</strong> If price &gt; 20-MA → short-term uptrend</li>
+        <li><strong>Trend confirmation:</strong> If price &gt; 20-MA &rarr; short-term uptrend</li>
         <li><strong>Support/Resistance:</strong> 20-MA often acts as dynamic support in strong uptrends</li>
         <li><strong>Volatility filter:</strong> When price crosses below 20-MA, short-term momentum has shifted</li>
       </ul>
@@ -149,7 +149,7 @@ export default function MovingAveragesGuideArticle() {
       <h3>3. 200-Day Moving Average (Long-Term Trend)</h3>
 
       <p>
-        <strong>Use case:</strong> The ultimate trend filter—bull vs bear market indicator
+        <strong>Use case:</strong> The ultimate trend filter&mdash;bull vs bear market indicator
       </p>
 
       <ul>
@@ -246,7 +246,7 @@ export default function MovingAveragesGuideArticle() {
           <li><strong>What happened next:</strong> The index fell to 3,600 over the next 6 months (-14.3%)</li>
         </ul>
         <p className="text-sm bg-red-50 border-l-4 border-red-600 p-3">
-          <strong>Warning:</strong> Death Crosses are not always accurate—false signals occur ~30% of the time. Use in conjunction with other indicators (volume, breadth, fundamentals).
+          <strong>Warning:</strong> Death Crosses are not always accurate&mdash;false signals occur ~30% of the time. Use in conjunction with other indicators (volume, breadth, fundamentals).
         </p>
       </ExampleBox>
 
@@ -355,9 +355,9 @@ export default function MovingAveragesGuideArticle() {
           During Tesla's 2023 rally, the stock repeatedly bounced off its 50-day MA:
         </p>
         <ul className="space-y-2 mb-3">
-          <li><strong>February 2023:</strong> Dipped to 50-MA at $190 → bounced to $210 (+10.5%)</li>
-          <li><strong>April 2023:</strong> Pulled back to 50-MA at $160 → rallied to $200 (+25%)</li>
-          <li><strong>June 2023:</strong> Touched 50-MA at $240 → surged to $280 (+16.7%)</li>
+          <li><strong>February 2023:</strong> Dipped to 50-MA at $190 &rarr; bounced to $210 (+10.5%)</li>
+          <li><strong>April 2023:</strong> Pulled back to 50-MA at $160 &rarr; rallied to $200 (+25%)</li>
+          <li><strong>June 2023:</strong> Touched 50-MA at $240 &rarr; surged to $280 (+16.7%)</li>
         </ul>
         <p className="text-sm bg-green-50 border-l-4 border-green-600 p-3">
           <strong>Strategy:</strong> Traders who bought every 50-MA touch during this uptrend captured multiple 10-25% swings.
@@ -394,9 +394,9 @@ export default function MovingAveragesGuideArticle() {
             </ul>
           </li>
           <li>
-            <strong>❌ Not using stop losses:</strong> MAs are not infallible—false signals happen. Trading without stops is reckless.
+            <strong>❌ Not using stop losses:</strong> MAs are not infallible&mdash;false signals happen. Trading without stops is reckless.
             <ul className="list-circle pl-6 mt-2">
-              <li><strong>Solution:</strong> Always set a stop loss 2-3% below the MA you're using as support.</li>
+              <li><strong>Solution:</strong> Always set a stop loss 2-3% below the MA you&apos;re using as support.</li>
             </ul>
           </li>
         </ul>
@@ -438,13 +438,13 @@ export default function MovingAveragesGuideArticle() {
         <h3 className="font-bold mb-3">Popular Charting Platforms:</h3>
         <ul className="list-disc pl-6 space-y-2">
           <li>
-            <strong>TradingView:</strong> Free, web-based, excellent for beginners. Add MAs via "Indicators" menu → "Moving Average"
+            <strong>TradingView:</strong> Free, web-based, excellent for beginners. Add MAs via "Indicators" menu &rarr; "Moving Average"
           </li>
           <li>
             <strong>ThinkorSwim (TD Ameritrade):</strong> Professional platform, free with account. Customizable MA studies
           </li>
           <li>
-            <strong>Yahoo Finance:</strong> Free, basic charts. Click "Indicators" → "Moving Averages"
+            <strong>Yahoo Finance:</strong> Free, basic charts. Click "Indicators" &rarr; "Moving Averages"
           </li>
           <li>
             <strong>Webull:</strong> Free mobile/desktop app with clean MA overlays
@@ -490,7 +490,7 @@ export default function MovingAveragesGuideArticle() {
       <KeyTakeaway>
         <ol className="list-decimal pl-6 space-y-2">
           <li>Open a free TradingView account and pull up a stock you own or are researching</li>
-          <li>Add the 50-day SMA and 200-day SMA to the chart (Indicators → "Moving Average")</li>
+          <li>Add the 50-day SMA and 200-day SMA to the chart (Indicators &rarr; "Moving Average")</li>
           <li>Identify the current trend: Is price above or below both MAs?</li>
           <li>Look for historical examples: Find past times when price bounced off the 50-MA or 200-MA</li>
           <li>Spot Golden Crosses and Death Crosses: Zoom out to a 5-year chart and see if past crosses predicted major moves</li>
@@ -502,7 +502,7 @@ export default function MovingAveragesGuideArticle() {
       <h2>Final Thoughts</h2>
 
       <p>
-        Moving averages are the <strong>most widely used technical indicator</strong> for a reason: they're simple, effective, and time-tested. Whether you're a long-term investor using the 200-MA as a trend filter or a swing trader buying 50-MA bounces, MAs provide a clear, objective framework for decision-making.
+        Moving averages are the <strong>most widely used technical indicator</strong> for a reason: they&apos;re simple, effective, and time-tested. Whether you&apos;re a long-term investor using the 200-MA as a trend filter or a swing trader buying 50-MA bounces, MAs provide a clear, objective framework for decision-making.
       </p>
 
       <p>

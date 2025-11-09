@@ -21,7 +21,7 @@ export default function RSIIndicatorGuideArticle() {
     >
       <KeyTakeaway>
         <ul className="list-disc pl-6 space-y-2">
-          <li>What the RSI indicator measures and how it's calculated</li>
+          <li>What the RSI indicator measures and how it&apos;s calculated</li>
           <li>How to identify overbought (&gt;70) and oversold (&lt;30) conditions</li>
           <li>RSI divergences: the most powerful RSI signal for reversals</li>
           <li>Proven RSI trading strategies with entry/exit rules</li>
@@ -88,7 +88,7 @@ export default function RSIIndicatorGuideArticle() {
       </ExampleBox>
 
       <p className="text-stone-600 italic my-4">
-        <strong>Note:</strong> You don't need to calculate RSI manuallyall charting platforms calculate it automatically. Understanding the formula helps you interpret what RSI is actually measuring: the balance between buying and selling pressure.
+        <strong>Note:</strong> You don&apos;t need to calculate RSI manuallyall charting platforms calculate it automatically. Understanding the formula helps you interpret what RSI is actually measuring: the balance between buying and selling pressure.
       </p>
 
       <h2>Overbought and Oversold Signals</h2>
@@ -106,7 +106,7 @@ export default function RSIIndicatorGuideArticle() {
       </ul>
 
       <div className="bg-red-50 border-l-4 border-red-600 p-6 my-6">
-        <p className="font-bold mb-2 text-red-900">Warning: Overbought ` Sell Signal</p>
+        <p className="font-bold mb-2 text-red-900">Warning: Overbought ‚â† Sell Signal</p>
         <p className="text-sm text-stone-700">
           In strong uptrends, RSI can stay overbought (&gt;70) for weeks or months. <strong>Don't automatically sell just because RSI hits 70.</strong> Wait for confirmation (price breaking support, bearish divergence, etc.).
         </p>
@@ -125,7 +125,7 @@ export default function RSIIndicatorGuideArticle() {
       </ul>
 
       <div className="bg-green-50 border-l-4 border-green-600 p-6 my-6">
-        <p className="font-bold mb-2 text-green-900">Warning: Oversold ` Buy Signal</p>
+        <p className="font-bold mb-2 text-green-900">Warning: Oversold ‚â† Buy Signal</p>
         <p className="text-sm text-stone-700">
           In strong downtrends, RSI can stay oversold (&lt;30) for weeks. <strong>Don't catch a falling knife.</strong> Wait for confirmation (price breaking above resistance, bullish divergence, volume spike) before buying.
         </p>
@@ -159,10 +159,10 @@ export default function RSIIndicatorGuideArticle() {
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Price:</strong> Makes a lower low</li>
           <li><strong>RSI:</strong> Makes a higher low</li>
-          <li><strong>Interpretation:</strong> Selling pressure is weakening even as price makes new lows í reversal likely</li>
+          <li><strong>Interpretation:</strong> Selling pressure is weakening even as price makes new lows ¬í reversal likely</li>
         </ul>
         <p className="text-sm mt-3 text-stone-700">
-          <strong>Trading strategy:</strong> Wait for price to break above recent resistance + RSI crosses above 30 í go long
+          <strong>Trading strategy:</strong> Wait for price to break above recent resistance + RSI crosses above 30 ¬í go long
         </p>
       </div>
 
@@ -188,10 +188,10 @@ export default function RSIIndicatorGuideArticle() {
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Price:</strong> Makes a higher high</li>
           <li><strong>RSI:</strong> Makes a lower high</li>
-          <li><strong>Interpretation:</strong> Buying pressure is weakening even as price makes new highs í reversal likely</li>
+          <li><strong>Interpretation:</strong> Buying pressure is weakening even as price makes new highs ¬í reversal likely</li>
         </ul>
         <p className="text-sm mt-3 text-stone-700">
-          <strong>Trading strategy:</strong> Wait for price to break below recent support + RSI crosses below 70 í go short or sell
+          <strong>Trading strategy:</strong> Wait for price to break below recent support + RSI crosses below 70 ¬í go short or sell
         </p>
       </div>
 
@@ -278,25 +278,25 @@ export default function RSIIndicatorGuideArticle() {
         <h3 className="text-lg font-bold mb-3 text-red-900">Top RSI Mistakes:</h3>
         <ul className="space-y-4">
           <li>
-            <strong>L Buying every time RSI hits 30:</strong> Oversold doesn't mean "buy now"especially in downtrends.
+            <strong>‚ùå Buying every time RSI hits 30:</strong> Oversold doesn&apos;t mean "buy now"especially in downtrends.
             <ul className="list-circle pl-6 mt-2">
               <li><strong>Solution:</strong> Only buy oversold RSI in confirmed uptrends (price above 50-MA and 200-MA).</li>
             </ul>
           </li>
           <li>
-            <strong>L Selling every time RSI hits 70:</strong> In strong uptrends, RSI can stay overbought for weeks.
+            <strong>‚ùå Selling every time RSI hits 70:</strong> In strong uptrends, RSI can stay overbought for weeks.
             <ul className="list-circle pl-6 mt-2">
               <li><strong>Solution:</strong> Use RSI &gt; 70 as a warning to tighten stops, not an automatic sell signal.</li>
             </ul>
           </li>
           <li>
-            <strong>L Using RSI in isolation:</strong> RSI works best when combined with price action, support/resistance, and volume.
+            <strong>‚ùå Using RSI in isolation:</strong> RSI works best when combined with price action, support/resistance, and volume.
             <ul className="list-circle pl-6 mt-2">
               <li><strong>Solution:</strong> Confirm RSI signals with other indicators (moving averages, trendlines, chart patterns).</li>
             </ul>
           </li>
           <li>
-            <strong>L Ignoring the trend:</strong> Counter-trend RSI trades (buying oversold in downtrends, selling overbought in uptrends) have low success rates.
+            <strong>‚ùå Ignoring the trend:</strong> Counter-trend RSI trades (buying oversold in downtrends, selling overbought in uptrends) have low success rates.
             <ul className="list-circle pl-6 mt-2">
               <li><strong>Solution:</strong> Trade with the trend: buy oversold in uptrends, sell overbought in downtrends/ranges.</li>
             </ul>
@@ -309,7 +309,7 @@ export default function RSIIndicatorGuideArticle() {
       <h3>RSI + Moving Averages</h3>
 
       <ul className="space-y-2 my-4">
-        <li><strong>Setup:</strong> Price above 50-MA + RSI oversold (&lt;30) í high-probability dip buy</li>
+        <li><strong>Setup:</strong> Price above 50-MA + RSI oversold (&lt;30) ¬í high-probability dip buy</li>
         <li><strong>Logic:</strong> Trend is up (MA confirms), but short-term pullback (RSI confirms)</li>
         <li><strong>Entry:</strong> Buy when RSI crosses back above 30 while price holds above 50-MA</li>
       </ul>
@@ -317,7 +317,7 @@ export default function RSIIndicatorGuideArticle() {
       <h3>RSI + Support/Resistance</h3>
 
       <ul className="space-y-2 my-4">
-        <li><strong>Setup:</strong> Price at major support + RSI oversold í very strong buy signal</li>
+        <li><strong>Setup:</strong> Price at major support + RSI oversold ¬í very strong buy signal</li>
         <li><strong>Logic:</strong> Two forms of support (horizontal level + momentum oversold)</li>
         <li><strong>Entry:</strong> Buy when price bounces off support AND RSI bounces off 30</li>
       </ul>
@@ -325,7 +325,7 @@ export default function RSIIndicatorGuideArticle() {
       <h3>RSI + Volume</h3>
 
       <ul className="space-y-2 my-4">
-        <li><strong>Setup:</strong> RSI oversold bounce + volume spike í institutional buying</li>
+        <li><strong>Setup:</strong> RSI oversold bounce + volume spike ¬í institutional buying</li>
         <li><strong>Logic:</strong> Heavy volume confirms that the oversold bounce is real (not a weak dead-cat bounce)</li>
         <li><strong>Entry:</strong> Buy when RSI crosses above 30 AND volume exceeds 1.5x average</li>
       </ul>
@@ -373,10 +373,10 @@ export default function RSIIndicatorGuideArticle() {
 
       <KeyTakeaway>
         <ol className="list-decimal pl-6 space-y-2">
-          <li>Open TradingView and add RSI to any stock chart (Indicators í "RSI")</li>
+          <li>Open TradingView and add RSI to any stock chart (Indicators ¬í "RSI")</li>
           <li>Identify the trend: Is the stock in an uptrend, downtrend, or range?</li>
-          <li>Look for oversold bounces (&lt;30 í cross back above 30) in uptrends</li>
-          <li>Look for overbought fades (&gt;70 í cross back below 70) in downtrends/ranges</li>
+          <li>Look for oversold bounces (&lt;30 ¬í cross back above 30) in uptrends</li>
+          <li>Look for overbought fades (&gt;70 ¬í cross back below 70) in downtrends/ranges</li>
           <li>Scan for divergences: zoom out to 6-12 months and find historical divergences that predicted reversals</li>
           <li>Combine RSI with moving averages: only trade RSI signals when aligned with the trend (above/below 50-MA)</li>
           <li>Backtest: test the "RSI oversold bounce" strategy on 10 stocks over the past year to see if it works</li>

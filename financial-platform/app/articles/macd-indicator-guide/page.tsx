@@ -21,7 +21,7 @@ export default function MACDIndicatorGuideArticle() {
     >
       <KeyTakeaway>
         <ul className="list-disc pl-6 space-y-2">
-          <li>What the MACD indicator is and how it's calculated</li>
+          <li>What the MACD indicator is and how it&apos;s calculated</li>
           <li>The three components: MACD line, Signal line, and Histogram</li>
           <li>How to identify MACD crossovers (bullish and bearish signals)</li>
           <li>MACD divergences: powerful reversal signals</li>
@@ -72,7 +72,7 @@ export default function MACDIndicatorGuideArticle() {
       <ul className="space-y-2 my-4">
         <li><strong>12-period EMA:</strong> Fast EMA (reacts quickly to price changes)</li>
         <li><strong>26-period EMA:</strong> Slow EMA (smooths out short-term fluctuations)</li>
-        <li><strong>Interpretation:</strong> When the MACD line is positive, the short-term EMA is above the long-term EMA → bullish momentum</li>
+        <li><strong>Interpretation:</strong> When the MACD line is positive, the short-term EMA is above the long-term EMA &rarr; bullish momentum</li>
       </ul>
 
       <h3>2. Signal Line (The Slow Line)</h3>
@@ -89,7 +89,7 @@ export default function MACDIndicatorGuideArticle() {
 
       <ul className="space-y-2 my-4">
         <li><strong>Purpose:</strong> Acts as a trigger for buy/sell signals</li>
-        <li><strong>Crossovers:</strong> When MACD crosses above Signal Line → bullish, when MACD crosses below Signal Line → bearish</li>
+        <li><strong>Crossovers:</strong> When MACD crosses above Signal Line &rarr; bullish, when MACD crosses below Signal Line &rarr; bearish</li>
       </ul>
 
       <h3>3. MACD Histogram</h3>
@@ -121,7 +121,7 @@ export default function MACDIndicatorGuideArticle() {
           <li><strong>Histogram (vertical bars):</strong> Green bars when MACD &gt; Signal, red bars when MACD &lt; Signal</li>
         </ul>
         <p className="text-sm bg-yellow-50 border-l-4 border-yellow-600 p-3">
-          <strong>Key insight:</strong> The histogram is the first to signal momentum changes—when it starts shrinking, a crossover is imminent.
+          <strong>Key insight:</strong> The histogram is the first to signal momentum changes&mdash;when it starts shrinking, a crossover is imminent.
         </p>
       </ExampleBox>
 
@@ -134,7 +134,7 @@ export default function MACDIndicatorGuideArticle() {
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Signal:</strong> MACD Line crosses <strong>above</strong> the Signal Line</li>
           <li><strong>Histogram:</strong> Turns from negative (red bars) to positive (green bars)</li>
-          <li><strong>Interpretation:</strong> Short-term momentum is accelerating above long-term momentum → trend may be turning bullish</li>
+          <li><strong>Interpretation:</strong> Short-term momentum is accelerating above long-term momentum &rarr; trend may be turning bullish</li>
         </ul>
         <p className="text-sm mt-3 text-stone-700">
           <strong>Trading strategy:</strong> Enter long when MACD crosses above Signal Line, especially if confirmed by price breaking above resistance.
@@ -163,7 +163,7 @@ export default function MACDIndicatorGuideArticle() {
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Signal:</strong> MACD Line crosses <strong>below</strong> the Signal Line</li>
           <li><strong>Histogram:</strong> Turns from positive (green bars) to negative (red bars)</li>
-          <li><strong>Interpretation:</strong> Short-term momentum is decelerating below long-term momentum → trend may be turning bearish</li>
+          <li><strong>Interpretation:</strong> Short-term momentum is decelerating below long-term momentum &rarr; trend may be turning bearish</li>
         </ul>
         <p className="text-sm mt-3 text-stone-700">
           <strong>Trading strategy:</strong> Exit longs or enter short when MACD crosses below Signal Line, especially if price breaks below support.
@@ -198,7 +198,7 @@ export default function MACDIndicatorGuideArticle() {
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Price:</strong> Makes a lower low</li>
           <li><strong>MACD:</strong> Makes a higher low (or less negative low)</li>
-          <li><strong>Interpretation:</strong> Selling pressure is weakening even as price makes new lows → reversal likely</li>
+          <li><strong>Interpretation:</strong> Selling pressure is weakening even as price makes new lows &rarr; reversal likely</li>
         </ul>
         <p className="text-sm mt-3 text-stone-700">
           <strong>Trading strategy:</strong> Enter long when MACD crosses above Signal Line after bullish divergence + price breaks above resistance.
@@ -227,7 +227,7 @@ export default function MACDIndicatorGuideArticle() {
         <ul className="list-disc pl-6 space-y-2">
           <li><strong>Price:</strong> Makes a higher high</li>
           <li><strong>MACD:</strong> Makes a lower high (or less positive high)</li>
-          <li><strong>Interpretation:</strong> Buying pressure is weakening even as price makes new highs → reversal likely</li>
+          <li><strong>Interpretation:</strong> Buying pressure is weakening even as price makes new highs &rarr; reversal likely</li>
         </ul>
         <p className="text-sm mt-3 text-stone-700">
           <strong>Trading strategy:</strong> Exit longs or enter short when MACD crosses below Signal Line after bearish divergence + price breaks below support.
@@ -278,7 +278,7 @@ export default function MACDIndicatorGuideArticle() {
         <ul className="list-disc pl-6 space-y-2 mb-4">
           <li>Histogram has been growing (bars getting taller)</li>
           <li>Suddenly, histogram starts shrinking (bars getting shorter)</li>
-          <li>This signals momentum is decelerating—crossover is imminent</li>
+          <li>This signals momentum is decelerating&mdash;crossover is imminent</li>
         </ul>
         <p className="font-bold mb-3">Entry Rules (Early Reversal Signal):</p>
         <ul className="list-disc pl-6 space-y-2 mb-4">
@@ -331,7 +331,7 @@ export default function MACDIndicatorGuideArticle() {
             </ul>
           </li>
           <li>
-            <strong>❌ Using MACD alone:</strong> MACD is a lagging indicator—it confirms trends but doesn't predict them.
+            <strong>❌ Using MACD alone:</strong> MACD is a lagging indicator&mdash;it confirms trends but doesn&apos;t predict them.
             <ul className="list-circle pl-6 mt-2">
               <li><strong>Solution:</strong> Combine MACD with leading indicators (RSI, support/resistance, volume) for confirmation.</li>
             </ul>
@@ -388,7 +388,7 @@ export default function MACDIndicatorGuideArticle() {
 
       <KeyTakeaway>
         <ol className="list-decimal pl-6 space-y-2">
-          <li>Open TradingView and add MACD to any stock chart (Indicators → "MACD")</li>
+          <li>Open TradingView and add MACD to any stock chart (Indicators &rarr; "MACD")</li>
           <li>Identify the trend: Is the stock in an uptrend (price &gt; 50-MA) or downtrend?</li>
           <li>Look for bullish crossovers (MACD crosses above Signal) in uptrends</li>
           <li>Look for bearish crossovers (MACD crosses below Signal) in downtrends</li>
@@ -405,11 +405,11 @@ export default function MACDIndicatorGuideArticle() {
       </p>
 
       <p>
-        The key to success with MACD is <strong>patience and confirmation</strong>. Don't trade every crossover—wait for signals in the direction of the trend, confirmed by volume and other indicators like RSI or support/resistance.
+        The key to success with MACD is <strong>patience and confirmation</strong>. Don't trade every crossover&mdash;wait for signals in the direction of the trend, confirmed by volume and other indicators like RSI or support/resistance.
       </p>
 
       <p>
-        And remember: <strong>MACD divergences are gold</strong>. When price makes a new high/low but MACD doesn't confirm it, pay attention. These divergences have an exceptional track record of predicting major reversals.
+        And remember: <strong>MACD divergences are gold</strong>. When price makes a new high/low but MACD doesn&apos;t confirm it, pay attention. These divergences have an exceptional track record of predicting major reversals.
       </p>
 
       <div className="mt-12 p-6 bg-stone-100 rounded-lg">

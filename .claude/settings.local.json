@@ -55,7 +55,8 @@
       "Bash(app/articles/rsi-indicator-guide/page.tsx)",
       "Bash(app/articles/support-resistance-levels/page.tsx)",
       "Bash(app/articles/macd-indicator-guide/page.tsx)",
-      "Bash(python fix_special_chars.py:*)"
+      "Bash(python fix_special_chars.py:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "ask": []

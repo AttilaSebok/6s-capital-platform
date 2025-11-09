@@ -410,6 +410,28 @@ export default function RSIIndicatorGuideArticle() {
           {' '}to build a complete technical analysis system.
         </p>
       </div>
+
+      <div className="mt-8 border-t-2 border-stone-200 pt-8">
+        <h3 className="text-xl font-bold mb-4 text-deep-brown">Related Articles</h3>
+        <div className="grid md:grid-cols-2 gap-4">
+          <a href="/articles/support-resistance-levels" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">Support &amp; Resistance Levels</h4>
+            <p className="text-sm text-stone-600">Combine RSI with key price levels for high-probability trade setups.</p>
+          </a>
+          <a href="/articles/moving-averages-guide" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">Moving Averages Explained</h4>
+            <p className="text-sm text-stone-600">Use RSI with moving averages to filter trades in the direction of the trend.</p>
+          </a>
+          <a href="/articles/macd-indicator-guide" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">MACD Indicator Guide</h4>
+            <p className="text-sm text-stone-600">Confirm RSI signals with MACD crossovers for stronger momentum confluence.</p>
+          </a>
+          <a href="/articles/how-to-read-financial-statements" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">How to Read Financial Statements</h4>
+            <p className="text-sm text-stone-600">Balance technical analysis with fundamental analysis for a complete investment approach.</p>
+          </a>
+        </div>
+      </div>
     </ArticleLayout>
   )
 }

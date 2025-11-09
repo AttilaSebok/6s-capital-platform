@@ -429,6 +429,28 @@ export default function MACDIndicatorGuideArticle() {
           {' '}to build a professional trading approach.
         </p>
       </div>
+
+      <div className="mt-8 border-t-2 border-stone-200 pt-8">
+        <h3 className="text-xl font-bold mb-4 text-deep-brown">Related Articles</h3>
+        <div className="grid md:grid-cols-2 gap-4">
+          <a href="/articles/moving-averages-guide" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">Moving Averages Explained</h4>
+            <p className="text-sm text-stone-600">MACD is built from moving averages—understand the foundation of this powerful indicator.</p>
+          </a>
+          <a href="/articles/rsi-indicator-guide" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">RSI Indicator Guide</h4>
+            <p className="text-sm text-stone-600">Combine MACD crossovers with RSI oversold/overbought levels for confirmation.</p>
+          </a>
+          <a href="/articles/support-resistance-levels" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">Support &amp; Resistance Levels</h4>
+            <p className="text-sm text-stone-600">Use MACD signals at key S/R levels for high-probability breakout trades.</p>
+          </a>
+          <a href="/articles/free-cash-flow-guide" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">Free Cash Flow Guide</h4>
+            <p className="text-sm text-stone-600">Find fundamentally strong stocks, then use MACD to time your entries perfectly.</p>
+          </a>
+        </div>
+      </div>
     </ArticleLayout>
   )
 }

@@ -458,6 +458,28 @@ export default function SupportResistanceLevelsArticle() {
           {' '}to build a complete trading system.
         </p>
       </div>
+
+      <div className="mt-8 border-t-2 border-stone-200 pt-8">
+        <h3 className="text-xl font-bold mb-4 text-deep-brown">Related Articles</h3>
+        <div className="grid md:grid-cols-2 gap-4">
+          <a href="/articles/moving-averages-guide" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">Moving Averages Explained</h4>
+            <p className="text-sm text-stone-600">Learn how moving averages create dynamic support and resistance levels.</p>
+          </a>
+          <a href="/articles/rsi-indicator-guide" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">RSI Indicator Guide</h4>
+            <p className="text-sm text-stone-600">Confirm S/R bounces with RSI oversold/overbought signals for better entries.</p>
+          </a>
+          <a href="/articles/macd-indicator-guide" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">MACD Indicator Guide</h4>
+            <p className="text-sm text-stone-600">Use MACD crossovers to confirm breakouts above resistance or below support.</p>
+          </a>
+          <a href="/articles/how-to-analyze-earnings-reports" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">How to Analyze Earnings Reports</h4>
+            <p className="text-sm text-stone-600">Identify fundamental catalysts that can trigger S/R breakouts or breakdowns.</p>
+          </a>
+        </div>
+      </div>
     </ArticleLayout>
   )
 }

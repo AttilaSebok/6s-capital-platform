@@ -519,6 +519,28 @@ export default function FreeCashFlowGuideArticle() {
           {' '}to build a complete quality investing framework.
         </p>
       </div>
+
+      <div className="mt-8 border-t-2 border-stone-200 pt-8">
+        <h3 className="text-xl font-bold mb-4 text-deep-brown">Related Articles</h3>
+        <div className="grid md:grid-cols-2 gap-4">
+          <a href="/articles/how-to-read-financial-statements" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">How to Read Financial Statements</h4>
+            <p className="text-sm text-stone-600">Learn where to find FCF data on the cash flow statement and balance sheet.</p>
+          </a>
+          <a href="/articles/stock-valuation-methods" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">Stock Valuation Methods</h4>
+            <p className="text-sm text-stone-600">Use FCF to calculate intrinsic value with discounted cash flow (DCF) models.</p>
+          </a>
+          <a href="/articles/moving-averages-guide" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">Moving Averages Explained</h4>
+            <p className="text-sm text-stone-600">Find high-FCF stocks with fundamental analysis, then time entries with technical analysis.</p>
+          </a>
+          <a href="/articles/how-to-analyze-earnings-reports" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">How to Analyze Earnings Reports</h4>
+            <p className="text-sm text-stone-600">Track quarterly FCF trends and compare them to earnings quality.</p>
+          </a>
+        </div>
+      </div>
     </ArticleLayout>
   )
 }

@@ -522,6 +522,28 @@ export default function MovingAveragesGuideArticle() {
           {' '}to build a complete technical analysis toolkit.
         </p>
       </div>
+
+      <div className="mt-8 border-t-2 border-stone-200 pt-8">
+        <h3 className="text-xl font-bold mb-4 text-deep-brown">Related Articles</h3>
+        <div className="grid md:grid-cols-2 gap-4">
+          <a href="/articles/support-resistance-levels" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">Support &amp; Resistance Levels</h4>
+            <p className="text-sm text-stone-600">Moving averages act as dynamic S/R levels—learn how to identify and trade them.</p>
+          </a>
+          <a href="/articles/rsi-indicator-guide" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">RSI Indicator Guide</h4>
+            <p className="text-sm text-stone-600">Combine MA trends with RSI momentum for high-probability dip buying opportunities.</p>
+          </a>
+          <a href="/articles/macd-indicator-guide" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">MACD Indicator Guide</h4>
+            <p className="text-sm text-stone-600">MACD uses moving averages internally—learn how to spot crossovers and divergences.</p>
+          </a>
+          <a href="/articles/stock-valuation-methods" className="block p-4 bg-white border-2 border-stone-200 rounded-lg hover:border-bronze-600 transition-colors">
+            <h4 className="font-bold text-deep-brown mb-2">Stock Valuation Methods</h4>
+            <p className="text-sm text-stone-600">Use technical analysis (MAs) to time entries for fundamentally strong stocks.</p>
+          </a>
+        </div>
+      </div>
     </ArticleLayout>
   )
 }

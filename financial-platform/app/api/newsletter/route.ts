@@ -38,8 +38,8 @@ export async function POST(request: Request) {
             name: name || '',
           },
           groups: [process.env.MAILERLITE_GROUP_ID],
-          status: 'active', // Add as active subscriber
-          resubscribe: true, // Allow resubscription
+          status: 'unconfirmed', // MailerLite will send double opt-in email
+          resubscribe: false,
         }),
       }
     )
@@ -48,100 +48,21 @@ export async function POST(request: Request) {
 
     if (!mailerliteResponse.ok) {
       console.error('MailerLite API error:', mailerliteData)
-      // Don't fail - continue to send welcome email
+      return NextResponse.json(
+        { error: 'Failed to subscribe to newsletter' },
+        { status: 500 }
+      )
     }
 
-    // Send welcome/confirmation email via Resend
-    try {
-      const confirmationUrl = `https://money365.market/resources/stock-analysis-checklist`
-
-      const emailResponse = await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
-        },
-        body: JSON.stringify({
-          from: 'Money365.market <office@money365.market>',
-          to: email,
-          subject: '✓ Welcome to Money365.market - Your Free Stock Analysis Checklist',
-          html: `
-            <!DOCTYPE html>
-            <html>
-            <head>
-              <meta charset="utf-8">
-              <style>
-                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
-                .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-                .header { background: linear-gradient(135deg, #1e293b 0%, #44403c 100%); color: white; padding: 30px; text-align: center; }
-                .content { background: #f5f5f4; padding: 30px; }
-                .button { display: inline-block; background: #92400e; color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; margin: 20px 0; border-radius: 4px; }
-                .footer { text-align: center; padding: 20px; color: #666; font-size: 12px; }
-                ul { padding-left: 20px; }
-                li { margin: 10px 0; }
-              </style>
-            </head>
-            <body>
-              <div class="container">
-                <div class="header">
-                  <h1 style="margin: 0;">✓ Subscription Confirmed!</h1>
-                </div>
-                <div class="content">
-                  <h2>Welcome aboard!</h2>
-                  <p>Thank you for subscribing to the Money365.market newsletter!</p>
-
-                  <p><strong>Here's what you'll get:</strong></p>
-                  <ul>
-                    <li>📊 Weekly market insights and analysis</li>
-                    <li>🎯 Professional investment strategies</li>
-                    <li>📈 Technical analysis tips</li>
-                    <li>💰 Financial education resources</li>
-                  </ul>
-
-                  <p><strong>Your FREE Stock Analysis Checklist is ready!</strong></p>
-                  <p>Click the button below to access your comprehensive 20-point framework:</p>
-
-                  <center>
-                    <a href="${confirmationUrl}" class="button">
-                      Get Your Free Checklist →
-                    </a>
-                  </center>
-
-                  <p>This professional checklist will help you analyze any stock in 30 minutes or less, just like institutional investors do.</p>
-
-                  <p>Best regards,<br><strong>The Money365.market Team</strong></p>
-                </div>
-                <div class="footer">
-                  <p>You're receiving this because you subscribed at money365.market</p>
-                  <p>© 2025 Money365.market. All rights reserved.</p>
-                </div>
-              </div>
-            </body>
-            </html>
-          `,
-        }),
-      })
-
-      if (!emailResponse.ok) {
-        const errorText = await emailResponse.text()
-        console.error('Resend email failed:', errorText)
-      } else {
-        console.log(`Welcome email sent to: ${email}`)
-      }
-    } catch (emailError) {
-      console.error('Error sending welcome email:', emailError)
-      // Don't fail the subscription if email fails
-    }
-
-    // Log successful subscription
-    console.log(`New subscriber: ${email}`)
+    // Log successful subscription - MailerLite will send double opt-in email
+    console.log(`New subscriber: ${email} - MailerLite will send confirmation email`)
 
     return NextResponse.json({
       success: true,
-      message: 'Welcome aboard! Check your email for your free Stock Analysis Checklist.',
+      message: 'Almost there! Check your email to confirm your subscription.',
       subscriber: {
         email: mailerliteData.data?.email || email,
-        id: mailerliteData.data?.id || 'active',
+        id: mailerliteData.data?.id,
       },
     })
   } catch (error) {

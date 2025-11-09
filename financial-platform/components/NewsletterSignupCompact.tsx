@@ -39,7 +39,7 @@ export default function NewsletterSignupCompact() {
       trackNewsletterSignup('footer')
 
       setStatus('success')
-      setMessage('Check your email!')
+      setMessage('Welcome aboard! Please verify your email to receive your free investment checklist.')
       setEmail('')
     } catch (error) {
       setStatus('error')

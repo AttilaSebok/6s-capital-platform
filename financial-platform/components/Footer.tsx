@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import NewsletterSignupCompact from './NewsletterSignupCompact'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -17,8 +18,8 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Three Column Layout - Sharp & Wise */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-10">
+        {/* Four Column Layout - Sharp & Wise */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-10">
           {/* Quick Links Column */}
           <div>
             <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4 pb-2 border-b-2 border-soft-orange">
@@ -112,7 +113,7 @@ export default function Footer() {
             <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-4 pb-2 border-b-2 border-soft-orange">
               Connect
             </h4>
-            <nav className="flex flex-wrap gap-x-6 gap-y-3 mt-4">
+            <nav className="flex flex-col gap-y-3 mt-4">
               <a
                 href="https://x.com/money365market"
                 className="text-gray-300 hover:text-soft-orange transition-all duration-200 text-sm flex items-center group"
@@ -150,6 +151,11 @@ export default function Footer() {
                 GitHub
               </a>
             </nav>
+          </div>
+
+          {/* Newsletter Column */}
+          <div>
+            <NewsletterSignupCompact />
           </div>
         </div>
 

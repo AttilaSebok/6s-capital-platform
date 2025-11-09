@@ -217,6 +217,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Newsletter Signup - Modern Light */}
+      <section id="newsletter" className="py-16 lg:py-20 bg-stone-50">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <NewsletterSignup />
+        </div>
+      </section>
+
       {/* Featured Articles - Sharp & Wise */}
       <section className="py-12 lg:py-16 bg-gradient-to-br from-slate-900 to-stone-900">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
@@ -245,13 +252,6 @@ export default function Home() {
               View All Articles →
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* Newsletter Signup - Modern Light */}
-      <section id="newsletter" className="py-16 lg:py-20 bg-stone-50">
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <NewsletterSignup />
         </div>
       </section>
     </div>

@@ -57,7 +57,8 @@
       "Bash(app/articles/macd-indicator-guide/page.tsx)",
       "Bash(python fix_special_chars.py:*)",
       "Bash(git checkout:*)",
-      "Bash(if exist .githubworkflows dir .githubworkflows)"
+      "Bash(if exist .githubworkflows dir .githubworkflows)",
+      "Bash(CNAME)"
     ],
     "deny": [],
     "ask": []

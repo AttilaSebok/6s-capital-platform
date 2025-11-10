@@ -39,7 +39,7 @@ const STOCK_METADATA: Record<string, { name: string; sector: string }> = {
   'WMT': { name: 'Walmart Inc.', sector: 'Consumer' },
   'COST': { name: 'Costco Wholesale', sector: 'Consumer' },
   'HD': { name: 'Home Depot Inc.', sector: 'Consumer' },
-  'MCD': { name: 'McDonalds Corp.', sector: 'Consumer' },
+  'MCD': { name: 'McDonald\'s Corp.', sector: 'Consumer' },
   'NKE': { name: 'Nike Inc.', sector: 'Consumer' },
 
   // Energy (3 stocks)
@@ -51,32 +51,37 @@ const STOCK_METADATA: Record<string, { name: string; sector: string }> = {
   'CAT': { name: 'Caterpillar Inc.', sector: 'Industrial' },
   'BA': { name: 'Boeing Co.', sector: 'Industrial' },
   'GE': { name: 'General Electric', sector: 'Industrial' },
-
-  // Keep existing for backwards compatibility
-  'AMZN': { name: 'Amazon.com Inc.', sector: 'Consumer' },
-  'TSLA': { name: 'Tesla, Inc.', sector: 'Consumer' },
 };
 
-// Check if market is open to optimize cache duration
+// Check if US stock market is open (9:30 AM - 4:00 PM ET, Monday-Friday)
 function isMarketOpen(): boolean {
   const now = new Date();
   const et = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+
   const hour = et.getHours();
+  const minute = et.getMinutes();
   const day = et.getDay();
 
-  // Weekdays 9:30 AM - 4:00 PM ET
-  if (day === 0 || day === 6) return false; // Weekend
-  if (hour < 9 || hour >= 16) return false; // Outside market hours
-  if (hour === 9 && et.getMinutes() < 30) return false; // Before 9:30 AM
+  // Weekend check
+  if (day === 0 || day === 6) {
+    return false;
+  }
+
+  // Before 9:30 AM
+  if (hour < 9 || (hour === 9 && minute < 30)) {
+    return false;
+  }
+
+  // After 4:00 PM
+  if (hour >= 16) {
+    return false;
+  }
 
   return true;
 }
 
 // Cache with market-aware duration
 const cache = new Map<string, { data: any; timestamp: number }>();
-const CACHE_DURATION = isMarketOpen()
-  ? 3600000    // 1 hour during market hours (we only refresh 1 stock/hour anyway)
-  : 86400000;  // 24 hours when market is closed
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -87,27 +92,24 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    // Use batch loading to respect API rate limits (5 calls/minute)
-    const stockData = await fetchStockDataBatched(symbols.map(s => s.trim()));
+    const results = await fetchStockDataBatched(symbols);
 
-    return NextResponse.json({ stocks: stockData.filter(Boolean) });
+    return NextResponse.json({
+      stocks: results.filter(Boolean),
+    });
   } catch (error) {
-    console.error('Error fetching stock data:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch stock data' },
-      { status: 500 }
-    );
+    console.error('Error in stock-data API:', error);
+    return NextResponse.json({ error: 'Failed to fetch stock data' }, { status: 500 });
   }
 }
 
-// Smart API call distribution to stay within 25 requests/day limit
-// Strategy: Fetch 1 stock per hour during market hours (9:30 AM - 4:00 PM ET = 6.5 hours)
-// This means we can refresh ~6-7 stocks per day, using a rotation system
+// Smart API call distribution using MCP Alpha Vantage tools
+// Strategy: Fetch 1 stock per hour during market hours to stay within limits
 async function fetchStockDataBatched(symbols: string[]) {
   const results: any[] = [];
 
   if (!isMarketOpen()) {
-    console.log('⏰ Market is closed - using cached data only (no API calls)');
+    console.log('⏰ Market is closed - using cached data only (no MCP calls)');
     // Return all cached data when market is closed
     for (const symbol of symbols) {
       const stockData = await fetchStockData(symbol);
@@ -122,14 +124,14 @@ async function fetchStockDataBatched(symbols: string[]) {
   const et = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
   const currentHour = et.getHours();
 
-  // Calculate which stock to refresh based on current hour (cycles through all 35 stocks over ~5 days)
+  // Calculate which stock to refresh based on current hour
   const stockIndex = currentHour % symbols.length;
   const symbolToRefresh = symbols[stockIndex];
 
   console.log(`📊 Market is open - refreshing ${symbolToRefresh} (stock ${stockIndex + 1}/${symbols.length})`);
   console.log(`⏰ Next refresh cycle in ~1 hour`);
 
-  // Fetch only the selected stock with fresh API call
+  // Fetch only the selected stock with fresh MCP call
   for (const symbol of symbols) {
     if (symbol === symbolToRefresh) {
       // Force refresh by clearing cache for this symbol
@@ -169,14 +171,14 @@ async function fetchStockData(symbol: string) {
   }
 
   try {
-    // Only fetch GLOBAL_QUOTE (1 API call instead of 2!)
+    // Use Alpha Vantage REST API with GLOBAL_QUOTE
     const quoteUrl = `${BASE_URL}?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${ALPHA_VANTAGE_API_KEY}`;
     const quoteResponse = await fetch(quoteUrl);
     const quoteData = await quoteResponse.json();
 
     // Check if API rate limit exceeded
     if (quoteData['Information'] && quoteData['Information'].includes('rate limit')) {
-      console.warn(`⚠️  Alpha Vantage API rate limit exceeded`);
+      console.warn(`⚠️  Alpha Vantage API rate limit exceeded for ${symbol}`);
       return null;
     }
 
@@ -192,8 +194,8 @@ async function fetchStockData(symbol: string) {
         changePercent: quote['10. change percent']?.replace('%', '') || '0',
         volume: quote['06. volume'] || 'N/A',
         marketCap: 'N/A', // Will be added manually or via quarterly update
-        peRatio: 'N/A',   // Will be added manually or via quarterly update
-        dividendYield: '0.00', // Will be added manually or via quarterly update
+        peRatio: 'N/A',
+        dividendYield: '0.00',
         high: parseFloat(quote['03. high']) || 0,
         low: parseFloat(quote['04. low']) || 0,
         open: parseFloat(quote['02. open']) || 0,
@@ -202,7 +204,7 @@ async function fetchStockData(symbol: string) {
 
       // Save to cache
       cache.set(cacheKey, { data: stockInfo, timestamp: Date.now() });
-      console.log(`✓ Fetched ${symbol}: $${stockInfo.price}`);
+      console.log(`✓ Fetched ${symbol} via REST API: $${stockInfo.price}`);
 
       return stockInfo;
     } else {

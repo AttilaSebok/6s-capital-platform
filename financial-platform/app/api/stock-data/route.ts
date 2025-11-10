@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const ALPHA_VANTAGE_API_KEY = process.env.ALPHA_VANTAGE_API_KEY;
-const BASE_URL = 'https://www.alphavantage.co/query';
+const FINNHUB_API_KEY = process.env.FINNHUB_API_KEY;
+const BASE_URL = 'https://finnhub.io/api/v1';
 
 // Static metadata for 25 top stocks
 const STOCK_METADATA: Record<string, { name: string; sector: string }> = {
@@ -70,8 +70,10 @@ function isMarketOpen(): boolean {
   return true;
 }
 
-// Cache with market-aware duration
-const cache = new Map<string, { data: any; timestamp: number }>();
+// CRITICAL: Next.js Route Segment Config for CDN-level caching
+// This ensures that even with 1000 concurrent users, only 1 API call is made every 5 minutes!
+// The response is cached at Vercel CDN level and shared across ALL users.
+export const revalidate = 300; // 5 minutes cache (300 seconds)
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -81,76 +83,53 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'No symbols provided' }, { status: 400 });
   }
 
+  console.log(`🔄 API Route called at ${new Date().toISOString()} - This should only happen once per 5 minutes thanks to caching!`);
+
   try {
     const results = await fetchStockDataBatched(symbols);
 
-    return NextResponse.json({
-      stocks: results.filter(Boolean),
-    });
+    return NextResponse.json(
+      {
+        stocks: results.filter(Boolean),
+      },
+      {
+        headers: {
+          'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=60',
+        },
+      }
+    );
   } catch (error) {
     console.error('Error in stock-data API:', error);
     return NextResponse.json({ error: 'Failed to fetch stock data' }, { status: 500 });
   }
 }
 
-// Smart API call distribution using MCP Alpha Vantage tools
-// Strategy: Fetch 1 stock per hour during market hours to stay within limits
+// Finnhub API Strategy: 60 calls/minute limit
+// 25 stocks = 25 calls for quotes only (live price data)
+// This uses only 25/60 calls per minute - well within the limit!
+// WITH CACHING: Even 1000 users only trigger this once per 5 minutes!
 async function fetchStockDataBatched(symbols: string[]) {
   const results: any[] = [];
 
-  const now = new Date();
-  const et = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
-  const currentHour = et.getHours();
-  const currentMinute = et.getMinutes();
+  console.log(`📊 Fetching data for ${symbols.length} stocks via Finnhub API...`);
+  console.log(`⏰ Time: ${new Date().toISOString()}`);
 
-  // Check if it's daily refresh window (9:30-9:35 AM ET)
-  const isRefreshWindow = isMarketOpen() && currentHour === 9 && currentMinute >= 30 && currentMinute < 35;
-
-  if (!isRefreshWindow) {
-    // Outside refresh window - use cached data only
-    const cacheAge = cache.size > 0 ? Math.floor((Date.now() - Array.from(cache.values())[0]?.timestamp) / 1000 / 60 / 60) : 0;
-    console.log(`⏰ Using cached data (${cacheAge}h old). Next refresh at 9:30 AM ET.`);
-
-    for (const symbol of symbols) {
-      const stockData = await fetchStockData(symbol);
-      results.push(stockData);
-    }
-    return results;
-  }
-
-  // It's 9:30-9:35 AM ET - daily refresh of all 25 stocks
-  console.log(`📊 Daily market open refresh - fetching all ${symbols.length} stocks...`);
-
-  // Clear all cache to force fresh fetch
-  cache.clear();
-
-  // Fetch all stocks (25 API calls total, within free tier limit)
+  // Fetch all stocks with a small delay between calls to be safe
   for (const symbol of symbols) {
     const stockData = await fetchStockData(symbol);
     results.push(stockData);
-    // Small delay between calls to avoid overwhelming API
-    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    // 50ms delay = 20 calls/second max = 25 stocks in ~1.25 seconds
+    await new Promise(resolve => setTimeout(resolve, 50));
   }
 
   const successCount = results.filter(Boolean).length;
-  console.log(`✓ Daily refresh complete: ${successCount}/${symbols.length} stocks updated`);
-  console.log(`⏰ Next refresh: Tomorrow at 9:30 AM ET`);
+  console.log(`✓ Finnhub fetch complete: ${successCount}/${symbols.length} stocks updated`);
 
   return results;
 }
 
 async function fetchStockData(symbol: string) {
-  // Cache check
-  const cacheKey = `quote_${symbol}`;
-  const cached = cache.get(cacheKey);
-
-  const cacheDuration = isMarketOpen() ? 3600000 : 86400000; // 1 hour open, 24 hours closed
-
-  if (cached && Date.now() - cached.timestamp < cacheDuration) {
-    console.log(`✓ Using cached data for ${symbol}`);
-    return cached.data;
-  }
-
   // Get static metadata
   const metadata = STOCK_METADATA[symbol.toUpperCase()];
   if (!metadata) {
@@ -159,46 +138,41 @@ async function fetchStockData(symbol: string) {
   }
 
   try {
-    // Use Alpha Vantage REST API with GLOBAL_QUOTE
-    const quoteUrl = `${BASE_URL}?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${ALPHA_VANTAGE_API_KEY}`;
-    const quoteResponse = await fetch(quoteUrl);
+    // Fetch quote data from Finnhub
+    const quoteUrl = `${BASE_URL}/quote?symbol=${symbol}&token=${FINNHUB_API_KEY}`;
+    const quoteResponse = await fetch(quoteUrl, {
+      // Next.js fetch cache for redundancy (in addition to Route Segment cache)
+      next: { revalidate: 300 }
+    });
+    
+    if (!quoteResponse.ok) {
+      console.error(`❌ Finnhub API error for ${symbol}: ${quoteResponse.status}`);
+      return null;
+    }
+
     const quoteData = await quoteResponse.json();
 
-    // Check if API rate limit exceeded
-    if (quoteData['Information'] && quoteData['Information'].includes('rate limit')) {
-      console.warn(`⚠️  Alpha Vantage API rate limit exceeded for ${symbol}`);
+    // Check if we got valid data
+    if (quoteData.c === 0 && quoteData.d === 0) {
+      console.warn(`⚠️  No quote data available for ${symbol}`);
       return null;
     }
 
-    if (quoteData['Global Quote'] && Object.keys(quoteData['Global Quote']).length > 0) {
-      const quote = quoteData['Global Quote'];
+    // Finnhub response structure:
+    // c: current price, d: change, dp: percent change
 
-      const stockInfo = {
-        symbol: symbol.toUpperCase(),
-        name: metadata.name,
-        sector: metadata.sector,
-        price: parseFloat(quote['05. price']) || 0,
-        change: parseFloat(quote['09. change']) || 0,
-        changePercent: quote['10. change percent']?.replace('%', '') || '0',
-        volume: quote['06. volume'] || 'N/A',
-        marketCap: 'N/A', // Will be added manually or via quarterly update
-        peRatio: 'N/A',
-        dividendYield: '0.00',
-        high: parseFloat(quote['03. high']) || 0,
-        low: parseFloat(quote['04. low']) || 0,
-        open: parseFloat(quote['02. open']) || 0,
-        previousClose: parseFloat(quote['08. previous close']) || 0,
-      };
+    const stockInfo = {
+      symbol: symbol.toUpperCase(),
+      name: metadata.name,
+      sector: metadata.sector,
+      price: quoteData.c || 0,
+      change: quoteData.d || 0,
+      changePercent: quoteData.dp?.toFixed(2) || '0',
+    };
 
-      // Save to cache
-      cache.set(cacheKey, { data: stockInfo, timestamp: Date.now() });
-      console.log(`✓ Fetched ${symbol} via REST API: $${stockInfo.price}`);
+    console.log(`✓ Fetched ${symbol}: $${stockInfo.price.toFixed(2)} (${stockInfo.changePercent}%)`);
 
-      return stockInfo;
-    } else {
-      console.warn(`No quote data returned for ${symbol}`);
-      return null;
-    }
+    return stockInfo;
   } catch (error) {
     console.error(`Error fetching data for ${symbol}:`, error);
     return null;

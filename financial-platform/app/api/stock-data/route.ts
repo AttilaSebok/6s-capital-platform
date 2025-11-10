@@ -3,54 +3,44 @@ import { NextRequest, NextResponse } from 'next/server';
 const ALPHA_VANTAGE_API_KEY = process.env.ALPHA_VANTAGE_API_KEY;
 const BASE_URL = 'https://www.alphavantage.co/query';
 
-// Static metadata for stocks (name and sector don't change frequently)
+// Static metadata for 25 top stocks
 const STOCK_METADATA: Record<string, { name: string; sector: string }> = {
-  // Technology (9 stocks)
+  // Technology (7 stocks)
   'AAPL': { name: 'Apple Inc.', sector: 'Technology' },
   'MSFT': { name: 'Microsoft Corporation', sector: 'Technology' },
   'GOOGL': { name: 'Alphabet Inc.', sector: 'Technology' },
   'NVDA': { name: 'NVIDIA Corporation', sector: 'Technology' },
   'META': { name: 'Meta Platforms Inc.', sector: 'Technology' },
   'AMD': { name: 'Advanced Micro Devices', sector: 'Technology' },
-  'INTC': { name: 'Intel Corporation', sector: 'Technology' },
   'CRM': { name: 'Salesforce Inc.', sector: 'Technology' },
-  'ORCL': { name: 'Oracle Corporation', sector: 'Technology' },
 
-  // Finance (7 stocks)
+  // Finance (6 stocks)
   'JPM': { name: 'JPMorgan Chase & Co.', sector: 'Finance' },
   'BAC': { name: 'Bank of America Corp.', sector: 'Finance' },
   'GS': { name: 'Goldman Sachs Group', sector: 'Finance' },
   'WFC': { name: 'Wells Fargo & Co.', sector: 'Finance' },
-  'MS': { name: 'Morgan Stanley', sector: 'Finance' },
   'V': { name: 'Visa Inc.', sector: 'Finance' },
   'MA': { name: 'Mastercard Inc.', sector: 'Finance' },
 
-  // Healthcare (6 stocks)
+  // Healthcare (5 stocks)
   'JNJ': { name: 'Johnson & Johnson', sector: 'Healthcare' },
-  'PFE': { name: 'Pfizer Inc.', sector: 'Healthcare' },
   'UNH': { name: 'UnitedHealth Group', sector: 'Healthcare' },
   'ABBV': { name: 'AbbVie Inc.', sector: 'Healthcare' },
   'MRK': { name: 'Merck & Co.', sector: 'Healthcare' },
   'TMO': { name: 'Thermo Fisher Scientific', sector: 'Healthcare' },
 
-  // Consumer (7 stocks)
-  'KO': { name: 'Coca-Cola Co.', sector: 'Consumer' },
-  'PEP': { name: 'PepsiCo Inc.', sector: 'Consumer' },
+  // Consumer (4 stocks)
   'WMT': { name: 'Walmart Inc.', sector: 'Consumer' },
   'COST': { name: 'Costco Wholesale', sector: 'Consumer' },
   'HD': { name: 'Home Depot Inc.', sector: 'Consumer' },
   'MCD': { name: 'McDonald\'s Corp.', sector: 'Consumer' },
-  'NKE': { name: 'Nike Inc.', sector: 'Consumer' },
 
-  // Energy (3 stocks)
+  // Energy (2 stocks)
   'XOM': { name: 'Exxon Mobil Corp.', sector: 'Energy' },
   'CVX': { name: 'Chevron Corporation', sector: 'Energy' },
-  'SLB': { name: 'Schlumberger Ltd.', sector: 'Energy' },
 
-  // Industrial (3 stocks)
+  // Industrial (1 stock)
   'CAT': { name: 'Caterpillar Inc.', sector: 'Industrial' },
-  'BA': { name: 'Boeing Co.', sector: 'Industrial' },
-  'GE': { name: 'General Electric', sector: 'Industrial' },
 };
 
 // Check if US stock market is open (9:30 AM - 4:00 PM ET, Monday-Friday)
@@ -108,9 +98,19 @@ export async function GET(request: NextRequest) {
 async function fetchStockDataBatched(symbols: string[]) {
   const results: any[] = [];
 
-  if (!isMarketOpen()) {
-    console.log('⏰ Market is closed - using cached data only (no MCP calls)');
-    // Return all cached data when market is closed
+  const now = new Date();
+  const et = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+  const currentHour = et.getHours();
+  const currentMinute = et.getMinutes();
+
+  // Check if it's daily refresh window (9:30-9:35 AM ET)
+  const isRefreshWindow = isMarketOpen() && currentHour === 9 && currentMinute >= 30 && currentMinute < 35;
+
+  if (!isRefreshWindow) {
+    // Outside refresh window - use cached data only
+    const cacheAge = cache.size > 0 ? Math.floor((Date.now() - Array.from(cache.values())[0]?.timestamp) / 1000 / 60 / 60) : 0;
+    console.log(`⏰ Using cached data (${cacheAge}h old). Next refresh at 9:30 AM ET.`);
+
     for (const symbol of symbols) {
       const stockData = await fetchStockData(symbol);
       results.push(stockData);
@@ -118,36 +118,24 @@ async function fetchStockDataBatched(symbols: string[]) {
     return results;
   }
 
-  // Market is open - fetch only 1 stock to conserve API calls
-  // Use rotation based on current hour to ensure all stocks get updated eventually
-  const now = new Date();
-  const et = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
-  const currentHour = et.getHours();
+  // It's 9:30-9:35 AM ET - daily refresh of all 25 stocks
+  console.log(`📊 Daily market open refresh - fetching all ${symbols.length} stocks...`);
 
-  // Calculate which stock to refresh based on current hour
-  const stockIndex = currentHour % symbols.length;
-  const symbolToRefresh = symbols[stockIndex];
+  // Clear all cache to force fresh fetch
+  cache.clear();
 
-  console.log(`📊 Market is open - refreshing ${symbolToRefresh} (stock ${stockIndex + 1}/${symbols.length})`);
-  console.log(`⏰ Next refresh cycle in ~1 hour`);
-
-  // Fetch only the selected stock with fresh MCP call
+  // Fetch all stocks (25 API calls total, within free tier limit)
   for (const symbol of symbols) {
-    if (symbol === symbolToRefresh) {
-      // Force refresh by clearing cache for this symbol
-      const cacheKey = `quote_${symbol}`;
-      cache.delete(cacheKey);
-      const stockData = await fetchStockData(symbol);
-      results.push(stockData);
-    } else {
-      // Use cached data for all other stocks
-      const stockData = await fetchStockData(symbol);
-      results.push(stockData);
-    }
+    const stockData = await fetchStockData(symbol);
+    results.push(stockData);
+    // Small delay between calls to avoid overwhelming API
+    await new Promise(resolve => setTimeout(resolve, 500));
   }
 
   const successCount = results.filter(Boolean).length;
-  console.log(`✓ Loaded ${successCount}/${symbols.length} stocks (1 fresh, ${successCount - 1} cached)`);
+  console.log(`✓ Daily refresh complete: ${successCount}/${symbols.length} stocks updated`);
+  console.log(`⏰ Next refresh: Tomorrow at 9:30 AM ET`);
+
   return results;
 }
 

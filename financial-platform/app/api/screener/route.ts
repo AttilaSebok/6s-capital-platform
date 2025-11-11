@@ -72,7 +72,10 @@ export const revalidate = 300; // 5 minutes cache
 export async function GET() {
   const apiKey = process.env.FINNHUB_API_KEY
 
+  console.log(`🔍 API Key present: ${!!apiKey}`);
+
   if (!apiKey) {
+    console.log(`❌ NO API KEY - Returning sample data`);
     return NextResponse.json({
       stocks: SAMPLE_STOCKS,
       note: 'Sample data shown. Configure FINNHUB_API_KEY in .env.local for live data.',
@@ -80,6 +83,7 @@ export async function GET() {
   }
 
   console.log(`🔄 Screener API called at ${new Date().toISOString()}`);
+  console.log(`📊 Fetching live data for ${DEFAULT_STOCKS.length} stocks from Finnhub...`);
 
   try {
     // Fetch directly from Finnhub API (no internal fetch needed)

@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from 'react'
 
+// Force dynamic rendering - prevents static generation at build time
+export const dynamic = 'force-dynamic'
+
 interface StockData {
   symbol: string
   name: string
@@ -11,18 +14,57 @@ interface StockData {
   changePercent: string | number
 }
 
+// 25 top blue-chip stocks
+const DEFAULT_STOCKS = [
+  'AAPL', 'MSFT', 'GOOGL', 'NVDA', 'META', 'AMD', 'CRM',
+  'JPM', 'BAC', 'GS', 'WFC', 'V', 'MA',
+  'JNJ', 'UNH', 'ABBV', 'MRK', 'TMO',
+  'WMT', 'COST', 'HD', 'MCD',
+  'XOM', 'CVX',
+  'CAT',
+]
+
+// Company metadata
+const COMPANY_INFO: Record<string, { name: string; sector: string }> = {
+  'AAPL': { name: 'Apple Inc.', sector: 'Technology' },
+  'MSFT': { name: 'Microsoft Corporation', sector: 'Technology' },
+  'GOOGL': { name: 'Alphabet Inc.', sector: 'Technology' },
+  'NVDA': { name: 'NVIDIA Corporation', sector: 'Technology' },
+  'META': { name: 'Meta Platforms Inc.', sector: 'Technology' },
+  'AMD': { name: 'Advanced Micro Devices', sector: 'Technology' },
+  'CRM': { name: 'Salesforce Inc.', sector: 'Technology' },
+  'JPM': { name: 'JPMorgan Chase & Co.', sector: 'Finance' },
+  'BAC': { name: 'Bank of America Corp.', sector: 'Finance' },
+  'GS': { name: 'Goldman Sachs Group', sector: 'Finance' },
+  'WFC': { name: 'Wells Fargo & Co.', sector: 'Finance' },
+  'V': { name: 'Visa Inc.', sector: 'Finance' },
+  'MA': { name: 'Mastercard Inc.', sector: 'Finance' },
+  'JNJ': { name: 'Johnson & Johnson', sector: 'Healthcare' },
+  'UNH': { name: 'UnitedHealth Group', sector: 'Healthcare' },
+  'ABBV': { name: 'AbbVie Inc.', sector: 'Healthcare' },
+  'MRK': { name: 'Merck & Co.', sector: 'Healthcare' },
+  'TMO': { name: 'Thermo Fisher Scientific', sector: 'Healthcare' },
+  'WMT': { name: 'Walmart Inc.', sector: 'Consumer' },
+  'COST': { name: 'Costco Wholesale', sector: 'Consumer' },
+  'HD': { name: 'Home Depot Inc.', sector: 'Consumer' },
+  'MCD': { name: "McDonald's Corp.", sector: 'Consumer' },
+  'XOM': { name: 'Exxon Mobil Corp.', sector: 'Energy' },
+  'CVX': { name: 'Chevron Corporation', sector: 'Energy' },
+  'CAT': { name: 'Caterpillar Inc.', sector: 'Industrial' },
+}
+
 export default function Screener() {
   const [stocks, setStocks] = useState<StockData[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [apiNote, setApiNote] = useState('')
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null)
 
-  // Fetch stock data on component mount and every 5 minutes during market hours
+  // Fetch stock data on component mount and every 5 minutes
   useEffect(() => {
     fetchStockData() // Initial load
 
     const interval = setInterval(() => {
-      fetchStockData() // Auto-refresh every 5 minutes (aligns with 5min cache)
+      fetchStockData() // Auto-refresh every 5 minutes
     }, 300000) // 5 minutes = 300000ms
 
     return () => clearInterval(interval)
@@ -30,16 +72,54 @@ export default function Screener() {
 
   const fetchStockData = async () => {
     setIsLoading(true)
-    try {
-      const response = await fetch('/api/screener', {
-        cache: 'no-store'
-      })
-      const data = await response.json()
+    
+    const apiKey = process.env.NEXT_PUBLIC_FINNHUB_API_KEY
+    
+    if (!apiKey) {
+      setApiNote('API key not configured. Please add NEXT_PUBLIC_FINNHUB_API_KEY to environment variables.')
+      setIsLoading(false)
+      return
+    }
 
-      if (data.stocks) {
-        setStocks(data.stocks)
-        setApiNote(data.note || '')
+    try {
+      // Fetch directly from Finnhub API (client-side)
+      const stockPromises = DEFAULT_STOCKS.map(async (symbol) => {
+        try {
+          const response = await fetch(
+            `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${apiKey}`
+          )
+
+          if (!response.ok) {
+            console.error(`Failed to fetch ${symbol}:`, response.status)
+            return null
+          }
+
+          const data = await response.json()
+          const info = COMPANY_INFO[symbol]
+
+          return {
+            symbol,
+            name: info?.name || symbol,
+            sector: info?.sector || 'Unknown',
+            price: data.c || 0,
+            change: data.d || 0,
+            changePercent: data.dp?.toFixed(2) || '0.00',
+          }
+        } catch (error) {
+          console.error(`Error fetching ${symbol}:`, error)
+          return null
+        }
+      })
+
+      const results = await Promise.all(stockPromises)
+      const validStocks = results.filter((stock): stock is StockData => stock !== null)
+
+      if (validStocks.length > 0) {
+        setStocks(validStocks)
+        setApiNote('Live data from Finnhub API (refreshed every 5 minutes)')
         setLastUpdate(new Date())
+      } else {
+        setApiNote('Unable to fetch live data. Please try again.')
       }
     } catch (error) {
       console.error('Error fetching stock data:', error)

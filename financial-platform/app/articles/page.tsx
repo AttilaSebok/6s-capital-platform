@@ -214,27 +214,48 @@ function ArticlesContent() {
           )}
         </div>
 
-        {/* Newsletter CTA - Matching ArticleLayout Newsletter Style */}
-        <div className="max-w-7xl mx-auto mt-16">
-          <div className="bg-gradient-to-br from-deep-brown to-rich-brown rounded-none border-2 border-deep-brown shadow-xl p-8 text-white">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Newsletter CTA - Redesigned - Single Column Width - Centered */}
+        <div className="max-w-7xl mx-auto mt-16 flex justify-center">
+          <div className="bg-white rounded-none border-2 border-stone-300 shadow-xl p-6 w-full md:w-[calc(50%-0.75rem)]">
+            <div className="flex items-start gap-4 mb-4">
+              {/* Email Icon */}
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-soft-orange rounded-none flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+              </div>
+
               {/* Content */}
-              <div className="text-center md:text-left">
-                <h2 className="text-2xl md:text-3xl font-bold mb-2 font-crimson">
-                  Want More Investing Insights?
-                </h2>
-                <p className="text-stone-300 text-lg">
-                  Get our best articles, market analysis, and tips delivered weekly.
+              <div className="flex-grow">
+                <h3 className="text-xl font-bold mb-1 text-deep-brown font-crimson">
+                  Never Miss an Article
+                </h3>
+                <p className="text-stone-700 text-sm">
+                  Get weekly market insights and investing tips in your inbox
                 </p>
               </div>
-              {/* CTA Button */}
-              <a
-                href="/#newsletter"
-                className="bg-bronze-600 border-2 border-bronze-700 text-white px-8 py-3 rounded-none font-semibold hover:bg-bronze-700 transition-all hover:shadow-lg whitespace-nowrap"
-              >
-                Subscribe Now
-              </a>
             </div>
+
+            {/* Email Form */}
+            <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="w-full px-4 py-3 border-2 border-stone-300 rounded-none text-stone-700 placeholder-stone-400 focus:outline-none focus:border-soft-orange transition-colors"
+                required
+              />
+              <button
+                type="submit"
+                className="w-full px-6 py-3 bg-soft-orange border-2 border-soft-orange-dark text-white font-bold uppercase tracking-wide rounded-none shadow-md hover:bg-soft-orange-dark transition-all"
+              >
+                Subscribe
+              </button>
+              <p className="text-xs text-stone-500 text-center">
+                Join 1,000+ investors • Unsubscribe anytime
+              </p>
+            </form>
           </div>
         </div>
       </div>

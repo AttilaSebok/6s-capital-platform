@@ -2,9 +2,6 @@
 
 import { useState, useEffect } from 'react'
 
-// Force dynamic rendering - prevents static generation at build time
-export const dynamic = 'force-dynamic'
-
 interface StockData {
   symbol: string
   name: string

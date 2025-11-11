@@ -82,25 +82,40 @@ export async function GET() {
   console.log(`🔄 Screener API called at ${new Date().toISOString()}`);
 
   try {
-    // Use the internal stock-data API to fetch real data
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
-    const symbolsParam = DEFAULT_STOCKS.join(',')
+    // Fetch directly from Finnhub API (no internal fetch needed)
+    const stockPromises = DEFAULT_STOCKS.map(async (symbol) => {
+      const response = await fetch(
+        `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${apiKey}`,
+        { next: { revalidate: 300 } }
+      )
 
-    const response = await fetch(`${baseUrl}/api/stock-data?symbols=${symbolsParam}`, {
-      // Use Next.js fetch cache
-      next: { revalidate: 300 }
+      if (!response.ok) {
+        console.error(`Failed to fetch ${symbol}:`, response.status)
+        return null
+      }
+
+      const data = await response.json()
+
+      // Get company name and sector (hardcoded for blue-chip stocks)
+      const companyInfo = getCompanyInfo(symbol)
+
+      return {
+        symbol,
+        name: companyInfo.name,
+        sector: companyInfo.sector,
+        price: data.c || 0,
+        change: data.d || 0,
+        changePercent: data.dp?.toFixed(2) || '0.00',
+      }
     })
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch from stock-data API')
-    }
+    const results = await Promise.all(stockPromises)
+    const validStocks = results.filter((stock) => stock !== null)
 
-    const data = await response.json()
-
-    if (data.stocks && data.stocks.length > 0) {
+    if (validStocks.length > 0) {
       return NextResponse.json(
         {
-          stocks: data.stocks,
+          stocks: validStocks,
           note: 'Live data from Finnhub API (cached for 5 minutes, shared across all users)',
         },
         {
@@ -125,4 +140,37 @@ export async function GET() {
       note: 'Unable to fetch live data. Showing sample data.',
     })
   }
+}
+
+// Helper function to get company info
+function getCompanyInfo(symbol: string): { name: string; sector: string } {
+  const companyMap: Record<string, { name: string; sector: string }> = {
+    'AAPL': { name: 'Apple Inc.', sector: 'Technology' },
+    'MSFT': { name: 'Microsoft Corporation', sector: 'Technology' },
+    'GOOGL': { name: 'Alphabet Inc.', sector: 'Technology' },
+    'NVDA': { name: 'NVIDIA Corporation', sector: 'Technology' },
+    'META': { name: 'Meta Platforms Inc.', sector: 'Technology' },
+    'AMD': { name: 'Advanced Micro Devices', sector: 'Technology' },
+    'CRM': { name: 'Salesforce Inc.', sector: 'Technology' },
+    'JPM': { name: 'JPMorgan Chase & Co.', sector: 'Finance' },
+    'BAC': { name: 'Bank of America Corp.', sector: 'Finance' },
+    'GS': { name: 'Goldman Sachs Group', sector: 'Finance' },
+    'WFC': { name: 'Wells Fargo & Co.', sector: 'Finance' },
+    'V': { name: 'Visa Inc.', sector: 'Finance' },
+    'MA': { name: 'Mastercard Inc.', sector: 'Finance' },
+    'JNJ': { name: 'Johnson & Johnson', sector: 'Healthcare' },
+    'UNH': { name: 'UnitedHealth Group', sector: 'Healthcare' },
+    'ABBV': { name: 'AbbVie Inc.', sector: 'Healthcare' },
+    'MRK': { name: 'Merck & Co.', sector: 'Healthcare' },
+    'TMO': { name: 'Thermo Fisher Scientific', sector: 'Healthcare' },
+    'WMT': { name: 'Walmart Inc.', sector: 'Consumer' },
+    'COST': { name: 'Costco Wholesale', sector: 'Consumer' },
+    'HD': { name: 'Home Depot Inc.', sector: 'Consumer' },
+    'MCD': { name: "McDonald's Corp.", sector: 'Consumer' },
+    'XOM': { name: 'Exxon Mobil Corp.', sector: 'Energy' },
+    'CVX': { name: 'Chevron Corporation', sector: 'Energy' },
+    'CAT': { name: 'Caterpillar Inc.', sector: 'Industrial' },
+  }
+
+  return companyMap[symbol] || { name: symbol, sector: 'Unknown' }
 }

@@ -1,57 +1,78 @@
 # 🔵 Product Strategy: 6s Capital Platform Development
 
-## 🚀 Latest Updates (November 9, 2025)
+## 🚀 Latest Updates (November 11, 2025)
 
-### Major Achievements Today
+### Major Achievements - Finnhub API Migration + UI Improvements
 
-**1. Content Expansion**
-- ✅ Added cross-reference sections to 2 beginner guide articles (#1, #24)
-- ✅ Cross-references now in 7 total articles
-- ✅ "Continue Your Learning Journey" format standardized
-- ✅ Strategic internal linking for SEO and user engagement
+**1. Complete API Migration: Alpha Vantage → Finnhub**
+- ✅ Migrated from Alpha Vantage to Finnhub API
+- ✅ API key configured: `d494p71r01qshn3klgjgd494p71r01qshn3klgk0`
+- ✅ Finnhub free tier: 60 calls/minute (vs Alpha Vantage 5 calls/min)
+- ✅ **Reason for switch**: Better rate limits, more reliable real-time data
+- ✅ Direct API integration (no localhost dependencies)
+- ✅ Environment variables: `FINNHUB_API_KEY` and `NEXT_PUBLIC_FINNHUB_API_KEY`
 
-**2. Alpha Vantage API Integration**
-- ✅ API key configured: `35OX1N6DMLMV87Y7`
-- ✅ Created 3 backend API endpoints:
-  - `/api/stock-data` - Batch stock fetching with caching
-  - `/api/screener` - Filtered stock screening
-  - `/api/stock/[symbol]` - Individual stock quotes
-- ✅ Implemented 60-second caching to respect rate limits
-- ✅ Graceful fallback to sample data on API errors
+**2. Newsletter Box Redesign - Articles Page**
+- ✅ **Complete UI overhaul** of newsletter subscription section
+- ✅ **New design**: White background, orange email icon (12x12), vertical layout
+- ✅ **Positioning**: Single-column width, centered on page (matches article card width)
+- ✅ **Content**: "Never Miss an Article" heading with compelling copy
+- ✅ **Form**: Full-width email input + orange subscribe button
+- ✅ **Social proof**: "Join 1,000+ investors • Unsubscribe anytime"
+- ✅ **Technical fix**: Resolved JSX parsing error (unterminated regexp literal)
+- ✅ **Responsive**: `w-full` on mobile, `md:w-[calc(50%-0.75rem)]` on desktop
+- ✅ **Deployment**: Live on money365.market/articles
 
-**3. Stock Screener MVP Complete**
-- ✅ Real-time stock data from Alpha Vantage
-- ✅ Filter by: Market cap, P/E ratio, dividend yield
-- ✅ Auto-refresh every 2 minutes
-- ✅ Manual refresh button
-- ✅ Loading states and error handling
-- ✅ "Last updated" timestamp
-- ✅ Dark theme UI matching site design
-- ✅ 8 default stocks (AAPL, MSFT, GOOGL, AMZN, NVDA, TSLA, META, JPM)
+**3. Stock Screener - Production Ready**
+- ✅ **25 blue-chip stocks** across 5 major sectors:
+  - Technology (7): AAPL, MSFT, GOOGL, NVDA, META, AMD, CRM
+  - Finance (6): JPM, BAC, GS, WFC, V, MA
+  - Healthcare (5): JNJ, UNH, ABBV, MRK, TMO
+  - Consumer (4): WMT, COST, HD, MCD
+  - Energy (2): XOM, CVX
+  - Industrial (1): CAT
+- ✅ **5-minute CDN-level caching** (`revalidate = 300`)
+- ✅ **Optimized API usage**: 25 calls every 5 minutes = ~300 calls/hour (only 8% of 3,600/hour limit)
+- ✅ Leaves 2,300+ calls/hour headroom for future features
+- ✅ Direct Finnhub integration in `/api/screener/route.ts`
+- ✅ Force-dynamic rendering with layout configuration
+- ✅ Live data on **localhost:3000/screener** and **money365.market/screener**
 
-**4. MCP Integration**
-- ✅ Alpha Vantage MCP Server installed
-- ✅ Remote HTTP connection: `https://mcp.alphavantage.co/mcp`
-- ✅ Status: Connected and active
-- ✅ Claude Code now has direct access to:
-  - Real-time stock quotes
-  - Company fundamentals
-  - Options data with Greeks
-  - News sentiment and earnings
-  - Historical data (20+ years)
-  - Economic indicators
+**4. Production Deployment Success**
+- ✅ Deployed to Vercel (6s-capital-platform project)
+- ✅ Domain: **money365.market**
+- ✅ Environment variables configured on Vercel
+- ✅ Build-time errors resolved (no localhost dependencies)
+- ✅ Debug logging added for troubleshooting
+- ✅ Git repository: `github.com/AttilaSebok/6s-capital-platform`
+- ✅ Latest commit: Newsletter box JSX fix (commit hash: 97ab73f)
 
-**5. Technical Infrastructure**
-- ✅ Environment variables configured (`.env.local`)
-- ✅ Git commits created for all changes
-- ✅ Development server running successfully
-- ✅ Error handling and fallbacks implemented
+**5. Technical Architecture Improvements**
+- ✅ Server-side API routes with Next.js 16
+- ✅ CDN-level caching shared across all users
+- ✅ `Cache-Control: public, s-maxage=300, stale-while-revalidate=60`
+- ✅ Sample data fallback if API unavailable
+- ✅ Color-coded UI (green for gains, red for losses)
+- ✅ Real-time percentage changes and dollar amounts
+
+**6. API Comparison: Alpha Vantage vs Finnhub**
+
+| Feature | Alpha Vantage | Finnhub (Current) |
+|---------|--------------|-------------------|
+| Rate Limit | 5 calls/min | 60 calls/min |
+| Daily Limit | 500 calls/day | Unlimited (free tier) |
+| Real-time Data | ✅ Yes | ✅ Yes |
+| Ease of Use | Moderate | Excellent |
+| Our Usage | 25 stocks/5 min = 300/hour | 25 stocks/5 min = 300/hour |
+| Headroom | ❌ Would exceed | ✅ 2,300 calls/hour spare |
 
 ### Impact
-- **Daily visit reason**: Stock Screener provides live market data
+- **Daily visit reason**: Stock Screener provides live market data for 25 blue-chip stocks
 - **SEO improvement**: Cross-references boost internal linking
-- **User engagement**: Multi-article reading paths established
-- **Technical foundation**: API infrastructure ready for expansion
+- **User engagement**: Multi-article reading paths + improved newsletter conversion
+- **Email list growth**: New newsletter box design optimized for conversions (single-column, centered, social proof)
+- **Technical foundation**: Robust API infrastructure with significant headroom for expansion
+- **Production ready**: Fully deployed and operational on money365.market
 
 ---
 
@@ -61,9 +82,9 @@
 
 **Timeline**: 6 months to revenue generation
 **Revenue Model**: Multi-channel approach (affiliate marketing, advertising, premium content)
-**Current Status**: 41 articles complete (82%), Stock Screener with live API data, Alpha Vantage MCP integration
-**Gap**: 9 more articles, advanced tools, monetization setup
-**Last Updated**: November 9, 2025
+**Current Status**: 40 articles complete (80%), Stock Screener with live Finnhub data (25 stocks), production deployed on money365.market
+**Gap**: 10 more articles, advanced tools, monetization setup
+**Last Updated**: November 11, 2025
 
 ---
 
@@ -71,11 +92,12 @@
 
 **"Why should I visit 6s Capital daily as an investor?"**
 
-### Current Answer (Improved - November 2025)
-- ✅ 35 educational articles covering beginner to advanced topics
-- ✅ Stock Screener with live market data (auto-refresh every 2 minutes)
-- ✅ Real-time stock quotes via Alpha Vantage API
+### Current Answer (Improved - November 11, 2025)
+- ✅ **40 educational articles** covering beginner to advanced topics (80% of target)
+- ✅ **Stock Screener with live market data for 25 blue-chip stocks**
+- ✅ Real-time stock quotes via Finnhub API (60 calls/min limit, 5-min cache)
 - ✅ Cross-reference system between articles (improved engagement)
+- ✅ Production deployment on money365.market
 - ⏳ No personalization yet
 - ⏳ No community/interaction yet
 
@@ -158,11 +180,11 @@
 30. Income Investing Strategy: Building a Passive Income Portfolio
 
 **Articles #31-40 (✅ COMPLETE - Fundamental + Technical Analysis):**
-31. Quality Investing: Finding Companies with Competitive Moats (PLANNED)
-32. How to Read a Balance Sheet Like a Professional Analyst (PLANNED)
-33. Cash Flow Analysis: Why Cash is King in Investing (PLANNED)
-34. Debt-to-Equity Ratio: Measuring Financial Leverage and Risk (PLANNED)
-35. Return on Equity (ROE): The Ultimate Profitability Metric (PLANNED)
+31. ✅ Quality Investing: Finding Companies with Competitive Moats
+32. ✅ How to Read a Balance Sheet Like a Professional Analyst
+33. ✅ Cash Flow Analysis: Why Cash is King in Investing
+34. ✅ Debt-to-Equity Ratio: Measuring Financial Leverage and Risk
+35. ✅ Return on Equity (ROE): The Ultimate Profitability Metric
 36. ✅ Free Cash Flow: The Most Important Metric You're Ignoring
 37. ✅ Moving Averages Explained: 50-Day vs 200-Day Strategies
 38. ✅ RSI Indicator: How to Spot Overbought and Oversold Stocks
@@ -183,15 +205,15 @@
 
 **Content Category Targets (50 articles):**
 - **Beginner Guides**: 15 articles (#1, #7, #10, #21-25) → ✅ 8/15 complete
-- **Investment Strategies**: 12 articles (#2, #9, #12, #16, #17, #26-31) → ✅ 11/12 complete (missing only #31)
-- **Fundamental Analysis**: 9 articles (#6, #11, #14, #19, #32-36) → ✅ 5/9 complete (#36 done)
-- **Technical Analysis**: 5 articles (#4, #37-40) → ✅ 5/5 complete (#37-40 done)
+- **Investment Strategies**: 12 articles (#2, #9, #12, #16, #17, #26-31) → ✅ 12/12 complete
+- **Fundamental Analysis**: 9 articles (#6, #11, #14, #19, #32-36) → ✅ 9/9 complete
+- **Technical Analysis**: 5 articles (#4, #37-40) → ✅ 5/5 complete
 - **Portfolio Strategy**: 6 articles (#8, #20, #41-44) → 2/6 complete
 - **Market Analysis**: 5 articles (#5, #15, #45-47) → 2/5 complete
 - **Tax & Retirement**: 5 articles (#13, #18, #48-50) → 2/5 complete
 - **Stock Analysis**: 1 article (#3) → ✅ 1/1 complete
 
-**OVERALL PROGRESS: 35/50 articles complete (70%)**
+**OVERALL PROGRESS: 40/50 articles complete (80%)**
 
 #### 1.1.1 Article Writing Standards (NEW - November 2025)
 
@@ -330,47 +352,52 @@
 
 ### Phase 2: Interactive Tools (Weeks 9-16)
 
-#### 2.1 Stock Screener (✅ MVP COMPLETE - November 9, 2025)
-**User Story**: As an active investor, I want to filter stocks by criteria so I can find investment opportunities matching my strategy.
+#### 2.1 Stock Screener (✅ PRODUCTION READY - November 11, 2025)
+**User Story**: As an active investor, I want to view live stock data for major blue-chip companies so I can track market performance.
 
 **✅ Implemented Features:**
-- ✅ Filter by: Market cap, P/E ratio, dividend yield
-- ✅ Real-time stock data via Alpha Vantage API
-- ✅ Auto-refresh every 2 minutes
-- ✅ Manual refresh button
-- ✅ Loading states and error handling
+- ✅ **25 blue-chip stocks** across Technology, Finance, Healthcare, Consumer, Energy, Industrial sectors
+- ✅ Real-time stock data via **Finnhub API** (60 calls/min free tier)
+- ✅ **5-minute CDN-level caching** (shared across all users, prevents API spam)
+- ✅ Live price, change ($), and change (%) display
+- ✅ Color-coded indicators (green = positive, red = negative)
+- ✅ Loading states and error handling with sample data fallback
 - ✅ Last updated timestamp display
 - ✅ Responsive dark theme design consistent with site
-- ✅ Client-side filtering (instant results)
-- ✅ 1-minute API response caching (rate limit protection)
+- ✅ **Production deployed**: money365.market/screener
+- ✅ **Localhost working**: localhost:3000/screener
+- ✅ Force-dynamic rendering (no build-time API calls)
+- ✅ Debug logging for troubleshooting
 
-**🔄 In Progress:**
-- ⏳ Sort by: Performance (1D, 1W, 1M, YTD), volume
+**🔄 Planned Enhancements:**
+- ⏳ Client-side filtering (sector, price range, % change)
+- ⏳ Sort by: Price, Change %, Name, Sector
 - ⏳ Save filters (local storage)
 - ⏳ Export results (CSV)
-- ⏳ Click stock → detailed page
-- ⏳ Expand stock list beyond 8 default stocks
+- ⏳ Click stock → detailed page with charts
+- ⏳ Expand stock list (50-100 stocks)
+- ⏳ Add search functionality
 
 **Data Source**:
-- ✅ Alpha Vantage API (API key: 35OX1N6DMLMV87Y7)
-- ✅ Global Quote endpoint (real-time prices)
-- ✅ Company Overview endpoint (fundamentals)
+- ✅ **Finnhub API** (API key: d494p71r01qshn3klgjgd494p71r01qshn3klgk0)
+- ✅ Quote endpoint: `https://finnhub.io/api/v1/quote?symbol={symbol}&token={apiKey}`
+- ✅ Rate limit: 60 calls/minute (free tier)
+- ✅ Our usage: 25 calls every 5 minutes = 300 calls/hour (only 8% of capacity)
 
 **Technical Implementation:**
-- ✅ Backend: `/api/stock-data` - Multi-stock endpoint with caching
-- ✅ Backend: `/api/screener` - Screener-specific endpoint
-- ✅ Backend: `/api/stock/[symbol]` - Single stock quotes
-- ✅ Frontend: React hooks (useState, useEffect)
-- ✅ Auto-refresh: setInterval (120000ms = 2 minutes)
-- ✅ Cache: Map-based in-memory cache (60s duration)
-- ✅ Fallback: Sample data if API unavailable
+- ✅ Backend: `/app/api/screener/route.ts` - Direct Finnhub integration
+- ✅ Backend: `/app/api/stock-data/route.ts` - Multi-stock batch fetching (legacy, kept for reference)
+- ✅ Layout: `/app/screener/layout.tsx` - Force-dynamic rendering
+- ✅ CDN caching: `export const revalidate = 300` (5 minutes)
+- ✅ HTTP caching: `Cache-Control: public, s-maxage=300, stale-while-revalidate=60`
+- ✅ Fallback: Sample data with 25 stocks (updated Nov 10, 2025 prices)
+- ✅ Environment: `FINNHUB_API_KEY` in `.env.local` and Vercel
 
-**Alpha Vantage MCP Integration (✅ COMPLETE):**
-- ✅ Remote HTTP MCP server connected
-- ✅ URL: `https://mcp.alphavantage.co/mcp`
-- ✅ Status: Connected and active
-- ✅ Available tools: Stock quotes, company overview, options data, fundamentals
-- ✅ Claude Code can now directly query Alpha Vantage via MCP
+**MCP Integration (Alpha Vantage - Available but not in use):**
+- ✅ Alpha Vantage MCP Server connected (backup option)
+- ✅ Remote HTTP server: `https://mcp.alphavantage.co/mcp`
+- ✅ Available for advanced features (fundamentals, options, historical data)
+- ✅ Claude Code can directly query via MCP for analysis tasks
 
 #### 2.2 Portfolio Tracker (MVP)
 **User Story**: As an investor, I want to track my portfolio performance so I can see gains/losses and allocation.
@@ -394,36 +421,37 @@
 
 ### Phase 3: Technical Infrastructure (Weeks 1-16, Parallel)
 
-#### 3.0 API & Data Infrastructure (✅ November 9, 2025)
+#### 3.0 API & Data Infrastructure (✅ November 11, 2025 - Finnhub)
 
-**Alpha Vantage API Integration:**
-- ✅ API Key configured: `35OX1N6DMLMV87Y7`
-- ✅ Environment variable: `ALPHA_VANTAGE_API_KEY` in `.env.local`
-- ✅ Free tier: 500 requests/day, 5 requests/minute
-- ✅ Endpoints used:
-  - `GLOBAL_QUOTE` - Real-time stock prices
-  - `OVERVIEW` - Company fundamentals (market cap, P/E, dividend)
-- ✅ Response caching (60 seconds) to respect rate limits
+**Finnhub API Integration (Current Production System):**
+- ✅ API Key configured: `d494p71r01qshn3klgjgd494p71r01qshn3klgk0`
+- ✅ Environment variables: `FINNHUB_API_KEY` and `NEXT_PUBLIC_FINNHUB_API_KEY` in `.env.local` + Vercel
+- ✅ Free tier: 60 requests/minute, unlimited daily
+- ✅ Endpoint used:
+  - `GET /quote` - Real-time stock prices (current, change, % change)
+- ✅ Response caching (5 minutes CDN-level) to optimize API usage
 - ✅ Error handling with fallback to sample data
+- ✅ **Migration reason**: Better rate limits (60/min vs 5/min), simpler API, more reliable
 
 **API Routes Created:**
-- ✅ `/api/stock-data?symbols=AAPL,MSFT,...` - Batch stock data fetching
-- ✅ `/api/screener` - Stock screener with filters
-- ✅ `/api/stock/[symbol]` - Individual stock quotes
+- ✅ `/api/screener` - Stock screener with 25 blue-chip stocks (Finnhub direct integration)
+- ✅ `/api/stock-data?symbols=AAPL,MSFT,...` - Batch stock data fetching (legacy, Finnhub)
+- ⏳ `/api/stock/[symbol]` - Individual stock quotes (planned for detail pages)
 
 **MCP (Model Context Protocol) Integration:**
-- ✅ Alpha Vantage MCP Server installed and connected
+- ✅ Alpha Vantage MCP Server installed and connected (backup/advanced features)
 - ✅ Remote HTTP server: `https://mcp.alphavantage.co/mcp`
 - ✅ Configuration: `C:\Users\Sebok Attila\.claude.json`
 - ✅ Status: Active and connected
 - ✅ Capabilities: Direct stock data queries from Claude Code
-- ✅ Available categories:
+- ✅ Available categories (for future use):
   - Core stock APIs (quotes, historical data)
   - Options data with Greeks
   - Alpha Intelligence (news sentiment, earnings)
   - Fundamental data (financials, earnings calendar)
   - Forex, crypto, commodities
   - Economic indicators, technical indicators
+- 📝 **Note**: Currently using Finnhub for production; Alpha Vantage MCP available for advanced features
 
 #### 3.1 SEO Optimization
 
@@ -671,23 +699,41 @@
 
 ## 🔧 Technical Requirements Summary
 
-### ✅ Completed (As of November 9, 2025)
-- ✅ **Alpha Vantage API Integration**
-  - API key configured and working
-  - 3 API endpoints created (/api/stock-data, /api/screener, /api/stock/[symbol])
-  - Response caching (60s) for rate limit protection
-  - Auto-refresh mechanism (2 minutes)
-- ✅ **Alpha Vantage MCP Server**
-  - Remote HTTP MCP server connected
-  - Direct stock data queries via Claude Code
-  - Comprehensive financial data access
-- ✅ **Stock Screener MVP**
-  - Real-time filtering by market cap, P/E, dividend yield
-  - Loading states, error handling
+### ✅ Completed (As of November 11, 2025)
+- ✅ **Finnhub API Integration (Production)**
+  - API key configured and working on both localhost and production
+  - Primary endpoint: `/api/screener` with 25 blue-chip stocks
+  - 5-minute CDN-level caching (shared across all users)
+  - Direct Finnhub integration (no localhost dependencies)
+  - Sample data fallback for reliability
+- ✅ **Stock Screener - Production Deployment**
+  - 25 blue-chip stocks across 5 sectors (Tech, Finance, Healthcare, Consumer, Energy, Industrial)
+  - Real-time prices with color-coded change indicators
+  - Loading states, error handling, debug logging
   - Dark theme UI consistent with site design
+  - Live on **money365.market/screener** and **localhost:3000/screener**
+  - Optimized: Only 8% API capacity used (2,300 calls/hour headroom)
+- ✅ **Newsletter Box Redesign (Articles Page)**
+  - Complete UI overhaul: white background, orange email icon, vertical layout
+  - Single-column width, centered positioning
+  - Full-width email input + orange subscribe button
+  - Social proof: "Join 1,000+ investors • Unsubscribe anytime"
+  - Responsive design: mobile full-width, desktop centered at exact column width
+  - JSX structure fixed (resolved parsing error)
+  - Live on money365.market/articles
+- ✅ **Alpha Vantage MCP Server**
+  - Remote HTTP MCP server connected (backup/advanced features)
+  - Direct stock data queries via Claude Code
+  - Comprehensive financial data access available
 - ✅ **Cross-Reference System**
   - 7 articles with "Continue Your Learning Journey" sections
   - Strategic internal linking for SEO and engagement
+- ✅ **Production Infrastructure**
+  - Deployed to Vercel (6s-capital-platform project)
+  - Environment variables configured on Vercel
+  - Git repository: github.com/AttilaSebok/6s-capital-platform
+  - Force-dynamic rendering (no build-time errors)
+  - Latest commit: 97ab73f (Newsletter box JSX fix)
 - ✅ XML sitemap (Next.js automatic)
 - ✅ Meta tags for all pages (SEO)
 
@@ -699,9 +745,13 @@
 - ⏳ Add cross-references to remaining 28 articles
 
 ### Short-term (Week 5-12)
-- ⏳ Vercel Postgres or Supabase database (stock storage)
-- ⏳ Daily cron job (update stock data beyond current 8 stocks)
-- ⏳ Expand screener: sorting, save filters, export CSV
+- ⏳ **Screener Enhancements**:
+  - Client-side filtering (sector, price range, % change)
+  - Sorting (price, change %, name, sector)
+  - Save filters (localStorage)
+  - Export results (CSV)
+  - Expand to 50-100 stocks
+- ⏳ Vercel Postgres or Supabase database (stock storage for historical tracking)
 - ⏳ Portfolio tracker (localStorage MVP)
 - ⏳ Calculator components (React forms + logic)
 
@@ -717,11 +767,17 @@
 
 ## 📊 Prioritization Matrix (MoSCoW)
 
-### ✅ Completed (As of November 9, 2025)
-- ✅ 35 articles complete (70% of target)
-- ✅ **Stock Screener MVP** - Real-time data, filtering, auto-refresh
-- ✅ **Alpha Vantage API Integration** - 3 endpoints, caching, error handling
-- ✅ **MCP Integration** - Direct stock data access via Claude Code
+### ✅ Completed (As of November 11, 2025)
+- ✅ **40 articles complete (80% of target)**
+  - All Fundamental Analysis articles complete (9/9)
+  - All Technical Analysis articles complete (5/5)
+  - All Investment Strategies complete (12/12)
+  - 8/15 Beginner Guides complete
+- ✅ **Stock Screener - Production Deployed** - 25 blue-chip stocks, live on money365.market/screener
+- ✅ **Newsletter Box Redesign** - Articles page newsletter section completely redesigned for conversion optimization
+- ✅ **Finnhub API Integration** - 60 calls/min, 5-min CDN cache, optimized usage (8% capacity)
+- ✅ **Production Infrastructure** - Vercel deployment, environment variables configured, latest commit: 97ab73f
+- ✅ **MCP Integration** - Alpha Vantage server connected for advanced features
 - ✅ Cross-reference system (7 articles, more in progress)
 - ✅ SEO meta tags and sitemap
 - ✅ Dark theme UI consistency
@@ -736,12 +792,13 @@
 - ⏳ Write articles #41-50 (complete 50 article target)
 
 ### Should Have (Weeks 9-16)
-- ⏳ Expand Stock Screener: sorting, save filters, CSV export
-- ⏳ Portfolio Tracker MVP
-- ⏳ 2-3 Investment Calculators
+- ⏳ **Expand Stock Screener**: Client-side filtering, sorting, save filters, CSV export, 50-100 stocks
+- ⏳ **Stock Detail Pages**: Individual stock pages with charts, fundamentals, news
+- ⏳ Portfolio Tracker MVP (localStorage-based)
+- ⏳ 2-3 Investment Calculators (Compound Interest, Dividend Income, Retirement Savings)
 - ⏳ Weekly Market Recap (automated template)
 - ⏳ Stock of the Week (first 5 published)
-- ⏳ Database integration (Vercel Postgres or Supabase)
+- ⏳ Database integration (Vercel Postgres or Supabase for historical data)
 
 ### Could Have (Weeks 17-24)
 - User accounts

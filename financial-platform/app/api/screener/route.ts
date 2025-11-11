@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server'
 
+// Force dynamic rendering - prevents static generation at build time
+export const dynamic = 'force-dynamic'
+
 // 25 top blue-chip stocks across major sectors
 const DEFAULT_STOCKS = [
   // Technology (7 stocks)

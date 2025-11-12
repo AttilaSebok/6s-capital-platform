@@ -4,7 +4,11 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { trackNewsletterSignup } from '@/lib/analytics'
 
-export default function NewsletterSignup() {
+interface NewsletterSignupProps {
+  location?: string
+}
+
+export default function NewsletterSignup({ location = 'homepage' }: NewsletterSignupProps) {
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
@@ -40,7 +44,7 @@ export default function NewsletterSignup() {
       }
 
       // Track successful signup with GA4
-      trackNewsletterSignup('homepage')
+      trackNewsletterSignup(location)
 
       setStatus('success')
       setMessage(data.message || 'Check your email to confirm your subscription and get your free checklist!')

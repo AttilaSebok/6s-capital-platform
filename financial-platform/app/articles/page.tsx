@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState, useMemo, useEffect, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { getAllArticles, getCategories, isNewArticle, type Article } from '@/lib/articles'
+import NewsletterSignup from '@/components/NewsletterSignup'
 
 function ArticlesContent() {
   const searchParams = useSearchParams()
@@ -257,49 +258,9 @@ function ArticlesContent() {
           )}
         </div>
 
-        {/* Newsletter CTA - Redesigned - Single Column Width - Centered */}
-        <div className="max-w-7xl mx-auto mt-16 flex justify-center">
-          <div className="bg-white rounded-none border-2 border-stone-300 shadow-xl p-6 w-full md:w-[calc(50%-0.75rem)]">
-            <div className="flex items-start gap-4 mb-4">
-              {/* Email Icon */}
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-soft-orange rounded-none flex items-center justify-center">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="flex-grow">
-                <h3 className="text-xl font-bold mb-1 text-deep-brown font-crimson">
-                  Never Miss an Article
-                </h3>
-                <p className="text-stone-700 text-sm">
-                  Get weekly market insights and investing tips in your inbox
-                </p>
-              </div>
-            </div>
-
-            {/* Email Form */}
-            <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full px-4 py-3 border-2 border-stone-300 rounded-none text-stone-700 placeholder-stone-400 focus:outline-none focus:border-soft-orange transition-colors"
-                required
-              />
-              <button
-                type="submit"
-                className="w-full px-6 py-3 bg-soft-orange border-2 border-soft-orange-dark text-white font-bold uppercase tracking-wide rounded-none shadow-md hover:bg-soft-orange-dark transition-all"
-              >
-                Subscribe
-              </button>
-              <p className="text-xs text-stone-500 text-center">
-                Join 1,000+ investors • Unsubscribe anytime
-              </p>
-            </form>
-          </div>
+        {/* Newsletter CTA - MailerLite Integration */}
+        <div className="max-w-7xl mx-auto mt-16 px-4">
+          <NewsletterSignup location="articles_page" />
         </div>
       </div>
     </div>

@@ -79,7 +79,7 @@ export default function MarketNewsPage() {
             <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-6 leading-tight tracking-tight font-crimson">
               Market News
             </h1>
-            <p className="text-base md:text-2xl text-stone-300 mb-3 md:mb-4 leading-relaxed font-light">
+            <p className="text-sm md:text-2xl text-stone-300 mb-3 md:mb-4 leading-snug md:leading-relaxed font-light">
               Stay informed with the latest financial news and market updates from trusted sources worldwide
             </p>
             {/* News Count & Last Updated */}
@@ -107,19 +107,19 @@ export default function MarketNewsPage() {
 
       {/* Category Filter - Sticky Navigation (matching Articles page) */}
       <div className="bg-slate-900 border-b border-stone-400 sticky top-0 z-10">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto py-4">
           {/* Mobile: Horizontal Scroll with Arrow Indicators */}
-          <div className="md:hidden relative">
+          <div className="md:hidden relative px-4">
             {/* Left Arrow Indicator */}
-            <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-900 to-transparent pointer-events-none z-10 flex items-center justify-start">
+            <div className="absolute left-4 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-900 to-transparent pointer-events-none z-10 flex items-center justify-start">
               <svg className="w-4 h-4 text-soft-orange ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </div>
 
             {/* Scrollable Categories */}
-            <div className="overflow-x-auto scrollbar-hide">
-              <div className="flex gap-2 min-w-max px-1">
+            <div className="overflow-x-auto scrollbar-hide -mx-4 px-4">
+              <div className="flex gap-2 min-w-max">
                 {categories.map((category) => {
                   const count = getCategoryCount(category)
                   return (
@@ -162,7 +162,7 @@ export default function MarketNewsPage() {
             </div>
 
             {/* Right Arrow Indicator */}
-            <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-900 to-transparent pointer-events-none z-10 flex items-center justify-end">
+            <div className="absolute right-4 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-900 to-transparent pointer-events-none z-10 flex items-center justify-end">
               <svg className="w-4 h-4 text-soft-orange mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -170,7 +170,7 @@ export default function MarketNewsPage() {
           </div>
 
           {/* Desktop: Centered Wrap Layout */}
-          <div className="hidden md:flex items-center justify-between gap-4 max-w-5xl mx-auto">
+          <div className="hidden md:flex items-center justify-between gap-4 max-w-5xl mx-auto px-4">
             <div className="flex flex-wrap gap-2 flex-grow justify-center">
               {categories.map((category) => {
                 const count = getCategoryCount(category)

@@ -95,7 +95,8 @@ export default function MarketNewsPage() {
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
                     </svg>
                     <p className="text-stone-300 text-xs md:text-sm">
-                      Last updated: {lastUpdated}
+                      <span className="md:hidden">Updated: {lastUpdated}</span>
+                      <span className="hidden md:inline">Last updated: {lastUpdated}</span>
                     </p>
                   </div>
                 )}
@@ -109,17 +110,17 @@ export default function MarketNewsPage() {
       <div className="bg-slate-900 border-b border-stone-400 sticky top-0 z-10">
         <div className="container mx-auto py-4">
           {/* Mobile: Horizontal Scroll with Arrow Indicators */}
-          <div className="md:hidden relative px-4">
+          <div className="md:hidden relative">
             {/* Left Arrow Indicator */}
-            <div className="absolute left-4 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-900 to-transparent pointer-events-none z-10 flex items-center justify-start">
+            <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-900 to-transparent pointer-events-none z-10 flex items-center justify-start">
               <svg className="w-4 h-4 text-soft-orange ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </div>
 
             {/* Scrollable Categories */}
-            <div className="overflow-x-auto scrollbar-hide -mx-4 px-4">
-              <div className="flex gap-2 min-w-max">
+            <div className="overflow-x-auto scrollbar-hide">
+              <div className="flex gap-2 min-w-max px-1">
                 {categories.map((category) => {
                   const count = getCategoryCount(category)
                   return (
@@ -162,7 +163,7 @@ export default function MarketNewsPage() {
             </div>
 
             {/* Right Arrow Indicator */}
-            <div className="absolute right-4 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-900 to-transparent pointer-events-none z-10 flex items-center justify-end">
+            <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-900 to-transparent pointer-events-none z-10 flex items-center justify-end">
               <svg className="w-4 h-4 text-soft-orange mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>

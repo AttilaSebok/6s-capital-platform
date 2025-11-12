@@ -56,7 +56,7 @@ function ArticlesContent() {
             <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-6 leading-tight tracking-tight font-crimson">
               Investment Insights
             </h1>
-            <p className="text-base md:text-2xl text-stone-300 mb-3 md:mb-4 leading-relaxed font-light">
+            <p className="text-xs md:text-2xl text-stone-300 mb-3 md:mb-4 leading-tight md:leading-relaxed font-light">
               Expert analysis and strategies for informed investors
             </p>
             {/* Article Count */}

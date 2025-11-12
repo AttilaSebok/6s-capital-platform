@@ -73,7 +73,33 @@ function ArticlesContent() {
       {/* Category Filter - Sticky Navigation (matching ArticleLayout dark bar) */}
       <div className="bg-slate-900 border-b border-stone-400 sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-wrap gap-2 justify-center max-w-5xl mx-auto">
+          {/* Mobile: Horizontal Scroll */}
+          <div className="md:hidden overflow-x-auto scrollbar-hide">
+            <div className="flex gap-2 min-w-max px-1">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => handleCategoryChange(cat)}
+                  aria-pressed={activeCategory === cat}
+                  aria-label={`Filter by ${cat}`}
+                  className={`
+                    px-4 py-2 text-sm font-bold uppercase tracking-wider rounded-none
+                    border transition-all duration-200 whitespace-nowrap
+                    focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 focus:ring-offset-slate-900
+                    ${activeCategory === cat
+                      ? 'bg-bronze-600 text-white border-bronze-700 shadow-md'
+                      : 'bg-olive-100 text-olive-800 border-olive-300 active:bg-olive-200 active:border-olive-400'
+                    }
+                  `}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: Centered Wrap Layout */}
+          <div className="hidden md:flex flex-wrap gap-2 justify-center max-w-5xl mx-auto">
             {categories.map((cat) => (
               <button
                 key={cat}

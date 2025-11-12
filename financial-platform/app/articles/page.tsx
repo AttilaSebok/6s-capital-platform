@@ -51,16 +51,16 @@ function ArticlesContent() {
     <div className="min-h-screen bg-stone-50">
       {/* Hero Section - Dark Gradient (matching ArticleLayout) */}
       <div className="bg-gradient-to-br from-slate-900 to-stone-900 border-b-2 border-bronze-600">
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 py-6 md:py-12">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight font-crimson">
+            <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-white mb-3 md:mb-6 leading-tight tracking-tight font-crimson">
               Investment Insights
             </h1>
-            <p className="text-xl md:text-2xl text-stone-300 mb-4 leading-relaxed font-light">
+            <p className="text-base md:text-2xl text-stone-300 mb-3 md:mb-4 leading-relaxed font-light">
               Expert analysis and strategies for informed investors
             </p>
             {/* Article Count */}
-            <div className="border-t-2 border-bronze-600 pt-4">
+            <div className="border-t-2 border-bronze-600 pt-3 md:pt-4">
               <p className="text-sm font-medium text-stone-300">
                 {filteredArticles.length} {filteredArticles.length === 1 ? 'article' : 'articles'}
                 {activeCategory !== 'All' && <span className="text-stone-400"> in {activeCategory}</span>}
@@ -77,7 +77,7 @@ function ArticlesContent() {
           <div className="md:hidden relative">
             {/* Left Arrow Indicator */}
             <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-900 to-transparent pointer-events-none z-10 flex items-center justify-start">
-              <svg className="w-4 h-4 text-stone-400 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-soft-orange ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </div>
@@ -109,7 +109,7 @@ function ArticlesContent() {
 
             {/* Right Arrow Indicator */}
             <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-900 to-transparent pointer-events-none z-10 flex items-center justify-end">
-              <svg className="w-4 h-4 text-stone-400 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-soft-orange mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </div>

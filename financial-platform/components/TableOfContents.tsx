@@ -102,7 +102,7 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
       {/* Mobile TOC Trigger Button - Sharp & Wise */}
       <button
         onClick={() => setIsOpen(true)}
-        className="md:hidden fixed bottom-20 right-4 z-40 w-14 h-14 bg-bronze-600 border-2 border-bronze-700 text-white rounded-none shadow-lg flex items-center justify-center hover:bg-bronze-700 transition-all"
+        className="md:hidden fixed bottom-28 right-8 z-40 w-14 h-14 bg-bronze-600 border-2 border-bronze-700 text-white rounded-none shadow-lg flex items-center justify-center hover:bg-bronze-700 transition-all"
         aria-label="Open table of contents"
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -109,68 +109,63 @@ export default function MarketNewsPage() {
       <div className="bg-slate-900 border-b border-stone-400 sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4">
           {/* Mobile: Horizontal Scroll with Arrow Indicators */}
-          <div className="md:hidden">
-            <div className="flex items-center justify-between gap-2">
-              <div className="relative flex-grow">
-                {/* Left Arrow Indicator */}
-                <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-900 to-transparent pointer-events-none z-10 flex items-center justify-start">
-                  <svg className="w-4 h-4 text-soft-orange ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </div>
+          <div className="md:hidden relative">
+            {/* Left Arrow Indicator */}
+            <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-900 to-transparent pointer-events-none z-10 flex items-center justify-start">
+              <svg className="w-4 h-4 text-soft-orange ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </div>
 
-                {/* Scrollable Categories */}
-                <div className="overflow-x-auto scrollbar-hide">
-                  <div className="flex gap-2 min-w-max px-1">
-                    {categories.map((category) => {
-                      const count = getCategoryCount(category)
-                      return (
-                        <button
-                          key={category}
-                          onClick={() => setSelectedCategory(category)}
-                          className={`
-                            px-4 py-2 text-sm font-bold uppercase tracking-wider rounded-none
-                            border transition-all duration-200 whitespace-nowrap
-                            focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 focus:ring-offset-slate-900
-                            ${selectedCategory === category
-                              ? 'bg-bronze-600 text-white border-bronze-700 shadow-md'
-                              : 'bg-olive-100 text-olive-800 border-olive-300 active:bg-olive-200 active:border-olive-400'
-                            }
-                          `}
-                          aria-label={`Filter by ${category}, ${count} articles`}
-                          aria-pressed={selectedCategory === category}
-                        >
-                          {category}
-                        </button>
-                      )
-                    })}
-                  </div>
-                </div>
-
-                {/* Right Arrow Indicator */}
-                <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-900 to-transparent pointer-events-none z-10 flex items-center justify-end">
-                  <svg className="w-4 h-4 text-soft-orange mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Refresh Button */}
-              <button
-                onClick={fetchNews}
-                disabled={loading}
-                className="flex-shrink-0 px-3 py-2 bg-olive-100 border border-olive-300 text-olive-800 active:bg-olive-200 active:border-olive-400 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed rounded-none"
-                aria-label="Refresh news articles"
-              >
-                <svg
-                  className={`w-5 h-5 ${loading ? 'animate-spin' : ''}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+            {/* Scrollable Categories */}
+            <div className="overflow-x-auto scrollbar-hide">
+              <div className="flex gap-2 min-w-max px-1">
+                {categories.map((category) => {
+                  const count = getCategoryCount(category)
+                  return (
+                    <button
+                      key={category}
+                      onClick={() => setSelectedCategory(category)}
+                      className={`
+                        px-4 py-2 text-sm font-bold uppercase tracking-wider rounded-none
+                        border transition-all duration-200 whitespace-nowrap
+                        focus:outline-none focus:ring-2 focus:ring-bronze-600 focus:ring-offset-2 focus:ring-offset-slate-900
+                        ${selectedCategory === category
+                          ? 'bg-bronze-600 text-white border-bronze-700 shadow-md'
+                          : 'bg-olive-100 text-olive-800 border-olive-300 active:bg-olive-200 active:border-olive-400'
+                        }
+                      `}
+                      aria-label={`Filter by ${category}, ${count} articles`}
+                      aria-pressed={selectedCategory === category}
+                    >
+                      {category}
+                    </button>
+                  )
+                })}
+                {/* Refresh Button inline with categories on mobile */}
+                <button
+                  onClick={fetchNews}
+                  disabled={loading}
+                  className="px-4 py-2 bg-olive-100 border border-olive-300 text-olive-800 active:bg-olive-200 active:border-olive-400 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed rounded-none whitespace-nowrap"
+                  aria-label="Refresh news articles"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
-              </button>
+                  <svg
+                    className={`w-5 h-5 ${loading ? 'animate-spin' : ''}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Right Arrow Indicator */}
+            <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-900 to-transparent pointer-events-none z-10 flex items-center justify-end">
+              <svg className="w-4 h-4 text-soft-orange mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </div>
           </div>
 

@@ -18,7 +18,7 @@ export default function MarketNewsPage() {
   const [news, setNews] = useState<NewsArticle[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [selectedCategory, setSelectedCategory] = useState<string>('all')
+  const [selectedCategory, setSelectedCategory] = useState<string>('top')
   const [lastUpdated, setLastUpdated] = useState<string>('')
 
   useEffect(() => {
@@ -62,16 +62,13 @@ export default function MarketNewsPage() {
     }
   }
 
-  const categories = ['all', 'top', 'company', 'crypto', 'forex', 'merger']
+  const categories = ['top', 'company', 'crypto', 'forex', 'merger']
 
   const getCategoryCount = (category: string) => {
-    if (category === 'all') return news.length
     return news.filter(article => article.category === category).length
   }
 
-  const filteredNews = selectedCategory === 'all'
-    ? news
-    : news.filter(article => article.category === selectedCategory)
+  const filteredNews = news.filter(article => article.category === selectedCategory)
 
   return (
     <div className="min-h-screen bg-stone-50">
@@ -90,7 +87,7 @@ export default function MarketNewsPage() {
               <div className="flex items-center justify-between flex-wrap gap-2">
                 <p className="text-sm font-medium text-stone-300">
                   {filteredNews.length} {filteredNews.length === 1 ? 'article' : 'articles'}
-                  {selectedCategory !== 'all' && <span className="text-stone-400"> in {selectedCategory}</span>}
+                  <span className="text-stone-400"> in {selectedCategory}</span>
                 </p>
                 {lastUpdated && (
                   <div className="flex items-center gap-2">
@@ -310,10 +307,10 @@ export default function MarketNewsPage() {
                 No articles found in {selectedCategory}.
               </p>
               <button
-                onClick={() => setSelectedCategory('all')}
+                onClick={() => setSelectedCategory('top')}
                 className="text-bronze-600 font-semibold hover:text-bronze-700 underline underline-offset-2"
               >
-                View all articles
+                View top articles
               </button>
             </div>
           )}

@@ -4,6 +4,7 @@ import MarketOverview from '@/components/MarketOverview'
 import NewsletterSignup from '@/components/NewsletterSignup'
 import FeaturedArticles from '@/components/FeaturedArticles'
 import MarketMovers from '@/components/market-movers/MarketMovers'
+import { MarketPulseCompact } from '@/components/MarketPulse'
 import { getAllArticles, getLatestArticle } from '@/lib/articles'
 
 export default function Home() {
@@ -68,6 +69,11 @@ export default function Home() {
                 <div className="font-crimson text-3xl lg:text-4xl font-bold text-bronze-600 mb-1">24/7</div>
                 <div className="text-xs lg:text-sm text-stone-400 uppercase tracking-wider">Market Data</div>
               </div>
+            </div>
+
+            {/* Market Pulse - Live Top Movers */}
+            <div className="mt-8">
+              <MarketPulseCompact />
             </div>
           </div>
         </div>

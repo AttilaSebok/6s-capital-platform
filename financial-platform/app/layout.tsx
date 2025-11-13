@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import CookieBanner from '@/components/CookieBanner'
+import MarketStatusBar from '@/components/LiveTicker/MarketStatusBar'
 import LiveTicker from '@/components/LiveTicker/LiveTicker'
 import { generateOrganizationSchema } from '@/lib/metadata'
 
@@ -89,6 +90,7 @@ export default function RootLayout({
         <GoogleAnalytics />
         <CookieBanner />
         <Header />
+        <MarketStatusBar />
         <LiveTicker />
         <main className="min-h-screen">
           {children}

@@ -70,7 +70,14 @@
       "Bash(if exist \"D:\\___________________________________Cursor\\6s Capital\\ALPHA_VANTAGE_API_KEY=your_api_key_here\" dir \"D:\\___________________________________Cursor\\6s Capital\\ALPHA_VANTAGE_API_KEY=your_api_key_here\")",
       "Bash(timeout 15 echo:*)",
       "Bash(claude mcp add:*)",
-      "Bash(claude mcp list:*)"
+      "Bash(claude mcp list:*)",
+      "Bash(if exist \"d:\\___________________________________Cursor\\6s Capital\\financial-platform\\app\\api\\mcp\" rmdir /s /q \"d:\\___________________________________Cursor\\6s Capital\\financial-platform\\app\\api\\mcp\")",
+      "Bash(powershell:*)",
+      "Bash(timeout 60 npm run dev:*)",
+      "Bash(vercel env:*)",
+      "Bash(\"d:\\___________________________________Cursor\\6s Capital\\financial-platform\\app\\api\\earnings-calendar\\route.ts\")",
+      "Bash(\"d:\\___________________________________Cursor\\6s Capital\\financial-platform\\components\\EarningsCalendar.tsx\")",
+      "Bash(\"d:\\___________________________________Cursor\\6s Capital\\financial-platform\\app\\analysis\\earnings-calendar\\page.tsx\")"
     ],
     "deny": [],
     "ask": []

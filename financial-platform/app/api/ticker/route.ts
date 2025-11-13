@@ -3,8 +3,8 @@
 import { NextResponse } from 'next/server';
 import { getTickerData, getCryptoPrice } from '@/lib/finnhub';
 
-// Cache the response for 30 seconds
-export const revalidate = 30;
+// Cache the response for 60 seconds (optimized for API limits)
+export const revalidate = 60;
 
 export async function GET() {
   try {

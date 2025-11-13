@@ -44,6 +44,7 @@ export default function Header() {
       dropdown: [
         { href: '/articles', label: 'Latest Articles' },
         { href: '/market-news', label: 'Market News' },
+        { href: '/analysis/earnings-calendar', label: 'Earnings Calendar' },
       ]
     },
     { href: '/markets', label: 'Markets' },

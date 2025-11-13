@@ -11,7 +11,7 @@ const fetcher = (url: string) => fetch(url).then(res => res.json());
 
 /**
  * Live Ticker Component
- * - Fetches market data every 30 seconds
+ * - Fetches market data every 60 seconds
  * - Displays scrolling ticker animation
  * - Pauses on hover
  */
@@ -20,7 +20,7 @@ export default function LiveTicker() {
     '/api/ticker',
     fetcher,
     {
-      refreshInterval: 30000, // Refresh every 30 seconds
+      refreshInterval: 60000, // Refresh every 60 seconds (optimized for API limits)
       revalidateOnFocus: false, // Don't refetch on window focus
       revalidateOnReconnect: true, // Refetch on reconnect
     }

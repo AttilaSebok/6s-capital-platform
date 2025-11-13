@@ -22,7 +22,7 @@ export async function getTickerData(symbols: string[]): Promise<TickerData[]> {
     const promises = symbols.map(async (symbol) => {
       const response = await fetch(
         `${BASE_URL}/quote?symbol=${symbol}&token=${FINNHUB_API_KEY}`,
-        { next: { revalidate: 30 } } // Cache for 30 seconds
+        { next: { revalidate: 60 } } // Cache for 60 seconds (optimized for API limits)
       );
 
       if (!response.ok) {
@@ -57,7 +57,7 @@ export async function getCryptoPrice(symbol: string): Promise<TickerData> {
   try {
     const response = await fetch(
       `${BASE_URL}/quote?symbol=BINANCE:${symbol}USDT&token=${FINNHUB_API_KEY}`,
-      { next: { revalidate: 30 } }
+      { next: { revalidate: 60 } } // Cache for 60 seconds (optimized for API limits)
     );
 
     if (!response.ok) {

@@ -1,0 +1,41 @@
+/* components/LiveTicker/ticker.css */
+
+.ticker-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.ticker-content {
+  display: flex;
+  animation: scroll 60s linear infinite;
+  will-change: transform;
+}
+
+/* Pause animation on hover */
+.ticker-wrapper:hover .ticker-content {
+  animation-play-state: paused;
+}
+
+/* Smooth scrolling animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive: Faster scroll on mobile */
+@media (max-width: 768px) {
+  .ticker-content {
+    animation-duration: 40s;
+  }
+}
+
+/* Performance optimization */
+.ticker-content {
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}

@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import CookieBanner from '@/components/CookieBanner'
+import LiveTicker from '@/components/LiveTicker/LiveTicker'
 import { generateOrganizationSchema } from '@/lib/metadata'
 
 const inter = Inter({
@@ -88,6 +89,7 @@ export default function RootLayout({
         <GoogleAnalytics />
         <CookieBanner />
         <Header />
+        <LiveTicker />
         <main className="min-h-screen">
           {children}
         </main>

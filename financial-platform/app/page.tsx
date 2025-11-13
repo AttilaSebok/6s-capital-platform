@@ -3,7 +3,6 @@ import TradingViewWidget from '@/components/TradingViewWidget'
 import MarketOverview from '@/components/MarketOverview'
 import NewsletterSignup from '@/components/NewsletterSignup'
 import FeaturedArticles from '@/components/FeaturedArticles'
-import MarketMovers from '@/components/market-movers/MarketMovers'
 import { MarketPulseCompact } from '@/components/MarketPulse'
 import { getAllArticles, getLatestArticle } from '@/lib/articles'
 
@@ -78,9 +77,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Market Movers Widget */}
-      <MarketMovers />
 
       {/* Latest Article Banner */}
       <section className="bg-soft-orange border-b-2 border-soft-orange-dark py-4">

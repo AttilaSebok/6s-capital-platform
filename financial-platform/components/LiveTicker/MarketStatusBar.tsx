@@ -64,10 +64,9 @@ export default function MarketStatusBar() {
 
   return (
     <div className="flex items-center justify-center gap-3 px-4 py-2 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-700">
-      {/* Market Label - Flag with text */}
+      {/* Market Label - US text only */}
       <div className="flex items-center gap-2 text-sm text-slate-400 border-r border-slate-700 pr-3">
-        <span className="text-lg" role="img" aria-label="US Markets">🇺🇸</span>
-        <span className="font-medium">US Markets</span>
+        <span className="font-medium">US MARKETS</span>
       </div>
 
       {/* Status Indicator */}
